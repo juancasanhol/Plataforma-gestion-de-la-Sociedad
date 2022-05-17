@@ -16,8 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.json.JSONArray;
-import org.json.JSONObject;
+
 
 /**
  *
@@ -26,8 +25,7 @@ import org.json.JSONObject;
 @WebServlet(name = "Ajax", urlPatterns = {"/Ajax"})
 public class Ajax extends HttpServlet {
 
-    JSONObject objeto = null;
-    JSONArray arrayJSON = null;
+ 
 
     /**
      * Servlet usado junto a el Servlet Ajax2 para consultas Ajax de las
