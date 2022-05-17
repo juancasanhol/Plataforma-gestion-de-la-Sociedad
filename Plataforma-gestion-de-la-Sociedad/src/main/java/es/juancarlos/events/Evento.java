@@ -5,6 +5,7 @@
  */
 package es.juancarlos.events;
 
+import es.juancarlos.beans.Usuario;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
 import javax.servlet.ServletContextEvent;
@@ -24,6 +25,7 @@ public class Evento implements ServletContextListener {
      */
     @Override
     public void contextInitialized(ServletContextEvent sce) { 
+       // gdao.insertOrUpdate(new Usuario(0,"dnni","nombre","apelli","email"));
     }
 
     /**

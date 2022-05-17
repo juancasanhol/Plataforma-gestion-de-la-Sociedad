@@ -26,7 +26,7 @@
         <!-- Persistencia de la entidades como tablas en la BD. 
         Mediante ficheros XML de configuración en el directorio scr/main/resources/ -->
         <mapping class="es.juancarlos.beans.Usuario" />
-        <mapping class="es.juancarlos.beans.Coche" />
+      
         
         
         
