@@ -37,7 +37,7 @@ public class Redireccion extends HttpServlet {
         switch(request.getParameter("accion")){
             
             case "P":
-                gdao.insertOrUpdate(new Usuario(0,"dnni","nombre","apelli","email"));
+                //gdao.insertOrUpdate(new Usuario(0,"dnni","nombre","apelli","email"));
                   url = "html/principal.html";
                 
                 break;

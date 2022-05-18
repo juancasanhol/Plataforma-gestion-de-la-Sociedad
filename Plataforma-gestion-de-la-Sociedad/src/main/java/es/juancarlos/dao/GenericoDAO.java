@@ -53,7 +53,9 @@ public class GenericoDAO<T> implements IGenericoDAO<T> {
         } catch (HibernateException he){
             handleExcepcion(he);
         } finally {
+            if(sesion!=null){
             endTransaction();
+            }
         }
     }
 

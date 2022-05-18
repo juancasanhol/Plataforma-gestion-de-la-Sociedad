@@ -1,6 +1,9 @@
 package es.juancarlos.beans;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +13,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  *
@@ -22,141 +28,133 @@ import javax.persistence.Table;
 public class Usuario implements Serializable {
 
     @Id
-    @Column(name = "IdUsuario", nullable = false)
+    @Column(name = "NumIntId", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int IdUsuario;
+    int NumIntId;
 
-    @Column(name = "DNI", nullable = false, length = 9)
-    String dni;
-
-    @Column(name = "Nombre", nullable = false, length = 50)
-    String nombre;
+    @Column(name = "Nombre", nullable = false, length = 30)
+    String Nombre;
 
     @Column(name = "Apellidos", nullable = false, length = 50)
-    String apellidos;
+    String Apellidos;
 
-    @Column(name = "Correo", nullable = false, length = 100)
-    String email;
+    @Column(name = "FechaAlta", nullable = false, length = 10)
+    Date FechaAlta;
+
+    @Column(name = "FechaBaja", nullable = false, length = 10)
+    Date FechaBaja;
+    
+    /*
+    //+TIPO DE DOCUMENTO IDENTIFICATIVO, QUE ES UN DESPLEGABLE
+    
+    @Column(name = "NumDoc", nullable = false, length = 25)
+    String NumDoc;
+    
+    @Column(name = "Telefono", nullable = false, length = 20)
+    String Telefono;
+    
+    @Column(name = "Correo", nullable = false, length = 30)
+    String Correo;
+    
+    //+Persona de referencia de la conferencia de santa maria (dentro de la base de datos)
+    
+    //+Sexo, DESPLEGABLE
+    
+    @Column(name = "FechaNac", nullable = false, length = 10)
+    String FechaNac;
+    
+    //Pais de origen, DESPLEGABLE
+    
+    //Nacionalidad, DESPLEGABLE
+    
+    //Pertenece minoria etnica, CHECK
+    
+    //Minoria Etnica, DESPLEGABLE
+    */
+    @Column(name = "Observaciones_id", nullable = false)//Son las observaciones referentes a la identificacion de una persona
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    Set<Observaciones> observaciones_id;
+    /*
+    //Ficheros adjuntos, LISTA
+    
+    ///////////////////DATOS SANITARIOS/////////////////
+    
+    //Solicita ayuda farmaceutica, CHECK
+    
+    @Column(name = "TratSanitario", nullable = false, length = 100)
+    String TratSanitario;
+    
+    //Drogodependencia, CHECK
+    
+    //Tipo de discapacidad, DESPLEGABLE
+
+    //Grado de discapacidad, DESPLEGABLE
+    
+    //Observaciones, LISTA
+    
+    ///////////////////DATOS LABORALES/////////////////
+    
+    //Permiso de residencia, CHECK
+    
+    //Permiso de trabajo, CHECK
+    
+    //Carnet de conducir, CHECK
+    
+    //Tipo de carnet de conducir, DESPLEGABLE
+    
+    //Otros carnets, LISTA desplegable
+    
+    //Profesion+observaciones, LISTA
+    
+    //Situacion laboral, DESPLEGABLE
+    
+    @Column(name = "UltTrabajo", nullable = false, length = 100)
+    String UltTrabajo;
+    
+    @Column(name = "PrefLaboral", nullable = false, length = 100)
+    String PrefLaboral;
+    
+    //Bolsa de trabajo, DESPLEGABLE
+    
+    //Observaciones, LISTA
+    
+    ///////////////////DATOS DE FORMACION/////////////////
+    
+    //Nivel de estudios, DESPLEGABLE
+    
+    @Column(name = "FormacionComp", nullable = false, length = 150)
+    String FormacionComp;
+    
+    //Esta estudiando?, CHECK
+    
+    //Fracaso escolar?, CHECK
+
+    @Column(name = "CentroEst", nullable = false, length = 100)
+    String CentroEst;
+    
+    //Observaciones, LISTA
+    
+    ///////////////////INGRESOS/////////////////
+    
+    @Column(name = "Importe", nullable = false)
+    int Importe;
+    
+    //Origen de ingresos, DESPLEGABLE
+    
+    //Observaciones, LISTA
+    */
+
+    public Usuario(int NumIntId, String Nombre, String Apellidos, Date FechaAlta, Date FechaBaja, Set<Observaciones> observaciones_id) {
+        this.NumIntId = NumIntId;
+        this.Nombre = Nombre;
+        this.Apellidos = Apellidos;
+        this.FechaAlta = FechaAlta;
+        this.FechaBaja = FechaBaja;
+        this.observaciones_id=observaciones_id;
+    }
+
 
     
-
-    /**
-     * Constructor sin parametros
-     */
-    public Usuario() {
-    }
-
-    /**
-     * Constructor con parametros
-     *
-     * @param u Usuario del que se quiere introducir los datos, usado para
-     * consultas HQL (hibernate) y crear un usuario directamente
-     */
-    public Usuario(Usuario u) {
-        this.IdUsuario = u.IdUsuario;
-        this.dni = u.dni;
-        this.nombre = u.nombre;
-        this.apellidos = u.apellidos;
-        this.email = u.email;
-    }
-
-    /**
-     * Constructor con parametros
-     *
-     *
-     * @param IdUsuario Id del usuario
-     * @param dni       Dni del usuario
-     * @param nombre    Nombre del usuario
-     * @param apellidos Apellidos del usuario
-     * @param email     Correo/email del usuario 
-     */
-    public Usuario(int IdUsuario, String dni, String nombre, String apellidos, String email) {
-        this.IdUsuario = IdUsuario;
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.email = email;
-
-    }
-
-    /**
-     *
-     * @return Id del usuario
-     */
-    public int getIdUsuario() {
-        return IdUsuario;
-    }
-
-    /**
-     *
-     * @param IdUsuario Id del usuario
-     */
-    public void setIdUsuario(int IdUsuario) {
-        this.IdUsuario = IdUsuario;
-    }
-
-    /**
-     *
-     * @return Dni del usuario
-     */
-    public String getDni() {
-        return dni;
-    }
-
-    /**
-     *
-     * @param dni Dni del usuario
-     */
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    /**
-     *
-     * @return Nombre del usuario
-     */
-    public String getNombre() {
-        return nombre;
-    }
-
-    /**
-     *
-     * @param nombre Nombre del usuario
-     */ 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     *
-     * @return  Apellidos del usuario
-     */
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    /**
-     *
-     * @param apellidos Apellidos del usuario
-     */
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    /**
-     *
-     * @return Correo/email del usuario 
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     *
-     * @param email Correo/email del usuario 
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
 }
