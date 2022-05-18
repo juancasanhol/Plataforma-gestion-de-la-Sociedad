@@ -32,7 +32,7 @@ public class Evento implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) { 
         Set<Observaciones> lista = new HashSet<Observaciones>();
-        Observaciones obs = new Observaciones("LA COSA ESTA PUTA", "ANTONIO");//Cositas
+        Observaciones obs = new Observaciones("LA COSA ESTA PUTA", "ANTONIO");//Cositassssssssss
         lista.add(obs);
        gdao.insertOrUpdate(new Usuario(0,"PROBANDO","PROBANDO2",new java.sql.Date(new Date().getTime()),new java.sql.Date(new Date().getTime()),lista));
     }
