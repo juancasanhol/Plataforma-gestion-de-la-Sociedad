@@ -2,19 +2,15 @@ package es.juancarlos.beans;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -32,16 +28,16 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
 
-    @Column(name = "Nombre", nullable = false, length = 30)
+    @Column(name = "Nombre", nullable = false)
     String Nombre;
 
-    @Column(name = "Apellidos", nullable = false, length = 50)
+    @Column(name = "Apellidos", nullable = false)
     String Apellidos;
 
-    @Column(name = "FechaAlta", nullable = false, length = 10)
+    @Column(name = "FechaAlta", nullable = false)
     Date FechaAlta;
 
-    @Column(name = "FechaBaja", nullable = false, length = 10)
+    @Column(name = "FechaBaja", nullable = false)
     Date FechaBaja;
     
     /*
@@ -71,10 +67,9 @@ public class Usuario implements Serializable {
     
     //Minoria Etnica, DESPLEGABLE
     */
-    @Column(name = "Observaciones_id", nullable = false)//Son las observaciones referentes a la identificacion de una persona
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
-    Set<Observaciones> observaciones_id;
+    List<Observaciones>  observaciones_id;//Son las observaciones referentes a la identificacion de una persona
     /*
     //Ficheros adjuntos, LISTA
     
@@ -145,7 +140,10 @@ public class Usuario implements Serializable {
     //Observaciones, LISTA
     */
 
-    public Usuario(int NumIntId, String Nombre, String Apellidos, Date FechaAlta, Date FechaBaja, Set<Observaciones> observaciones_id) {
+    public Usuario() {
+    }
+
+    public Usuario(int NumIntId, String Nombre, String Apellidos, Date FechaAlta, Date FechaBaja, List<Observaciones> observaciones_id) {
         this.NumIntId = NumIntId;
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;

@@ -9,10 +9,11 @@ import es.juancarlos.beans.Observaciones;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
-import java.util.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
+
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -31,8 +32,8 @@ public class Evento implements ServletContextListener {
      */
     @Override
     public void contextInitialized(ServletContextEvent sce) { 
-        Set<Observaciones> lista = new HashSet<Observaciones>();
-        Observaciones obs = new Observaciones("LA COSA ESTA PUTA", "ANTONIO");//Cositasadsdasdasedeads
+        List<Observaciones> lista = new ArrayList<Observaciones>();
+        Observaciones obs = new Observaciones("LA COSA ESTA PUTA", "ANTONIO");//Cositas
         lista.add(obs);
        gdao.insertOrUpdate(new Usuario(0,"PROBANDO","PROBANDO2",new java.sql.Date(new Date().getTime()),new java.sql.Date(new Date().getTime()),lista));
     }
