@@ -152,7 +152,8 @@ public class Usuario implements Serializable {
     @Column(name = "Importe", nullable = false)
     int Importe;
     
-    //Origen de ingresos, DESPLEGABLE
+    @Column(name = "OrigenIngresos", nullable = false)//DESPLEGABLE
+    String OrigenIngresos;
     
     //Observaciones, LISTA
     
