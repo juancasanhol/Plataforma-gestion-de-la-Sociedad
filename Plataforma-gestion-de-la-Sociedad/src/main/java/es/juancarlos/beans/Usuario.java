@@ -40,8 +40,8 @@ public class Usuario implements Serializable {
     @Column(name = "FechaBaja", nullable = false)
     Date FechaBaja;
     
-    /*
-    //+TIPO DE DOCUMENTO IDENTIFICATIVO, QUE ES UN DESPLEGABLE
+    @Column(name = "TipoDoc", nullable = false, length = 25)//DESPLEGABLE
+    String TipoDoc;
     
     @Column(name = "NumDoc", nullable = false, length = 25)
     String NumDoc;
@@ -54,55 +54,69 @@ public class Usuario implements Serializable {
     
     //+Persona de referencia de la conferencia de santa maria (dentro de la base de datos)
     
-    //+Sexo, DESPLEGABLE
+    @Column(name = "Sexo", nullable = false, length = 25)//DESPLEGABLE
+    String Sexo;
     
     @Column(name = "FechaNac", nullable = false, length = 10)
-    String FechaNac;
+    Date FechaNac;
     
-    //Pais de origen, DESPLEGABLE
+    @Column(name = "PaisOrigen", nullable = false, length = 25)//DESPLEGABLE
+    String PaisOrigen;
     
-    //Nacionalidad, DESPLEGABLE
+    @Column(name = "Nacionalidad", nullable = false, length = 25)//DESPLEGABLE
+    String Nacionalidad;
     
-    //Pertenece minoria etnica, CHECK
+    @Column(name = "PerteneceMinoria", nullable = false, length = 25)//CHECK
+    Boolean PerteneceMinoria;
     
-    //Minoria Etnica, DESPLEGABLE
-    */
+    @Column(name = "Minoria", nullable = false, length = 25)//DESPLEGABLE
+    String Minoria;
+    
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones>  observaciones_id;//Son las observaciones referentes a la identificacion de una persona
-    /*
+    
     //Ficheros adjuntos, LISTA
     
     ///////////////////DATOS SANITARIOS/////////////////
     
-    //Solicita ayuda farmaceutica, CHECK
+    @Column(name = "SolicitaAyudaFarmaceutica", nullable = false, length = 25)//CHECK
+    Boolean SolicitaAyudaFarmaceutica;
     
     @Column(name = "TratSanitario", nullable = false, length = 100)
     String TratSanitario;
     
-    //Drogodependencia, CHECK
+    @Column(name = "Drogodependencia", nullable = false, length = 25)//CHECK
+    Boolean Drogodependencia;
     
-    //Tipo de discapacidad, DESPLEGABLE
+    @Column(name = "TipoDiscapacidad", nullable = false, length = 25)//DESPLEGABLE
+    String TipoDiscapacidad;
 
-    //Grado de discapacidad, DESPLEGABLE
+    @Column(name = "GradoDiscapacidad", nullable = false, length = 25)//DESPLEGABLE
+    String GradoDiscapacidad;
     
     //Observaciones, LISTA
     
     ///////////////////DATOS LABORALES/////////////////
     
-    //Permiso de residencia, CHECK
+    @Column(name = "PermisoResidencia", nullable = false, length = 25)//CHECK
+    Boolean PermisoResidencia;
     
-    //Permiso de trabajo, CHECK
+    @Column(name = "PermisoTrabajo", nullable = false, length = 25)//CHECK
+    Boolean PermisoTrabajo;
     
-    //Carnet de conducir, CHECK
+    @Column(name = "CarnetConducir", nullable = false, length = 25)//CHECK
+    Boolean CarnetConducir;
     
-    //Tipo de carnet de conducir, DESPLEGABLE
+    @Column(name = "TipoCarnetConducir", nullable = false, length = 25)//DESPLEGABLE
+    String TipoCarnetConducir;
     
     //Otros carnets, LISTA desplegable
     
     //Profesion+observaciones, LISTA
     
-    //Situacion laboral, DESPLEGABLE
+    @Column(name = "SituacionLaboral", nullable = false, length = 25)//DESPLEGABLE
+    String SituacionLaboral;
     
     @Column(name = "UltTrabajo", nullable = false, length = 100)
     String UltTrabajo;
@@ -116,14 +130,17 @@ public class Usuario implements Serializable {
     
     ///////////////////DATOS DE FORMACION/////////////////
     
-    //Nivel de estudios, DESPLEGABLE
+    @Column(name = "NivelEstudios", nullable = false, length = 25)//DESPLEGABLE
+    String NivelEstudios;
     
     @Column(name = "FormacionComp", nullable = false, length = 150)
     String FormacionComp;
     
-    //Esta estudiando?, CHECK
+    @Column(name = "EstaEstudiando", nullable = false, length = 25)//CHECK
+    Boolean EstaEstudiando;
     
-    //Fracaso escolar?, CHECK
+    @Column(name = "FracasoEscolar", nullable = false, length = 25)//CHECK
+    Boolean FracasoEscolar;
 
     @Column(name = "CentroEst", nullable = false, length = 100)
     String CentroEst;
@@ -138,7 +155,7 @@ public class Usuario implements Serializable {
     //Origen de ingresos, DESPLEGABLE
     
     //Observaciones, LISTA
-    */
+    
 
     public Usuario() {
     }
