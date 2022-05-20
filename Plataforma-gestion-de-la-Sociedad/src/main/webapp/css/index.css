@@ -1,0 +1,16 @@
+body{
+background-image: url("../img/png/Fondo.png") ;    
+background-size: cover;
+background-size: 40%;
+background-repeat: no-repeat;
+background-position-x: 45%;
+background-position-y: -20%;
+
+ /*-webkit-filter: blur(8px);*/
+
+}
+
+.imgHome{
+    width: 3em;
+    
+}
