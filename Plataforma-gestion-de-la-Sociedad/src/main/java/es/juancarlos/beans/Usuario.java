@@ -126,7 +126,9 @@ public class Usuario implements Serializable {
     
     //Bolsa de trabajo, DESPLEGABLE
     
-    //Observaciones, LISTA
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<Observaciones>  observaciones_datos_laborales;//Son las observaciones referentes a los datos laborales
     
     ///////////////////DATOS DE FORMACION/////////////////
     
@@ -145,7 +147,9 @@ public class Usuario implements Serializable {
     @Column(name = "CentroEst", nullable = false, length = 100)
     String CentroEst;
     
-    //Observaciones, LISTA
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<Observaciones>  observaciones_formacion;//Son las observaciones referentes a los datos de formacion
     
     ///////////////////INGRESOS/////////////////
     
@@ -155,7 +159,9 @@ public class Usuario implements Serializable {
     @Column(name = "OrigenIngresos", nullable = false)//DESPLEGABLE
     String OrigenIngresos;
     
-    //Observaciones, LISTA
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<Observaciones>  observaciones_iingresos;//Son las observaciones referentes a los ingresos
     
 
     public Usuario() {
