@@ -27,6 +27,7 @@
         Mediante ficheros XML de configuración en el directorio scr/main/resources/ -->
         <mapping class="es.juancarlos.beans.Usuario" />
         <mapping class="es.juancarlos.beans.Observaciones" />
+        <mapping class="es.juancarlos.beans.CursosFormacion" />
       
         
         

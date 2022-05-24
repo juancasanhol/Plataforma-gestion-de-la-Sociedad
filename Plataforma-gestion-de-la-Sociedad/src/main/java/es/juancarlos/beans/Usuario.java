@@ -198,6 +198,32 @@ public class Usuario implements Serializable {
     
     //DATOS DEL BANCO DE ALIMENTOS
     
+    @Column(name = "EstaBanco", nullable = true)//CHECK
+    Boolean EstaBanco;
+    
+    @Column(name = "FechaAlta_BancoAlimentos", nullable = false)
+    Date FechaAlta_BancoAlimentos;
+    
+    @Column(name = "FechaBaja_BancoAlimentos", nullable = false)
+    Date FechaBaja_BancoAlimentos;
+    
+    //Datos orientacion laboral
+    
+    //Si se añade aqui un dato a un usuario, el check de orientacion laboral se activa
+    @Column(name = "FechaOrientacion", nullable = false)
+    Date FechaOrientacion;
+
+    @Column(name = "Beneficiario", nullable = false)
+    Date Beneficiario;
+    
+    //LISTA DE TIPOS DE SERVICIO Y OBSERVACIONES
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<Observaciones>  observaciones_orientaciona;//Son las observaciones referentes a orientacion laboral
+    
+    
+    
     public Usuario() {
     }
 
