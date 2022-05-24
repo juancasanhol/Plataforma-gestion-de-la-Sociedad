@@ -163,7 +163,41 @@ public class Usuario implements Serializable {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones>  observaciones_iingresos;//Son las observaciones referentes a los ingresos
     
-
+    //DATOS DE LA FICHA DE UNIDAD DE CONVIVENCIA, LOS CUALES NO SON OBLIGATORIOS TENER
+    
+    //Nº interno de indentificacion, que ya se tiene
+    
+    @Column(name = "Denominacion", nullable = true)
+    String Denominacion;
+    
+    @Column(name = "Direccion", nullable = true)
+    String Direccion;
+    
+    @Column(name = "Localidad", nullable = true)
+    String Localidad = "Merida"; //POR DEFECTO ES MERIDA
+    
+    @Column(name = "FamiliaMonoparental", nullable = true)//CHECK
+    Boolean FamiliaMonoparental;
+    
+    @Column(name = "SinHogar", nullable = true)//CHECK
+    Boolean SinHogar;
+    
+    @Column(name = "CosteVivienda", nullable = true)
+    String CosteVivienda;//Al mes
+    
+    @Column(name = "MotivoCoste", nullable = false)//DESPLEGABLE
+    String MotivoCoste;
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<Observaciones>  observaciones_ficha_convivencia;//Son las observaciones referentes a la ficha de convivencia
+    
+    //FICHEROS ADJUNTOS
+    
+    //SUMA DE INGRESOS DE LOS CONVIVIENTES (SE CALCULA SOLO)
+    
+    //DATOS DEL BANCO DE ALIMENTOS
+    
     public Usuario() {
     }
 
