@@ -32,6 +32,7 @@
         <mapping class="es.juancarlos.beans.OrientacionLaboral" />
         <mapping class="es.juancarlos.beans.AulaMagica" />
         <mapping class="es.juancarlos.beans.Alumno" />
+        <mapping class="es.juancarlos.beans.Faltas" />
       
         
         
