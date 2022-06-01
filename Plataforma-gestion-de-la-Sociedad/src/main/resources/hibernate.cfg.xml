@@ -28,6 +28,10 @@
         <mapping class="es.juancarlos.beans.Usuario" />
         <mapping class="es.juancarlos.beans.Observaciones" />
         <mapping class="es.juancarlos.beans.CursosFormacion" />
+        <mapping class="es.juancarlos.beans.UnidadConvivencia" />
+        <mapping class="es.juancarlos.beans.OrientacionLaboral" />
+        <mapping class="es.juancarlos.beans.AulaMagica" />
+        <mapping class="es.juancarlos.beans.Alumno" />
       
         
         
