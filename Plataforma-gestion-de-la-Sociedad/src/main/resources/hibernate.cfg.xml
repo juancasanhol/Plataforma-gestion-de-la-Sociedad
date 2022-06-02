@@ -33,6 +33,8 @@
         <mapping class="es.juancarlos.beans.AulaMagica" />
         <mapping class="es.juancarlos.beans.Alumno" />
         <mapping class="es.juancarlos.beans.Faltas" />
+        <mapping class="es.juancarlos.beans.AtencionSocialIgualdad" />
+        <mapping class="es.juancarlos.beans.Acogida" />
       
         
         
