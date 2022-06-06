@@ -37,6 +37,8 @@
         <mapping class="es.juancarlos.beans.Acogida" />
         <mapping class="es.juancarlos.beans.BancoAlimentos" />
         <mapping class="es.juancarlos.beans.Alimentos" />
+        <mapping class="es.juancarlos.beans.ConferenciaSantaMaria" />
+        <mapping class="es.juancarlos.beans.Empresas" />
       
         
         
