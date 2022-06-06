@@ -6,15 +6,21 @@ package es.juancarlos.beans;
 
 import java.sql.Date;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Antonio
  */
+@Entity
+@Table(name = "Faltas")
 public class Faltas {
 
-    @Column(name = "FechaFin", nullable = false)
-    Date FechaFin;
+    @Id
+    @Column(name = "Fecha", nullable = false)
+    Date Fecha;
 
     @Column(name = "Motivo", nullable = false)
     String Motivo;

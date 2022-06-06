@@ -4,14 +4,22 @@
  */
 package es.juancarlos.beans;
 
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Antonio
  */
-public class Alimentos {
 
+@Entity
+@Table(name = "Alimentos")
+public class Alimentos implements Serializable {
+    
+    @Id
     @Column(name = "Alimento", nullable = false)
     String Alimento;
 
