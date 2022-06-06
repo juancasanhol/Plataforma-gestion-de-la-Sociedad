@@ -15,8 +15,8 @@ import javax.persistence.Id;
  * @author Antonio
  */
 public class AulaMagica {
-    
-     @Id
+
+    @Id
     @Column(name = "NumIntId", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
@@ -28,5 +28,4 @@ public class AulaMagica {
     String Profesor;
 
     //LISTA DE ALUMNOS
-    
 }

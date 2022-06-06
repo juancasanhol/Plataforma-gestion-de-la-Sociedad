@@ -4,22 +4,17 @@
  */
 package es.juancarlos.beans;
 
-import java.sql.Date;
 import javax.persistence.Column;
 
 /**
  *
  * @author Antonio
  */
-public class Faltas {
+public class Alimentos {
 
-    @Column(name = "FechaFin", nullable = false)
-    Date FechaFin;
+    @Column(name = "Alimento", nullable = false)
+    String Alimento;
 
-    @Column(name = "Motivo", nullable = false)
-    String Motivo;
-
-    @Column(name = "Justificada", nullable = false)
-    Boolean Justificada = false;
-
+    @Column(name = "Unidades", nullable = false)
+    int Unidades;
 }

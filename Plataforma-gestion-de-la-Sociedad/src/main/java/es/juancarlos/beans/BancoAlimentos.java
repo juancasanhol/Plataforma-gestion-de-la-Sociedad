@@ -4,7 +4,6 @@
  */
 package es.juancarlos.beans;
 
-import java.sql.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,21 +18,22 @@ import org.hibernate.annotations.LazyCollectionOption;
  *
  * @author Antonio
  */
-public class OrientacionLaboral {
+public class BancoAlimentos {
 
     @Id
-    @Column(name = "NumIntId", nullable = false)
+    @Column(name = "IdUnidadConvivencia", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int NumIntId;
+    int IdUnidadConvivencia;
 
-    @Column(name = "Fecha", nullable = false)
-    Date Fecha;//Y HORA
+    @Column(name = "Mes_anio", nullable = false)
+    String Mes_anio;
 
-    @Column(name = "Beneficiario", nullable = false)
-    String Beneficiario;
+    @Column(name = "Asiste", nullable = false)
+    Boolean Asiste;
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<Observaciones> observaciones_orientacion_laboral;//Son las observaciones referentes a la orientacion laboral
+    List<Observaciones> observaciones_id;//Son las observaciones referentes al banco de alimentos
 
+    //LISTA DE ALIMENTOS
 }

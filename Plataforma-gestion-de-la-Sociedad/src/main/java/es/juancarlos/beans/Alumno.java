@@ -20,8 +20,8 @@ import org.hibernate.annotations.LazyCollectionOption;
  * @author Antonio
  */
 public class Alumno {
-    
-     @Id
+
+    @Id
     @Column(name = "NumIntId", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
@@ -31,25 +31,24 @@ public class Alumno {
 
     @Column(name = "FechaBaja", nullable = false)
     Date FechaBaja;
-    
+
     @Column(name = "CursoEscolar", nullable = false)
     String CursoEscolar;
-    
+
     @Column(name = "Promociona", nullable = false)
     Boolean Promociona;
-    
+
     @Column(name = "Finaliza", nullable = false)
     Boolean Finaliza;
-    
+
     @Column(name = "Aprovechamiento", nullable = false)
     Boolean Aprovechamiento;
-    
+
     @Column(name = "EmpresaPracticas", nullable = false)
     String EmpresaPracticas;
-    
+
     //LISTA DE FALTAS 
-    
-     @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_alumno;//Son las observaciones referentes a los alumnos
 

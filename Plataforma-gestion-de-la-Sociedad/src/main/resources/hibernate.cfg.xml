@@ -35,6 +35,8 @@
         <mapping class="es.juancarlos.beans.Faltas" />
         <mapping class="es.juancarlos.beans.AtencionSocialIgualdad" />
         <mapping class="es.juancarlos.beans.Acogida" />
+        <mapping class="es.juancarlos.beans.BancoAlimentos" />
+        <mapping class="es.juancarlos.beans.Alimentos" />
       
         
         
