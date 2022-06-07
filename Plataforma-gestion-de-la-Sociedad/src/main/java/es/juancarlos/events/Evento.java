@@ -32,10 +32,8 @@ public class Evento implements ServletContextListener {
      */
     @Override
     public void contextInitialized(ServletContextEvent sce) { 
-//        List<Observaciones> lista = new ArrayList<Observaciones>();
-//        Observaciones obs = new Observaciones("LA COSA ESTA PUTA", "ANTONIO");//Cositas
-//        lista.add(obs);
-//       gdao.insertOrUpdate(new Usuario(0,"PROBANDO","PROBANDO2",new java.sql.Date(new Date().getTime()),new java.sql.Date(new Date().getTime()),lista));
+;
+       
     }
 
     /**

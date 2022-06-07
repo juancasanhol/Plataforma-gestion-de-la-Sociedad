@@ -1,5 +1,6 @@
 package es.juancarlos.controllers;
 
+import es.juancarlos.beans.Usuario;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
 import java.io.IOException;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 
 /**
@@ -24,12 +27,15 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "Ajax", urlPatterns = {"/Ajax"})
 public class Ajax extends HttpServlet {
-
- 
+    
+    //para devolver un solo objeto
+    JSONObject objeto = null;
+    
+    //para devolver uno o varios objetos (varios preferiblemente)
+    JSONArray arrayJSON = null;
 
     /**
-     * Servlet usado junto a el Servlet Ajax2 para consultas Ajax de las
-     * diferentes páginas
+     * Servlet usado para consultas Ajax de las diferentes páginas
      *
      * @param request Servlet request
      * @param response Servlet response
@@ -42,11 +48,45 @@ public class Ajax extends HttpServlet {
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
         
+        
+       gdao.insertOrUpdate(new Usuario("PROBANDO0","PROBANDO0"));
+       gdao.insertOrUpdate(new Usuario("PROBANDO1","PROBANDO1"));
+       gdao.insertOrUpdate(new Usuario("PROBANDO2","PROBANDO2"));
          switch (request.getParameter("accion")) {
              
-             case "logueo":
+             case "prueba1":
+                Usuario u = (Usuario) gdao.getById(Integer.parseInt(request.getParameter("dato")), Usuario.class);
                 
-            
+                objeto = new JSONObject();
+                objeto.put("id", u.getNumIntId());
+                objeto.put("nombre", u.getNombre());//...
+                
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
+                
+                
+                 break;
+                 
+                  case "prueba2":
+
+
+                    List retorno = new ArrayList();
+                    Iterator i =  gdao.get(Usuario.class).iterator();
+
+                     while (i.hasNext()) {
+
+                         Usuario u2 = (Usuario) i.next();
+                         objeto = new JSONObject();
+                         objeto.put("id", u2.getNumIntId());
+                         objeto.put("nombre", u2.getNombre());
+
+                         retorno.add(objeto);
+                     }
+
+                     arrayJSON = new JSONArray(retorno);
+                     response.setContentType("application/json");
+                     response.getWriter().print(arrayJSON);
+
                  break;
              
              

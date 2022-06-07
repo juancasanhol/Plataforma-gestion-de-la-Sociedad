@@ -32,7 +32,7 @@ public class Usuario implements Serializable {
 
     @Column(name = "Apellidos", nullable = false)
     String Apellidos;
-
+/*
     @Column(name = "FechaAlta", nullable = false)
     Date FechaAlta;
 
@@ -203,17 +203,429 @@ public class Usuario implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_orientaciona;//Son las observaciones referentes a orientacion laboral
-
+*/
     public Usuario() {
     }
 
-    public Usuario(int NumIntId, String Nombre, String Apellidos, Date FechaAlta, Date FechaBaja, List<Observaciones> observaciones_id) {
-        this.NumIntId = NumIntId;
+    public Usuario( String Nombre, String Apellidos) {
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
+    }
+
+    public int getNumIntId() {
+        return NumIntId;
+    }
+
+    public void setNumIntId(int NumIntId) {
+        this.NumIntId = NumIntId;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public String getApellidos() {
+        return Apellidos;
+    }
+
+    public void setApellidos(String Apellidos) {
+        this.Apellidos = Apellidos;
+    }
+/*
+    public Date getFechaAlta() {
+        return FechaAlta;
+    }
+
+    public void setFechaAlta(Date FechaAlta) {
         this.FechaAlta = FechaAlta;
+    }
+
+    public Date getFechaBaja() {
+        return FechaBaja;
+    }
+
+    public void setFechaBaja(Date FechaBaja) {
         this.FechaBaja = FechaBaja;
+    }
+
+    public String getTipoDoc() {
+        return TipoDoc;
+    }
+
+    public void setTipoDoc(String TipoDoc) {
+        this.TipoDoc = TipoDoc;
+    }
+
+    public String getNumDoc() {
+        return NumDoc;
+    }
+
+    public void setNumDoc(String NumDoc) {
+        this.NumDoc = NumDoc;
+    }
+
+    public String getTelefono() {
+        return Telefono;
+    }
+
+    public void setTelefono(String Telefono) {
+        this.Telefono = Telefono;
+    }
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public void setCorreo(String Correo) {
+        this.Correo = Correo;
+    }
+
+    public String getSexo() {
+        return Sexo;
+    }
+
+    public void setSexo(String Sexo) {
+        this.Sexo = Sexo;
+    }
+
+    public Date getFechaNac() {
+        return FechaNac;
+    }
+
+    public void setFechaNac(Date FechaNac) {
+        this.FechaNac = FechaNac;
+    }
+
+    public String getPaisOrigen() {
+        return PaisOrigen;
+    }
+
+    public void setPaisOrigen(String PaisOrigen) {
+        this.PaisOrigen = PaisOrigen;
+    }
+
+    public String getNacionalidad() {
+        return Nacionalidad;
+    }
+
+    public void setNacionalidad(String Nacionalidad) {
+        this.Nacionalidad = Nacionalidad;
+    }
+
+    public Boolean getPerteneceMinoria() {
+        return PerteneceMinoria;
+    }
+
+    public void setPerteneceMinoria(Boolean PerteneceMinoria) {
+        this.PerteneceMinoria = PerteneceMinoria;
+    }
+
+    public String getMinoria() {
+        return Minoria;
+    }
+
+    public void setMinoria(String Minoria) {
+        this.Minoria = Minoria;
+    }
+
+    public List<Observaciones> getObservaciones_id() {
+        return observaciones_id;
+    }
+
+    public void setObservaciones_id(List<Observaciones> observaciones_id) {
         this.observaciones_id = observaciones_id;
     }
 
+    public Boolean getSolicitaAyudaFarmaceutica() {
+        return SolicitaAyudaFarmaceutica;
+    }
+
+    public void setSolicitaAyudaFarmaceutica(Boolean SolicitaAyudaFarmaceutica) {
+        this.SolicitaAyudaFarmaceutica = SolicitaAyudaFarmaceutica;
+    }
+
+    public String getTratSanitario() {
+        return TratSanitario;
+    }
+
+    public void setTratSanitario(String TratSanitario) {
+        this.TratSanitario = TratSanitario;
+    }
+
+    public Boolean getDrogodependencia() {
+        return Drogodependencia;
+    }
+
+    public void setDrogodependencia(Boolean Drogodependencia) {
+        this.Drogodependencia = Drogodependencia;
+    }
+
+    public String getTipoDiscapacidad() {
+        return TipoDiscapacidad;
+    }
+
+    public void setTipoDiscapacidad(String TipoDiscapacidad) {
+        this.TipoDiscapacidad = TipoDiscapacidad;
+    }
+
+    public String getGradoDiscapacidad() {
+        return GradoDiscapacidad;
+    }
+
+    public void setGradoDiscapacidad(String GradoDiscapacidad) {
+        this.GradoDiscapacidad = GradoDiscapacidad;
+    }
+
+    public Boolean getPermisoResidencia() {
+        return PermisoResidencia;
+    }
+
+    public void setPermisoResidencia(Boolean PermisoResidencia) {
+        this.PermisoResidencia = PermisoResidencia;
+    }
+
+    public Boolean getPermisoTrabajo() {
+        return PermisoTrabajo;
+    }
+
+    public void setPermisoTrabajo(Boolean PermisoTrabajo) {
+        this.PermisoTrabajo = PermisoTrabajo;
+    }
+
+    public Boolean getCarnetConducir() {
+        return CarnetConducir;
+    }
+
+    public void setCarnetConducir(Boolean CarnetConducir) {
+        this.CarnetConducir = CarnetConducir;
+    }
+
+    public String getTipoCarnetConducir() {
+        return TipoCarnetConducir;
+    }
+
+    public void setTipoCarnetConducir(String TipoCarnetConducir) {
+        this.TipoCarnetConducir = TipoCarnetConducir;
+    }
+
+    public String getSituacionLaboral() {
+        return SituacionLaboral;
+    }
+
+    public void setSituacionLaboral(String SituacionLaboral) {
+        this.SituacionLaboral = SituacionLaboral;
+    }
+
+    public String getUltTrabajo() {
+        return UltTrabajo;
+    }
+
+    public void setUltTrabajo(String UltTrabajo) {
+        this.UltTrabajo = UltTrabajo;
+    }
+
+    public String getPrefLaboral() {
+        return PrefLaboral;
+    }
+
+    public void setPrefLaboral(String PrefLaboral) {
+        this.PrefLaboral = PrefLaboral;
+    }
+
+    public List<Observaciones> getObservaciones_datos_laborales() {
+        return observaciones_datos_laborales;
+    }
+
+    public void setObservaciones_datos_laborales(List<Observaciones> observaciones_datos_laborales) {
+        this.observaciones_datos_laborales = observaciones_datos_laborales;
+    }
+
+    public String getNivelEstudios() {
+        return NivelEstudios;
+    }
+
+    public void setNivelEstudios(String NivelEstudios) {
+        this.NivelEstudios = NivelEstudios;
+    }
+
+    public String getFormacionComp() {
+        return FormacionComp;
+    }
+
+    public void setFormacionComp(String FormacionComp) {
+        this.FormacionComp = FormacionComp;
+    }
+
+    public Boolean getEstaEstudiando() {
+        return EstaEstudiando;
+    }
+
+    public void setEstaEstudiando(Boolean EstaEstudiando) {
+        this.EstaEstudiando = EstaEstudiando;
+    }
+
+    public Boolean getFracasoEscolar() {
+        return FracasoEscolar;
+    }
+
+    public void setFracasoEscolar(Boolean FracasoEscolar) {
+        this.FracasoEscolar = FracasoEscolar;
+    }
+
+    public String getCentroEst() {
+        return CentroEst;
+    }
+
+    public void setCentroEst(String CentroEst) {
+        this.CentroEst = CentroEst;
+    }
+
+    public List<Observaciones> getObservaciones_formacion() {
+        return observaciones_formacion;
+    }
+
+    public void setObservaciones_formacion(List<Observaciones> observaciones_formacion) {
+        this.observaciones_formacion = observaciones_formacion;
+    }
+
+    public int getImporte() {
+        return Importe;
+    }
+
+    public void setImporte(int Importe) {
+        this.Importe = Importe;
+    }
+
+    public String getOrigenIngresos() {
+        return OrigenIngresos;
+    }
+
+    public void setOrigenIngresos(String OrigenIngresos) {
+        this.OrigenIngresos = OrigenIngresos;
+    }
+
+    public List<Observaciones> getObservaciones_iingresos() {
+        return observaciones_iingresos;
+    }
+
+    public void setObservaciones_iingresos(List<Observaciones> observaciones_iingresos) {
+        this.observaciones_iingresos = observaciones_iingresos;
+    }
+
+    public String getDenominacion() {
+        return Denominacion;
+    }
+
+    public void setDenominacion(String Denominacion) {
+        this.Denominacion = Denominacion;
+    }
+
+    public String getDireccion() {
+        return Direccion;
+    }
+
+    public void setDireccion(String Direccion) {
+        this.Direccion = Direccion;
+    }
+
+    public String getLocalidad() {
+        return Localidad;
+    }
+
+    public void setLocalidad(String Localidad) {
+        this.Localidad = Localidad;
+    }
+
+    public Boolean getFamiliaMonoparental() {
+        return FamiliaMonoparental;
+    }
+
+    public void setFamiliaMonoparental(Boolean FamiliaMonoparental) {
+        this.FamiliaMonoparental = FamiliaMonoparental;
+    }
+
+    public Boolean getSinHogar() {
+        return SinHogar;
+    }
+
+    public void setSinHogar(Boolean SinHogar) {
+        this.SinHogar = SinHogar;
+    }
+
+    public String getCosteVivienda() {
+        return CosteVivienda;
+    }
+
+    public void setCosteVivienda(String CosteVivienda) {
+        this.CosteVivienda = CosteVivienda;
+    }
+
+    public String getMotivoCoste() {
+        return MotivoCoste;
+    }
+
+    public void setMotivoCoste(String MotivoCoste) {
+        this.MotivoCoste = MotivoCoste;
+    }
+
+    public List<Observaciones> getObservaciones_ficha_convivencia() {
+        return observaciones_ficha_convivencia;
+    }
+
+    public void setObservaciones_ficha_convivencia(List<Observaciones> observaciones_ficha_convivencia) {
+        this.observaciones_ficha_convivencia = observaciones_ficha_convivencia;
+    }
+
+    public Boolean getEstaBanco() {
+        return EstaBanco;
+    }
+
+    public void setEstaBanco(Boolean EstaBanco) {
+        this.EstaBanco = EstaBanco;
+    }
+
+    public Date getFechaAlta_BancoAlimentos() {
+        return FechaAlta_BancoAlimentos;
+    }
+
+    public void setFechaAlta_BancoAlimentos(Date FechaAlta_BancoAlimentos) {
+        this.FechaAlta_BancoAlimentos = FechaAlta_BancoAlimentos;
+    }
+
+    public Date getFechaBaja_BancoAlimentos() {
+        return FechaBaja_BancoAlimentos;
+    }
+
+    public void setFechaBaja_BancoAlimentos(Date FechaBaja_BancoAlimentos) {
+        this.FechaBaja_BancoAlimentos = FechaBaja_BancoAlimentos;
+    }
+
+    public Date getFechaOrientacion() {
+        return FechaOrientacion;
+    }
+
+    public void setFechaOrientacion(Date FechaOrientacion) {
+        this.FechaOrientacion = FechaOrientacion;
+    }
+
+    public Date getBeneficiario() {
+        return Beneficiario;
+    }
+
+    public void setBeneficiario(Date Beneficiario) {
+        this.Beneficiario = Beneficiario;
+    }
+
+    public List<Observaciones> getObservaciones_orientaciona() {
+        return observaciones_orientaciona;
+    }
+
+    public void setObservaciones_orientaciona(List<Observaciones> observaciones_orientaciona) {
+        this.observaciones_orientaciona = observaciones_orientaciona;
+    }
+*/
 }
