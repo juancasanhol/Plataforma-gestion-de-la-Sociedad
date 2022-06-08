@@ -32,7 +32,8 @@ public class Usuario implements Serializable {
 
     @Column(name = "Apellidos", nullable = false)
     String Apellidos;
-/*
+
+    /*
     @Column(name = "FechaAlta", nullable = false)
     Date FechaAlta;
 
@@ -74,7 +75,10 @@ public class Usuario implements Serializable {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_id;//Son las observaciones referentes a la identificacion de una persona
 
-    //Ficheros adjuntos, LISTA
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<FicheroAdjunto> ficheros_usuario;
+    
     ///////////////////DATOS SANITARIOS/////////////////
     @Column(name = "SolicitaAyudaFarmaceutica", nullable = false, length = 25)//CHECK
     Boolean SolicitaAyudaFarmaceutica;
@@ -179,7 +183,10 @@ public class Usuario implements Serializable {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_ficha_convivencia;//Son las observaciones referentes a la ficha de convivencia
 
-    //FICHEROS ADJUNTOS
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<FicheroAdjunto> ficheros_unidadconvivencia;
+    
     //SUMA DE INGRESOS DE LOS CONVIVIENTES (SE CALCULA SOLO)
     //DATOS DEL BANCO DE ALIMENTOS
     @Column(name = "EstaBanco", nullable = true)//CHECK
@@ -203,11 +210,11 @@ public class Usuario implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_orientaciona;//Son las observaciones referentes a orientacion laboral
-*/
+     */
     public Usuario() {
     }
 
-    public Usuario( String Nombre, String Apellidos) {
+    public Usuario(String Nombre, String Apellidos) {
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
     }
@@ -235,7 +242,7 @@ public class Usuario implements Serializable {
     public void setApellidos(String Apellidos) {
         this.Apellidos = Apellidos;
     }
-/*
+    /*
     public Date getFechaAlta() {
         return FechaAlta;
     }
@@ -627,5 +634,5 @@ public class Usuario implements Serializable {
     public void setObservaciones_orientaciona(List<Observaciones> observaciones_orientaciona) {
         this.observaciones_orientaciona = observaciones_orientaciona;
     }
-*/
+     */
 }

@@ -54,12 +54,17 @@ public class UnidadConvivencia {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_convivencia;//Son las observaciones referentes a la unidad de convivencia
 
-    //LISTA DE FICHEROS ADJUNTOS
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<FicheroAdjunto> ficheros_unidadconvivencia;
+
     @Column(name = "IngresosConvivientes", nullable = false)
     float IngresosConvivientes;//Suma automatica
 
     @Column(name = "PersonaTitular", nullable = false)
     String PersonaTitular;
 
-    //LISTA DE CONVIVIENTES
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<Conviviente> lista_convivientes;
 }

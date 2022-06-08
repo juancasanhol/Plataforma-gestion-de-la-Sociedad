@@ -62,5 +62,7 @@ public class Acogida {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_acogida;//Son las observaciones referentes a la acogida
 
-    //LISTA DE ARCHIVOS
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<FicheroAdjunto> ficheros_acogida;
 }

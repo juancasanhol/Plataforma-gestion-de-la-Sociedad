@@ -39,6 +39,11 @@
         <mapping class="es.juancarlos.beans.Alimentos" />
         <mapping class="es.juancarlos.beans.ConferenciaSantaMaria" />
         <mapping class="es.juancarlos.beans.Empresas" />
+        <mapping class="es.juancarlos.beans.Aportacion" />
+        <mapping class="es.juancarlos.beans.Categoria" />
+        <mapping class="es.juancarlos.beans.Conviviente" />
+        <mapping class="es.juancarlos.beans.FicheroAdjunto" />
+        <mapping class="es.juancarlos.beans.Perfil" />
       
         
         

@@ -21,7 +21,6 @@ import org.hibernate.annotations.LazyCollectionOption;
  *
  * @author Antonio
  */
-
 @Entity
 @Table(name = "Alumno")
 public class Alumno {
@@ -55,7 +54,7 @@ public class Alumno {
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Faltas> faltas_alumno;
-    
+
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_alumno;//Son las observaciones referentes a los alumnos

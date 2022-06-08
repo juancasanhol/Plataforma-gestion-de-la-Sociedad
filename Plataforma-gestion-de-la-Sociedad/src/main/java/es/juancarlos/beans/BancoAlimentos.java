@@ -25,9 +25,9 @@ import org.hibernate.annotations.LazyCollectionOption;
 public class BancoAlimentos {
 
     @Id
-    @Column(name = "IdUnidadConvivencia", nullable = false)
+    @Column(name = "IdTitularUnidadConvivencia", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int IdUnidadConvivencia;
+    int IdTitularUnidadConvivencia;
 
     @Column(name = "Mes_anio", nullable = false)
     String Mes_anio;
@@ -39,5 +39,7 @@ public class BancoAlimentos {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_id;//Son las observaciones referentes al banco de alimentos
 
-    //LISTA DE ALIMENTOS
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<Alimentos> lista_alimentos;
 }

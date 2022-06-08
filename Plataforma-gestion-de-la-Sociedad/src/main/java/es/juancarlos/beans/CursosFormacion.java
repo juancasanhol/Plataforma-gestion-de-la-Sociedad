@@ -39,7 +39,10 @@ public class CursosFormacion {
 
     //VAYA COLADA LO DE LA LISTA DE SOLICITANTES EN CURSOS DE FORMACION
     //Y LA LISTA DE SELECCIONADOS OTRA COLADA TREMENDA
-    //LISTA DE ALUMNOS
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<Alumno> lista_alumnos;
+
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_cursos_formacion;//Son las observaciones referentes a los cursos de formacion

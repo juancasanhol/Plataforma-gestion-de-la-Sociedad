@@ -55,5 +55,7 @@ public class AtencionSocialIgualdad {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_atencionsocial_igualdad;//Son las observaciones referentes a la atencion social e igualdad
 
-    //LISTA DE ARCHIVOS
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<FicheroAdjunto> ficheros_acogida;
 }

@@ -4,9 +4,10 @@
  */
 package es.juancarlos.beans;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,13 +16,14 @@ import javax.persistence.Table;
  * @author Antonio
  */
 @Entity
-@Table(name = "Alimentos")
-public class Alimentos implements Serializable {
+@Table(name = "Perfil")
+public class Perfil {
 
     @Id
-    @Column(name = "Alimento", nullable = false)
-    String Alimento;
+    @Column(name = "Usuario", nullable = false)
+    String Usuario;
 
-    @Column(name = "Unidades", nullable = false)
-    int Unidades;
+    @Column(name = "Password", nullable = false)
+    String Password;
+
 }
