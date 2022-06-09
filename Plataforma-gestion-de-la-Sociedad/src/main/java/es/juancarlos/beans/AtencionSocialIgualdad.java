@@ -39,7 +39,7 @@ public class AtencionSocialIgualdad {
     @Column(name = "Usuario", nullable = false)
     String Usuario;
 
-    @Column(name = "ProcedenciaDerivacion", nullable = false)
+    @Column(name = "ProcedenciaDerivacion", nullable = true)
     String ProcedenciaDerivacion;//AYUNTAMIENTO, CARITAS, COLEGIO...
 
     @Column(name = "MotivoConsulta", nullable = false)

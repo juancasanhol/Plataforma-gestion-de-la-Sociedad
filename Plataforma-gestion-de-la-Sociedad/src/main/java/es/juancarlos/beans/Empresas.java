@@ -42,16 +42,16 @@ public class Empresas {
     @Column(name = "PersonaContacto", nullable = false)
     String PersonaContacto;
 
-    @Column(name = "Direccion", nullable = false)
+    @Column(name = "Direccion", nullable = true)
     String Direccion;
 
-    @Column(name = "CodigoPostal", nullable = false)
+    @Column(name = "CodigoPostal", nullable = true)
     String CodigoPostal;
 
-    @Column(name = "Poblacion", nullable = false)
+    @Column(name = "Poblacion", nullable = true)
     String Poblacion;
 
-    @Column(name = "Provincia", nullable = false)
+    @Column(name = "Provincia", nullable = true)
     String Provincia;
 
     @OneToMany(cascade = CascadeType.ALL)

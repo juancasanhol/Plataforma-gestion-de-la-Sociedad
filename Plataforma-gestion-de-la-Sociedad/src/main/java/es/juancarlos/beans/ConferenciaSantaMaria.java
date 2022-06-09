@@ -40,7 +40,7 @@ public class ConferenciaSantaMaria {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Categoria> lista_categorias;
 
-    @Column(name = "Cargo", nullable = false)
+    @Column(name = "Cargo", nullable = true)
     String Cargo;
 
     @Column(name = "Nombre", nullable = false)
@@ -52,58 +52,58 @@ public class ConferenciaSantaMaria {
     @Column(name = "Nif", nullable = false)
     String Nif;
 
-    @Column(name = "Sexo", nullable = false)
+    @Column(name = "Sexo", nullable = true)
     String Sexo;
 
-    @Column(name = "FechaNac", nullable = false)
+    @Column(name = "FechaNac", nullable = true)
     Date FechaNac;
 
-    @Column(name = "Direccion", nullable = false)
+    @Column(name = "Direccion", nullable = true)
     String Direccion;
 
-    @Column(name = "CodigoPostal", nullable = false)
+    @Column(name = "CodigoPostal", nullable = true)
     String CodigoPostal;
 
-    @Column(name = "Poblacion", nullable = false)
+    @Column(name = "Poblacion", nullable = true)
     String Poblacion;
 
-    @Column(name = "Provincia", nullable = false)
+    @Column(name = "Provincia", nullable = true)
     String Provincia;
 
-    @Column(name = "Telefono", nullable = false)
+    @Column(name = "Telefono", nullable = true)
     String Telefono;
 
-    @Column(name = "Mail", nullable = false)
+    @Column(name = "Mail", nullable = true)
     String Mail;
 
-    @Column(name = "CuentaBancaria", nullable = false)
+    @Column(name = "CuentaBancaria", nullable = true)
     String CuentaBancaria;
 
-    @Column(name = "Cuota", nullable = false)
+    @Column(name = "Cuota", nullable = true)
     float Cuota;
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Aportacion> lista_aportaciones;
 
-    @Column(name = "Actividad", nullable = false)
+    @Column(name = "Actividad", nullable = true)
     String Actividad;
 
-    @Column(name = "TiempoDedicacion", nullable = false)
+    @Column(name = "TiempoDedicacion", nullable = true)
     String TiempoDedicacion;
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_conferencia;//Son las observaciones referentes a la conferencia santa maria
 
-    @Column(name = "PermisoAcceso", nullable = false)
+    @Column(name = "PermisoAcceso", nullable = true)
     Boolean PermisoAcceso;//CHECK
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Perfil> lista_perfilesacceso;
 
-    @Column(name = "AccesoFichaIndividual", nullable = false)
+    @Column(name = "AccesoFichaIndividual", nullable = true)
     Boolean AccesoFichaIndividual; //CHECK
 
     @Column(name = "Usuario", nullable = false)

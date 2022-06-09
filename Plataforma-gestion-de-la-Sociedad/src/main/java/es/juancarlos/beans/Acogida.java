@@ -39,23 +39,23 @@ public class Acogida {
     @Column(name = "Usuario", nullable = false)
     String Usuario;
 
-    @Column(name = "ProcedenciaDerivacion", nullable = false)
+    @Column(name = "ProcedenciaDerivacion", nullable = true)
     String ProcedenciaDerivacion;//AYUNTAMIENTO, CARITAS, COLEGIO...
 
     //ESTOS 4 SIGUIENTES VAN A SER 4 DESPLEGABLES PARA ELEGIR ENTRE ELLOS UNO O VARIOS ELEMENTOS
-    @Column(name = "AyudaSolicitada_General", nullable = false)
+    @Column(name = "AyudaSolicitada_General", nullable = true)
     String AyudaSolicitada_General;
 
-    @Column(name = "AyudaSolicitada_Recibos", nullable = false)
+    @Column(name = "AyudaSolicitada_Recibos", nullable = true)
     String AyudaSolicitada_Recibos;
 
-    @Column(name = "AyudaSolicitada_Sanitaria", nullable = false)
+    @Column(name = "AyudaSolicitada_Sanitaria", nullable = true)
     String AyudaSolicitada_Sanitaria;
 
-    @Column(name = "AyudaSolicitada_Otras", nullable = false)
+    @Column(name = "AyudaSolicitada_Otras", nullable = true)
     String AyudaSolicitada_Otras;
 
-    @Column(name = "EstadoResolucion", nullable = false)
+    @Column(name = "EstadoResolucion", nullable = true)
     String EstadoResolucion;
 
     @OneToMany(cascade = CascadeType.ALL)

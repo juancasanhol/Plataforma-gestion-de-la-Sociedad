@@ -25,7 +25,7 @@ public class CursosFormacion {
     @Column(name = "NombreCurso", nullable = false)
     String NombreCurso;
 
-    @Column(name = "TipoCurso", nullable = false)
+    @Column(name = "TipoCurso", nullable = true)
     String TipoCurso;
 
     @Column(name = "FechaInicio", nullable = false)
@@ -34,7 +34,7 @@ public class CursosFormacion {
     @Column(name = "FechaFin", nullable = false)
     Date FechaFin;
 
-    @Column(name = "OtraInfo", nullable = false, length = 25)//DESPLEGABLE
+    @Column(name = "OtraInfo", nullable = true, length = 25)//DESPLEGABLE
     String OtraInfo;
 
     //VAYA COLADA LO DE LA LISTA DE SOLICITANTES EN CURSOS DE FORMACION
