@@ -37,8 +37,14 @@ public class CursosFormacion {
     @Column(name = "OtraInfo", nullable = true, length = 25)//DESPLEGABLE
     String OtraInfo;
 
-    //VAYA COLADA LO DE LA LISTA DE SOLICITANTES EN CURSOS DE FORMACION
-    //Y LA LISTA DE SELECCIONADOS OTRA COLADA TREMENDA
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<String> lista_solicitantes;
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<String> lista_aseleccionados;//SOLO PUEDEN SER SOLICITANTES
+    
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Alumno> lista_alumnos;
