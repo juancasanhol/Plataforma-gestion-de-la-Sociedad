@@ -209,8 +209,12 @@ public class Usuario implements Serializable {
 
     @Column(name = "FechaBaja_BancoAlimentos", nullable = true)
     Date FechaBaja_BancoAlimentos;
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<BancoAlimentos> lista_recogidas;
 
-    //Datos orientacion laboral
+    //DATOS ORIENTACION LABORAL
     //Si se añade aqui un dato a un usuario, el check de orientacion laboral se activa
     @Column(name = "FechaOrientacion", nullable = true)
     Date FechaOrientacion;
