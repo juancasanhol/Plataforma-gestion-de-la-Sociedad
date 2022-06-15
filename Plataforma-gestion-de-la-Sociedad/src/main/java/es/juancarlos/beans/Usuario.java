@@ -34,16 +34,16 @@ public class Usuario implements Serializable {
     String Apellidos;
 
     /*
-    @Column(name = "FechaAlta", nullable = false)
+    @Column(name = "FechaAlta", nullable = true)
     Date FechaAlta;
 
-    @Column(name = "FechaBaja", nullable = false)
+    @Column(name = "FechaBaja", nullable = true)
     Date FechaBaja;
 
-    @Column(name = "TipoDoc", nullable = false, length = 25)//DESPLEGABLE
+    @Column(name = "TipoDoc", nullable = true, length = 25)//DESPLEGABLE
     String TipoDoc;
 
-    @Column(name = "NumDoc", nullable = false, length = 25)
+    @Column(name = "NumDoc", nullable = true, length = 25)
     String NumDoc;
 
     @Column(name = "Telefono", nullable = true, length = 20)
@@ -118,7 +118,9 @@ public class Usuario implements Serializable {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<String> otros_carnets;
     
-    //Profesion+observaciones, LISTA
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<ProfesionObservaciones> profesion_observaciones;
     
     @Column(name = "SituacionLaboral", nullable = true, length = 25)//DESPLEGABLE
     String SituacionLaboral;
