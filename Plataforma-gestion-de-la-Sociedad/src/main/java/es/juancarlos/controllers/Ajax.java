@@ -72,7 +72,6 @@ public class Ajax extends HttpServlet {
 
                     List retorno = new ArrayList();
                     Iterator i =  gdao.get(Usuario.class).iterator();
-
                      while (i.hasNext()) {
 
                          Usuario u2 = (Usuario) i.next();
