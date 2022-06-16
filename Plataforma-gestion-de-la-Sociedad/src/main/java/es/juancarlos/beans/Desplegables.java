@@ -4,13 +4,18 @@
  */
 package es.juancarlos.beans;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.IndexColumn;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -20,19 +25,37 @@ import org.hibernate.annotations.LazyCollectionOption;
  */
 @Entity
 @Table(name = "Desplegables")
-public class Desplegables {
+public class Desplegables implements Serializable{
     
     @Id
     @Column(name = "Nombre", nullable = false)
-    int Nombre;
+    String Nombre;
     
-    @OneToMany(cascade = CascadeType.ALL)
+    
+    @OneToMany(cascade = CascadeType.ALL)  
+    @JoinColumn(name = "id_valor")
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<String> desplegables;
+    List<ValorDesplegable> valores;
 
-    public Desplegables(int Nombre, List<String> desplegables) {
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
         this.Nombre = Nombre;
-        this.desplegables = desplegables;
+    }
+
+    public List<ValorDesplegable> getValores() {
+        return valores;
+    }
+
+    public void setValores(List<ValorDesplegable> valores) {
+        this.valores = valores;
+    }
+
+    public Desplegables(String Nombre, List<ValorDesplegable> valores) {
+        this.Nombre = Nombre;
+        this.valores = valores;
     }
     
 }

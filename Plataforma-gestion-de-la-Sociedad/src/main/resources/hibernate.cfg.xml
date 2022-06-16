@@ -24,7 +24,7 @@
         <!-- Indica el nombre del DataSource con el que se conectará Hibernate a la base de datos -->
         <!-- <property name="hibernate.connection.datasource">java:comp/env/jdbc/UAU</property> -->
         <!-- Persistencia de la entidades como tablas en la BD. 
-        Mediante ficheros XML de configuración en el directorio scr/main/resources/ -->
+        Mediante ficheros XML de configuración en el directorio scr/main/resources/ 
         <mapping class="es.juancarlos.beans.Usuario" />
         <mapping class="es.juancarlos.beans.Observaciones" />
         <mapping class="es.juancarlos.beans.CursosFormacion" />
@@ -43,8 +43,9 @@
         <mapping class="es.juancarlos.beans.Categoria" />
         <mapping class="es.juancarlos.beans.Conviviente" />
         <mapping class="es.juancarlos.beans.FicheroAdjunto" />
-        <mapping class="es.juancarlos.beans.Perfil" />
+        <mapping class="es.juancarlos.beans.Perfil" />-->
         <mapping class="es.juancarlos.beans.Desplegables" />
+        <mapping class="es.juancarlos.beans.ValorDesplegable" />
       
         
         

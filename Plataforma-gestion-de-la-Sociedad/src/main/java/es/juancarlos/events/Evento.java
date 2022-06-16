@@ -6,16 +6,11 @@
 package es.juancarlos.events;
 
 import es.juancarlos.beans.Desplegables;
-import es.juancarlos.beans.Observaciones;
-import es.juancarlos.beans.Usuario;
+import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
 import java.util.ArrayList;
-import java.util.Date;
-
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -35,10 +30,21 @@ public class Evento implements ServletContextListener {
      */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+        
+      
         //Creacion de los desplegables en la base de datos
-        List<String> lista = new ArrayList<String>();
-        lista.add("PRUEBA");
-        gdao.insertOrUpdate(new Desplegables(1, lista));
+        List<ValorDesplegable> lista = new ArrayList<ValorDesplegable>();
+                
+        lista.add( new ValorDesplegable("valor1"));
+        lista.add( new ValorDesplegable("valor2"));
+        gdao.insertOrUpdate(new Desplegables("nombre", lista));
+        
+         lista = new ArrayList<ValorDesplegable>();
+         lista.add( new ValorDesplegable("ape1"));
+        lista.add( new ValorDesplegable("ape2"));
+        gdao.insertOrUpdate(new Desplegables("apellido", lista));
+        
+                   
         /*gdao.insertOrUpdate(new Desplegables("Sexo", lista));
         gdao.insertOrUpdate(new Desplegables("PaisOrigen", lista));
         gdao.insertOrUpdate(new Desplegables("Nacionalidad", lista));

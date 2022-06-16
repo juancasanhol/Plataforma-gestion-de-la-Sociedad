@@ -1,6 +1,5 @@
 package es.juancarlos.controllers;
 
-import es.juancarlos.beans.Usuario;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
 import java.io.IOException;
@@ -37,6 +36,7 @@ public class Redireccion extends HttpServlet {
         switch(request.getParameter("accion")){
             
             case "P":
+           
                 //gdao.insertOrUpdate(new Usuario(0,"dnni","nombre","apelli","email"));
                   url = "html/principal.html";
                 
