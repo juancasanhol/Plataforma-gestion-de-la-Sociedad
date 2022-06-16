@@ -44,6 +44,7 @@
         <mapping class="es.juancarlos.beans.Conviviente" />
         <mapping class="es.juancarlos.beans.FicheroAdjunto" />
         <mapping class="es.juancarlos.beans.Perfil" />
+        <mapping class="es.juancarlos.beans.Desplegables" />
       
         
         

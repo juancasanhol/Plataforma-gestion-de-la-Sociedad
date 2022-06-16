@@ -24,13 +24,13 @@ public class Desplegables {
     
     @Id
     @Column(name = "Nombre", nullable = false)
-    String Nombre;
+    int Nombre;
     
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<String> desplegables;
 
-    public Desplegables(String Nombre, List<String> desplegables) {
+    public Desplegables(int Nombre, List<String> desplegables) {
         this.Nombre = Nombre;
         this.desplegables = desplegables;
     }
