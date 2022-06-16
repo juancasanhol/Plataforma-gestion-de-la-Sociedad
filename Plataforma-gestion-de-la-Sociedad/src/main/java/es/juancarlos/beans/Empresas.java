@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
@@ -55,10 +56,12 @@ public class Empresas {
     String Provincia;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_valor")
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<String> lista_actividades;
+    List<ValorDesplegable> lista_actividades;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_valor")
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<String> lista_colaboraciones;
+    List<ValorDesplegable> lista_colaboraciones;
 }

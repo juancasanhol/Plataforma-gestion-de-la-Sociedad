@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -115,8 +116,9 @@ public class Usuario implements Serializable {
     String TipoCarnetConducir;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_valor")
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<String> otros_carnets;
+    List<ValorDesplegable> otros_carnets;
     
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -132,8 +134,9 @@ public class Usuario implements Serializable {
     String PrefLaboral;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_valor")
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<String> bolsa_trabajo;
+    List<ValorDesplegable> bolsa_trabajo;
     
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)

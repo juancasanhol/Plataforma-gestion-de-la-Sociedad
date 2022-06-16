@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
@@ -38,12 +39,14 @@ public class CursosFormacion {
     String OtraInfo;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_valor")
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<String> lista_solicitantes;
+    List<ValorDesplegable> lista_solicitantes;
     
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_valor")
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<String> lista_aseleccionados;//SOLO PUEDEN SER SOLICITANTES
+    List<ValorDesplegable> lista_aseleccionados;//SOLO PUEDEN SER SOLICITANTES
     
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)

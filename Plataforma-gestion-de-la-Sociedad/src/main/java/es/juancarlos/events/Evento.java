@@ -30,22 +30,9 @@ public class Evento implements ServletContextListener {
      */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        
-      
         //Creacion de los desplegables en la base de datos
         List<ValorDesplegable> lista = new ArrayList<ValorDesplegable>();
-                
-        lista.add( new ValorDesplegable("valor1"));
-        lista.add( new ValorDesplegable("valor2"));
-        gdao.insertOrUpdate(new Desplegables("nombre", lista));
-        
-         lista = new ArrayList<ValorDesplegable>();
-         lista.add( new ValorDesplegable("ape1"));
-        lista.add( new ValorDesplegable("ape2"));
-        gdao.insertOrUpdate(new Desplegables("apellido", lista));
-        
-                   
-        /*gdao.insertOrUpdate(new Desplegables("Sexo", lista));
+        gdao.insertOrUpdate(new Desplegables("Sexo", lista));
         gdao.insertOrUpdate(new Desplegables("PaisOrigen", lista));
         gdao.insertOrUpdate(new Desplegables("Nacionalidad", lista));
         gdao.insertOrUpdate(new Desplegables("MinoriaEtnica", lista));
@@ -75,7 +62,7 @@ public class Evento implements ServletContextListener {
         gdao.insertOrUpdate(new Desplegables("Actividad", lista));
         gdao.insertOrUpdate(new Desplegables("TiposColaboracion", lista));
         gdao.insertOrUpdate(new Desplegables("Categoria", lista));
-        gdao.insertOrUpdate(new Desplegables("Cargo", lista));*/
+        gdao.insertOrUpdate(new Desplegables("Cargo", lista));
     }
 
     /**
