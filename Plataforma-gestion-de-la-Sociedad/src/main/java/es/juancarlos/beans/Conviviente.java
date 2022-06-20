@@ -4,6 +4,7 @@
  */
 package es.juancarlos.beans;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Conviviente")
-public class Conviviente {
+public class Conviviente implements Serializable{
 
     //Como no todos los convivientes tienen por que estar registrados
     //ponemos el nombre y apellidos como ID

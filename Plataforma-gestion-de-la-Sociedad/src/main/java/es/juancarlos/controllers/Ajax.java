@@ -1,6 +1,8 @@
 package es.juancarlos.controllers;
 
+import es.juancarlos.beans.Desplegables;
 import es.juancarlos.beans.Usuario;
+import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
 import java.io.IOException;
@@ -20,17 +22,16 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
 /**
  *
  * @author Juan Carlos Sánchez Holguín
  */
 @WebServlet(name = "Ajax", urlPatterns = {"/Ajax"})
 public class Ajax extends HttpServlet {
-    
+
     //para devolver un solo objeto
     JSONObject objeto = null;
-    
+
     //para devolver uno o varios objetos (varios preferiblemente)
     JSONArray arrayJSON = null;
 
@@ -44,52 +45,68 @@ public class Ajax extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        
-        
-       gdao.insertOrUpdate(new Usuario("PROBANDO0","PROBANDO0"));
-       gdao.insertOrUpdate(new Usuario("PROBANDO1","PROBANDO1"));
-       gdao.insertOrUpdate(new Usuario("PROBANDO2","PROBANDO2"));
-         switch (request.getParameter("accion")) {
-             
-             case "prueba1":
+
+        gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
+        gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
+        gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));
+        switch (request.getParameter("accion")) {
+
+            case "prueba1":
                 Usuario u = (Usuario) gdao.getById(Integer.parseInt(request.getParameter("dato")), Usuario.class);
-                
+
                 objeto = new JSONObject();
                 objeto.put("id", u.getNumIntId());
                 objeto.put("nombre", u.getNombre());//...
-                
+
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
-                
-                
-                 break;
-                 
-                  case "prueba2":
 
+                break;
 
-                    List retorno = new ArrayList();
-                    Iterator i =  gdao.get(Usuario.class).iterator();
-                     while (i.hasNext()) {
+            case "prueba2":
 
-                         Usuario u2 = (Usuario) i.next();
-                         objeto = new JSONObject();
-                         objeto.put("id", u2.getNumIntId());
-                         objeto.put("nombre", u2.getNombre());
+                List retorno = new ArrayList();
+                Iterator i = gdao.get(Usuario.class).iterator();
+                while (i.hasNext()) {
 
-                         retorno.add(objeto);
-                     }
+                    Usuario u2 = (Usuario) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("id", u2.getNumIntId());
+                    objeto.put("nombre", u2.getNombre());
 
-                     arrayJSON = new JSONArray(retorno);
-                     response.setContentType("application/json");
-                     response.getWriter().print(arrayJSON);
+                    retorno.add(objeto);
+                }
 
-                 break;
-             
-             
-         }
+                arrayJSON = new JSONArray(retorno);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+
+                break;
+            //ESTA PARTE ES PARA EL REGISTRO DE UN USUARIO NUEVO
+            case "Usuario":
+                List desplegables = new ArrayList();
+                Iterator it = gdao.get(Desplegables.class).iterator();
+                while (it.hasNext()) {
+                    //Tipo de documento identificativo
+                    Desplegables d = (Desplegables) it.next();
+                    if (d.getNombre().equals("TipoDocumentoIdentificativo")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("nombre", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+        }
 
     }
 

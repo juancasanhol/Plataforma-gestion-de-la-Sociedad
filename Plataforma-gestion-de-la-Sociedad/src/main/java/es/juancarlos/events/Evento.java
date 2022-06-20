@@ -32,6 +32,14 @@ public class Evento implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         //Creacion de los desplegables en la base de datos
         List<ValorDesplegable> lista = new ArrayList<ValorDesplegable>();
+        /*List<ValorDesplegable> lista1 = new ArrayList<ValorDesplegable>();
+        ValorDesplegable vd = new ValorDesplegable("Pruebasa1");
+        lista1.add(vd);
+        vd = new ValorDesplegable("Pruebasa 2");
+        lista1.add(vd);
+        vd = new ValorDesplegable("Pruebasa 3");
+        lista1.add(vd);*/
+        gdao.insertOrUpdate(new Desplegables("TipoDocumentoIdentificativo", lista));
         gdao.insertOrUpdate(new Desplegables("Sexo", lista));
         gdao.insertOrUpdate(new Desplegables("PaisOrigen", lista));
         gdao.insertOrUpdate(new Desplegables("Nacionalidad", lista));

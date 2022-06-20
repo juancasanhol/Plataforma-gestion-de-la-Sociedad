@@ -37,6 +37,11 @@ public class Desplegables implements Serializable{
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> valores;
 
+    public Desplegables(){
+        this.Nombre="";
+        this.valores = null;
+    }
+    
     public String getNombre() {
         return Nombre;
     }

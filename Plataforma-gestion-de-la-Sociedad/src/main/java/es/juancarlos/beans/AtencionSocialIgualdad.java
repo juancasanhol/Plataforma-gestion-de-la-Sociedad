@@ -4,6 +4,7 @@
  */
 package es.juancarlos.beans;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -23,7 +24,7 @@ import org.hibernate.annotations.LazyCollectionOption;
  */
 @Entity
 @Table(name = "AtencionSocialIgualdad")
-public class AtencionSocialIgualdad {
+public class AtencionSocialIgualdad implements Serializable{
 
     @Id
     @Column(name = "NumIntId", nullable = false)

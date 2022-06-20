@@ -4,6 +4,7 @@
  */
 package es.juancarlos.beans;
 
+import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Faltas")
-public class Faltas {
+public class Faltas implements Serializable{
 
     @Id
     @Column(name = "Fecha", nullable = false)

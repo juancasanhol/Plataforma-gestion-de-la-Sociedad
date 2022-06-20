@@ -4,6 +4,7 @@
  */
 package es.juancarlos.beans;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,7 +24,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 @Entity
 @Table(name = "TipoServicioObservaciones")
 //clase necesaria para la lista de tipos de servicio y observaciones (diapositiva 9)
-public class TipoServicioObservaciones {
+public class TipoServicioObservaciones implements Serializable{
     
     @Id
     @Column(name = "TipoServObsId", nullable = false)

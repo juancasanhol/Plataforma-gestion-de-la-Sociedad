@@ -45,5 +45,30 @@ $( document ).ready(function() {
 
         });
     });
+    
+    /////////////////////////PARA DESPLEGABLES///////////////////////////////////
+    $("#TipoDoc").click(function (){
+        $.ajax({
+            type: "post",
+            url: "Ajax",
+            data: {
+                accion: "Usuario",
+            },
+            success: function(respuesta) {
+                console.log("Desplegables cargados correctamente");
+            $.each(respuesta, function(i, option) {
+                //console.log("buena");
+                    $("#DesplegableTipoDoc").append('<option value="'+option.nombre+'">');
+                    console.log(option.nombre);
+                });
+           
+            },
+            error: function() {
+                console.log("ERROR CARGANDO DESPLEGABLES");
+            }
+
+        });
+    });
+    /////////////////////////PARA DESPLEGABLES///////////////////////////////////
 //<label>Prueba 1 Nombre: </label><input type="text" name="" id="prueba1Nombre">
 });

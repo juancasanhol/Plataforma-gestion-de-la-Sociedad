@@ -5,6 +5,7 @@
 package es.juancarlos.beans;
 
 import java.io.File;
+import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "FicheroAdjunto")
-public class FicheroAdjunto {
+public class FicheroAdjunto implements Serializable{
 
     @Id
     @Column(name = "IdFichero", nullable = false)

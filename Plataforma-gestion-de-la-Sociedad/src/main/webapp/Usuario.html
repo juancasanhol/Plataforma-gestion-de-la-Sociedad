@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <title>Usuario</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="./img/png/Logo.png" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+
+    <!-- cabecera -->
+    <header class="p-3 bg-primary text-white">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-2">
+                    <div class="col-2">
+                        <a href="index.html"><img class="imgHome" src="./img/png/Logo.png" alt="logo"></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="container-fluid">
+        <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+
+            <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
+            <form action="Identificacion" method="post" accept-charet="utf-8"
+			id="Identificacion">
+			<!--El numero interno de identificacion se genera solo-->
+			<legend>Nombre: </legend>
+			<input required type="text" name="Nombre"> <br>
+			<legend>Apellidos: </legend>
+			<input required type="text" name="Apellidos"> <br>
+			<legend>Fecha de alta: </legend>
+			<input type="datetime-local" name="FechaAlta"> <br>
+			<legend>Fecha de baja: </legend>
+			<input type="datetime-local" name="FechaBaja"> <br>
+			<!--DESPLEGABLE-->
+			<legend>Tipo de documento identificativo: </legend>
+			<input id="TipoDoc" type="text" name="TipoDoc" list="DesplegablesTipoDoc"> <br>
+			<datalist id="DesplegablesTipoDoc">
+                            <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+			</datalist>
+			<legend>Número del documento: </legend>
+			<input type="text" name="NumDoc"> <br>
+			<legend>Telefono: </legend>
+			<input type="tel" name="Telefono"> <br>
+			<legend>Correo: </legend>
+			<input type="email" name="Correo"> <br>
+			<legend>Persona de referencia: </legend>
+			<input type="text" name="PersonaReferencia"> <br>
+			<legend>Sexo: </legend>
+			<input type="text" name="Sexo"> <br>
+			<legend>Fecha de mnacimiento: </legend>
+			<input type="datetime-local" name="FechaNac"> <br>
+			<legend>País de origen: </legend>
+			<input type="text" name="PaisOrigen"> <br>
+			<legend>Nacionalidad: </legend>
+			<input type="text" name="Nacionalidad"> <br>
+			<legend>¿Pertenece a una minoría?: </legend>
+			<input type="checkbox" name="PerteneceMinoria"> <br>
+			<legend>Minoría: </legend>
+			<input type="text" name="Minoria"> <br>
+			<legend>Número del documento: </legend>
+			<input type="text" name="NumDoc"> <br>
+			<legend>Observaciones: </legend>
+			<textarea cols="30" name="Observaciones"></textarea> <br>
+			<legend>Ficheros Adjuntos: </legend>
+			<input type="file">
+			<p>
+				<!--<font size="1">${mensaje}</font>-->
+			</p>
+			<input type="submit" value="Registrarse"
+				title="Registrar al usuario.">
+		</form>
+            <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
+
+        </div>
+    </div>
+
+    <!-- pie -->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+    <div class="container-fluid">
+        <footer class="text-center text-white" style="background-color: #f1f1f1;">
+            <!-- Copyright -->
+            <div class="text-center text-dark p-3 fixed-bottom bg-primary">
+                <font style="vertical-align: inherit;">
+                    © 2022 Copyright:
+                </font>
+                <font style="vertical-align: inherit;">Ch Ordenadores</font>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
+    <script src="./jquery/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./js/desplegables.js"></script>
+</body>
+
+</html>

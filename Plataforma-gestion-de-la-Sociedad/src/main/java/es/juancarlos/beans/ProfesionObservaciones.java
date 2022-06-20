@@ -4,6 +4,7 @@
  */
 package es.juancarlos.beans;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,7 +24,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 @Entity
 @Table(name = "ProfesionObservaciones")
 //clase necesaria para la lista de profesiones y observaciones (diapositiva 7)
-public class ProfesionObservaciones {
+public class ProfesionObservaciones implements Serializable{
     @Id
     @Column(name = "ProfObsId", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)

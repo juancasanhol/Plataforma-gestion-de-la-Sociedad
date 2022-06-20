@@ -4,6 +4,7 @@
  */
 package es.juancarlos.beans;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +21,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "Observaciones")
-public class Observaciones {
+public class Observaciones implements Serializable{
 
     @Id
     @Column(name = "obsId", nullable = false)
