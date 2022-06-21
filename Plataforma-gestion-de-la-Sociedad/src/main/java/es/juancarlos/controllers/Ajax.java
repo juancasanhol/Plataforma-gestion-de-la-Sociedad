@@ -49,13 +49,13 @@ public class Ajax extends HttpServlet {
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
 
-        gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
+        /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
-        gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));
+        gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
         switch (request.getParameter("accion")) {
 
             case "prueba1":
-                Usuario u = (Usuario) gdao.getById(Integer.parseInt(request.getParameter("dato")), Usuario.class);
+                /*Usuario u = (Usuario) gdao.getById(Integer.parseInt(request.getParameter("dato")), Usuario.class);
 
                 objeto = new JSONObject();
                 objeto.put("id", u.getNumIntId());
@@ -63,12 +63,12 @@ public class Ajax extends HttpServlet {
 
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
-
+                 */
                 break;
 
             case "prueba2":
 
-                List retorno = new ArrayList();
+                /*List retorno = new ArrayList();
                 Iterator i = gdao.get(Usuario.class).iterator();
                 while (i.hasNext()) {
 
@@ -83,12 +83,21 @@ public class Ajax extends HttpServlet {
                 arrayJSON = new JSONArray(retorno);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
-
+                 */
                 break;
             //ESTA PARTE ES PARA EL REGISTRO DE UN USUARIO NUEVO
             case "Usuario":
-                List desplegables = new ArrayList();
-                Iterator it = gdao.get(Desplegables.class).iterator();
+                //Primero se hace el desplegable para los usuarios de la conferencia y luego los demas
+                List desplegables= new ArrayList();
+                Iterator it = gdao.get(Usuario.class).iterator();
+                while (it.hasNext()) {
+                    Usuario u = (Usuario) it.next();
+                    objeto = new JSONObject();
+                    objeto.put("usuarios", u.getNombre()+" "+u.getApellidos());
+                    desplegables.add(objeto);
+
+                }
+                it = gdao.get(Desplegables.class).iterator();
                 while (it.hasNext()) {
                     //Tipo de documento identificativo
                     Desplegables d = (Desplegables) it.next();
@@ -97,7 +106,43 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
-                            objeto.put("nombre", lista.get(j).getValor());
+                            objeto.put("tipodocumento", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    if (d.getNombre().equals("Sexo")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("sexo", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    if (d.getNombre().equals("PaisOrigen")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("paisorigen", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    if (d.getNombre().equals("Nacionalidad")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("nacionalidad", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    if (d.getNombre().equals("MinoriaEtnica")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("minoriaetnica", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
                     }

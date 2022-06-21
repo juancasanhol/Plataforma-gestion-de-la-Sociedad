@@ -48,11 +48,10 @@
 			<input type="datetime-local" name="FechaAlta"> <br>
 			<legend>Fecha de baja: </legend>
 			<input type="datetime-local" name="FechaBaja"> <br>
-			<!--DESPLEGABLE-->
 			<legend>Tipo de documento identificativo: </legend>
 			<input id="TipoDoc" type="text" name="TipoDoc" list="DesplegablesTipoDoc"> <br>
 			<datalist id="DesplegablesTipoDoc">
-                            <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
 			</datalist>
 			<legend>Número del documento: </legend>
 			<input type="text" name="NumDoc"> <br>
@@ -61,19 +60,34 @@
 			<legend>Correo: </legend>
 			<input type="email" name="Correo"> <br>
 			<legend>Persona de referencia: </legend>
-			<input type="text" name="PersonaReferencia"> <br>
+			<input type="text" name="PersonaReferencia" list="DesplegablesPersonaReferencia"> <br>
+                        <datalist id="DesplegablesPersonaReferencia">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                        </datalist>
 			<legend>Sexo: </legend>
-			<input type="text" name="Sexo"> <br>
+			<input type="text" name="Sexo" list="DesplegablesSexo"> <br>
+                        <datalist id="DesplegablesSexo">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                        </datalist>
 			<legend>Fecha de mnacimiento: </legend>
 			<input type="datetime-local" name="FechaNac"> <br>
 			<legend>País de origen: </legend>
-			<input type="text" name="PaisOrigen"> <br>
+			<input type="text" name="PaisOrigen" list="DesplegablesPaisOrigen"> <br>
+                        <datalist id="DesplegablesPaisOrigen">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                        </datalist>
 			<legend>Nacionalidad: </legend>
-			<input type="text" name="Nacionalidad"> <br>
+			<input type="text" name="Nacionalidad" list="DesplegablesNacionalidad"> <br>
+                        <datalist id="DesplegablesNacionalidad">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                        </datalist>
 			<legend>¿Pertenece a una minoría?: </legend>
 			<input type="checkbox" name="PerteneceMinoria"> <br>
 			<legend>Minoría: </legend>
-			<input type="text" name="Minoria"> <br>
+			<input type="text" name="Minoria" list="DesplegablesMinoria"> <br>
+                        <datalist id="DesplegablesMinoria">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                        </datalist>
 			<legend>Número del documento: </legend>
 			<input type="text" name="NumDoc"> <br>
 			<legend>Observaciones: </legend>
