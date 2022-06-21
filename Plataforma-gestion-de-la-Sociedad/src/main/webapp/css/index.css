@@ -1,16 +1,25 @@
 body{
-background-image: url("../img/png/Fondo.png") ;    
-background-size: cover;
-background-size: 40%;
-background-repeat: no-repeat;
-background-position-x: 45%;
-background-position-y: -20%;
+    background-image: url("../img/png/Fondo.png") ;
+    background-size: cover;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-attachment: fixed;/*para el fondo fijo*/
+    /*-webkit-filter: blur(8px);*/
+}
 
- /*-webkit-filter: blur(8px);*/
+legend{
+    -webkit-text-stroke: 1px #5DADE2;
+    font-family: candara;
+    color: orange;
+    font-weight: 900;
+}
 
+.container-fluid{
+    padding-top: 5%;
 }
 
 .imgHome{
     width: 3em;
-    
 }
