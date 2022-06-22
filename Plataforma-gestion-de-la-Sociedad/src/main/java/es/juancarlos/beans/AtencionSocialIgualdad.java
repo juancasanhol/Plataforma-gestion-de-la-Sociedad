@@ -5,7 +5,6 @@
 package es.juancarlos.beans;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -32,7 +31,7 @@ public class AtencionSocialIgualdad implements Serializable{
     int NumIntId;
 
     @Column(name = "Fecha", nullable = false)
-    Date Fecha;
+    String Fecha;
 
     @Column(name = "Trabajador", nullable = false)
     String Trabajador; //El que atiende

@@ -5,7 +5,6 @@
 package es.juancarlos.beans;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -35,7 +34,7 @@ public class ConferenciaSantaMaria implements Serializable{
     int NumExtId;
 
     @Column(name = "FechaAlta", nullable = false)
-    Date FechaAlta;
+    String FechaAlta;
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -57,7 +56,7 @@ public class ConferenciaSantaMaria implements Serializable{
     String Sexo;
 
     @Column(name = "FechaNac", nullable = true)
-    Date FechaNac;
+    String FechaNac;
 
     @Column(name = "Direccion", nullable = true)
     String Direccion;

@@ -31,7 +31,6 @@ public class ProfesionObservaciones implements Serializable{
     int ProfObsId;
     
     @Column(name = "Profesion", nullable = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     String Profesion;
     
     @OneToMany(cascade = CascadeType.ALL)

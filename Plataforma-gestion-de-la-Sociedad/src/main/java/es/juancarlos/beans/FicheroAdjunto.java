@@ -6,7 +6,6 @@ package es.juancarlos.beans;
 
 import java.io.File;
 import java.io.Serializable;
-import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +33,7 @@ public class FicheroAdjunto implements Serializable{
     String Descripcion;
 
     @Column(name = "Fecha", nullable = false)
-    Date Fecha;
+    String Fecha;
 
     //Si el fichero es necesario para el banco de alimentos
     @Column(name = "BancoAlimentos", nullable = false)

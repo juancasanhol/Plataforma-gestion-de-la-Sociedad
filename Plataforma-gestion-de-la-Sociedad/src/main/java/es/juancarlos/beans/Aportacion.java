@@ -5,7 +5,6 @@
 package es.juancarlos.beans;
 
 import java.io.Serializable;
-import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +26,7 @@ public class Aportacion implements Serializable{
     int IdAportacion;
 
     @Column(name = "Fecha", nullable = false)
-    Date Fecha;
+    String Fecha;
 
     @Column(name = "Importe", nullable = false)
     Float Importe;

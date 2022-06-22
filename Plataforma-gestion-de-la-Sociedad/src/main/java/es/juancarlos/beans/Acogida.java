@@ -32,7 +32,7 @@ public class Acogida implements Serializable{
     int NumIntId;
 
     @Column(name = "Fecha", nullable = false)
-    Date Fecha;
+    String Fecha;
 
     @Column(name = "Trabajador", nullable = false)
     String Trabajador; //El que atiende

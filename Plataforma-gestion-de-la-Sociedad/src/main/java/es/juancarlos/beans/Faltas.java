@@ -21,7 +21,7 @@ public class Faltas implements Serializable{
 
     @Id
     @Column(name = "Fecha", nullable = false)
-    Date Fecha;
+    String Fecha;
 
     @Column(name = "Motivo", nullable = false)
     String Motivo;

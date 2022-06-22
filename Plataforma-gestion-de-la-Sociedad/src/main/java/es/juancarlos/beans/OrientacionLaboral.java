@@ -5,7 +5,6 @@
 package es.juancarlos.beans;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -32,7 +31,7 @@ public class OrientacionLaboral implements Serializable{
     int NumIntId;
 
     @Column(name = "Fecha", nullable = false)
-    Date Fecha;//Y HORA
+    String Fecha;//Y HORA
 
     @Column(name = "Beneficiario", nullable = false)
     String Beneficiario;

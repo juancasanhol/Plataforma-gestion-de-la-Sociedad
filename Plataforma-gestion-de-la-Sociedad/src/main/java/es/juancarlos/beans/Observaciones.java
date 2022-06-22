@@ -5,7 +5,6 @@
 package es.juancarlos.beans;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,14 +31,13 @@ public class Observaciones implements Serializable{
     public String texto;
 
     @Column(name = "fecha", updatable = false, nullable = false)
-    @Temporal(TemporalType.DATE)
-    public Date fecha;
+    public String fecha;
 
     @Column(name = "autor", nullable = false)
     public String autor;
 
     public Observaciones() {
-        this.fecha = new Date();
+        this.fecha = "";
         texto = "";
         autor = "";
     }
@@ -47,6 +45,6 @@ public class Observaciones implements Serializable{
     public Observaciones(String texto, String autor) {
         this.texto = texto;
         this.autor = autor;
-        this.fecha = new Date();
+        this.fecha = "";
     }
 }

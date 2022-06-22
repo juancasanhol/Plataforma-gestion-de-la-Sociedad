@@ -1,7 +1,6 @@
 package es.juancarlos.beans;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -31,10 +30,10 @@ public class CursosFormacion implements Serializable{
     String TipoCurso;
 
     @Column(name = "FechaInicio", nullable = false)
-    Date FechaInicio;
+    String FechaInicio;
 
     @Column(name = "FechaFin", nullable = false)
-    Date FechaFin;
+    String FechaFin;
 
     @Column(name = "OtraInfo", nullable = true, length = 25)//DESPLEGABLE
     String OtraInfo;

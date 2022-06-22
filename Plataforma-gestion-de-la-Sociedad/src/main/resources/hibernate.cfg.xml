@@ -46,6 +46,8 @@
         <mapping class="es.juancarlos.beans.Perfil" />
         <mapping class="es.juancarlos.beans.Desplegables" />
         <mapping class="es.juancarlos.beans.ValorDesplegable" />
+        <mapping class="es.juancarlos.beans.ProfesionObservaciones" />
+        <mapping class="es.juancarlos.beans.TipoServicioObservaciones" />
       
         
         

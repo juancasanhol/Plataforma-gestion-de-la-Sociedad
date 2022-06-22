@@ -1,7 +1,7 @@
 package es.juancarlos.beans;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -34,12 +34,11 @@ public class Usuario implements Serializable {
     @Column(name = "Apellidos", nullable = false)
     String Apellidos;
 
-    /*
     @Column(name = "FechaAlta", nullable = true)
-    Date FechaAlta;
+    String FechaAlta;
 
     @Column(name = "FechaBaja", nullable = true)
-    Date FechaBaja;
+    String FechaBaja;
 
     @Column(name = "TipoDoc", nullable = true, length = 25)//DESPLEGABLE
     String TipoDoc;
@@ -59,8 +58,8 @@ public class Usuario implements Serializable {
     @Column(name = "Sexo", nullable = true, length = 25)//DESPLEGABLE
     String Sexo;
 
-    @Column(name = "FechaNac", nullable = false, length = 10)
-    Date FechaNac;
+    @Column(name = "FechaNac", nullable = true, length = 10)
+    String FechaNac;
 
     @Column(name = "PaisOrigen", nullable = true, length = 25)//DESPLEGABLE
     String PaisOrigen;
@@ -121,6 +120,7 @@ public class Usuario implements Serializable {
     List<ValorDesplegable> otros_carnets;
     
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_profesionobservaciones")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ProfesionObservaciones> profesion_observaciones;
     
@@ -171,7 +171,7 @@ public class Usuario implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<Observaciones> observaciones_iingresos;//Son las observaciones referentes a los ingresos
+    List<Observaciones> observaciones_ingresos;//Son las observaciones referentes a los ingresos
 
     //DATOS DE LA FICHA DE UNIDAD DE CONVIVENCIA, LOS CUALES NO SON OBLIGATORIOS TENER
     //Nº interno de indentificacion, que ya se tiene
@@ -210,10 +210,10 @@ public class Usuario implements Serializable {
     Boolean EstaBanco;
 
     @Column(name = "FechaAlta_BancoAlimentos", nullable = true)
-    Date FechaAlta_BancoAlimentos;
+    String FechaAlta_BancoAlimentos;
 
     @Column(name = "FechaBaja_BancoAlimentos", nullable = true)
-    Date FechaBaja_BancoAlimentos;
+    String FechaBaja_BancoAlimentos;
     
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -222,16 +222,16 @@ public class Usuario implements Serializable {
     //DATOS ORIENTACION LABORAL
     //Si se añade aqui un dato a un usuario, el check de orientacion laboral se activa
     @Column(name = "FechaOrientacion", nullable = true)
-    Date FechaOrientacion;
+    String FechaOrientacion;
 
     @Column(name = "Beneficiario", nullable = true)
-    Date Beneficiario;
+    String Beneficiario;
 
     //LISTA DE TIPOS DE SERVICIO Y OBSERVACIONES
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_orientaciona;//Son las observaciones referentes a orientacion laboral
-     */
+    
     public Usuario() {
     }
 
@@ -239,6 +239,35 @@ public class Usuario implements Serializable {
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
     }
+
+    public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja){
+        this.Nombre = Nombre;
+        this.Apellidos = Apellidos;
+        this.FechaAlta = FechaAlta;
+        this.FechaBaja = FechaBaja;
+    }
+    
+    /*public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id, List<FicheroAdjunto> ficheros_usuario) {
+        this.Nombre = Nombre;
+        this.Apellidos = Apellidos;
+        this.FechaAlta = FechaAlta;
+        this.FechaBaja = FechaBaja;
+        this.TipoDoc = TipoDoc;
+        this.NumDoc = NumDoc;
+        this.Telefono = Telefono;
+        this.Correo = Correo;
+        this.PersonaReferencia = PersonaReferencia;
+        this.Sexo = Sexo;
+        this.FechaNac = FechaNac;
+        this.PaisOrigen = PaisOrigen;
+        this.Nacionalidad = Nacionalidad;
+        this.PerteneceMinoria = PerteneceMinoria;
+        this.Minoria = Minoria;
+        this.observaciones_id = observaciones_id;
+        this.ficheros_usuario = ficheros_usuario;
+    }*/
+    
+    
 
     public int getNumIntId() {
         return NumIntId;

@@ -5,7 +5,6 @@
 package es.juancarlos.beans;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -36,10 +35,10 @@ public class Empresas implements Serializable{
     String Nombre;
 
     @Column(name = "FechaAlta", nullable = false)
-    Date FechaAlta;
+    String FechaAlta;
 
     @Column(name = "FechaBaja", nullable = false)
-    Date FechaBaja;
+    String FechaBaja;
 
     @Column(name = "PersonaContacto", nullable = false)
     String PersonaContacto;

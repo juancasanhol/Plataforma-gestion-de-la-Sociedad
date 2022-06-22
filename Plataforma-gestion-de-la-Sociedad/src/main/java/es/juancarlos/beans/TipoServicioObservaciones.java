@@ -32,7 +32,6 @@ public class TipoServicioObservaciones implements Serializable{
     int ProfObsId;
     
     @Column(name = "TipoServicio", nullable = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     String TipoServicio;
     
     @OneToMany(cascade = CascadeType.ALL)
