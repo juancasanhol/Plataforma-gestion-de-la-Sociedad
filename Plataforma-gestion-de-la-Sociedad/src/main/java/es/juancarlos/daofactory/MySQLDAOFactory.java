@@ -1,7 +1,9 @@
 package es.juancarlos.daofactory;
 
+import es.juancarlos.dao.AjaxDAO;
 import es.juancarlos.dao.GenericoDAO;
 import es.juancarlos.interfaces.IGenericoDAO;
+import es.juancarlos.interfaces.IAjaxDAO;
 
 
 
@@ -18,6 +20,15 @@ public class MySQLDAOFactory extends DAOFactory{
     @Override
     public IGenericoDAO getGenericoDAO() {
         return (IGenericoDAO) new GenericoDAO();
+    }
+    
+        /**
+     *
+     * @return AjaxDAO
+     */
+    @Override
+    public IAjaxDAO getAjaxDAO() {
+        return (IAjaxDAO) new AjaxDAO();
     }
 
 }

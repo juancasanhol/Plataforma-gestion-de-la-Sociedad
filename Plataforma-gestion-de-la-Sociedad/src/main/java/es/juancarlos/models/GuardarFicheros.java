@@ -18,7 +18,8 @@ public class GuardarFicheros {
      *
      * @param request request de la aplicacion
      * @param savePath ruta donde se guardará
-     * @param escribir si se va a gusardar o no
+     * @param nombreFichero
+     * @param nombreGuardado
      * @return nombre y extension de la foto
      * @throws ServletException si un error especifico de servlet ocurriera
      * @throws IOException si un error de I/O ocurriera

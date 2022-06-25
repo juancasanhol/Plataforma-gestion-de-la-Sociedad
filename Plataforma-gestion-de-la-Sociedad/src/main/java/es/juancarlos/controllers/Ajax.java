@@ -4,21 +4,17 @@ import es.juancarlos.beans.Desplegables;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.daofactory.DAOFactory;
+import es.juancarlos.interfaces.IAjaxDAO;
 import es.juancarlos.interfaces.IGenericoDAO;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -48,7 +44,9 @@ public class Ajax extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-
+        IAjaxDAO adao =daof.getAjaxDAO();
+        
+        Usuario u;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
         gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
@@ -85,13 +83,30 @@ public class Ajax extends HttpServlet {
                 response.getWriter().print(arrayJSON);
                  */
                 break;
+            //ESTA PARTE ES PARA EL Logueo
+                
+            case "login":
+                
+                objeto = new JSONObject();
+                objeto.put("aceso", adao.Login(request.getParameter("usuario"), request.getParameter("passwd")));
+
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
+                
+            break;
+            
+            case "addUA":
+                gdao.insertOrUpdate(new Usuario(request.getParameter("usuario"),request.getParameter("apellido"), request.getParameter("passwd")));  
+                
+            break;
+                
             //ESTA PARTE ES PARA EL REGISTRO DE UN USUARIO NUEVO
             case "Usuario":
                 //Primero se hace el desplegable para los usuarios de la conferencia y luego los demas
                 List desplegables= new ArrayList();
                 Iterator it = gdao.get(Usuario.class).iterator();
                 while (it.hasNext()) {
-                    Usuario u = (Usuario) it.next();
+                    u = (Usuario) it.next();
                     objeto = new JSONObject();
                     objeto.put("usuarios", u.getNombre()+" "+u.getApellidos());
                     desplegables.add(objeto);

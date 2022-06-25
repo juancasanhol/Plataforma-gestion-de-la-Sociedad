@@ -2,7 +2,7 @@ package es.juancarlos.daofactory;
 
 
 import es.juancarlos.interfaces.IGenericoDAO;
-
+import es.juancarlos.interfaces.IAjaxDAO;
 
 /**
  * 
@@ -15,7 +15,12 @@ public abstract class DAOFactory {
      * @return GenericoDAO
      */
     public abstract IGenericoDAO getGenericoDAO();
-
+    
+       /**
+     *
+     * @return GenericoDAO
+     */
+    public abstract IAjaxDAO getAjaxDAO();
    
     /**
      *

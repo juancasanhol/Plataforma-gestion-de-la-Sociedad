@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <title>Usuario</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/generico.css">
+</head>
+
+<body>
+
+
+    <!-- cabecera -->
+    <header class="p-3 bg-primary text-white">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-2">
+                    <div class="col-2">
+                        <a href="index.html"><img class="imgHome" src="../../img/png/Logo.png" alt="logo"></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+    <div class="container-fluid">
+
+        <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
+        <form action="../../RegistroUsuario" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
+            <!--El numero interno de identificacion se genera solo-->
+
+            <div class="text-danger text-center fw-bold">EXISTEN ERRORES!!</div>
+            <div class="col-12 text-center">
+
+                <legend >Nombre: </legend>
+                <input required type="text" name="Nombre" id="Nombre"><br>
+
+                <legend >Apellido: </legend>
+                <input required type="text" name="Apellido" id="Apellido"><br>
+
+                <legend >Contraseña: </legend>
+                <input required type="password" name="Passwd" id="Passwd"><br>
+
+                <legend >Repetir contraseña: </legend>
+                <input required type="password" name="Passwd2" id="Passwd2"><br>
+            </div>
+
+
+            <div class="col-4 offset-5 mt-5 " >
+                <input class="col-4 btn btn-primary" id="addUA" type="button" value="Registrar Usuario" title="Registrar al usuario.">
+                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
+            </div>
+            </div>
+
+    </div>
+
+    </form>
+    <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
+
+
+    </div>
+
+    <!-- pie -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid">
+        <footer class="text-center text-white" style="background-color: #5DADE2;">
+            <!-- Copyright -->
+            <div class="text-center text-dark p-3 fixed-bottom bg-primary">
+                <font style="vertical-align: inherit;">
+                    © 2022 Copyright:
+                </font>
+                <font style="vertical-align: inherit;">Ch Ordenadores</font>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
+    <script src="../../jquery/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../js/nuevoUsuarioAplicacion.js"></script> 
+</body>
+
+</html>
