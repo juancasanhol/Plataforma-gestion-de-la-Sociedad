@@ -58,7 +58,7 @@ public class Usuario implements Serializable {
     @Column(name = "Sexo", nullable = true, length = 25)//DESPLEGABLE
     String Sexo;
 
-    @Column(name = "FechaNac", nullable = true, length = 10)
+    @Column(name = "FechaNac", nullable = true, length = 30)
     String FechaNac;
 
     @Column(name = "PaisOrigen", nullable = true, length = 25)//DESPLEGABLE
@@ -77,7 +77,7 @@ public class Usuario implements Serializable {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_id;//Son las observaciones referentes a la identificacion de una persona
 
-    @OneToMany(cascade = CascadeType.ALL)
+    /*@OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<FicheroAdjunto> ficheros_usuario;
     
@@ -231,7 +231,7 @@ public class Usuario implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_orientaciona;//Son las observaciones referentes a orientacion laboral
-    
+    */
     public Usuario() {
     }
 
@@ -247,7 +247,7 @@ public class Usuario implements Serializable {
         this.FechaBaja = FechaBaja;
     }
     
-    /*public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id, List<FicheroAdjunto> ficheros_usuario) {
+    public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id/*, List<FicheroAdjunto> ficheros_usuario*/) {
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
         this.FechaAlta = FechaAlta;
@@ -264,8 +264,8 @@ public class Usuario implements Serializable {
         this.PerteneceMinoria = PerteneceMinoria;
         this.Minoria = Minoria;
         this.observaciones_id = observaciones_id;
-        this.ficheros_usuario = ficheros_usuario;
-    }*/
+        //this.ficheros_usuario = ficheros_usuario;
+    }
     
     
 

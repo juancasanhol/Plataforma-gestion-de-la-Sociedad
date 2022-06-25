@@ -1,9 +1,12 @@
 package es.juancarlos.controllers;
 
+import es.juancarlos.beans.Observaciones;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,7 +41,14 @@ public class RegistroUsuario extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        gdao.insertOrUpdate(new Usuario(request.getParameter("Nombre"),request.getParameter("Apellidos"),request.getParameter("FechaAlta"),request.getParameter("FechaBaja")));
+        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"),"ADMIN");
+        Boolean minoria = false;
+        List<Observaciones> observaciones = new ArrayList<Observaciones>();
+        if(request.getParameter("PerteneceMinoria")!=null){
+            minoria = true;
+        }
+        observaciones.add(observacion);
+        gdao.insertOrUpdate(new Usuario(request.getParameter("Nombre"),request.getParameter("Apellidos"),request.getParameter("FechaAlta"),request.getParameter("FechaBaja"),request.getParameter("TipoDoc"),request.getParameter("NumDoc"),request.getParameter("Telefono"),request.getParameter("Correo"),request.getParameter("PersonaReferencia"),request.getParameter("Sexo"),request.getParameter("FechaNac"),request.getParameter("PaisOrigen"),request.getParameter("Nacionalidad"),minoria,request.getParameter("Minoria"),observaciones));
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
         gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
