@@ -6,6 +6,7 @@
 package es.juancarlos.events;
 
 import es.juancarlos.beans.Desplegables;
+import es.juancarlos.beans.Perfil;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.daofactory.DAOFactory;
@@ -116,7 +117,7 @@ public class Evento implements ServletContextListener {
         gdao.insertOrUpdate(new Desplegables("Cargo", lista));
         
         //usuario administrador
-        gdao.insertOrUpdate(new Usuario("admin","admin","admin"));
+        gdao.insertOrUpdate(new Perfil("admin","admin"));
         
     }
 

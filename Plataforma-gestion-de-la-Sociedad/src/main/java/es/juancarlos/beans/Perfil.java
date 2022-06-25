@@ -18,7 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Perfil")
-public class Perfil implements Serializable{
+public class Perfil implements Serializable {
 
     @Id
     @Column(name = "Usuario", nullable = false)
@@ -27,4 +27,29 @@ public class Perfil implements Serializable{
     @Column(name = "Password", nullable = true)
     String Password;
 
+    public Perfil() {
+    }
+
+    public Perfil(String Usuario, String Password) {
+        this.Usuario = Usuario;
+        this.Password = Password;
+    }
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(String Usuario) {
+        this.Usuario = Usuario;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
+    
 }

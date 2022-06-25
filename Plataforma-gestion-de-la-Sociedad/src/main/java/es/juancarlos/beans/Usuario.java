@@ -31,9 +31,6 @@ public class Usuario implements Serializable {
 
     @Column(name = "Apellidos", nullable = false)
     String Apellidos;
-    
-    @Column(name = "Passwd", nullable = true)
-    String Passwd;
 
     @Column(name = "FechaAlta", nullable = true)
     String FechaAlta;
@@ -239,12 +236,6 @@ public class Usuario implements Serializable {
     public Usuario(String Nombre, String Apellidos) {
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
-    }
-    
-    public Usuario(String Nombre, String Apellidos,String Passwd) {
-        this.Nombre = Nombre;
-        this.Apellidos = Apellidos;
-        this.Passwd=Passwd;
     }
 
     public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja){

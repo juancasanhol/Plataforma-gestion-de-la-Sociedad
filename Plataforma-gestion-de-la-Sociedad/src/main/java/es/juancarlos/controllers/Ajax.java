@@ -1,6 +1,7 @@
 package es.juancarlos.controllers;
 
 import es.juancarlos.beans.Desplegables;
+import es.juancarlos.beans.Perfil;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.daofactory.DAOFactory;
@@ -95,8 +96,8 @@ public class Ajax extends HttpServlet {
                 
             break;
             
-            case "addUA":
-                gdao.insertOrUpdate(new Usuario(request.getParameter("usuario"),request.getParameter("apellido"), request.getParameter("passwd")));  
+            case "addPerfil":
+                gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd")));  
                 
             break;
                 

@@ -30,7 +30,7 @@ public class AjaxDAO implements IAjaxDAO {
         int valor = 0;
         try {
             startTransaction();
-            q = sesion.createQuery("SELECT COUNT(u) from Usuario as u WHERE u.Nombre = :usu AND u.Passwd = :passwd");
+            q = sesion.createQuery("SELECT COUNT(p) from Perfil as p WHERE p.Usuario = :usu AND p.Password = :passwd");
             q.setParameter("usu", usuario);
             q.setParameter("passwd", pass);
             listadoResultados = q.list();

@@ -9,9 +9,8 @@ $(document).ready(function () {
                 type: "post",
                 url: "../../Ajax",
                 data: {
-                    accion: "addUA",
+                    accion: "addPerfil",
                     usuario: $("#Nombre").val(),
-                    apellido: $("#Apellido").val(),
                     passwd: $("#Passwd").val()
                 },
                 success: function (respuesta) {
