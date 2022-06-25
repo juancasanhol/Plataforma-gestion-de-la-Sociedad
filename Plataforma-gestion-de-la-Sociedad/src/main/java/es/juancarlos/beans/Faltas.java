@@ -23,10 +23,10 @@ public class Faltas implements Serializable{
     @Column(name = "Fecha", nullable = false)
     String Fecha;
 
-    @Column(name = "Motivo", nullable = false)
+    @Column(name = "Motivo", nullable = true)
     String Motivo;
 
-    @Column(name = "Justificada", nullable = false)
+    @Column(name = "Justificada", nullable = true)
     Boolean Justificada = false;
 
 }

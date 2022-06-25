@@ -25,9 +25,9 @@ public class Aportacion implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int IdAportacion;
 
-    @Column(name = "Fecha", nullable = false)
+    @Column(name = "Fecha", nullable = true)
     String Fecha;
 
-    @Column(name = "Importe", nullable = false)
+    @Column(name = "Importe", nullable = true)
     Float Importe;
 }

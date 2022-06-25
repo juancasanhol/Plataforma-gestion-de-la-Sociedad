@@ -22,6 +22,6 @@ public class Alimentos implements Serializable {
     @Column(name = "Alimento", nullable = false)
     String Alimento;
 
-    @Column(name = "Unidades", nullable = false)
+    @Column(name = "Unidades", nullable = true)
     int Unidades;
 }

@@ -30,10 +30,10 @@ public class ConferenciaSantaMaria implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
 
-    @Column(name = "NumExtId", nullable = false)
+    @Column(name = "NumExtId", nullable = true)
     int NumExtId;
 
-    @Column(name = "FechaAlta", nullable = false)
+    @Column(name = "FechaAlta", nullable = true)
     String FechaAlta;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -43,13 +43,13 @@ public class ConferenciaSantaMaria implements Serializable{
     @Column(name = "Cargo", nullable = true)
     String Cargo;
 
-    @Column(name = "Nombre", nullable = false)
+    @Column(name = "Nombre", nullable = true)
     String Nombre;
 
-    @Column(name = "Apellidos", nullable = false)
+    @Column(name = "Apellidos", nullable = true)
     String Apellidos;
 
-    @Column(name = "Nif", nullable = false)
+    @Column(name = "Nif", nullable = true)
     String Nif;
 
     @Column(name = "Sexo", nullable = true)
@@ -106,10 +106,10 @@ public class ConferenciaSantaMaria implements Serializable{
     @Column(name = "AccesoFichaIndividual", nullable = true)
     Boolean AccesoFichaIndividual; //CHECK
 
-    @Column(name = "Usuario", nullable = false)
+    @Column(name = "Usuario", nullable = true)
     String Usuario;
 
-    @Column(name = "Password", nullable = false)
+    @Column(name = "Password", nullable = true)
     String Password;
 
     @OneToMany(cascade = CascadeType.ALL)

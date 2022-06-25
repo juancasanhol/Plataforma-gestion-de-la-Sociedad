@@ -4,8 +4,10 @@
  */
 package es.juancarlos.beans;
 
-import java.io.File;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,16 +28,24 @@ public class FicheroAdjunto implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int IdFichero;
 
-    @Column(name = "Fichero", nullable = false)
-    File Fichero;
+    @Column(name = "Ruta", nullable = true)
+    String Ruta;
 
-    @Column(name = "Descripcion", nullable = false)
-    String Descripcion;
-
-    @Column(name = "Fecha", nullable = false)
+    @Column(name = "Fecha", nullable = true)
     String Fecha;
 
     //Si el fichero es necesario para el banco de alimentos
-    @Column(name = "BancoAlimentos", nullable = false)
+    @Column(name = "BancoAlimentos", nullable = true)
     Boolean BancoAlimentos;
+
+    public FicheroAdjunto(String Ruta, Boolean BancoAlimentos) {
+        this.Ruta = Ruta;
+        SimpleDateFormat dtf = new SimpleDateFormat("yyyy/MM/dd");
+        Calendar calendar = Calendar.getInstance();
+        Date dateObj = calendar.getTime();
+        this.Fecha = dtf.format(dateObj);
+        this.BancoAlimentos = BancoAlimentos;
+    }
+    
+    
 }

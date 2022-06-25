@@ -30,10 +30,10 @@ public class OrientacionLaboral implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
 
-    @Column(name = "Fecha", nullable = false)
+    @Column(name = "Fecha", nullable = true)
     String Fecha;//Y HORA
 
-    @Column(name = "Beneficiario", nullable = false)
+    @Column(name = "Beneficiario", nullable = true)
     String Beneficiario;
 
     @OneToMany(cascade = CascadeType.ALL)

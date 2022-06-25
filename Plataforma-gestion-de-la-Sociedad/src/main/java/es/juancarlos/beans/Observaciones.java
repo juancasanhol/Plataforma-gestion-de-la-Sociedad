@@ -28,10 +28,10 @@ public class Observaciones implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @Column(name = "texto", nullable = false)
+    @Column(name = "texto", nullable = true)
     public String texto;
 
-    @Column(name = "fecha", updatable = false, nullable = false)
+    @Column(name = "fecha", nullable = true)
     public String fecha;
 
     @Column(name = "autor", nullable = false)

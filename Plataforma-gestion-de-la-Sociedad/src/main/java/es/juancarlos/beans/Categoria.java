@@ -25,13 +25,13 @@ public class Categoria implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     String IdCategoria;
 
-    @Column(name = "Nombre", nullable = false)
+    @Column(name = "Nombre", nullable = true)
     String Nombre;
 
-    @Column(name = "FechaAlta", nullable = false)
+    @Column(name = "FechaAlta", nullable = true)
     String FechaAlta;
 
-    @Column(name = "FechaBaja", nullable = false)
+    @Column(name = "FechaBaja", nullable = true)
     String FechaBaja;
 
 }

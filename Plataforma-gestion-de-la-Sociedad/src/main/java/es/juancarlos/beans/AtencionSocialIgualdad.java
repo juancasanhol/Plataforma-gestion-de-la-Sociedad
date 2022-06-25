@@ -30,25 +30,25 @@ public class AtencionSocialIgualdad implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
 
-    @Column(name = "Fecha", nullable = false)
+    @Column(name = "Fecha", nullable = true)
     String Fecha;
 
-    @Column(name = "Trabajador", nullable = false)
+    @Column(name = "Trabajador", nullable = true)
     String Trabajador; //El que atiende
 
-    @Column(name = "Usuario", nullable = false)
+    @Column(name = "Usuario", nullable = true)
     String Usuario;
 
     @Column(name = "ProcedenciaDerivacion", nullable = true)
     String ProcedenciaDerivacion;//AYUNTAMIENTO, CARITAS, COLEGIO...
 
-    @Column(name = "MotivoConsulta", nullable = false)
+    @Column(name = "MotivoConsulta", nullable = true)
     String MotivoConsulta;
 
-    @Column(name = "Intervencion", nullable = false)
+    @Column(name = "Intervencion", nullable = true)
     String Intervencion;
 
-    @Column(name = "EstadoResolucion", nullable = false)
+    @Column(name = "EstadoResolucion", nullable = true)
     String EstadoResolucion;
 
     @OneToMany(cascade = CascadeType.ALL)

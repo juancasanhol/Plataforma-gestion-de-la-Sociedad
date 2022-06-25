@@ -40,61 +40,61 @@ public class Usuario implements Serializable {
     @Column(name = "FechaBaja", nullable = true)
     String FechaBaja;
 
-    @Column(name = "TipoDoc", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "TipoDoc", nullable = true)//DESPLEGABLE
     String TipoDoc;
 
-    @Column(name = "NumDoc", nullable = true, length = 25)
+    @Column(name = "NumDoc", nullable = true)
     String NumDoc;
 
-    @Column(name = "Telefono", nullable = true, length = 20)
+    @Column(name = "Telefono", nullable = true)
     String Telefono;
 
-    @Column(name = "Correo", nullable = true, length = 30)
+    @Column(name = "Correo", nullable = true)
     String Correo;
 
-    @Column(name = "PersonaReferencia", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "PersonaReferencia", nullable = true)//DESPLEGABLE
     String PersonaReferencia;
     
-    @Column(name = "Sexo", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "Sexo", nullable = true)//DESPLEGABLE
     String Sexo;
 
-    @Column(name = "FechaNac", nullable = true, length = 30)
+    @Column(name = "FechaNac", nullable = true)
     String FechaNac;
 
-    @Column(name = "PaisOrigen", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "PaisOrigen", nullable = true)//DESPLEGABLE
     String PaisOrigen;
 
-    @Column(name = "Nacionalidad", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "Nacionalidad", nullable = true)//DESPLEGABLE
     String Nacionalidad;
 
-    @Column(name = "PerteneceMinoria", nullable = true, length = 25)//CHECK
+    @Column(name = "PerteneceMinoria", nullable = true)//CHECK
     Boolean PerteneceMinoria;
 
-    @Column(name = "Minoria", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "Minoria", nullable = true)//DESPLEGABLE
     String Minoria;
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_id;//Son las observaciones referentes a la identificacion de una persona
 
-    /*@OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<FicheroAdjunto> ficheros_usuario;
-    
+    /*
     ///////////////////DATOS SANITARIOS/////////////////
-    @Column(name = "SolicitaAyudaFarmaceutica", nullable = true, length = 25)//CHECK
+    @Column(name = "SolicitaAyudaFarmaceutica", nullable = true)//CHECK
     Boolean SolicitaAyudaFarmaceutica;
 
-    @Column(name = "TratSanitario", nullable = true, length = 100)
+    @Column(name = "TratSanitario", nullable = true)
     String TratSanitario;
 
-    @Column(name = "Drogodependencia", nullable = true, length = 25)//CHECK
+    @Column(name = "Drogodependencia", nullable = true)//CHECK
     Boolean Drogodependencia;
 
-    @Column(name = "TipoDiscapacidad", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "TipoDiscapacidad", nullable = true)//DESPLEGABLE
     String TipoDiscapacidad;
 
-    @Column(name = "GradoDiscapacidad", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "GradoDiscapacidad", nullable = true)//DESPLEGABLE
     String GradoDiscapacidad;
 
    @OneToMany(cascade = CascadeType.ALL)
@@ -102,16 +102,16 @@ public class Usuario implements Serializable {
     List<Observaciones> observaciones_sanitarias;
     
     ///////////////////DATOS LABORALES/////////////////
-    @Column(name = "PermisoResidencia", nullable = true, length = 25)//CHECK
+    @Column(name = "PermisoResidencia", nullable = true)//CHECK
     Boolean PermisoResidencia;
 
-    @Column(name = "PermisoTrabajo", nullable = true, length = 25)//CHECK
+    @Column(name = "PermisoTrabajo", nullable = true)//CHECK
     Boolean PermisoTrabajo;
 
-    @Column(name = "CarnetConducir", nullable = true, length = 25)//CHECK
+    @Column(name = "CarnetConducir", nullable = true)//CHECK
     Boolean CarnetConducir;
 
-    @Column(name = "TipoCarnetConducir", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "TipoCarnetConducir", nullable = true)//DESPLEGABLE
     String TipoCarnetConducir;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -124,13 +124,13 @@ public class Usuario implements Serializable {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ProfesionObservaciones> profesion_observaciones;
     
-    @Column(name = "SituacionLaboral", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "SituacionLaboral", nullable = true)//DESPLEGABLE
     String SituacionLaboral;
 
-    @Column(name = "UltTrabajo", nullable = true, length = 100)
+    @Column(name = "UltTrabajo", nullable = true)
     String UltTrabajo;
 
-    @Column(name = "PrefLaboral", nullable = true, length = 100)
+    @Column(name = "PrefLaboral", nullable = true)
     String PrefLaboral;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -143,19 +143,19 @@ public class Usuario implements Serializable {
     List<Observaciones> observaciones_datos_laborales;//Son las observaciones referentes a los datos laborales
 
     ///////////////////DATOS DE FORMACION/////////////////
-    @Column(name = "NivelEstudios", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "NivelEstudios", nullable = true)//DESPLEGABLE
     String NivelEstudios;
 
-    @Column(name = "FormacionComp", nullable = true, length = 150)
+    @Column(name = "FormacionComp", nullable = true)
     String FormacionComp;
 
-    @Column(name = "EstaEstudiando", nullable = true, length = 25)//CHECK
+    @Column(name = "EstaEstudiando", nullable = true)//CHECK
     Boolean EstaEstudiando;
 
-    @Column(name = "FracasoEscolar", nullable = true, length = 25)//CHECK
+    @Column(name = "FracasoEscolar", nullable = true)//CHECK
     Boolean FracasoEscolar;
 
-    @Column(name = "CentroEst", nullable = true, length = 100)
+    @Column(name = "CentroEst", nullable = true)
     String CentroEst;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -247,7 +247,7 @@ public class Usuario implements Serializable {
         this.FechaBaja = FechaBaja;
     }
     
-    public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id/*, List<FicheroAdjunto> ficheros_usuario*/) {
+    public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id, List<FicheroAdjunto> ficheros_usuario) {
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
         this.FechaAlta = FechaAlta;
@@ -264,7 +264,7 @@ public class Usuario implements Serializable {
         this.PerteneceMinoria = PerteneceMinoria;
         this.Minoria = Minoria;
         this.observaciones_id = observaciones_id;
-        //this.ficheros_usuario = ficheros_usuario;
+        this.ficheros_usuario = ficheros_usuario;
     }
     
     

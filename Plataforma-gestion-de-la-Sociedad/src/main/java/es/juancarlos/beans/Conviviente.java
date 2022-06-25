@@ -26,7 +26,7 @@ public class Conviviente implements Serializable{
     @Column(name = "NombreApellidos", nullable = false)
     String NombreApellidos;
 
-    @Column(name = "RelacionTitular", nullable = false)
+    @Column(name = "RelacionTitular", nullable = true)
     String RelacionTitular;
 
 }

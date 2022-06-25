@@ -30,25 +30,25 @@ public class UnidadConvivencia implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
 
-    @Column(name = "Denominacion", nullable = false)
+    @Column(name = "Denominacion", nullable = true)
     String Denominacion;
 
-    @Column(name = "Direccion", nullable = false)
+    @Column(name = "Direccion", nullable = true)
     String Direccion;
 
-    @Column(name = "Localidad", nullable = false)
+    @Column(name = "Localidad", nullable = true)
     String Localidad = "Merida";
 
-    @Column(name = "FamiliaMonoparental", nullable = false) //CHECK
+    @Column(name = "FamiliaMonoparental", nullable = true) //CHECK
     Boolean FamiliaMonoparental;
 
-    @Column(name = "SinHogar", nullable = false) //CHECK
+    @Column(name = "SinHogar", nullable = true) //CHECK
     Boolean SinHogar;
 
-    @Column(name = "CosteVivienda", nullable = false)
+    @Column(name = "CosteVivienda", nullable = true)
     float CosteVivienda;//MENSUAL
 
-    @Column(name = "MotivoCoste", nullable = false)
+    @Column(name = "MotivoCoste", nullable = true)
     String MotivoCoste;//ALQUILER, HIPOTECA, VIVIENDA SOCIAL
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -59,10 +59,10 @@ public class UnidadConvivencia implements Serializable{
     @LazyCollection(LazyCollectionOption.FALSE)
     List<FicheroAdjunto> ficheros_unidadconvivencia;
 
-    @Column(name = "IngresosConvivientes", nullable = false)
+    @Column(name = "IngresosConvivientes", nullable = true)
     float IngresosConvivientes;//Suma automatica
 
-    @Column(name = "PersonaTitular", nullable = false)
+    @Column(name = "PersonaTitular", nullable = true)
     String PersonaTitular;
 
     @OneToMany(cascade = CascadeType.ALL)

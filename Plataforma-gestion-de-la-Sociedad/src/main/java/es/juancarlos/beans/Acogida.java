@@ -31,13 +31,13 @@ public class Acogida implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
 
-    @Column(name = "Fecha", nullable = false)
+    @Column(name = "Fecha", nullable = true)
     String Fecha;
 
-    @Column(name = "Trabajador", nullable = false)
+    @Column(name = "Trabajador", nullable = true)
     String Trabajador; //El que atiende
 
-    @Column(name = "Usuario", nullable = false)
+    @Column(name = "Usuario", nullable = true)
     String Usuario;
 
     @Column(name = "ProcedenciaDerivacion", nullable = true)

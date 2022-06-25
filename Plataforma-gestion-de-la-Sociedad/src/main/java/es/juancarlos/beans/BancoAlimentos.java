@@ -30,10 +30,10 @@ public class BancoAlimentos implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int IdTitularUnidadConvivencia;
 
-    @Column(name = "Mes_anio", nullable = false)
+    @Column(name = "Mes_anio", nullable = true)
     String Mes_anio;
 
-    @Column(name = "Asiste", nullable = false)
+    @Column(name = "Asiste", nullable = true)
     Boolean Asiste;
 
     @OneToMany(cascade = CascadeType.ALL)

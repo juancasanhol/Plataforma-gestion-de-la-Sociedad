@@ -30,25 +30,25 @@ public class Alumno implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
 
-    @Column(name = "FechaAlta", nullable = false)
+    @Column(name = "FechaAlta", nullable = true)
     String FechaAlta;
 
-    @Column(name = "FechaBaja", nullable = false)
+    @Column(name = "FechaBaja", nullable = true)
     String FechaBaja;
 
-    @Column(name = "CursoEscolar", nullable = false)
+    @Column(name = "CursoEscolar", nullable = true)
     String CursoEscolar;
 
-    @Column(name = "Promociona", nullable = false)
+    @Column(name = "Promociona", nullable = true)
     Boolean Promociona;
 
-    @Column(name = "Finaliza", nullable = false)
+    @Column(name = "Finaliza", nullable = true)
     Boolean Finaliza;
 
-    @Column(name = "Aprovechamiento", nullable = false)
+    @Column(name = "Aprovechamiento", nullable = true)
     Boolean Aprovechamiento;
 
-    @Column(name = "EmpresaPracticas", nullable = false)
+    @Column(name = "EmpresaPracticas", nullable = true)
     String EmpresaPracticas;
 
     @OneToMany(cascade = CascadeType.ALL)

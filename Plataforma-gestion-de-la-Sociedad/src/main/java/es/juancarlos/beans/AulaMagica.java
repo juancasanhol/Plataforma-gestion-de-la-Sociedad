@@ -30,10 +30,10 @@ public class AulaMagica implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
 
-    @Column(name = "Denominacion", nullable = false)
+    @Column(name = "Denominacion", nullable = true)
     String Denominacion;
 
-    @Column(name = "Profesor", nullable = false)
+    @Column(name = "Profesor", nullable = true)
     String Profesor;
 
     @OneToMany(cascade = CascadeType.ALL)

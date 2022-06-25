@@ -23,16 +23,16 @@ public class CursosFormacion implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
 
-    @Column(name = "NombreCurso", nullable = false)
+    @Column(name = "NombreCurso", nullable = true)
     String NombreCurso;
 
     @Column(name = "TipoCurso", nullable = true)
     String TipoCurso;
 
-    @Column(name = "FechaInicio", nullable = false)
+    @Column(name = "FechaInicio", nullable = true)
     String FechaInicio;
 
-    @Column(name = "FechaFin", nullable = false)
+    @Column(name = "FechaFin", nullable = true)
     String FechaFin;
 
     @Column(name = "OtraInfo", nullable = true, length = 25)//DESPLEGABLE

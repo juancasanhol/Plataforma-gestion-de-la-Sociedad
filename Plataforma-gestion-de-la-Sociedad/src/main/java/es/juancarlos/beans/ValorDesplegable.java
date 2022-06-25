@@ -26,7 +26,7 @@ public class ValorDesplegable implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     
-    @Column(name = "Valor", nullable = false)
+    @Column(name = "Valor", nullable = true)
     String valor;
 
     public ValorDesplegable() {

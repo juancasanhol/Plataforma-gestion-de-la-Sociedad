@@ -24,7 +24,7 @@ public class Perfil implements Serializable{
     @Column(name = "Usuario", nullable = false)
     String Usuario;
 
-    @Column(name = "Password", nullable = false)
+    @Column(name = "Password", nullable = true)
     String Password;
 
 }
