@@ -1,0 +1,28 @@
+body{
+    background-image: url("../img/png/Fondo.png") ;
+    background-size: cover;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-attachment: fixed;/*para el fondo fijo*/
+    /*-webkit-filter: blur(8px);*/
+}
+
+legend{
+
+    font-family: candara;
+
+    font-weight: 900;
+}
+
+.container-fluid{
+    padding-top: 5%;
+}
+
+.imgHome{
+    width: 3em;
+    background-color: white;
+    border-radius: 25%;
+}
+

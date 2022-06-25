@@ -10,7 +10,7 @@ import javax.servlet.http.Part;
  *
  * @author Juan Carlos
  */
-public class GuardarImg {
+public class GuardarFicheros {
     
     /**
      *Clase con  el metodo encargado de nombrar y guardar la imagenes de los equipos 
@@ -25,20 +25,21 @@ public class GuardarImg {
     public static String GuardarImagen(HttpServletRequest request, String savePath, boolean escribir) throws IOException, ServletException {
 
         //Obtiene el archivo desde la petición
-        Part file = request.getPart("imagen");
+        Part file = request.getPart("adj");
         String fileName = file.getSubmittedFileName();
 
         //extrae la extension y el nombre de archivo por separado
-        int dot = fileName.lastIndexOf(".");
-        String fileNameExt = fileName.substring(dot);
+//        int dot = fileName.lastIndexOf(".");
+//        String fileNameExt = fileName.substring(dot);
+//        String fileName= fileName.substring(0,dot);
         
         //se asigna el numerode serie como nombre de la imagen para mayor facilidad a la hora de buscarla
-        String nombre=request.getParameter("idUsuario");
+        //String nombre=request.getParameter("idUsuario");
         
         if(escribir){                
-        file.write(savePath+File.separator+nombre+fileNameExt);
+        file.write(savePath+File.separator+fileName);
         }
-        return nombre+fileNameExt;
+        return fileName;
     }
     
 }
