@@ -8,7 +8,7 @@
     
     <!-- Lista de paginas principales por si alguna fallara -->
     <welcome-file-list>
-        <welcome-file>html/login/Login.html</welcome-file>
+        <welcome-file>html/login/login.html</welcome-file>
     </welcome-file-list>
     
     <context-param>
