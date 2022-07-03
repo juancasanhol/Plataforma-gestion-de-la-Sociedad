@@ -32,18 +32,22 @@
             </div>
         </header>
 
-        <div class="container-fluid text-center">
-            <span class="col-12">Lista de usuarios registrados: </span>
-                    <table class="table" id="ListaUsuarios">
+        <div class="container-fluid ">
+           <b class="col-12"> <span >Lista de usuarios registrados</span></b>
+                    <table class="table table-striped text-left mt-3" id="ListaUsuarios">
                          <!-- AQUI SE VAN AÑADIENDO LOS NOMBRES DE USUARIOS -->
                         <thead id="thead">
-                          
+                          <tr>
+                            <td class="d-none">ID</td>
+                            <td>Nombre</td>
+                            <td>Apellidos</td>
+                        </tr>
                         </thead>
-                        <tbody id="tbody">
+                        <tbody id="tbody" class="text-left bg-info">
                           
                         </tbody>
                       </table>
-           
+                      <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Volver </a>
                     <!-- pie -->
                     <br>
                     <br>

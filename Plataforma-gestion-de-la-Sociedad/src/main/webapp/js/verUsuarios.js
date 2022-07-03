@@ -6,10 +6,12 @@ $(document).ready(function () {
             accion: "VerUsuarios",
         },
         success: function (respuesta) {
-            console.log("Desplegables cargados correctamente");
+            //console.log("Desplegables cargados correctamente");
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
-                $("#ListaUsuarios").append('<tr><td>Numero de identificación: ' + option.id + '</td>&nbsp;&nbsp;&nbsp;<td>Nombre: ' + option.nombre+ '</td>&nbsp;&nbsp;&nbsp;<td>Apellidos: ' + option.apellidos +'</td></tr>');
+                $("#tbody").append('<tr><td class="d-none" >' + option.id + '</td><td>' + option.nombre+ '</td><td>' + option.apellidos +'</td></tr>');
+
+
             });
 
         },

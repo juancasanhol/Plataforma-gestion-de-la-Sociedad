@@ -45,9 +45,11 @@ public class Ajax extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        IAjaxDAO adao =daof.getAjaxDAO();
-        
+        IAjaxDAO adao = daof.getAjaxDAO();
+
         Usuario u;
+        Iterator i;
+        Desplegables d;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
         gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
@@ -85,38 +87,38 @@ public class Ajax extends HttpServlet {
                  */
                 break;
             //ESTA PARTE ES PARA EL Logueo
-                
+
             case "login":
-                
+
                 objeto = new JSONObject();
                 objeto.put("aceso", adao.Login(request.getParameter("usuario"), request.getParameter("passwd")));
 
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
-                
-            break;
-            
+
+                break;
+
             case "addPerfil":
-                gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd")));  
-                
-            break;
-                
+                gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd")));
+
+                break;
+
             //ESTA PARTE ES PARA EL REGISTRO DE UN USUARIO NUEVO
             case "Usuario":
                 //Primero se hace el desplegable para los usuarios de la conferencia y luego los demas
-                List desplegables= new ArrayList();
+                List desplegables = new ArrayList();
                 Iterator it = gdao.get(Usuario.class).iterator();
                 while (it.hasNext()) {
                     u = (Usuario) it.next();
                     objeto = new JSONObject();
-                    objeto.put("usuarios", u.getNombre()+" "+u.getApellidos());
+                    objeto.put("usuarios", u.getNombre() + " " + u.getApellidos());
                     desplegables.add(objeto);
 
                 }
                 it = gdao.get(Desplegables.class).iterator();
                 while (it.hasNext()) {
                     //Tipo de documento identificativo
-                    Desplegables d = (Desplegables) it.next();
+                    d = (Desplegables) it.next();
                     if (d.getNombre().equals("TipoDocumentoIdentificativo")) {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
@@ -167,9 +169,10 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
+
             case "VerUsuarios":
                 List usuarios = new ArrayList();
-                Iterator i = gdao.get(Usuario.class).iterator();
+                i = gdao.get(Usuario.class).iterator();
                 while (i.hasNext()) {
                     u = (Usuario) i.next();
                     objeto = new JSONObject();
@@ -181,6 +184,48 @@ public class Ajax extends HttpServlet {
                 arrayJSON = new JSONArray(usuarios);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
+                break;
+
+            case "VerDesplegables":
+                List desplegable = new ArrayList();
+                i = gdao.get(Desplegables.class).iterator();
+                while (i.hasNext()) {
+                    d = (Desplegables) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("nombre", d.getNombre());
+
+                    desplegable.add(objeto);
+                }
+                arrayJSON = new JSONArray(desplegable);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                
+                        
+            case "VerValoresDesplegables":
+                List valores = new ArrayList();
+                
+                d = (Desplegables) gdao.getById(request.getParameter("nombre"),Desplegables.class);
+                i=d.getValores().iterator();
+                while (i.hasNext()) {
+                    ValorDesplegable v = (ValorDesplegable) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("nombre", d.getNombre());
+                    objeto.put("valor", v.getValor());
+                    valores.add(objeto);
+                }
+                arrayJSON = new JSONArray(valores);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                
+                case "addValoresDesplegables":                
+                d = (Desplegables) gdao.getById(request.getParameter("nombre"),Desplegables.class);
+                d.getValores().add(new ValorDesplegable(request.getParameter("valor")));
+                
+                gdao.insertOrUpdate(d);
+                
+                
                 break;
         }
 
