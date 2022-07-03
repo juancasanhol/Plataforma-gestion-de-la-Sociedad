@@ -227,6 +227,36 @@ public class Ajax extends HttpServlet {
                 
                 
                 break;
+                
+                case "delValoresDesplegables":  
+                String val=request.getParameter("nombreD");
+                String[]valoresD=val.split("-");
+
+                d=(Desplegables) gdao.getById(valoresD[0], Desplegables.class);
+                
+                i=d.getValores().iterator();
+                while (i.hasNext()) {
+                    ValorDesplegable v = (ValorDesplegable) i.next();
+                    if(v.getValor().equals(valoresD[1])){
+                        d.getValores().remove(v);
+                        gdao.delete(v);
+                        break;
+                    }
+                }
+                
+                gdao.insertOrUpdate(d);
+                
+                
+                break;
+                
+                case "delDValoresDesplegables":  
+
+                d=(Desplegables) gdao.getById(request.getParameter("nombreD"), Desplegables.class);
+
+                gdao.delete(d);
+                
+                break;
+                
         }
 
     }
