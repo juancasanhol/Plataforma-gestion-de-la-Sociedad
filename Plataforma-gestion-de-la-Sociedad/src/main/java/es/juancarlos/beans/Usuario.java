@@ -82,7 +82,7 @@ public class Usuario implements Serializable {
     List<FicheroAdjunto> ficheros_usuario;
 
     ///////////////////DATOS SANITARIOS/////////////////
-   /* @Column(name = "SolicitaAyudaFarmaceutica", nullable = true)//CHECK
+    @Column(name = "SolicitaAyudaFarmaceutica", nullable = true)//CHECK
     Boolean SolicitaAyudaFarmaceutica;
 
     @Column(name = "TratSanitario", nullable = true)
@@ -99,6 +99,7 @@ public class Usuario implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
+    @JoinColumn(name = "id_obs_sanitarias")
     List<Observaciones> observaciones_sanitarias;
 
     ///////////////////DATOS LABORALES/////////////////
@@ -140,6 +141,7 @@ public class Usuario implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
+    @JoinColumn(name = "id_obs_datoslaborales")
     List<Observaciones> observaciones_datos_laborales;//Son las observaciones referentes a los datos laborales
 
     ///////////////////DATOS DE FORMACION/////////////////
@@ -160,6 +162,7 @@ public class Usuario implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
+    @JoinColumn(name = "id_obs_formacion")
     List<Observaciones> observaciones_formacion;//Son las observaciones referentes a los datos de formacion
 
     ///////////////////INGRESOS/////////////////
@@ -171,6 +174,7 @@ public class Usuario implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
+    @JoinColumn(name = "id_obs_ingresos")
     List<Observaciones> observaciones_ingresos;//Son las observaciones referentes a los ingresos
 
     //DATOS DE LA FICHA DE UNIDAD DE CONVIVENCIA, LOS CUALES NO SON OBLIGATORIOS TENER
@@ -198,6 +202,7 @@ public class Usuario implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
+    @JoinColumn(name = "id_obs_fichaconvivencia")
     List<Observaciones> observaciones_ficha_convivencia;//Son las observaciones referentes a la ficha de convivencia
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -230,8 +235,9 @@ public class Usuario implements Serializable {
     //LISTA DE TIPOS DE SERVICIO Y OBSERVACIONES
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
+    @JoinColumn(name = "id_obs_orientacion")
     List<Observaciones> observaciones_orientacion;//Son las observaciones referentes a orientacion laboral
-*/
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     public Usuario() {
     }

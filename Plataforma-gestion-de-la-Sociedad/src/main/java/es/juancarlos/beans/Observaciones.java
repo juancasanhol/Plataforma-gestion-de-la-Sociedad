@@ -34,7 +34,7 @@ public class Observaciones implements Serializable {
     @Column(name = "fecha", nullable = true)
     public String fecha;
 
-    @Column(name = "autor", nullable = false)
+    @Column(name = "autor", nullable = true)
     public String autor;
 
     public Observaciones() {

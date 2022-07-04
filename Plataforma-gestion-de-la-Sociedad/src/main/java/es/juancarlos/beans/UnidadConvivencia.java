@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
@@ -57,6 +58,7 @@ public class UnidadConvivencia implements Serializable{
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
+    @JoinColumn(name = "id_fichero")
     List<FicheroAdjunto> ficheros_unidadconvivencia;
 
     @Column(name = "IngresosConvivientes", nullable = true)
