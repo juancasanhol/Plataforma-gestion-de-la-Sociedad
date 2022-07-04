@@ -1,6 +1,7 @@
 package es.juancarlos.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
@@ -52,7 +54,7 @@ public class Usuario implements Serializable {
 
     @Column(name = "PersonaReferencia", nullable = true)//DESPLEGABLE
     String PersonaReferencia;
-    
+
     @Column(name = "Sexo", nullable = true)//DESPLEGABLE
     String Sexo;
 
@@ -78,9 +80,9 @@ public class Usuario implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<FicheroAdjunto> ficheros_usuario;
-    /*
+
     ///////////////////DATOS SANITARIOS/////////////////
-    @Column(name = "SolicitaAyudaFarmaceutica", nullable = true)//CHECK
+   /* @Column(name = "SolicitaAyudaFarmaceutica", nullable = true)//CHECK
     Boolean SolicitaAyudaFarmaceutica;
 
     @Column(name = "TratSanitario", nullable = true)
@@ -95,10 +97,10 @@ public class Usuario implements Serializable {
     @Column(name = "GradoDiscapacidad", nullable = true)//DESPLEGABLE
     String GradoDiscapacidad;
 
-   @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_sanitarias;
-    
+
     ///////////////////DATOS LABORALES/////////////////
     @Column(name = "PermisoResidencia", nullable = true)//CHECK
     Boolean PermisoResidencia;
@@ -116,12 +118,12 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "id_valor")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> otros_carnets;
-    
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_profesionobservaciones")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ProfesionObservaciones> profesion_observaciones;
-    
+
     @Column(name = "SituacionLaboral", nullable = true)//DESPLEGABLE
     String SituacionLaboral;
 
@@ -135,7 +137,7 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "id_valor")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> bolsa_trabajo;
-    
+
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_datos_laborales;//Son las observaciones referentes a los datos laborales
@@ -201,7 +203,7 @@ public class Usuario implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<FicheroAdjunto> ficheros_unidadconvivencia;
-    
+
     //SUMA DE INGRESOS DE LOS CONVIVIENTES (SE CALCULA SOLO)
     //DATOS DEL BANCO DE ALIMENTOS
     @Column(name = "EstaBanco", nullable = true)//CHECK
@@ -212,7 +214,7 @@ public class Usuario implements Serializable {
 
     @Column(name = "FechaBaja_BancoAlimentos", nullable = true)
     String FechaBaja_BancoAlimentos;
-    
+
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<BancoAlimentos> lista_recogidas;
@@ -228,8 +230,9 @@ public class Usuario implements Serializable {
     //LISTA DE TIPOS DE SERVICIO Y OBSERVACIONES
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<Observaciones> observaciones_orientaciona;//Son las observaciones referentes a orientacion laboral
-    */
+    List<Observaciones> observaciones_orientacion;//Son las observaciones referentes a orientacion laboral
+*/
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
     public Usuario() {
     }
 
@@ -238,13 +241,13 @@ public class Usuario implements Serializable {
         this.Apellidos = Apellidos;
     }
 
-    public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja){
+    public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja) {
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
         this.FechaAlta = FechaAlta;
         this.FechaBaja = FechaBaja;
     }
-    
+
     public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id, List<FicheroAdjunto> ficheros_usuario) {
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
@@ -263,9 +266,18 @@ public class Usuario implements Serializable {
         this.Minoria = Minoria;
         this.observaciones_id = observaciones_id;
         this.ficheros_usuario = ficheros_usuario;
+        //Todas estas listas se crean ahora para que a la hora de añadir o editar los datos no haya que crearlas
+        /*Observaciones obs = new Observaciones();
+        this.observaciones_sanitarias = new ArrayList<Observaciones>();
+        this.observaciones_sanitarias.add(obs);
+        this.profesion_observaciones = new ArrayList<ProfesionObservaciones>();
+        this.observaciones_datos_laborales = new ArrayList<Observaciones>();
+        this.observaciones_formacion = new ArrayList<Observaciones>();
+        this.observaciones_ingresos = new ArrayList<Observaciones>();
+        this.observaciones_ficha_convivencia = new ArrayList<Observaciones>();
+        this.observaciones_orientacion = new ArrayList<Observaciones>();
+        this.lista_recogidas = new ArrayList<BancoAlimentos>();*/
     }
-    
-    
 
     public int getNumIntId() {
         return NumIntId;

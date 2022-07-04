@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Usuario</title>
+    <title>EditarUsuario</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,12 +35,12 @@
     <div class="container-fluid">
 
         <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
-        <form action="../../RegistroUsuario" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
+        <form action="../../EditarUsuario" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
             <!--El numero interno de identificacion se genera solo-->
             <div class="col-3">
 
                 <legend >Nombre: </legend>
-                <input required type="text" name="Nombre"><br>
+                <input required type="text" id="Nombre" name="Nombre"><br>
 
                 <legend class="mt-3">Tipo de documento identificativo: </legend>
                 <input id="TipoDoc" type="text" name="TipoDoc" list="DesplegablesTipoDoc"> <br>
@@ -79,8 +79,6 @@
                 <legend class="mt-2">¿Pertenece a una minoría? </legend>
                 <input class="mb-3" type="checkbox" name="PerteneceMinoria"><br>
 
-                <legend class="mt-2">Ficheros Adjuntos: </legend>
-                <input type="file" id="Fichero" name="Fichero"><br>
 
             </div>
 
@@ -88,7 +86,6 @@
 
                 <legend class="mt-2">Fecha de alta: </legend>
                 <input type="datetime-local" name="FechaAlta"><br>
-
 
                 <legend class="mt-3">Telefono: </legend>
                 <input type="tel" name="Telefono"><br>
@@ -116,14 +113,52 @@
                 <datalist id="DesplegablesPaisOrigen">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
-
-                <legend class="mt-2">Observaciones: </legend>
-                <textarea cols="30" name="Observaciones"></textarea><br>
                 
             </div>
+            
+            <!--DATOS SANITARIOS-->
+            
+            <div class="col-3">
 
+                <legend class="mt-2">¿Solicita ayuda farmaceútica? </legend>
+                <input class="mb-3" type="checkbox" name="SolicitaAyudaFarmaceutica"><br>
+                
+                <legend class="mt-2">Tipo de discapacidad: </legend>
+                <input  type="text" name="TipoDiscapacidad" list="DesplegablesTipoDiscapacidad"><br>
+                <datalist id="DesplegablesTipoDiscapacidad">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </datalist>
+
+
+            </div>
+
+            <div class="col-3">
+                
+                <legend>Tratamiento sanitario: </legend>
+                <input required type="text" name="TratSanitario"><br>
+
+                <legend class="mt-2">Grado de discapacidad: </legend>
+                <input  type="text" name="GradoDiscapacidad" list="DesplegablesGradoDiscapacidad"><br>
+                <datalist id="DesplegablesGradoDiscapacidad">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </datalist>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">¿Drogodependencia? </legend>
+                <input class="mb-3" type="checkbox" name="Drogodependencia"><br>
+                
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesSanitarias"></textarea><br>
+
+
+            </div>
+            
+            
             <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" type="submit" value="Registrar Usuario" title="Registrar al usuario.">
+                <input class="col-4 btn btn-primary" type="submit" value="Editar Usuario" title="Editar el usuario.">
                 <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
             </div>
 
@@ -267,6 +302,8 @@
     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
     <script src="../../js/desplegablesRegistroUsuario.js"></script> 
+    <script src="../../js/desplegablesDatosSanitarios.js"></script>
+    <script src="../../js/editarUsuario.js"></script>
 </body>
 
 </html>
