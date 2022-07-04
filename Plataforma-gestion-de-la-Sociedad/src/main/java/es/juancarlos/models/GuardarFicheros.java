@@ -29,6 +29,10 @@ public class GuardarFicheros {
         Part file = request.getPart(nombreFichero);
         String fileName = file.getSubmittedFileName();
         File f = new File(savePath + File.separator + nombreGuardado);
+        File carpeta = new File(savePath);
+        if (!carpeta.exists()) {
+            carpeta.mkdir();
+        }
         //extrae extension
         int dot = fileName.lastIndexOf(".");
         String fileNameExt = fileName.substring(dot);
