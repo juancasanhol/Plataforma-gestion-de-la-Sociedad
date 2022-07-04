@@ -9,6 +9,7 @@ import es.juancarlos.models.GuardarFicheros;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -54,14 +55,15 @@ public class RegistroUsuario extends HttpServlet {
         }
         observaciones.add(observacion);
         List<FicheroAdjunto> ficheros = new ArrayList<FicheroAdjunto>();
-        if (request.getParameter("Fichero")!=null) {
+        try{
             FicheroAdjunto f = new FicheroAdjunto(GuardarFicheros.GuardarFichero(request, getServletContext().getRealPath(getServletContext().getInitParameter("rutaFicheros")), "Fichero", request.getParameter("Nombre") + "_" + request.getParameter("Apellidos")), false);
             ficheros.add(f);
         }
+        catch(Exception e){
+            //No hay fichero para hacer el submit
+            //He usado try catch porque para comprobar si hay fichero o no no sirve con comaprar el campo a null
+        }
         gdao.insertOrUpdate(new Usuario(request.getParameter("Nombre"), request.getParameter("Apellidos"), request.getParameter("FechaAlta"), request.getParameter("FechaBaja"), request.getParameter("TipoDoc"), request.getParameter("NumDoc"), request.getParameter("Telefono"), request.getParameter("Correo"), request.getParameter("PersonaReferencia"), request.getParameter("Sexo"), request.getParameter("FechaNac"), request.getParameter("PaisOrigen"), request.getParameter("Nacionalidad"), minoria, request.getParameter("Minoria"), observaciones, ficheros));
-        /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
-        gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
-        gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
 
     }
 
