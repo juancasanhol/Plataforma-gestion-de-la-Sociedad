@@ -167,7 +167,7 @@ public class Usuario implements Serializable {
 
     ///////////////////INGRESOS/////////////////
     @Column(name = "Importe", nullable = true)
-    int Importe;
+    float Importe;
 
     @Column(name = "OrigenIngresos", nullable = true)//DESPLEGABLE
     String OrigenIngresos;
@@ -178,7 +178,7 @@ public class Usuario implements Serializable {
     List<Observaciones> observaciones_ingresos;//Son las observaciones referentes a los ingresos
 
     //DATOS DE LA FICHA DE UNIDAD DE CONVIVENCIA, LOS CUALES NO SON OBLIGATORIOS TENER
-    //Nº interno de indentificacion, que ya se tiene
+    
     @Column(name = "Denominacion", nullable = true)
     String Denominacion;
 
@@ -195,7 +195,7 @@ public class Usuario implements Serializable {
     Boolean SinHogar;
 
     @Column(name = "CosteVivienda", nullable = true)
-    String CosteVivienda;//Al mes
+    float CosteVivienda;//Al mes
 
     @Column(name = "MotivoCoste", nullable = true)//DESPLEGABLE
     String MotivoCoste;
@@ -210,6 +210,8 @@ public class Usuario implements Serializable {
     List<FicheroAdjunto> ficheros_unidadconvivencia;
 
     //SUMA DE INGRESOS DE LOS CONVIVIENTES (SE CALCULA SOLO)
+    
+
     //DATOS DEL BANCO DE ALIMENTOS
     @Column(name = "EstaBanco", nullable = true)//CHECK
     Boolean EstaBanco;
@@ -273,9 +275,7 @@ public class Usuario implements Serializable {
         this.observaciones_id = observaciones_id;
         this.ficheros_usuario = ficheros_usuario;
         //Todas estas listas se crean ahora para que a la hora de añadir o editar los datos no haya que crearlas
-        /*Observaciones obs = new Observaciones();
-        this.observaciones_sanitarias = new ArrayList<Observaciones>();
-        this.observaciones_sanitarias.add(obs);
+        /*this.observaciones_sanitarias = new ArrayList<Observaciones>();
         this.profesion_observaciones = new ArrayList<ProfesionObservaciones>();
         this.observaciones_datos_laborales = new ArrayList<Observaciones>();
         this.observaciones_formacion = new ArrayList<Observaciones>();

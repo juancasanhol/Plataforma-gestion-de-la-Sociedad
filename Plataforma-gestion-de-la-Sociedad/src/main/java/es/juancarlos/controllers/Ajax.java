@@ -175,7 +175,6 @@ public class Ajax extends HttpServlet {
                 desplegables = new ArrayList();
                 it = gdao.get(Desplegables.class).iterator();
                 while (it.hasNext()) {
-                    //Tipo de discapacidad
                     d = (Desplegables) it.next();
                     if (d.getNombre().equals("TipoDiscapacidad")) {
                         List<ValorDesplegable> lista = d.getValores();
@@ -200,8 +199,97 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
+                case "DatosLaborales":
+                //PARA LOS DESPLEGABLES DE LOS DATOS LABORALES
+                desplegables = new ArrayList();
+                it = gdao.get(Desplegables.class).iterator();
+                while (it.hasNext()) {
+                    d = (Desplegables) it.next();
+                    if (d.getNombre().equals("TipoCarnetConducir")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("tipocarnetconducir", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    if (d.getNombre().equals("SituacionLaboral")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("situacionlaboral", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                case "DatosFormacion":
+                //PARA LOS DESPLEGABLES DE LOS DATOS DE FORMACION
+                desplegables = new ArrayList();
+                it = gdao.get(Desplegables.class).iterator();
+                while (it.hasNext()) {
+                    d = (Desplegables) it.next();
+                    if (d.getNombre().equals("NivelEstudios")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("nivelestudios", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                case "Ingresos":
+                //PARA LOS DESPLEGABLES DE LOS INGRESOS
+                desplegables = new ArrayList();
+                it = gdao.get(Desplegables.class).iterator();
+                while (it.hasNext()) {
+                    d = (Desplegables) it.next();
+                    if (d.getNombre().equals("OrigenIngresos")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("origeningresos", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                case "UnidadConvivencia":
+                //PARA LOS DESPLEGABLES DE LA FICHA DE UNIDAD DE CONVIVENCIA
+                desplegables = new ArrayList();
+                it = gdao.get(Desplegables.class).iterator();
+                while (it.hasNext()) {
+                    d = (Desplegables) it.next();
+                    if (d.getNombre().equals("MotivoCoste")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("motivocoste", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
             case "EditarUsuario":
-                //PARA LOS DESPLEGABLES DE LOS DATOS SANITARIOS
+                //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
                 break;
             case "VerUsuarios":
                 List usuarios = new ArrayList();

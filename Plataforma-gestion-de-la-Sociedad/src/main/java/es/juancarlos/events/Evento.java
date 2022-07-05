@@ -41,6 +41,7 @@ public class Evento implements ServletContextListener {
         List<ValorDesplegable> lista5 = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> lista6 = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> lista7 = new ArrayList<ValorDesplegable>();
+        List<ValorDesplegable> lista8 = new ArrayList<ValorDesplegable>();
         ValorDesplegable vd = new ValorDesplegable("DNI");
         lista1.add(vd);
         vd = new ValorDesplegable("Driving license");
@@ -93,6 +94,12 @@ public class Evento implements ServletContextListener {
         lista7.add(vd);
         vd = new ValorDesplegable("Demasiado");
         lista7.add(vd);
+        vd = new ValorDesplegable("Parado");
+        lista8.add(vd);
+        vd = new ValorDesplegable("Contrato indefinido");
+        lista8.add(vd);
+        vd = new ValorDesplegable("Contrato temporal");
+        lista8.add(vd);
         gdao.insertOrUpdate(new Usuario("Gonzalo De Guei","Puto Subnormal"));
         gdao.insertOrUpdate(new Usuario("Iker","Casillas"));
         gdao.insertOrUpdate(new Usuario("Dolores Crotal","Fuertes de Barriga"));
@@ -109,7 +116,7 @@ public class Evento implements ServletContextListener {
         gdao.insertOrUpdate(new Desplegables("TipoCarnetConducir", lista));
         gdao.insertOrUpdate(new Desplegables("OtrosCarnets", lista));
         gdao.insertOrUpdate(new Desplegables("Profesion", lista));
-        gdao.insertOrUpdate(new Desplegables("SituacionLaboral", lista));
+        gdao.insertOrUpdate(new Desplegables("SituacionLaboral", lista8));
         gdao.insertOrUpdate(new Desplegables("BolsaTrabajo", lista));
         gdao.insertOrUpdate(new Desplegables("NivelEstudios", lista));
         gdao.insertOrUpdate(new Desplegables("OrigenIngresos", lista));
