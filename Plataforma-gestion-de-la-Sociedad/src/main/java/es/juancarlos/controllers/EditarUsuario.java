@@ -1,21 +1,14 @@
 package es.juancarlos.controllers;
 
-import es.juancarlos.beans.FicheroAdjunto;
-import es.juancarlos.beans.Observaciones;
-import es.juancarlos.beans.Usuario;
-import es.juancarlos.daofactory.DAOFactory;
-import es.juancarlos.interfaces.IGenericoDAO;
-import es.juancarlos.models.GuardarFicheros;
-import java.io.File;
+
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -23,7 +16,6 @@ import org.json.JSONObject;
  *
  * @author Juan Carlos Sánchez Holguín
  */
-@MultipartConfig
 @WebServlet(name = "EditarUsuario", urlPatterns = {"/EditarUsuario"})
 public class EditarUsuario extends HttpServlet {
 
@@ -43,10 +35,12 @@ public class EditarUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        request.getAuthType();
+        if(request.getParameter("id")!=null){
+        log("ID DE SESION "+request.getParameter("id"));
+        request.getSession().setAttribute("id", request.getParameter("id"));
+        }
+        response.sendRedirect("./html/usuario/EditarUsuario.html");
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

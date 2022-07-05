@@ -290,7 +290,15 @@ public class Ajax extends HttpServlet {
                 break;
             case "VerDatosUsuario":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
-                
+                u = (Usuario) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()),Usuario.class);
+                objeto = new JSONObject();
+                objeto.put("id", u.getNumIntId());
+                objeto.put("nombre", u.getNombre());
+                objeto.put("fechaalta",u.getFechaAlta());
+                log("NOMBRE "+u.getNombre());
+                objeto.put("apellidos", u.getApellidos());
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
                 break;
             case "VerUsuarios":
                 List usuarios = new ArrayList();

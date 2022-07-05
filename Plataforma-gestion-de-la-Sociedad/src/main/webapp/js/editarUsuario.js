@@ -3,15 +3,14 @@ $(document).ready(function () {
         type: "post",
         url: "../../Ajax",
         data: {
-            accion: "EditarUsuario",
+            accion: "VerDatosUsuario",
         },
         success: function (respuesta) {
             console.log("Desplegables cargados correctamente");
-            //$.each(respuesta, function (i, option) {
                 //console.log("buena");
-                $("#Nombre").val('ANTONIO');
-           // });
-
+                $("#Nombre").val(respuesta.nombre);
+                $("#Apellidos").val(respuesta.apellidos);
+                $("#FechaAlta").val(respuesta.fechaalta);
         },
         error: function () {
             console.log("ERROR CARGANDO DESPLEGABLES");

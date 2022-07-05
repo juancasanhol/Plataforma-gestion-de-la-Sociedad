@@ -308,11 +308,11 @@ public class Usuario implements Serializable {
     public void setApellidos(String Apellidos) {
         this.Apellidos = Apellidos;
     }
-    /*
-    public Date getFechaAlta() {
+    
+    public String getFechaAlta() {
         return FechaAlta;
     }
-
+    /*
     public void setFechaAlta(Date FechaAlta) {
         this.FechaAlta = FechaAlta;
     }
