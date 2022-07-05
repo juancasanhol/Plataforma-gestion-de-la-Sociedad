@@ -288,8 +288,9 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-            case "EditarUsuario":
+            case "VerDatosUsuario":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
+                
                 break;
             case "VerUsuarios":
                 List usuarios = new ArrayList();

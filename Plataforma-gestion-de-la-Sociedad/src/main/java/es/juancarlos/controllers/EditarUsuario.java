@@ -44,22 +44,7 @@ public class EditarUsuario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        DAOFactory daof = DAOFactory.getDAOFactory();
-        IGenericoDAO gdao = daof.getGenericoDAO();
-        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), "ADMIN");
-        Boolean minoria = false;
-        List<Observaciones> observaciones = new ArrayList<Observaciones>();
-        if (request.getParameter("PerteneceMinoria") != null) {
-            minoria = true;
-        }
-        observaciones.add(observacion);
-        List<FicheroAdjunto> ficheros = new ArrayList<FicheroAdjunto>();
-        if (request.getParameter("PerteneceMinoria") != null) {
-            FicheroAdjunto f = new FicheroAdjunto(GuardarFicheros.GuardarFichero(request, getServletContext().getRealPath(getServletContext().getInitParameter("rutaFicheros")), "Fichero", request.getParameter("Nombre") + "_" + request.getParameter("Apellidos")), false);
-            ficheros.add(f);
-        }
-        gdao.insertOrUpdate(new Usuario(request.getParameter("Nombre"), request.getParameter("Apellidos"), request.getParameter("FechaAlta"), request.getParameter("FechaBaja"), request.getParameter("TipoDoc"), request.getParameter("NumDoc"), request.getParameter("Telefono"), request.getParameter("Correo"), request.getParameter("PersonaReferencia"), request.getParameter("Sexo"), request.getParameter("FechaNac"), request.getParameter("PaisOrigen"), request.getParameter("Nacionalidad"), minoria, request.getParameter("Minoria"), observaciones, ficheros));
-
+        request.getAuthType();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
