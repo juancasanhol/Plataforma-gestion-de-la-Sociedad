@@ -49,13 +49,13 @@
                 </datalist><br>
 
                 <legend class="mt-2">Persona de referencia: </legend>
-                <input type="text" name="PersonaReferencia" list="DesplegablesPersonaReferencia"> <br>
+                <input id="PersonaReferencia" type="text" name="PersonaReferencia" list="DesplegablesPersonaReferencia"> <br>
                 <datalist id="DesplegablesPersonaReferencia">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist><br>
 
                 <legend class="mt-2">Nacionalidad: </legend>
-                <input type="text" name="Nacionalidad" list="DesplegablesNacionalidad"> <br>
+                <input id="Nacionalidad" type="text" name="Nacionalidad" list="DesplegablesNacionalidad"> <br>
                 <datalist id="DesplegablesNacionalidad">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist><br>
@@ -68,16 +68,16 @@
                 <input required type="text"  id="Apellidos" name="Apellidos"><br>
 
                 <legend class="mt-3">Número del documento: </legend>
-                <input type="text" name="NumDoc"><br>
+                <input type="text" id="NumDoc" name="NumDoc"><br>
 
                 <legend class="mt-2">Sexo: </legend>
-                <input type="text" name="Sexo" list="DesplegablesSexo"> <br>
+                <input id="Sexo" type="text" name="Sexo" list="DesplegablesSexo"> <br>
                 <datalist id="DesplegablesSexo">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
 
                 <legend class="mt-2">¿Pertenece a una minoría? </legend>
-                <input class="mb-3" type="checkbox" name="PerteneceMinoria"><br>
+                <input class="mb-3" type="checkbox" id="PerteneceMinoria" name="PerteneceMinoria"><br>
 
 
             </div>
@@ -88,13 +88,13 @@
                 <input type="datetime-local" id="FechaAlta" name="FechaAlta"><br>
 
                 <legend class="mt-3">Telefono: </legend>
-                <input type="tel" name="Telefono"><br>
+                <input type="tel" id="Telefono" name="Telefono"><br>
 
                 <legend class="mt-2">Fecha de macimiento: </legend>
-                <input type="datetime-local" name="FechaNac"><br>
+                <input type="datetime-local" id="FechaNac" name="FechaNac"><br>
 
                 <legend class="mt-2">Minoría: </legend>
-                <input type="text" name="Minoria" list="DesplegablesMinoria"> <br>
+                <input id="Minoria" type="text" name="Minoria" list="DesplegablesMinoria"> <br>
                 <datalist id="DesplegablesMinoria"><br>
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
@@ -103,13 +103,13 @@
             <div class="col-3">
 
                 <legend>Fecha de baja: </legend>
-                <input type="datetime-local" name="FechaBaja"><br>
+                <input type="datetime-local" id="FechaBaja" name="FechaBaja"><br>
 
                 <legend class="mt-3">Correo: </legend>
-                <input type="email" name="Correo"><br>
+                <input type="email" id="Correo" name="Correo"><br>
 
                 <legend class="mt-2">País de origen: </legend>
-                <input  type="text" name="PaisOrigen" list="DesplegablesPaisOrigen"><br>
+                <input  id="PaisOrigen" type="text" name="PaisOrigen" list="DesplegablesPaisOrigen"><br>
                 <datalist id="DesplegablesPaisOrigen">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
@@ -122,10 +122,10 @@
             <div class="col-3">
 
                 <legend class="mt-2">¿Solicita ayuda farmaceútica? </legend>
-                <input class="mb-3" type="checkbox" name="SolicitaAyudaFarmaceutica"><br>
+                <input class="mb-3" type="checkbox" id="SolicitaAyudaFarmaceutica" name="SolicitaAyudaFarmaceutica"><br>
                 
                 <legend class="mt-2">Grado de discapacidad: </legend>
-                <input  type="text" name="GradoDiscapacidad" list="DesplegablesGradoDiscapacidad"><br>
+                <input  id="GradoDiscapacidad" type="text" name="GradoDiscapacidad" list="DesplegablesGradoDiscapacidad"><br>
                 <datalist id="DesplegablesGradoDiscapacidad">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
@@ -135,20 +135,20 @@
             <div class="col-3">
                 
                 <legend>Tratamiento sanitario: </legend>
-                <input type="text" name="TratSanitario"><br>
+                <input type="text" id="TratSanitario" name="TratSanitario"><br>
 
             </div>
 
             <div class="col-3">
 
                 <legend class="mt-2">¿Drogodependencia? </legend>
-                <input class="mb-3" type="checkbox" name="Drogodependencia"><br>
+                <input class="mb-3" type="checkbox" id="Drogodependencia" name="Drogodependencia"><br>
 
             </div>
             <div class="col-3">
                 
                 <legend class="mt-2">Tipo de discapacidad: </legend>
-                <input  type="text" name="TipoDiscapacidad" list="DesplegablesTipoDiscapacidad"><br>
+                <input  id="TipoDiscapacidad" type="text" name="TipoDiscapacidad" list="DesplegablesTipoDiscapacidad"><br>
                 <datalist id="DesplegablesTipoDiscapacidad">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
@@ -159,10 +159,10 @@
             <div class="col-3">
 
                 <legend class="mt-2">¿Permiso de residencia? </legend>
-                <input class="mb-3" type="checkbox" name="PermisoResidencia"><br>
+                <input class="mb-3" type="checkbox" id="PermisoResidencia" name="PermisoResidencia"><br>
                 
                 <legend class="mt-2">Situacion laboral: </legend>
-                <input  type="text" name="SituacionLaboral" list="DesplegablesSituacionLaboral"><br>
+                <input  id="SituacionLaboral" type="text" name="SituacionLaboral" list="DesplegablesSituacionLaboral"><br>
                 <datalist id="DesplegablesSituacionLaboral">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist> 
@@ -172,27 +172,27 @@
             <div class="col-3">
 
                 <legend class="mt-2">¿Permiso de trabajo? </legend>
-                <input class="mb-3" type="checkbox" name="PermisoTrabajo"><br>
+                <input class="mb-3" type="checkbox" id="PermisoTrabajo" name="PermisoTrabajo"><br>
 
                 <legend>Último trabajo: </legend>
-                <input type="text" name="UltTrabajo"><br>
+                <input type="text" id="UltTrabajo" name="UltTrabajo"><br>
                 
             </div>
             
             <div class="col-3">
 
                 <legend class="mt-2">¿Carnet de conducir? </legend>
-                <input class="mb-3" type="checkbox" name="CarnetConducir"><br>
+                <input class="mb-3" type="checkbox" id="CarnetConducir" name="CarnetConducir"><br>
                 
                 <legend>Preferencia laboral: </legend>
-                <input type="text" name="PrefLaboral"><br>
+                <input type="text" id="PrefLaboral" name="PrefLaboral"><br>
 
             </div>
             
             <div class="col-3">
                 
                 <legend class="mt-2">Tipo carnet de conducir: </legend>
-                <input  type="text" name="TipoCarnetConducir" list="DesplegablesTipoCarnetConducir"><br>
+                <input  id="TipoCarnetConducir" type="text" name="TipoCarnetConducir" list="DesplegablesTipoCarnetConducir"><br>
                 <datalist id="DesplegablesTipoCarnetConducir">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
@@ -204,34 +204,34 @@
             <div class="col-3">
 
                 <legend class="mt-2">Nivel de estudios: </legend>
-                <input  type="text" name="NivelEstudios" list="DesplegablesNivelEstudios"><br>
+                <input  id="NivelEstudios" type="text" name="NivelEstudios" list="DesplegablesNivelEstudios"><br>
                 <datalist id="DesplegablesNivelEstudios">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
 
                 <legend>Centro de estudios: </legend>
-                <input type="text" name="CentroEst"><br>
+                <input type="text" id="CentroEst" name="CentroEst"><br>
                 
             </div>
             
             <div class="col-3">
 
                 <legend>Formación complementaria: </legend>
-                <input type="text" name="FormacionComp"><br>
+                <input type="text" id="FormacionComp" name="FormacionComp"><br>
                 
             </div>
             
             <div class="col-3">
 
                 <legend class="mt-2">¿Está estudiando? </legend>
-                <input class="mb-3" type="checkbox" name="EstaEstudiando"><br>
+                <input class="mb-3" type="checkbox" id="EstaEstudiando" name="EstaEstudiando"><br>
 
             </div>
             
             <div class="col-3">
 
                 <legend class="mt-2">¿Fracaso escolar? </legend>
-                <input class="mb-3" type="checkbox" name="FracasoEscolar"><br>
+                <input class="mb-3" type="checkbox" id="FracasoEscolar" name="FracasoEscolar"><br>
 
             </div>
             
@@ -241,14 +241,14 @@
             <div class="col-3">
 
                 <legend>Importe: </legend>
-                <input type="text" name="Importe"><br>
+                <input type="text" id="Importe" name="Importe"><br>
                 
             </div>
             
             <div class="col-3">
 
                 <legend class="mt-2">Origen de ingresos: </legend>
-                <input  type="text" name="OrigenIngresos" list="DesplegablesOrigenIngresos"><br>
+                <input  id="OrigenIngresos" type="text" name="OrigenIngresos" list="DesplegablesOrigenIngresos"><br>
                 <datalist id="DesplegablesOrigenIngresos">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
@@ -268,30 +268,30 @@
             <div class="col-3">
 
                 <legend>Denominación: </legend>
-                <input type="text" name="Denominacion"><br>
+                <input type="text" id="Denominacion" name="Denominacion"><br>
                 
                 <legend class="mt-2">¿Sin hogar? </legend>
-                <input class="mb-3" type="checkbox" name="SinHogar"><br>   
+                <input class="mb-3" type="checkbox" id="SinHogar" name="SinHogar"><br>   
                 
             </div>
             
             <div class="col-3">
 
                 <legend>Dirección: </legend>
-                <input type="text" name="Direccion"><br>          
+                <input type="text" id="Direccion" name="Direccion"><br>          
                 
                 <legend>Coste de la vivienda al mes: </legend>
-                <input type="text" name="CosteVivienda"><br> 
+                <input type="text" id="CosteVivienda" name="CosteVivienda"><br> 
                 
             </div>
             
             <div class="col-3">
 
                 <legend>Localidad: </legend>
-                <input type="text" name="Localidad"><br>          
+                <input type="text" id="Localidad" name="Localidad"><br>          
                 
                 <legend class="mt-2">Motivo del coste: </legend>
-                <input  type="text" name="MotivoCoste" list="DesplegablesMotivoCoste"><br>
+                <input  id="MotivoCoste" type="text" name="MotivoCoste" list="DesplegablesMotivoCoste"><br>
                 <datalist id="DesplegablesMotivoCoste">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
@@ -301,7 +301,7 @@
             <div class="col-3">
 
                 <legend class="mt-2">¿Familia monoparental? </legend>
-                <input class="mb-3" type="checkbox" name="FamiliaMonoparental"><br>   
+                <input class="mb-3" type="checkbox" id="FamiliaMonoparental" name="FamiliaMonoparental"><br>   
                 
             </div>
             
@@ -310,21 +310,21 @@
             <div class="col-3">
 
                 <legend class="mt-2">¿Está en el banco? </legend>
-                <input class="mb-3" type="checkbox" name="EstaBanco"><br>   
+                <input class="mb-3" type="checkbox" id="EstaBanco" name="EstaBanco"><br>   
                 
             </div>
             
             <div class="col-3">
 
                <legend>Fecha de alta: </legend>
-                <input type="datetime-local" name="FechaAlta_BancoAlimentos"><br> 
+                <input type="datetime-local" id="FechaAlta_BancoAlimentos" name="FechaAlta_BancoAlimentos"><br> 
                 
             </div>         
             
             <div class="col-3">
 
                <legend>Fecha de baja: </legend>
-                <input type="datetime-local" name="FechaBaja_BancoAlimentos"><br> 
+                <input type="datetime-local" id="FechaBaja_BancoAlimentos" name="FechaBaja_BancoAlimentos"><br> 
                 
             </div>
             
@@ -337,14 +337,14 @@
             <div class="col-3">
 
                <legend>Fecha de orientación: </legend>
-                <input type="datetime-local" name="FechaOrientacion"><br> 
+                <input type="datetime-local" id="FechaOrientacion" name="FechaOrientacion"><br> 
                 
             </div>
             
             <div class="col-3">
 
                <legend>Beneficiario: </legend>
-                <input type="text" name="Beneficiario"><br> 
+                <input type="text" id="Beneficiario" name="Beneficiario"><br> 
                 
             </div>
             

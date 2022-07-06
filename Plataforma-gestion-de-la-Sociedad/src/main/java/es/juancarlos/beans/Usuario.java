@@ -285,6 +285,58 @@ public class Usuario implements Serializable {
         this.lista_recogidas = new ArrayList<BancoAlimentos>();*/
     }
 
+    //Constructor usado para la insercion de datos en la edicion del usuario
+    public Usuario(int NumIntId, String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, Boolean SolicitaAyudaFarmaceutica, String TratSanitario, Boolean Drogodependencia, String TipoDiscapacidad, String GradoDiscapacidad, Boolean PermisoResidencia, Boolean PermisoTrabajo, Boolean CarnetConducir, String TipoCarnetConducir, String SituacionLaboral, String UltTrabajo, String PrefLaboral, String NivelEstudios, String FormacionComp, Boolean EstaEstudiando, Boolean FracasoEscolar, String CentroEst, float Importe, String OrigenIngresos, String Denominacion, String Direccion, Boolean FamiliaMonoparental, Boolean SinHogar, float CosteVivienda, String MotivoCoste, Boolean EstaBanco, String FechaAlta_BancoAlimentos, String FechaBaja_BancoAlimentos, String FechaOrientacion, String Beneficiario) {
+        this.NumIntId = NumIntId;
+        this.Nombre = Nombre;
+        this.Apellidos = Apellidos;
+        this.FechaAlta = FechaAlta;
+        this.FechaBaja = FechaBaja;
+        this.TipoDoc = TipoDoc;
+        this.NumDoc = NumDoc;
+        this.Telefono = Telefono;
+        this.Correo = Correo;
+        this.PersonaReferencia = PersonaReferencia;
+        this.Sexo = Sexo;
+        this.FechaNac = FechaNac;
+        this.PaisOrigen = PaisOrigen;
+        this.Nacionalidad = Nacionalidad;
+        this.PerteneceMinoria = PerteneceMinoria;
+        this.Minoria = Minoria;
+        this.SolicitaAyudaFarmaceutica = SolicitaAyudaFarmaceutica;
+        this.TratSanitario = TratSanitario;
+        this.Drogodependencia = Drogodependencia;
+        this.TipoDiscapacidad = TipoDiscapacidad;
+        this.GradoDiscapacidad = GradoDiscapacidad;
+        this.PermisoResidencia = PermisoResidencia;
+        this.PermisoTrabajo = PermisoTrabajo;
+        this.CarnetConducir = CarnetConducir;
+        this.TipoCarnetConducir = TipoCarnetConducir;
+        this.SituacionLaboral = SituacionLaboral;
+        this.UltTrabajo = UltTrabajo;
+        this.PrefLaboral = PrefLaboral;
+        this.NivelEstudios = NivelEstudios;
+        this.FormacionComp = FormacionComp;
+        this.EstaEstudiando = EstaEstudiando;
+        this.FracasoEscolar = FracasoEscolar;
+        this.CentroEst = CentroEst;
+        this.Importe = Importe;
+        this.OrigenIngresos = OrigenIngresos;
+        this.Denominacion = Denominacion;
+        this.Direccion = Direccion;
+        this.FamiliaMonoparental = FamiliaMonoparental;
+        this.SinHogar = SinHogar;
+        this.CosteVivienda = CosteVivienda;
+        this.MotivoCoste = MotivoCoste;
+        this.EstaBanco = EstaBanco;
+        this.FechaAlta_BancoAlimentos = FechaAlta_BancoAlimentos;
+        this.FechaBaja_BancoAlimentos = FechaBaja_BancoAlimentos;
+        this.FechaOrientacion = FechaOrientacion;
+        this.Beneficiario = Beneficiario;
+    }
+
+    
+    
     public int getNumIntId() {
         return NumIntId;
     }
@@ -308,20 +360,20 @@ public class Usuario implements Serializable {
     public void setApellidos(String Apellidos) {
         this.Apellidos = Apellidos;
     }
-    
+
     public String getFechaAlta() {
         return FechaAlta;
     }
-    /*
-    public void setFechaAlta(Date FechaAlta) {
+
+    public void setFechaAlta(String FechaAlta) {
         this.FechaAlta = FechaAlta;
     }
 
-    public Date getFechaBaja() {
+    public String getFechaBaja() {
         return FechaBaja;
     }
 
-    public void setFechaBaja(Date FechaBaja) {
+    public void setFechaBaja(String FechaBaja) {
         this.FechaBaja = FechaBaja;
     }
 
@@ -357,6 +409,14 @@ public class Usuario implements Serializable {
         this.Correo = Correo;
     }
 
+    public String getPersonaReferencia() {
+        return PersonaReferencia;
+    }
+
+    public void setPersonaReferencia(String PersonaReferencia) {
+        this.PersonaReferencia = PersonaReferencia;
+    }
+
     public String getSexo() {
         return Sexo;
     }
@@ -365,11 +425,11 @@ public class Usuario implements Serializable {
         this.Sexo = Sexo;
     }
 
-    public Date getFechaNac() {
+    public String getFechaNac() {
         return FechaNac;
     }
 
-    public void setFechaNac(Date FechaNac) {
+    public void setFechaNac(String FechaNac) {
         this.FechaNac = FechaNac;
     }
 
@@ -413,6 +473,14 @@ public class Usuario implements Serializable {
         this.observaciones_id = observaciones_id;
     }
 
+    public List<FicheroAdjunto> getFicheros_usuario() {
+        return ficheros_usuario;
+    }
+
+    public void setFicheros_usuario(List<FicheroAdjunto> ficheros_usuario) {
+        this.ficheros_usuario = ficheros_usuario;
+    }
+
     public Boolean getSolicitaAyudaFarmaceutica() {
         return SolicitaAyudaFarmaceutica;
     }
@@ -453,6 +521,14 @@ public class Usuario implements Serializable {
         this.GradoDiscapacidad = GradoDiscapacidad;
     }
 
+    public List<Observaciones> getObservaciones_sanitarias() {
+        return observaciones_sanitarias;
+    }
+
+    public void setObservaciones_sanitarias(List<Observaciones> observaciones_sanitarias) {
+        this.observaciones_sanitarias = observaciones_sanitarias;
+    }
+
     public Boolean getPermisoResidencia() {
         return PermisoResidencia;
     }
@@ -485,6 +561,22 @@ public class Usuario implements Serializable {
         this.TipoCarnetConducir = TipoCarnetConducir;
     }
 
+    public List<ValorDesplegable> getOtros_carnets() {
+        return otros_carnets;
+    }
+
+    public void setOtros_carnets(List<ValorDesplegable> otros_carnets) {
+        this.otros_carnets = otros_carnets;
+    }
+
+    public List<ProfesionObservaciones> getProfesion_observaciones() {
+        return profesion_observaciones;
+    }
+
+    public void setProfesion_observaciones(List<ProfesionObservaciones> profesion_observaciones) {
+        this.profesion_observaciones = profesion_observaciones;
+    }
+
     public String getSituacionLaboral() {
         return SituacionLaboral;
     }
@@ -507,6 +599,14 @@ public class Usuario implements Serializable {
 
     public void setPrefLaboral(String PrefLaboral) {
         this.PrefLaboral = PrefLaboral;
+    }
+
+    public List<ValorDesplegable> getBolsa_trabajo() {
+        return bolsa_trabajo;
+    }
+
+    public void setBolsa_trabajo(List<ValorDesplegable> bolsa_trabajo) {
+        this.bolsa_trabajo = bolsa_trabajo;
     }
 
     public List<Observaciones> getObservaciones_datos_laborales() {
@@ -565,11 +665,11 @@ public class Usuario implements Serializable {
         this.observaciones_formacion = observaciones_formacion;
     }
 
-    public int getImporte() {
+    public float getImporte() {
         return Importe;
     }
 
-    public void setImporte(int Importe) {
+    public void setImporte(float Importe) {
         this.Importe = Importe;
     }
 
@@ -581,12 +681,12 @@ public class Usuario implements Serializable {
         this.OrigenIngresos = OrigenIngresos;
     }
 
-    public List<Observaciones> getObservaciones_iingresos() {
-        return observaciones_iingresos;
+    public List<Observaciones> getObservaciones_ingresos() {
+        return observaciones_ingresos;
     }
 
-    public void setObservaciones_iingresos(List<Observaciones> observaciones_iingresos) {
-        this.observaciones_iingresos = observaciones_iingresos;
+    public void setObservaciones_ingresos(List<Observaciones> observaciones_ingresos) {
+        this.observaciones_ingresos = observaciones_ingresos;
     }
 
     public String getDenominacion() {
@@ -629,11 +729,11 @@ public class Usuario implements Serializable {
         this.SinHogar = SinHogar;
     }
 
-    public String getCosteVivienda() {
+    public float getCosteVivienda() {
         return CosteVivienda;
     }
 
-    public void setCosteVivienda(String CosteVivienda) {
+    public void setCosteVivienda(float CosteVivienda) {
         this.CosteVivienda = CosteVivienda;
     }
 
@@ -653,6 +753,14 @@ public class Usuario implements Serializable {
         this.observaciones_ficha_convivencia = observaciones_ficha_convivencia;
     }
 
+    public List<FicheroAdjunto> getFicheros_unidadconvivencia() {
+        return ficheros_unidadconvivencia;
+    }
+
+    public void setFicheros_unidadconvivencia(List<FicheroAdjunto> ficheros_unidadconvivencia) {
+        this.ficheros_unidadconvivencia = ficheros_unidadconvivencia;
+    }
+
     public Boolean getEstaBanco() {
         return EstaBanco;
     }
@@ -661,44 +769,53 @@ public class Usuario implements Serializable {
         this.EstaBanco = EstaBanco;
     }
 
-    public Date getFechaAlta_BancoAlimentos() {
+    public String getFechaAlta_BancoAlimentos() {
         return FechaAlta_BancoAlimentos;
     }
 
-    public void setFechaAlta_BancoAlimentos(Date FechaAlta_BancoAlimentos) {
+    public void setFechaAlta_BancoAlimentos(String FechaAlta_BancoAlimentos) {
         this.FechaAlta_BancoAlimentos = FechaAlta_BancoAlimentos;
     }
 
-    public Date getFechaBaja_BancoAlimentos() {
+    public String getFechaBaja_BancoAlimentos() {
         return FechaBaja_BancoAlimentos;
     }
 
-    public void setFechaBaja_BancoAlimentos(Date FechaBaja_BancoAlimentos) {
+    public void setFechaBaja_BancoAlimentos(String FechaBaja_BancoAlimentos) {
         this.FechaBaja_BancoAlimentos = FechaBaja_BancoAlimentos;
     }
 
-    public Date getFechaOrientacion() {
+    public List<BancoAlimentos> getLista_recogidas() {
+        return lista_recogidas;
+    }
+
+    public void setLista_recogidas(List<BancoAlimentos> lista_recogidas) {
+        this.lista_recogidas = lista_recogidas;
+    }
+
+    public String getFechaOrientacion() {
         return FechaOrientacion;
     }
 
-    public void setFechaOrientacion(Date FechaOrientacion) {
+    public void setFechaOrientacion(String FechaOrientacion) {
         this.FechaOrientacion = FechaOrientacion;
     }
 
-    public Date getBeneficiario() {
+    public String getBeneficiario() {
         return Beneficiario;
     }
 
-    public void setBeneficiario(Date Beneficiario) {
+    public void setBeneficiario(String Beneficiario) {
         this.Beneficiario = Beneficiario;
     }
 
-    public List<Observaciones> getObservaciones_orientaciona() {
-        return observaciones_orientaciona;
+    public List<Observaciones> getObservaciones_orientacion() {
+        return observaciones_orientacion;
     }
 
-    public void setObservaciones_orientaciona(List<Observaciones> observaciones_orientaciona) {
-        this.observaciones_orientaciona = observaciones_orientaciona;
+    public void setObservaciones_orientacion(List<Observaciones> observaciones_orientacion) {
+        this.observaciones_orientacion = observaciones_orientacion;
     }
-     */
+
+   
 }
