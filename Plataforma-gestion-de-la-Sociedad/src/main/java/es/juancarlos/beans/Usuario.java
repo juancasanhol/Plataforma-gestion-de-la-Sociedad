@@ -286,7 +286,7 @@ public class Usuario implements Serializable {
     }
 
     //Constructor usado para la insercion de datos en la edicion del usuario
-    public Usuario(int NumIntId, String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, Boolean SolicitaAyudaFarmaceutica, String TratSanitario, Boolean Drogodependencia, String TipoDiscapacidad, String GradoDiscapacidad, Boolean PermisoResidencia, Boolean PermisoTrabajo, Boolean CarnetConducir, String TipoCarnetConducir, String SituacionLaboral, String UltTrabajo, String PrefLaboral, String NivelEstudios, String FormacionComp, Boolean EstaEstudiando, Boolean FracasoEscolar, String CentroEst, float Importe, String OrigenIngresos, String Denominacion, String Direccion, Boolean FamiliaMonoparental, Boolean SinHogar, float CosteVivienda, String MotivoCoste, Boolean EstaBanco, String FechaAlta_BancoAlimentos, String FechaBaja_BancoAlimentos, String FechaOrientacion, String Beneficiario) {
+    /*public Usuario(int NumIntId, String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, Boolean SolicitaAyudaFarmaceutica, String TratSanitario, Boolean Drogodependencia, String TipoDiscapacidad, String GradoDiscapacidad, Boolean PermisoResidencia, Boolean PermisoTrabajo, Boolean CarnetConducir, String TipoCarnetConducir, String SituacionLaboral, String UltTrabajo, String PrefLaboral, String NivelEstudios, String FormacionComp, Boolean EstaEstudiando, Boolean FracasoEscolar, String CentroEst, float Importe, String OrigenIngresos, String Denominacion, String Direccion, Boolean FamiliaMonoparental, Boolean SinHogar, float CosteVivienda, String MotivoCoste, Boolean EstaBanco, String FechaAlta_BancoAlimentos, String FechaBaja_BancoAlimentos, String FechaOrientacion, String Beneficiario) {
         this.NumIntId = NumIntId;
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
@@ -333,6 +333,69 @@ public class Usuario implements Serializable {
         this.FechaBaja_BancoAlimentos = FechaBaja_BancoAlimentos;
         this.FechaOrientacion = FechaOrientacion;
         this.Beneficiario = Beneficiario;
+    }*/
+
+    public Usuario(int NumIntId, String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id, List<FicheroAdjunto> ficheros_usuario, Boolean SolicitaAyudaFarmaceutica, String TratSanitario, Boolean Drogodependencia, String TipoDiscapacidad, String GradoDiscapacidad, List<Observaciones> observaciones_sanitarias, Boolean PermisoResidencia, Boolean PermisoTrabajo, Boolean CarnetConducir, String TipoCarnetConducir, List<ValorDesplegable> otros_carnets, List<ProfesionObservaciones> profesion_observaciones, String SituacionLaboral, String UltTrabajo, String PrefLaboral, List<ValorDesplegable> bolsa_trabajo, List<Observaciones> observaciones_datos_laborales, String NivelEstudios, String FormacionComp, Boolean EstaEstudiando, Boolean FracasoEscolar, String CentroEst, List<Observaciones> observaciones_formacion, float Importe, String OrigenIngresos, List<Observaciones> observaciones_ingresos, String Denominacion, String Direccion,String Localidad, Boolean FamiliaMonoparental, Boolean SinHogar, float CosteVivienda, String MotivoCoste, List<Observaciones> observaciones_ficha_convivencia, List<FicheroAdjunto> ficheros_unidadconvivencia, Boolean EstaBanco, String FechaAlta_BancoAlimentos, String FechaBaja_BancoAlimentos, List<BancoAlimentos> lista_recogidas, String FechaOrientacion, String Beneficiario, List<Observaciones> observaciones_orientacion) {
+        this.NumIntId = NumIntId;
+        this.Nombre = Nombre;
+        this.Apellidos = Apellidos;
+        this.FechaAlta = FechaAlta;
+        this.FechaBaja = FechaBaja;
+        this.TipoDoc = TipoDoc;
+        this.NumDoc = NumDoc;
+        this.Telefono = Telefono;
+        this.Correo = Correo;
+        this.PersonaReferencia = PersonaReferencia;
+        this.Sexo = Sexo;
+        this.FechaNac = FechaNac;
+        this.PaisOrigen = PaisOrigen;
+        this.Nacionalidad = Nacionalidad;
+        this.PerteneceMinoria = PerteneceMinoria;
+        this.Minoria = Minoria;
+        this.observaciones_id = observaciones_id;
+        this.ficheros_usuario = ficheros_usuario;
+        this.SolicitaAyudaFarmaceutica = SolicitaAyudaFarmaceutica;
+        this.TratSanitario = TratSanitario;
+        this.Drogodependencia = Drogodependencia;
+        this.TipoDiscapacidad = TipoDiscapacidad;
+        this.GradoDiscapacidad = GradoDiscapacidad;
+        this.observaciones_sanitarias = observaciones_sanitarias;
+        this.PermisoResidencia = PermisoResidencia;
+        this.PermisoTrabajo = PermisoTrabajo;
+        this.CarnetConducir = CarnetConducir;
+        this.TipoCarnetConducir = TipoCarnetConducir;
+        this.otros_carnets = otros_carnets;
+        this.profesion_observaciones = profesion_observaciones;
+        this.SituacionLaboral = SituacionLaboral;
+        this.UltTrabajo = UltTrabajo;
+        this.PrefLaboral = PrefLaboral;
+        this.bolsa_trabajo = bolsa_trabajo;
+        this.observaciones_datos_laborales = observaciones_datos_laborales;
+        this.NivelEstudios = NivelEstudios;
+        this.FormacionComp = FormacionComp;
+        this.EstaEstudiando = EstaEstudiando;
+        this.FracasoEscolar = FracasoEscolar;
+        this.CentroEst = CentroEst;
+        this.observaciones_formacion = observaciones_formacion;
+        this.Importe = Importe;
+        this.OrigenIngresos = OrigenIngresos;
+        this.observaciones_ingresos = observaciones_ingresos;
+        this.Denominacion = Denominacion;
+        this.Direccion = Direccion;
+        this.Localidad = Localidad;
+        this.FamiliaMonoparental = FamiliaMonoparental;
+        this.SinHogar = SinHogar;
+        this.CosteVivienda = CosteVivienda;
+        this.MotivoCoste = MotivoCoste;
+        this.observaciones_ficha_convivencia = observaciones_ficha_convivencia;
+        this.ficheros_unidadconvivencia = ficheros_unidadconvivencia;
+        this.EstaBanco = EstaBanco;
+        this.FechaAlta_BancoAlimentos = FechaAlta_BancoAlimentos;
+        this.FechaBaja_BancoAlimentos = FechaBaja_BancoAlimentos;
+        this.lista_recogidas = lista_recogidas;
+        this.FechaOrientacion = FechaOrientacion;
+        this.Beneficiario = Beneficiario;
+        this.observaciones_orientacion = observaciones_orientacion;
     }
 
     
@@ -817,5 +880,6 @@ public class Usuario implements Serializable {
         this.observaciones_orientacion = observaciones_orientacion;
     }
 
+    
    
 }
