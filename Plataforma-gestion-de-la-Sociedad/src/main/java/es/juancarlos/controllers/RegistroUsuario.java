@@ -64,7 +64,7 @@ public class RegistroUsuario extends HttpServlet {
             //He usado try catch porque para comprobar si hay fichero o no no sirve con comaprar el campo a null
         }
         gdao.insertOrUpdate(new Usuario(request.getParameter("Nombre"), request.getParameter("Apellidos"), request.getParameter("FechaAlta"), request.getParameter("FechaBaja"), request.getParameter("TipoDoc"), request.getParameter("NumDoc"), request.getParameter("Telefono"), request.getParameter("Correo"), request.getParameter("PersonaReferencia"), request.getParameter("Sexo"), request.getParameter("FechaNac"), request.getParameter("PaisOrigen"), request.getParameter("Nacionalidad"), minoria, request.getParameter("Minoria"), observaciones, ficheros));
-
+        response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -93,10 +93,11 @@ public class Ajax extends HttpServlet {
 
                 objeto = new JSONObject();
                 objeto.put("aceso", adao.Login(request.getParameter("usuario"), request.getParameter("passwd")));
-
+                
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
-
+                //Para obtener el autor de las observaciones
+                request.getSession().setAttribute("autor", request.getParameter("usuario"));
                 break;
 
             case "addPerfil":
@@ -339,7 +340,7 @@ public class Ajax extends HttpServlet {
                 objeto.put("fechabaja_bancoalimentos", u.getFechaBaja_BancoAlimentos());
                 objeto.put("fechaorientacion", u.getFechaOrientacion());
                 objeto.put("beneficiario", u.getBeneficiario());
-                log("EL BOOLEAN SE VE ASI: "+u.getPerteneceMinoria());
+                //log("EL BOOLEAN SE VE ASI: "+u.getPerteneceMinoria());
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;

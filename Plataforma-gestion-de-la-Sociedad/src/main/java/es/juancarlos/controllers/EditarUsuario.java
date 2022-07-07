@@ -36,7 +36,7 @@ public class EditarUsuario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if(request.getParameter("id")!=null){
-        log("ID DE SESION "+request.getParameter("id"));
+        //log("ID DE USUARIO "+request.getParameter("id"));
         request.getSession().setAttribute("id", request.getParameter("id"));
         }
         response.sendRedirect("./html/usuario/EditarUsuario.html");
