@@ -108,7 +108,7 @@ function MostrarValores(nombreDesplegable) {
     
                     if (i == 0) {
                         $("#tbody").append('<tr><td>' + separa(option.nombre) + '</td><td>' + option.valor + '</td><td><button id="'+option.nombre+'-'+ option.valor+'" type="button" class="btn btn-danger del">Borrar valor</button></td></tr>');
-                        $("#botonera").html('<a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Volver </a> <button type="button" class="btn btn-success col-4 mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#ModalValor">Añadir valor</button>');
+                        $("#botonera").html('<a class="col-4 btn btn-warning offset-1" href="../desplegables/VerDesplegables.html" role="button">Volver </a> <button type="button" class="btn btn-success col-4 mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#ModalValor">Añadir valor</button>');
                         $(".add").attr("id", option.nombre);
                     } else {
                         $("#tbody").append('<tr><td></td><td>' + option.valor + '</td><td><button id="'+option.nombre+'-'+ option.valor+'" type="button" class="btn btn-danger del">Borrar valor</button></td></tr>');
@@ -124,7 +124,7 @@ function MostrarValores(nombreDesplegable) {
                 $("#tbody").html("");
     
                 
-                $("#botonera").html('<a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Volver </a> <button type="button" class="btn btn-success col-4 mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#ModalValor">Añadir valor</button>');
+                $("#botonera").html('<a class="col-4 btn btn-warning offset-1" href="../desplegables/VerDesplegables.html" role="button">Volver </a> <button type="button" class="btn btn-success col-4 mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#ModalValor">Añadir valor</button>');
                 $(".add").attr("id", nombreDesplegable);
             }
             
@@ -150,7 +150,7 @@ function MostrarDesplegables(){
 
                 $("#tbody").append('<tr><td>' + separa(option.nombre) + '</td><td><button class="btn btn-success btnVerValores" id="' + option.nombre + '">Ver valores</button></td></tr>');
 
-
+                $("#botonera").html('<a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Volver </a>');
             });
 
         },
