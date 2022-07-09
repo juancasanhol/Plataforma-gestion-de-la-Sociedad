@@ -58,7 +58,7 @@ $(document).ready(function () {
     });
 
 
-    $(document).on('click', '.del', function () {
+   /* $(document).on('click', '.del', function () {
         var nombreD = $(this).attr("id");
         console.log($(this).attr("id"));
         $.ajax({
@@ -81,7 +81,7 @@ $(document).ready(function () {
 
 
 
-    });
+    });*/
 
 
 });
@@ -107,7 +107,7 @@ function MostrarValores(nombreDesplegable) {
                 $.each(respuesta, function (i, option) {
     
                     if (i == 0) {
-                        $("#tbody").append('<tr><td>' + option.nombre + '</td><td>' + option.valor + '</td><td><button id="'+option.nombre+'-'+ option.valor+'" type="button" class="btn btn-danger del">Borrar valor</button></td></tr>');
+                        $("#tbody").append('<tr><td>' + separa(option.nombre) + '</td><td>' + option.valor + '</td><td><button id="'+option.nombre+'-'+ option.valor+'" type="button" class="btn btn-danger del">Borrar valor</button></td></tr>');
                         $("#botonera").html('<a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Volver </a> <button type="button" class="btn btn-success col-4 mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#ModalValor">Añadir valor</button>');
                         $(".add").attr("id", option.nombre);
                     } else {
@@ -148,7 +148,7 @@ function MostrarDesplegables(){
             $("#tbody").html("");
             $.each(respuesta, function (i, option) {
 
-                $("#tbody").append('<tr><td>' + option.nombre + '</td><td><button class="btn btn-success btnVerValores" id="' + option.nombre + '">Ver valores</button></td><td><button id="'+option.nombre+'" type="button" class="btn btn-danger delD">Borrar Desplegable</button></td></tr>');
+                $("#tbody").append('<tr><td>' + separa(option.nombre) + '</td><td><button class="btn btn-success btnVerValores" id="' + option.nombre + '">Ver valores</button></td></tr>');
 
 
             });
@@ -160,3 +160,6 @@ function MostrarDesplegables(){
     });
 
 }
+
+//boton para borrar desplegable junto al ajax cometado
+//<td><button id="'+option.nombre+'" type="button" class="btn btn-danger delD">Borrar Desplegable</button></td>
