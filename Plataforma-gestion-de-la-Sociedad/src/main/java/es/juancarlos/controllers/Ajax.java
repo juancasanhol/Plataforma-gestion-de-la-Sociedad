@@ -344,6 +344,26 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
+                 case "CursosFormacion":
+                //PARA LOS DESPLEGABLES DE LOS DATOS SANITARIOS
+                desplegables = new ArrayList();
+                it = gdao.get(Desplegables.class).iterator();
+                while (it.hasNext()) {
+                    d = (Desplegables) it.next();
+                    if (d.getNombre().equals("TipoCurso")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("tipocurso", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }    
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
             case "VerUsuarios":
                 List usuarios = new ArrayList();
                 i = gdao.get(Usuario.class).iterator();
