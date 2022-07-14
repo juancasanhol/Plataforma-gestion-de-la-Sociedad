@@ -460,6 +460,57 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
+                case "AtencionSocialIgualdad":
+                //Primero se hace el desplegable para los usuarios y luego los demas
+                desplegables = new ArrayList();
+                it = gdao.get(Usuario.class).iterator();
+                while (it.hasNext()) {
+                    u = (Usuario) it.next();
+                    objeto = new JSONObject();
+                    objeto.put("usuarios", u.getNombre() + " " + u.getApellidos());
+                    desplegables.add(objeto);
+
+                }
+                it = gdao.get(Desplegables.class).iterator();
+                while (it.hasNext()) {
+                    d = (Desplegables) it.next();
+                    if (d.getNombre().equals("ProcedenciaDerivacion")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            objeto.put("procedenciaderivacion", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    if (d.getNombre().equals("Intervencion")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            objeto.put("intervencion", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    if (d.getNombre().equals("MotivoConsulta")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            objeto.put("motivoconsulta", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    if (d.getNombre().equals("EstadoResolucion")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            objeto.put("estadoresolucion", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
             case "VerUsuarios":
                 List usuarios = new ArrayList();
                 i = gdao.get(Usuario.class).iterator();
