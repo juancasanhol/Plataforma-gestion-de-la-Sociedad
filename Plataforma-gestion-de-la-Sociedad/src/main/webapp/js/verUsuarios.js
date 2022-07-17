@@ -9,7 +9,7 @@ $(document).ready(function () {
             //console.log("Desplegables cargados correctamente");
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
-                $("#tbody").append('<tr><td class="d-none" >' + option.id + '</td><td>' + option.nombre+ '</td><td>' + option.apellidos +'</td>'+ '<td><a href="../../EditarUsuario"><button onclick="enviaId('+option.id+')" type="button" class="btn btn-primary mb-2">Editar</button></a></td>'+'</tr>');
+                $("#tbody").append('<tr><td class="d-none" >' + option.id + '</td><td>' + option.nombre+ '</td><td>' + option.apellidos +'</td>'+ '<td><a href="../../EditarUsuario"><button onclick="enviaId('+option.id+')" type="button" class="btn btn-primary mb-2">Editar</button></a></td>'+ '<td><a href="VerDatosUsuario.html"><button onclick="enviaId('+option.id+')" type="button" class="btn btn-primary mb-2">Ver datos</button></a></td>'+'</tr>');
             });
 
         },

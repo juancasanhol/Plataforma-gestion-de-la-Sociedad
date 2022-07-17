@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <title>Gestion Sociedad</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/generico.css">
+</head>
+
+<body>
+
+
+    <!-- cabecera -->
+    <header class="p-3 bg-primary text-white">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-2">
+                    <div class="col-2">
+                        <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png" alt="logo"></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+    <div class="container-fluid">
+
+       
+            <!--El numero interno de identificacion se genera solo-->
+            <div class="col-3">
+
+                <legend >Nombre: </legend>
+                <div id="Nombre" name="Nombre"></div><br>
+
+                <legend class="mt-3">Tipo de documento identificativo: </legend>
+                <div id="TipoDoc" name="TipoDoc"></div> <br>
+
+
+                <legend class="mt-2">Persona de referencia: </legend>
+                <div id="PersonaReferencia" name="PersonaReferencia"></div> <br>
+
+                <legend class="mt-2">Nacionalidad: </legend>
+                <div id="Nacionalidad" name="Nacionalidad"></div> <br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend>Apellidos: </legend>
+                <div id="Apellidos" name="Apellidos"></div> <br>
+
+                <legend class="mt-3">Número del documento: </legend>
+                <div id="NumDoc" name="NumDoc"></div> <br>
+
+                <legend class="mt-2">Sexo: </legend>
+                <div id="Sexo" name="Sexo"></div> <br>
+
+                <legend class="mt-2">¿Pertenece a una minoría?: </legend>
+                <div id="PerteneceMinoria" name="PerteneceMinoria"></div> <br>
+
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">Fecha de alta: </legend>
+                <div id="FechaAlta" name="FechaAlta"></div> <br>
+
+                <legend class="mt-3">Telefono: </legend>
+                <div id="Telefono" name="Telefono"></div> <br>
+
+                
+                
+                <legend class="mt-2">Fecha de macimiento: </legend>
+                <div id="FechaNac" name="FechaNac"></div> <br>
+
+                <legend class="mt-2">Minoría: </legend>
+                <div id="Minoria" name="Minoria"></div> <br>
+                
+            </div>
+
+            <div class="col-3">
+
+                <legend>Fecha de baja: </legend>
+                <div id="FechaBaja" name="FechaBaja"></div> <br>
+
+                <legend class="mt-3">Correo: </legend>
+                <div id="Correo" name="Correo"></div> <br>
+
+                <legend class="mt-2">País de origen: </legend>
+                <div id="PaisOrigen" name="PaisOrigen"></div> <br>
+                
+            </div>
+            
+            <!--DATOS SANITARIOS-->
+            
+            <br>
+            <hr class="mt-5"><div class="col-12">DATOS SANITARIOS</div>
+            <br><br>
+            
+            <div class="col-3">
+
+                <legend class="mt-2">¿Solicita ayuda farmaceútica? </legend>
+                <div id="SolicitaAyudaFarmaceutica" name="SolicitaAyudaFarmaceutica"></div> <br>
+                
+                <legend class="mt-2">Grado de discapacidad: </legend>
+                <div id="TGradoDiscapacidad" name="GradoDiscapacidad"></div> <br>
+
+            </div>
+
+            <div class="col-3">
+                
+                <legend>Tratamiento sanitario: </legend>
+                <div id="TratSanitario" name="TratSanitario"></div> <br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">¿Drogodependencia?: </legend>
+                <div id="Drogodependencia" name="Drogodependencia"></div> <br>
+
+            </div>
+            <div class="col-3">
+                
+                <legend class="mt-2">Tipo de discapacidad: </legend>
+                <div id="TipoDiscapacidad" name="TipoDiscapacidad"></div> <br>
+                
+            </div>
+            <!--DATOS LABORALES-->
+            
+            <br>
+            <hr class="mt-5"><div class="col-12">DATOS LABORALES</div>
+            <br><br>
+            
+            <div class="col-3">
+
+                <legend class="mt-2">¿Permiso de residencia?: </legend>
+                <div id="PermisoResidencia" name="PermisoResidencia"></div> <br>
+                
+                <legend class="mt-2">Situación laboral: </legend>
+                <div id="SituacionLaboral" name="SituacionLaboral"></div> <br>
+
+            </div>
+            
+            <div class="col-3">
+
+                <legend class="mt-2">¿Permiso de trabajo?: </legend>
+                <div id="PermisoTrabajo" name="PermisoTrabajo"></div> <br>
+
+                <legend>Último trabajo: </legend>
+                <div id="UltTrabajo" name="UltTrabajo"></div> <br>
+                
+            </div>
+            
+            <div class="col-3">
+
+                <legend class="mt-2">¿Carnet de conducir?: </legend>
+                <div id="CarnetConducir" name="CarnetConducir"></div> <br>
+                
+                <legend>Preferencia laboral: </legend>
+                <div id="PrefLaboral" name="PrefLaboral"></div> <br>
+
+            </div>
+            
+            <div class="col-3">
+                
+                <legend class="mt-2">Tipo carnet de conducir: </legend>
+                <div id="TipoCarnetConducir" name="TipoCarnetConducir"></div> <br>
+                
+            </div>
+            
+            <!--DATOS DE FORMACION-->
+            
+            <br>
+            <hr class="mt-5"><div class="col-12">DATOS DE FORMACIÓN</div>
+            <br><br>
+            
+            <div class="col-3">
+
+                <legend class="mt-2">Nivel de estudios: </legend>
+                <div id="NivelEstudios" name="NivelEstudios"></div> <br>
+
+                <legend>Centro de estudios: </legend>
+                <div id="CentroEst" name="CentroEst"></div> <br>
+                
+            </div>
+            
+            <div class="col-3">
+
+                <legend>Formación complementaria: </legend>
+                <div id="FormacionComp" name="FormacionComp"></div> <br>
+                
+            </div>
+            
+            <div class="col-3">
+
+                <legend class="mt-2">¿Está estudiando?: </legend>
+                <div id="EstaEstudiando" name="EstaEstudiando"></div> <br>
+
+            </div>
+            
+            <div class="col-3">
+
+                <legend class="mt-2">¿Fracaso escolar?: </legend>
+                <div id="FracasoEscolar" name="FracasoEscolar"></div> <br>
+
+            </div>
+            
+            
+            <!--DATOS DE INGRESOS-->
+            
+            <br>
+            <hr class="mt-5"><div class="col-12">DATOS DE INGRESOS</div>
+            <br><br>
+            
+            <div class="col-3">
+
+                <legend>Importe: </legend>
+                <div id="Importe" name="Importe"></div> <br>
+                
+            </div>
+            
+            <div class="col-3">
+
+                <legend class="mt-2">Origen de ingresos: </legend>
+                <div id="OrigenIngresos" name="OrigenIngresos"></div> <br>
+                
+            </div>
+            
+            <div class="col-3">
+                
+            </div>
+            
+            <div class="col-3">
+                
+            </div>
+            
+            <!--DATOS DE UNIDAD DE CONVIVENCIA-->
+            
+            <br>
+            <hr class="mt-5"><div class="col-12">DATOS DE UNIDAD DE CONVIVENCIA</div>
+            <br><br>
+            
+            <div class="col-3">
+
+                <legend>Denominación: </legend>
+                <div id="Denominacion" name="Denominacion"></div> <br>
+                
+                <legend class="mt-2">¿Sin hogar?: </legend>
+                <div id="SinHogar" name="SinHogar"></div> <br> 
+                
+            </div>
+            
+            <div class="col-3">
+
+                <legend>Dirección: </legend>
+                <div id="Direccion" name="Direccion"></div> <br>          
+                
+                <legend>Coste de la vivienda al mes: </legend>
+                <div id="CosteVivienda" name="CosteVivienda"></div> <br>
+                
+            </div>
+            
+            <div class="col-3">
+
+                <legend>Localidad: </legend>
+                <div id="Localidad" name="Localidad"></div> <br>          
+                
+                <legend class="mt-2">Motivo del coste: </legend>
+                <div id="MotivoCoste" name="MotivoCoste"></div> <br>
+                
+            </div>
+            
+            <div class="col-3">
+
+                <legend class="mt-2">¿Familia monoparental?: </legend>
+                <div id="FamiliaMonoparental" name="FamiliaMonoparental"></div> <br>   
+                
+            </div>
+            
+            <!--DATOS DEL BANCO DE ALIMENTOS-->
+            
+            <br>
+            <hr class="mt-5"><div class="col-12">DATOS DEL BANCO DE ALIMENTOS</div>
+            <br><br>
+                     
+            <div class="col-3">
+
+                <legend class="mt-2">¿Está en el banco?: </legend>
+                <div id="EstaBanco" name="EstaBanco"></div> <br>   
+                
+            </div>
+            
+            <div class="col-3">
+
+               <legend>Fecha de alta: </legend>
+                <div id="FechaAlta_BancoAlimentos" name="FechaAlta_BancoAlimentos"></div> <br>
+                
+            </div>         
+            
+            <div class="col-3">
+
+               <legend>Fecha de baja: </legend>
+                <div id="FechaBaja_BancoAlimentos" name="FechaBaja_BancoAlimentos"></div> <br> 
+                
+            </div>
+            
+            <div class="col-3">
+
+            </div>
+            
+            <!--DATOS ORIENTACION LABORAL-->
+            
+            <br>
+            <hr class="mt-5"><div class="col-12">DATOS DE ORIENTACIÓN LABORAL</div>
+            <br><br>
+            
+            <div class="col-3">
+
+               <legend>Fecha de orientación: </legend>
+                <div id="FechaOrientacion" name="FechaOrientacion"></div> <br>
+                
+            </div>
+            
+            <div class="col-3">
+
+               <legend>Beneficiario: </legend>
+                <div id="Beneficiario" name="Beneficiario"></div> <br> 
+                
+            </div>
+            
+            
+            <div class="col-4 offset-8 mt-5 justify-content-end">
+                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Volver</a>
+            </div>
+
+    </div>
+    <br>
+    <br><br><br>
+
+
+
+    <table>
+        <tr>
+            <!-- <td>
+                <legend>Nombre: </legend>
+                <input required type="text" name="Nombre">
+            </td>
+            <td>
+                <legend>Apellidos: </legend>
+                <input required type="text" name="Apellidos">
+            </td>
+            <td>
+                <legend>Fecha de alta: </legend>
+                <input type="datetime-local" name="FechaAlta">
+            </td>
+            <td>
+                <legend>Fecha de baja: </legend>
+                <input type="datetime-local" name="FechaBaja">
+            </td>
+        </tr> 
+        <tr>
+            <td>
+                <legend>Tipo de documento identificativo: </legend>
+                <input id="TipoDoc" type="text" name="TipoDoc" list="DesplegablesTipoDoc"> <br>
+                <datalist id="DesplegablesTipoDoc">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
+                </datalist>
+            </td>
+            <td>
+                <legend>Número del documento: </legend>
+                <input type="text" name="NumDoc">
+            </td>
+            <td>
+                <legend>Telefono: </legend>
+                <input type="tel" name="Telefono">
+            </td>
+            <td>
+                <legend>Correo: </legend>
+                <input type="email" name="Correo">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <legend>Persona de referencia: </legend>
+                <input type="text" name="PersonaReferencia" list="DesplegablesPersonaReferencia"> <br>
+                <datalist id="DesplegablesPersonaReferencia">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
+                </datalist>
+            </td>
+            <td>
+                <legend>Sexo: </legend>
+                <input type="text" name="Sexo" list="DesplegablesSexo"> <br>
+                <datalist id="DesplegablesSexo">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
+                </datalist>
+            </td>
+            <td>
+                <legend>Fecha de macimiento: </legend>
+                <input type="datetime-local" name="FechaNac">
+            </td>
+            <td>
+                <legend>País de origen: </legend>
+                <input type="text" name="PaisOrigen" list="DesplegablesPaisOrigen">
+                <datalist id="DesplegablesPaisOrigen">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
+                </datalist>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <legend>Nacionalidad: </legend>
+                <input type="text" name="Nacionalidad" list="DesplegablesNacionalidad"> <br>
+                <datalist id="DesplegablesNacionalidad">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
+                </datalist>
+            </td>
+            <td>
+                <legend>¿Pertenece a una minoría?: </legend>
+                <input type="checkbox" name="PerteneceMinoria">
+            </td>
+            <td>
+                <legend>Minoría: </legend>
+                <input type="text" name="Minoria" list="DesplegablesMinoria"> <br>
+                <datalist id="DesplegablesMinoria">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
+                </datalist>
+            </td>
+            <td>
+                <legend>Número del documento: </legend>
+                <input type="text" name="NumDoc">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <legend>Observaciones: </legend>
+                <textarea cols="30" name="Observaciones"></textarea>
+            </td>
+            <td>
+                <legend>Ficheros Adjuntos: </legend>
+                <input type="file" id="Fichero">
+            </td>
+            <p>
+                <!--<font size="1">${mensaje}</font>--
+            </p>
+            <td><input type="submit" value="Registrar Usuario" title="Registrar al usuario."></td>
+        </tr>-->
+    </table>
+    
+    <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
+
+
+    </div>
+
+    <!-- pie -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid">
+        <footer class="text-center text-white" style="background-color: #5DADE2;">
+            <!-- Copyright -->
+            <div class="text-center text-dark p-3 fixed-bottom bg-primary">
+                <font style="vertical-align: inherit;">
+                    © 2022 Copyright:
+                </font>
+                <font style="vertical-align: inherit;">Ch Ordenadores</font>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
+    <script src="../../jquery/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../js/verDatosUsuario.js"></script>
+</body>
+
+</html>
