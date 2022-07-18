@@ -186,7 +186,7 @@ public class Usuario implements Serializable {
     String Direccion;
 
     @Column(name = "Localidad", nullable = true)
-    String Localidad = "Merida"; //POR DEFECTO ES MERIDA
+    String Localidad = "Mérida"; //POR DEFECTO ES MERIDA
 
     @Column(name = "FamiliaMonoparental", nullable = true)//CHECK
     Boolean FamiliaMonoparental;
