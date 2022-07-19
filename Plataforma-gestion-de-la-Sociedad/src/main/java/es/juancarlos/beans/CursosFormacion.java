@@ -35,7 +35,7 @@ public class CursosFormacion implements Serializable{
     @Column(name = "FechaFin", nullable = true)
     String FechaFin;
 
-    @Column(name = "OtraInfo", nullable = true, length = 25)//DESPLEGABLE
+    @Column(name = "OtraInfo", nullable = true)//DESPLEGABLE
     String OtraInfo;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -56,4 +56,18 @@ public class CursosFormacion implements Serializable{
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_cursos_formacion;//Son las observaciones referentes a los cursos de formacion
 
+    public CursosFormacion(String NombreCurso, String TipoCurso, String FechaInicio, String FechaFin, String OtraInfo, List<ValorDesplegable> lista_solicitantes, List<ValorDesplegable> lista_aseleccionados, List<Alumno> lista_alumnos, List<Observaciones> observaciones_cursos_formacion) {
+        this.NombreCurso = NombreCurso;
+        this.TipoCurso = TipoCurso;
+        this.FechaInicio = FechaInicio;
+        this.FechaFin = FechaFin;
+        this.OtraInfo = OtraInfo;
+        this.lista_solicitantes = lista_solicitantes;
+        this.lista_aseleccionados = lista_aseleccionados;
+        this.lista_alumnos = lista_alumnos;
+        this.observaciones_cursos_formacion = observaciones_cursos_formacion;
+    }
+
+    
+    
 }

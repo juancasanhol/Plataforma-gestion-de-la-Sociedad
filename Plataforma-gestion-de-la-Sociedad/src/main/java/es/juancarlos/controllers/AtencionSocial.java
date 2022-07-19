@@ -1,9 +1,12 @@
 package es.juancarlos.controllers;
 
-import es.juancarlos.beans.Empresa;
-import es.juancarlos.beans.ValorDesplegable;
+import es.juancarlos.beans.Acogida;
+import es.juancarlos.beans.AtencionSocialIgualdad;
+import es.juancarlos.beans.FicheroAdjunto;
+import es.juancarlos.beans.Observaciones;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
+import es.juancarlos.models.GuardarFicheros;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +24,8 @@ import org.json.JSONObject;
  * @author Juan Carlos Sánchez Holguín
  */
 @MultipartConfig
-@WebServlet(name = "Empresas", urlPatterns = {"/Empresas"})
-public class Empresas extends HttpServlet {
+@WebServlet(name = "AtencionSocial", urlPatterns = {"/AtencionSocial"})
+public class AtencionSocial extends HttpServlet {
 
     //para devolver un solo objeto
     JSONObject objeto = null;
@@ -43,11 +46,21 @@ public class Empresas extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        List<ValorDesplegable> actividades = new ArrayList<ValorDesplegable>();
-        List<ValorDesplegable> colaboraciones = new ArrayList<ValorDesplegable>();
-        //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
-        
-        gdao.insertOrUpdate(new Empresa(request.getParameter("Nombre"),request.getParameter("FechaAlta"),request.getParameter("FechaBaja"),request.getParameter("PersonaContacto"),request.getParameter("Direccion"),request.getParameter("CodigoPostal"),request.getParameter("Poblacion"),request.getParameter("Provincia"),actividades,colaboraciones));
+        //OBTENER TRABAJDOR DEL LOGIN Y CAMBIARLO POR ADMIN
+        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), "ADMIN");
+        List<Observaciones> observaciones = new ArrayList<Observaciones>();
+        observaciones.add(observacion);
+        List<FicheroAdjunto> ficheros = new ArrayList<FicheroAdjunto>();
+        try{
+            FicheroAdjunto f = new FicheroAdjunto(GuardarFicheros.GuardarFichero(request, getServletContext().getRealPath(getServletContext().getInitParameter("rutaFicheros")), "Fichero", "AtencionSocialIgualdad_"+request.getParameter("Usuario")), false);
+            ficheros.add(f);
+        }
+        catch(Exception e){
+            //No hay fichero para hacer el submit
+            //He usado try catch porque para comprobar si hay fichero o no no sirve con comparar el campo a null
+        }
+        //CAMBIAR EL CAMPO DE ABAJO DE ADMIN (EN EL CONSTRUCTOR DE ACOGIDA) POR EL USUARIO QUE HA HECHO LOGIN
+        gdao.insertOrUpdate(new AtencionSocialIgualdad(request.getParameter("Fecha"),"ADMIN",request.getParameter("Usuario"),request.getParameter("ProcedenciaDerivacion"),request.getParameter("MotivoConsulta"),request.getParameter("Intervencion"),request.getParameter("EstadoResolucion"), observaciones, ficheros));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 

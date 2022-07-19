@@ -1,9 +1,15 @@
 package es.juancarlos.controllers;
 
-import es.juancarlos.beans.Empresa;
+import es.juancarlos.beans.Acogida;
+import es.juancarlos.beans.Alumno;
+import es.juancarlos.beans.AtencionSocialIgualdad;
+import es.juancarlos.beans.CursosFormacion;
+import es.juancarlos.beans.FicheroAdjunto;
+import es.juancarlos.beans.Observaciones;
 import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
+import es.juancarlos.models.GuardarFicheros;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +27,8 @@ import org.json.JSONObject;
  * @author Juan Carlos Sánchez Holguín
  */
 @MultipartConfig
-@WebServlet(name = "Empresas", urlPatterns = {"/Empresas"})
-public class Empresas extends HttpServlet {
+@WebServlet(name = "CursoFormacion", urlPatterns = {"/CursoFormacion"})
+public class CursoFormacion extends HttpServlet {
 
     //para devolver un solo objeto
     JSONObject objeto = null;
@@ -43,11 +49,17 @@ public class Empresas extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        List<ValorDesplegable> actividades = new ArrayList<ValorDesplegable>();
-        List<ValorDesplegable> colaboraciones = new ArrayList<ValorDesplegable>();
+        //OBTENER TRABAJDOR DEL LOGIN Y CAMBIARLO POR ADMIN
+        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), "ADMIN");
+        List<Observaciones> observaciones = new ArrayList<Observaciones>();
+        List<Alumno> alumnos = new ArrayList<Alumno>();
+        observaciones.add(observacion);
+        List<ValorDesplegable> solicitantes = new ArrayList<ValorDesplegable>();
+        List<ValorDesplegable> seleccionados = new ArrayList<ValorDesplegable>();
         //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
         
-        gdao.insertOrUpdate(new Empresa(request.getParameter("Nombre"),request.getParameter("FechaAlta"),request.getParameter("FechaBaja"),request.getParameter("PersonaContacto"),request.getParameter("Direccion"),request.getParameter("CodigoPostal"),request.getParameter("Poblacion"),request.getParameter("Provincia"),actividades,colaboraciones));
+        //CAMBIAR EL CAMPO DE ABAJO DE ADMIN (EN EL CONSTRUCTOR DE ACOGIDA) POR EL USUARIO QUE HA HECHO LOGIN
+        gdao.insertOrUpdate(new CursosFormacion(request.getParameter("NombreCurso"),request.getParameter("TipoCurso"),request.getParameter("FechaInicio"),request.getParameter("FechaFin"),request.getParameter("OtraInfo"),solicitantes,seleccionados,alumnos, observaciones));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 

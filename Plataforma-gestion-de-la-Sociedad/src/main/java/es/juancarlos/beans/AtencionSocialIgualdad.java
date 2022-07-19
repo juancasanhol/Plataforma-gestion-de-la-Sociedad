@@ -57,5 +57,20 @@ public class AtencionSocialIgualdad implements Serializable{
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<FicheroAdjunto> ficheros_acogida;
+    List<FicheroAdjunto> ficheros_atencionsocial_igualdad;
+
+    public AtencionSocialIgualdad(String Fecha, String Trabajador, String Usuario, String ProcedenciaDerivacion, String MotivoConsulta, String Intervencion, String EstadoResolucion, List<Observaciones> observaciones_atencionsocial_igualdad, List<FicheroAdjunto> ficheros_atencionsocial_igualdad) {
+        this.Fecha = Fecha;
+        this.Trabajador = Trabajador;
+        this.Usuario = Usuario;
+        this.ProcedenciaDerivacion = ProcedenciaDerivacion;
+        this.MotivoConsulta = MotivoConsulta;
+        this.Intervencion = Intervencion;
+        this.EstadoResolucion = EstadoResolucion;
+        this.observaciones_atencionsocial_igualdad = observaciones_atencionsocial_igualdad;
+        this.ficheros_atencionsocial_igualdad = ficheros_atencionsocial_igualdad;
+    }
+    
+    
+    
 }
