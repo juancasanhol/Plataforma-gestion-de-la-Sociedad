@@ -66,4 +66,21 @@ public class Acogida implements Serializable{
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<FicheroAdjunto> ficheros_acogida;
+
+    public Acogida(String Fecha, String Trabajador, String Usuario, String ProcedenciaDerivacion, String AyudaSolicitada_General, String AyudaSolicitada_Recibos, String AyudaSolicitada_Sanitaria, String AyudaSolicitada_Otras, String EstadoResolucion, List<Observaciones> observaciones_acogida, List<FicheroAdjunto> ficheros_acogida) {
+        this.Fecha = Fecha;
+        this.Trabajador = Trabajador;
+        this.Usuario = Usuario;
+        this.ProcedenciaDerivacion = ProcedenciaDerivacion;
+        this.AyudaSolicitada_General = AyudaSolicitada_General;
+        this.AyudaSolicitada_Recibos = AyudaSolicitada_Recibos;
+        this.AyudaSolicitada_Sanitaria = AyudaSolicitada_Sanitaria;
+        this.AyudaSolicitada_Otras = AyudaSolicitada_Otras;
+        this.EstadoResolucion = EstadoResolucion;
+        this.observaciones_acogida = observaciones_acogida;
+        this.ficheros_acogida = ficheros_acogida;
+    }
+    
+    
+
 }

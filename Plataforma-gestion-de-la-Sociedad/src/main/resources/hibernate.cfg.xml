@@ -38,7 +38,7 @@
         <mapping class="es.juancarlos.beans.BancoAlimentos" />
         <mapping class="es.juancarlos.beans.Alimentos" />
         <mapping class="es.juancarlos.beans.ConferenciaSantaMaria" />
-        <mapping class="es.juancarlos.beans.Empresas" />
+        <mapping class="es.juancarlos.beans.Empresa" />
         <mapping class="es.juancarlos.beans.Aportacion" />
         <mapping class="es.juancarlos.beans.Categoria" />
         <mapping class="es.juancarlos.beans.Conviviente" />

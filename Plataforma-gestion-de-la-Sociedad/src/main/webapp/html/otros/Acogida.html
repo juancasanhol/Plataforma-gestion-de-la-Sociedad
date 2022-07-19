@@ -35,7 +35,7 @@
     <div class="container-fluid">
 
         <!-- FORMULARIO PARA LA CREACION DE UNA FICHA DE ACOGIDA -->
-        <form action="../../Acogida" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
+        <form action="../../Acogidas" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
             <!--El numero interno de identificacion se genera solo-->
             <div class="col-3">
 
@@ -56,7 +56,7 @@
             <div class="col-3">
 
                 <legend>Usuario que recibe la ayuda: </legend>
-                <input id="Usuario" type="text" name="Usuario" list="DesplegablesUsuario"> <br>
+                <input required id="Usuario" type="text" name="Usuario" list="DesplegablesUsuario"> <br>
                 <datalist id="DesplegablesUsuario">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>

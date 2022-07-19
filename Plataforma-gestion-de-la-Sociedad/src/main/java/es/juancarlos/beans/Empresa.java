@@ -23,8 +23,8 @@ import org.hibernate.annotations.LazyCollectionOption;
  * @author Antonio
  */
 @Entity
-@Table(name = "Empresas")
-public class Empresas implements Serializable{
+@Table(name = "Empresa")
+public class Empresa implements Serializable{
 
     @Id
     @Column(name = "CodIntId", nullable = false)
@@ -64,4 +64,20 @@ public class Empresas implements Serializable{
     @JoinColumn(name = "id_valor")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> lista_colaboraciones;
+
+    public Empresa(String Nombre, String FechaAlta, String FechaBaja, String PersonaContacto, String Direccion, String CodigoPostal, String Poblacion, String Provincia, List<ValorDesplegable> lista_actividades, List<ValorDesplegable> lista_colaboraciones) {
+        this.Nombre = Nombre;
+        this.FechaAlta = FechaAlta;
+        this.FechaBaja = FechaBaja;
+        this.PersonaContacto = PersonaContacto;
+        this.Direccion = Direccion;
+        this.CodigoPostal = CodigoPostal;
+        this.Poblacion = Poblacion;
+        this.Provincia = Provincia;
+        this.lista_actividades = lista_actividades;
+        this.lista_colaboraciones = lista_colaboraciones;
+    }
+    
+    
+
 }
