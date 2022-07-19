@@ -29,7 +29,7 @@ public class Empresa implements Serializable{
     @Id
     @Column(name = "CodIntId", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    String CodIntId;
+    int CodIntId;
 
     @Column(name = "Nombre", nullable = true)
     String Nombre;
