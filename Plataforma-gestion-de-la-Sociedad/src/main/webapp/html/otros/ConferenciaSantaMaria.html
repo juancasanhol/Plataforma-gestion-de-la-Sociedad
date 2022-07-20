@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Cursos Formacion</title>
+    <title>Conferencia Santa Maria</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,72 +35,126 @@
     <div class="container-fluid">
 
         <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
-        <form action="../../CursoFormacion" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
+        <form action="../../Conferencia" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
             <!--El numero interno de identificacion se genera solo-->
             <div class="col-3">
 
-                <legend >Nombre del curso: </legend>
-                <input required type="text" id="NombreCurso" name="NombreCurso"><br>
+                <legend >Número externo de identificación: </legend>
+                <input type="text" id="NumExtId" name="NumExtId"><br>
+                
+                <legend >Nombre: </legend>
+                <input required type="text" id="Nombre" name="Nombre"><br>
 
-                <legend class="mt-3">Otra información: </legend>
-                <input id="TipoDoc" type="text" name="OtraInfo" list="DesplegablesOtraInfo"> <br>
-                <datalist id="DesplegablesOtraInfo">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
-
+                <legend class="mt-2">Fecha de nacimiento: </legend>
+                <input type="datetime-local" id="FechaNac" name="FechaNac"><br>
+                
+                <legend>Provincia: </legend>
+                <input type="text"  id="Provincia" name="Provincia"><br>
+                
+                <legend>Cuota: </legend>
+                <input type="text"  id="Cuota" name="Cuota"><br>
+                
                 <legend class="mt-2">Observaciones: </legend>
-                <textarea cols="30" id="Observaciones" name="Observaciones"></textarea><br>
-
+                <textarea cols="30" name="Observaciones"></textarea><br>
+                
+                <legend>Usuario: </legend>
+                <input type="text"  id="Usuario" name="Usuario"><br>
+                    
             </div>
 
             <div class="col-3">
 
-                <legend class="mt-3">Tipo de curso: </legend>
-                <input id="TipoCurso" type="text" name="TipoCurso" list="DesplegablesTipoCurso"> <br>
-                <datalist id="DesplegablesTipoCurso">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
+                <legend class="mt-2">Fecha de alta: </legend>
+                <input type="datetime-local" id="FechaAlta" name="FechaAlta"><br>
                 
-                <legend class="mt-3">Lista de solicitantes: </legend>
-                <input id="TipoDoc" type="text" name="ListaSolicitantes" list="DesplegablesListaSolicitantes"> <br>
-                <datalist id="DesplegablesListaSolicitantes">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
+                <legend>Apellidos: </legend>
+                <input required type="text"  id="Apellidos" name="Apellidos"><br>
                 
-            </div>
+                <legend>Dirección: </legend>
+                <input type="text"  id="Direccion" name="Direccion"><br>
 
-            <div class="col-3">
+                <legend>Teléfono: </legend>
+                <input type="text"  id="Telefono" name="Telefono"><br>
+                
+                <!-- AQUI VA LO DE LA LISTA DE APORTACIONES -->
+                
+                <legend class="mt-2">¿Permiso de acceso? </legend>
+                <input class="mb-3" type="checkbox" id="PermisoAcceso" name="PermisoAcceso"><br>
 
-                <legend class="mt-2">Fecha de inicio: </legend>
-                <input type="datetime-local" id="FechaInicio" name="FechaInicio"><br>
-
-                <legend class="mt-3">Lista de seleccionados: </legend>
-                <input id="TipoDoc" type="text" name="ListaSeleccionados" list="DesplegablesListaSeleccionados"> <br>
-                <datalist id="DesplegablesListaSeleccionados">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
+                <legend>Contraseña: </legend>
+                <input type="text"  id="Password" name="Password"><br>
                 
             </div>
 
             <div class="col-3">
 
-                <legend>Fecha de fin: </legend>
-                <input type="datetime-local" id="FechaFin" name="FechaFin"><br>
-                
-                <legend class="mt-3">Lista de alumnos: </legend>
-                <input id="TipoDoc" type="text" name="ListaAlumnos" list="DesplegablesListaAlumnos"> <br>
-                <datalist id="DesplegablesListaAlumnos">
+                <legend>Categoría: </legend>
+                <input id="Categoria" type="text" name="Categoria" list="DesplegablesCategoria"> <br>
+                <datalist id="DesplegablesCategoria"><br>
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
+                </datalist>
+                
+                <legend>NIF: </legend>
+                <input type="text"  id="Nif" name="Nif"><br>
+                
+                <legend>Código postal: </legend>
+                <input type="text"  id="CodigoPostal" name="CodigoPostal"><br>
+                
+                <legend>Correo electrónico: </legend>
+                <input type="text"  id="Mail" name="Mail"><br>
+                
+                <legend>Actividad: </legend>
+                <input id="Actividad" type="text" name="Actividad" list="DesplegablesActividad"> <br>
+                <datalist id="DesplegablesActividad"><br>
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </datalist>
+                
+                <!-- AQUI VA LO DE LA LISTA DE PERFILES DE ACCESO -->
+                
+                <legend class="mt-2">Ficheros Adjuntos: </legend>
+                <input type="file" id="Fichero" name="Fichero"><br>
                 
             </div>
 
+            <div class="col-3">
+
+                <legend>Cargo: </legend>
+                <input id="Cargo" type="text" name="Cargo" list="DesplegablesCargo"> <br>
+                <datalist id="DesplegablesCargo"><br>
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </datalist>
+                
+                <legend>Sexo: </legend>
+                <input id="Sexo" type="text" name="Sexo" list="DesplegablesSexo"> <br>
+                <datalist id="DesplegablesSexo"><br>
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </datalist>
+                
+                <legend>Población: </legend>
+                <input type="text"  id="Poblacion" name="Poblacion"><br>
+                
+                <legend>Cuenta bancaria: </legend>
+                <input type="text"  id="CuentaBancaria" name="CuentaBancaria"><br>
+                
+                <legend>Tiempo de dedicación: </legend>
+                <input type="text"  id="TiempoDedicacion" name="TiempoDedicacion"><br>
+                
+                <legend class="mt-2">¿Acceso a fichas individuales? </legend>
+                <input class="mb-3" type="checkbox" id="AccesoFichaIndividual" name="AccesoFichaIndividual"><br>
+
+                
+            </div>
+            
+            
+            
             <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" type="submit" value="Añadir curso" title="Añadir el curso de formacion.">
+                <input class="col-4 btn btn-primary" type="submit" value="Editar Usuario" title="Editar el usuario.">
                 <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
             </div>
 
     </div>
+    <br>
+    <br><br><br>
 
 
 
@@ -237,8 +291,7 @@
     <script src="../../jquery/jquery-3.6.0.min.js"></script>
     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../js/desplegablesRegistroUsuario.js"></script> 
-    <script src="../../js/desplegablesCursosFormacion.js"></script> 
+    <script src="../../js/desplegablesConferenciaSantaMaria.js"></script> 
 </body>
 
 </html>

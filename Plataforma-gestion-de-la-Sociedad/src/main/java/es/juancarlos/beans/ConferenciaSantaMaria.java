@@ -31,7 +31,7 @@ public class ConferenciaSantaMaria implements Serializable{
     int NumIntId;
 
     @Column(name = "NumExtId", nullable = true)
-    int NumExtId;
+    String NumExtId;
 
     @Column(name = "FechaAlta", nullable = true)
     String FechaAlta;
@@ -115,4 +115,37 @@ public class ConferenciaSantaMaria implements Serializable{
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<FicheroAdjunto> ficheros_conferenciasantamaria;
+
+    public ConferenciaSantaMaria(String NumExtId, String FechaAlta, List<Categoria> lista_categorias, String Cargo, String Nombre, String Apellidos, String Nif, String Sexo, String FechaNac, String Direccion, String CodigoPostal, String Poblacion, String Provincia, String Telefono, String Mail, String CuentaBancaria, float Cuota, List<Aportacion> lista_aportaciones, String Actividad, String TiempoDedicacion, List<Observaciones> observaciones_conferencia, Boolean PermisoAcceso, List<Perfil> lista_perfilesacceso, Boolean AccesoFichaIndividual, String Usuario, String Password, List<FicheroAdjunto> ficheros_conferenciasantamaria) {
+        this.NumExtId = NumExtId;
+        this.FechaAlta = FechaAlta;
+        this.lista_categorias = lista_categorias;
+        this.Cargo = Cargo;
+        this.Nombre = Nombre;
+        this.Apellidos = Apellidos;
+        this.Nif = Nif;
+        this.Sexo = Sexo;
+        this.FechaNac = FechaNac;
+        this.Direccion = Direccion;
+        this.CodigoPostal = CodigoPostal;
+        this.Poblacion = Poblacion;
+        this.Provincia = Provincia;
+        this.Telefono = Telefono;
+        this.Mail = Mail;
+        this.CuentaBancaria = CuentaBancaria;
+        this.Cuota = Cuota;
+        this.lista_aportaciones = lista_aportaciones;
+        this.Actividad = Actividad;
+        this.TiempoDedicacion = TiempoDedicacion;
+        this.observaciones_conferencia = observaciones_conferencia;
+        this.PermisoAcceso = PermisoAcceso;
+        this.lista_perfilesacceso = lista_perfilesacceso;
+        this.AccesoFichaIndividual = AccesoFichaIndividual;
+        this.Usuario = Usuario;
+        this.Password = Password;
+        this.ficheros_conferenciasantamaria = ficheros_conferenciasantamaria;
+    }
+
+    
+    
 }

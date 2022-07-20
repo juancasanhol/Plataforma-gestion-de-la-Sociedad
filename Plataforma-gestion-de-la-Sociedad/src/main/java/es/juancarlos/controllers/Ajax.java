@@ -511,6 +511,53 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
+                case "ConferenciaSantaMaria":
+                //PARA LOS DESPLEGABLES DE LAS EMPRESAS
+                desplegables = new ArrayList();
+                it = gdao.get(Desplegables.class).iterator();
+                while (it.hasNext()) {
+                    d = (Desplegables) it.next();
+                    if (d.getNombre().equals("Actividad")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("actividad", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }    
+                    if (d.getNombre().equals("Categoria")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("categoria", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    if (d.getNombre().equals("Cargo")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("cargo", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    if (d.getNombre().equals("Sexo")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("sexo", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
             case "VerUsuarios":
                 List usuarios = new ArrayList();
                 i = gdao.get(Usuario.class).iterator();
