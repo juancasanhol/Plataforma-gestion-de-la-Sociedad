@@ -68,6 +68,96 @@ public class CursosFormacion implements Serializable{
         this.observaciones_cursos_formacion = observaciones_cursos_formacion;
     }
 
+    public CursosFormacion(int id, String NombreCurso, String TipoCurso, String FechaInicio, String FechaFin, String OtraInfo) {
+        this.NumIntId = id;
+        this.NombreCurso = NombreCurso;
+        this.TipoCurso = TipoCurso;
+        this.FechaInicio = FechaInicio;
+        this.FechaFin = FechaFin;
+        this.OtraInfo = OtraInfo;
+    }
     
+    public int getNumIntId() {
+        return NumIntId;
+    }
+
+    public String getNombreCurso() {
+        return NombreCurso;
+    }
+
+    public String getTipoCurso() {
+        return TipoCurso;
+    }
+
+    public String getFechaInicio() {
+        return FechaInicio;
+    }
+
+    public String getFechaFin() {
+        return FechaFin;
+    }
+
+    public String getOtraInfo() {
+        return OtraInfo;
+    }
+
+    public List<ValorDesplegable> getLista_solicitantes() {
+        return lista_solicitantes;
+    }
+
+    public List<ValorDesplegable> getLista_aseleccionados() {
+        return lista_aseleccionados;
+    }
+
+    public List<Alumno> getLista_alumnos() {
+        return lista_alumnos;
+    }
+
+    public List<Observaciones> getObservaciones_cursos_formacion() {
+        return observaciones_cursos_formacion;
+    }
+
+    public void setNumIntId(int NumIntId) {
+        this.NumIntId = NumIntId;
+    }
+
+    public void setNombreCurso(String NombreCurso) {
+        this.NombreCurso = NombreCurso;
+    }
+
+    public void setTipoCurso(String TipoCurso) {
+        this.TipoCurso = TipoCurso;
+    }
+
+    public void setFechaInicio(String FechaInicio) {
+        this.FechaInicio = FechaInicio;
+    }
+
+    public void setFechaFin(String FechaFin) {
+        this.FechaFin = FechaFin;
+    }
+
+    public void setOtraInfo(String OtraInfo) {
+        this.OtraInfo = OtraInfo;
+    }
+
+    public void setLista_solicitantes(List<ValorDesplegable> lista_solicitantes) {
+        this.lista_solicitantes = lista_solicitantes;
+    }
+
+    public void setLista_aseleccionados(List<ValorDesplegable> lista_aseleccionados) {
+        this.lista_aseleccionados = lista_aseleccionados;
+    }
+
+    public void setLista_alumnos(List<Alumno> lista_alumnos) {
+        this.lista_alumnos = lista_alumnos;
+    }
+
+    public void setObservaciones_cursos_formacion(List<Observaciones> observaciones_cursos_formacion) {
+        this.observaciones_cursos_formacion = observaciones_cursos_formacion;
+    }
+
+    public CursosFormacion() {
+    }
     
 }

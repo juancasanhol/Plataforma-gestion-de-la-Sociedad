@@ -1,5 +1,6 @@
 package es.juancarlos.controllers;
 
+import es.juancarlos.beans.CursosFormacion;
 import es.juancarlos.beans.Desplegables;
 import es.juancarlos.beans.Perfil;
 import es.juancarlos.beans.Usuario;
@@ -48,6 +49,7 @@ public class Ajax extends HttpServlet {
         IAjaxDAO adao = daof.getAjaxDAO();
 
         Usuario u;
+        CursosFormacion c;
         Iterator i, it;
         Desplegables d;
         List desplegables;
@@ -602,7 +604,38 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-
+            case "VerCursos":
+                List cursos = new ArrayList();
+                i = gdao.get(CursosFormacion.class).iterator();
+                while (i.hasNext()) {
+                    c = (CursosFormacion) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("id", c.getNumIntId());
+                    objeto.put("nombrecurso", c.getNombreCurso());
+                    objeto.put("tipocurso", c.getTipoCurso());
+                    cursos.add(objeto);
+                }
+                arrayJSON = new JSONArray(cursos);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                case "VerDatosCurso":
+                //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
+                c = (CursosFormacion) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()),CursosFormacion.class);
+                objeto = new JSONObject();
+                objeto.put("id", c.getNumIntId());
+                objeto.put("nombrecurso", c.getNombreCurso());
+                objeto.put("tipocurso", c.getTipoCurso());
+                objeto.put("fechainicio",c.getFechaInicio());
+                objeto.put("fechafin",c.getFechaFin());
+                objeto.put("otrainfo", c.getOtraInfo());
+                log(" ID = "+c.getNumIntId());
+                //COMPLETAR DATOS DE LISTAS AQUI
+                
+                //log("EL BOOLEAN SE VE ASI: "+u.getPerteneceMinoria());
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
+                break;
             case "VerDesplegables":
                 List desplegable = new ArrayList();
                 i = gdao.get(Desplegables.class).iterator();
