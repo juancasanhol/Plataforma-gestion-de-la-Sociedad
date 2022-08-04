@@ -1,5 +1,6 @@
 package es.juancarlos.controllers;
 
+import es.juancarlos.beans.AulaMagica;
 import es.juancarlos.beans.CursosFormacion;
 import es.juancarlos.beans.Desplegables;
 import es.juancarlos.beans.Perfil;
@@ -50,9 +51,10 @@ public class Ajax extends HttpServlet {
 
         Usuario u;
         CursosFormacion c;
+        AulaMagica a;
         Iterator i, it;
         Desplegables d;
-        List desplegables;
+        List desplegables, cursos, aulas;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
         gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
@@ -623,7 +625,7 @@ public class Ajax extends HttpServlet {
                 response.getWriter().print(arrayJSON);
                 break;
             case "VerCursos":
-                List cursos = new ArrayList();
+                cursos = new ArrayList();
                 i = gdao.get(CursosFormacion.class).iterator();
                 while (i.hasNext()) {
                     c = (CursosFormacion) i.next();
@@ -648,6 +650,34 @@ public class Ajax extends HttpServlet {
                 objeto.put("fechafin", c.getFechaFin());
                 objeto.put("otrainfo", c.getOtraInfo());
                 log(" ID = " + c.getNumIntId());
+                //COMPLETAR DATOS DE LISTAS AQUI
+
+                //log("EL BOOLEAN SE VE ASI: "+u.getPerteneceMinoria());
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
+                break;
+                case "VerAulas":
+                aulas = new ArrayList();
+                i = gdao.get(AulaMagica.class).iterator();
+                while (i.hasNext()) {
+                    a = (AulaMagica) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("id", a.getNumIntId());
+                    objeto.put("denominacion", a.getDenominacion());
+                    objeto.put("profesor", a.getProfesor());
+                    aulas.add(objeto);
+                }
+                arrayJSON = new JSONArray(aulas);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                case "VerDatosAula":
+                //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
+                a = (AulaMagica) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), AulaMagica.class);
+                objeto = new JSONObject();
+                objeto.put("id", a.getNumIntId());
+                objeto.put("denominacion", a.getDenominacion());
+                objeto.put("profesor", a.getProfesor());
                 //COMPLETAR DATOS DE LISTAS AQUI
 
                 //log("EL BOOLEAN SE VE ASI: "+u.getPerteneceMinoria());

@@ -40,9 +40,44 @@ public class AulaMagica implements Serializable{
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Alumno> lista_alumnos;
 
+    public AulaMagica(){
+    }
+    
     public AulaMagica(String Denominacion, String Profesor, List<Alumno> lista_alumnos) {
         this.Denominacion = Denominacion;
         this.Profesor = Profesor;
+        this.lista_alumnos = lista_alumnos;
+    }
+
+    public int getNumIntId() {
+        return NumIntId;
+    }
+
+    public String getDenominacion() {
+        return Denominacion;
+    }
+
+    public String getProfesor() {
+        return Profesor;
+    }
+
+    public List<Alumno> getLista_alumnos() {
+        return lista_alumnos;
+    }
+
+    public void setNumIntId(int NumIntId) {
+        this.NumIntId = NumIntId;
+    }
+
+    public void setDenominacion(String Denominacion) {
+        this.Denominacion = Denominacion;
+    }
+
+    public void setProfesor(String Profesor) {
+        this.Profesor = Profesor;
+    }
+
+    public void setLista_alumnos(List<Alumno> lista_alumnos) {
         this.lista_alumnos = lista_alumnos;
     }
     
