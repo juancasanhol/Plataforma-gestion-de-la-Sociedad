@@ -95,7 +95,7 @@ public class Ajax extends HttpServlet {
 
                 objeto = new JSONObject();
                 objeto.put("aceso", adao.Login(request.getParameter("usuario"), request.getParameter("passwd")));
-                
+
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 //Para obtener el autor de las observaciones
@@ -202,7 +202,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "DatosLaborales":
+            case "DatosLaborales":
                 //PARA LOS DESPLEGABLES DE LOS DATOS LABORALES
                 desplegables = new ArrayList();
                 it = gdao.get(Desplegables.class).iterator();
@@ -231,7 +231,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "DatosFormacion":
+            case "DatosFormacion":
                 //PARA LOS DESPLEGABLES DE LOS DATOS DE FORMACION
                 desplegables = new ArrayList();
                 it = gdao.get(Desplegables.class).iterator();
@@ -251,7 +251,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "Ingresos":
+            case "Ingresos":
                 //PARA LOS DESPLEGABLES DE LOS INGRESOS
                 desplegables = new ArrayList();
                 it = gdao.get(Desplegables.class).iterator();
@@ -271,7 +271,25 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "UnidadConvivencia":
+            case "AulaMagica":
+                desplegables = new ArrayList();
+                it = gdao.get(Desplegables.class).iterator();
+                while (it.hasNext()) {
+                    d = (Desplegables) it.next();
+                    if (d.getNombre().equals("Profesores")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            objeto.put("profesores", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+            case "UnidadConvivencia":
                 //PARA LOS DESPLEGABLES DE LA FICHA DE UNIDAD DE CONVIVENCIA
                 desplegables = new ArrayList();
                 it = gdao.get(Desplegables.class).iterator();
@@ -293,12 +311,12 @@ public class Ajax extends HttpServlet {
                 break;
             case "VerDatosUsuario":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
-                u = (Usuario) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()),Usuario.class);
+                u = (Usuario) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Usuario.class);
                 objeto = new JSONObject();
                 objeto.put("id", u.getNumIntId());
                 objeto.put("nombre", u.getNombre());
                 objeto.put("apellidos", u.getApellidos());
-                objeto.put("fechaalta",u.getFechaAlta());
+                objeto.put("fechaalta", u.getFechaAlta());
                 objeto.put("fechabaja", u.getFechaBaja());
                 objeto.put("tipodoc", u.getTipoDoc());
                 objeto.put("numdoc", u.getNumDoc());
@@ -346,7 +364,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
-                 case "CursosFormacion":
+            case "CursosFormacion":
                 //PARA LOS DESPLEGABLES DE LOS DATOS SANITARIOS
                 desplegables = new ArrayList();
                 it = gdao.get(Desplegables.class).iterator();
@@ -360,13 +378,13 @@ public class Ajax extends HttpServlet {
                             objeto.put("tipocurso", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
-                    }    
+                    }
                 }
                 arrayJSON = new JSONArray(desplegables);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                 case "Empresas":
+            case "Empresas":
                 //PARA LOS DESPLEGABLES DE LAS EMPRESAS
                 desplegables = new ArrayList();
                 it = gdao.get(Desplegables.class).iterator();
@@ -380,7 +398,7 @@ public class Ajax extends HttpServlet {
                             objeto.put("actividad", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
-                    }    
+                    }
                     if (d.getNombre().equals("TiposColaboracion")) {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
@@ -395,7 +413,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "Acogida":
+            case "Acogida":
                 //Primero se hace el desplegable para los usuarios y luego los demas
                 desplegables = new ArrayList();
                 it = gdao.get(Usuario.class).iterator();
@@ -462,7 +480,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "AtencionSocialIgualdad":
+            case "AtencionSocialIgualdad":
                 //Primero se hace el desplegable para los usuarios y luego los demas
                 desplegables = new ArrayList();
                 it = gdao.get(Usuario.class).iterator();
@@ -513,7 +531,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "ConferenciaSantaMaria":
+            case "ConferenciaSantaMaria":
                 //PARA LOS DESPLEGABLES DE LAS EMPRESAS
                 desplegables = new ArrayList();
                 it = gdao.get(Desplegables.class).iterator();
@@ -527,7 +545,7 @@ public class Ajax extends HttpServlet {
                             objeto.put("actividad", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
-                    }    
+                    }
                     if (d.getNombre().equals("Categoria")) {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
@@ -560,7 +578,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "Alumnos":
+            case "Alumnos":
                 //Primero se hace el desplegable para los usuarios de la conferencia y luego los demas
                 desplegables = new ArrayList();
                 it = gdao.get(Usuario.class).iterator();
@@ -619,19 +637,19 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerDatosCurso":
+            case "VerDatosCurso":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
-                c = (CursosFormacion) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()),CursosFormacion.class);
+                c = (CursosFormacion) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), CursosFormacion.class);
                 objeto = new JSONObject();
                 objeto.put("id", c.getNumIntId());
                 objeto.put("nombrecurso", c.getNombreCurso());
                 objeto.put("tipocurso", c.getTipoCurso());
-                objeto.put("fechainicio",c.getFechaInicio());
-                objeto.put("fechafin",c.getFechaFin());
+                objeto.put("fechainicio", c.getFechaInicio());
+                objeto.put("fechafin", c.getFechaFin());
                 objeto.put("otrainfo", c.getOtraInfo());
-                log(" ID = "+c.getNumIntId());
+                log(" ID = " + c.getNumIntId());
                 //COMPLETAR DATOS DE LISTAS AQUI
-                
+
                 //log("EL BOOLEAN SE VE ASI: "+u.getPerteneceMinoria());
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);

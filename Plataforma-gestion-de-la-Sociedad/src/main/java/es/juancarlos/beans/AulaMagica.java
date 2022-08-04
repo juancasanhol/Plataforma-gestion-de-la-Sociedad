@@ -39,4 +39,12 @@ public class AulaMagica implements Serializable{
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Alumno> lista_alumnos;
+
+    public AulaMagica(String Denominacion, String Profesor, List<Alumno> lista_alumnos) {
+        this.Denominacion = Denominacion;
+        this.Profesor = Profesor;
+        this.lista_alumnos = lista_alumnos;
+    }
+    
+    
 }
