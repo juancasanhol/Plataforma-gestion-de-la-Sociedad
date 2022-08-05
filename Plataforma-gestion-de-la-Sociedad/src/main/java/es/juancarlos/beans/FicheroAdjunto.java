@@ -47,5 +47,7 @@ public class FicheroAdjunto implements Serializable{
         this.BancoAlimentos = BancoAlimentos;
     }
     
-    
+    public FicheroAdjunto(){
+        
+    }
 }

@@ -1,5 +1,6 @@
 package es.juancarlos.controllers;
 
+import es.juancarlos.beans.Acogida;
 import es.juancarlos.beans.AulaMagica;
 import es.juancarlos.beans.CursosFormacion;
 import es.juancarlos.beans.Desplegables;
@@ -56,7 +57,8 @@ public class Ajax extends HttpServlet {
         Iterator i, it;
         Desplegables d;
         Empresa e;
-        List desplegables, cursos, aulas, empresas;
+        Acogida ac;
+        List desplegables, cursos, aulas, empresas, acogidas;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
         gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
@@ -717,6 +719,40 @@ public class Ajax extends HttpServlet {
                 //COMPLETAR DATOS DE LISTAS AQUI
 
                 //log("EL BOOLEAN SE VE ASI: "+u.getPerteneceMinoria());
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
+                break;
+                case "VerFichasAcogida":
+                acogidas = new ArrayList();
+                i = gdao.get(Acogida.class).iterator();
+                while (i.hasNext()) {
+                    ac = (Acogida) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("id", ac.getNumIntId());
+                    objeto.put("nombre", ac.getUsuario());
+                    acogidas.add(objeto);
+                }
+                arrayJSON = new JSONArray(acogidas);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                case "VerDatosFichaAcogida":
+                //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
+                ac = (Acogida) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Acogida.class);
+                objeto = new JSONObject();
+                objeto.put("id", ac.getNumIntId());
+                objeto.put("fecha", ac.getFecha());
+                objeto.put("ayudageneral", ac.getAyudaSolicitada_General());
+                objeto.put("ayudarecibos", ac.getAyudaSolicitada_Recibos());
+                objeto.put("ayudasanitaria", ac.getAyudaSolicitada_Sanitaria());
+                objeto.put("ayudaotra", ac.getAyudaSolicitada_Otras());
+                objeto.put("estadoresolucion", ac.getEstadoResolucion());
+                objeto.put("trabajador", ac.getTrabajador());
+                objeto.put("usuario", ac.getUsuario());
+                objeto.put("procedenciaderivacion", ac.getProcedenciaDerivacion());
+                //COMPLETAR DATOS DE LISTAS AQUI
+
+                
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
