@@ -75,4 +75,97 @@ public class Alumno implements Serializable{
         this.observaciones_alumno = observaciones_alumno;
     }
     
+    public Alumno(){
+        
+    }
+
+    public int getNumIntId() {
+        return NumIntId;
+    }
+
+    public String getPersona() {
+        return Persona;
+    }
+
+    public String getFechaAlta() {
+        return FechaAlta;
+    }
+
+    public String getFechaBaja() {
+        return FechaBaja;
+    }
+
+    public String getCursoEscolar() {
+        return CursoEscolar;
+    }
+
+    public Boolean getPromociona() {
+        return Promociona;
+    }
+
+    public Boolean getFinaliza() {
+        return Finaliza;
+    }
+
+    public Boolean getAprovechamiento() {
+        return Aprovechamiento;
+    }
+
+    public String getEmpresaPracticas() {
+        return EmpresaPracticas;
+    }
+
+    public List<Faltas> getFaltas_alumno() {
+        return faltas_alumno;
+    }
+
+    public List<Observaciones> getObservaciones_alumno() {
+        return observaciones_alumno;
+    }
+
+    public void setNumIntId(int NumIntId) {
+        this.NumIntId = NumIntId;
+    }
+
+    public void setPersona(String Persona) {
+        this.Persona = Persona;
+    }
+
+    public void setFechaAlta(String FechaAlta) {
+        this.FechaAlta = FechaAlta;
+    }
+
+    public void setFechaBaja(String FechaBaja) {
+        this.FechaBaja = FechaBaja;
+    }
+
+    public void setCursoEscolar(String CursoEscolar) {
+        this.CursoEscolar = CursoEscolar;
+    }
+
+    public void setPromociona(Boolean Promociona) {
+        this.Promociona = Promociona;
+    }
+
+    public void setFinaliza(Boolean Finaliza) {
+        this.Finaliza = Finaliza;
+    }
+
+    public void setAprovechamiento(Boolean Aprovechamiento) {
+        this.Aprovechamiento = Aprovechamiento;
+    }
+
+    public void setEmpresaPracticas(String EmpresaPracticas) {
+        this.EmpresaPracticas = EmpresaPracticas;
+    }
+
+    public void setFaltas_alumno(List<Faltas> faltas_alumno) {
+        this.faltas_alumno = faltas_alumno;
+    }
+
+    public void setObservaciones_alumno(List<Observaciones> observaciones_alumno) {
+        this.observaciones_alumno = observaciones_alumno;
+    }
+    
+    
 }

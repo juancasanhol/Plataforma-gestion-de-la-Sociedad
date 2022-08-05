@@ -146,6 +146,233 @@ public class ConferenciaSantaMaria implements Serializable{
         this.ficheros_conferenciasantamaria = ficheros_conferenciasantamaria;
     }
 
+    public ConferenciaSantaMaria(){
+        
+    }
+
+    public int getNumIntId() {
+        return NumIntId;
+    }
+
+    public String getNumExtId() {
+        return NumExtId;
+    }
+
+    public String getFechaAlta() {
+        return FechaAlta;
+    }
+
+    public List<Categoria> getLista_categorias() {
+        return lista_categorias;
+    }
+
+    public String getCargo() {
+        return Cargo;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public String getApellidos() {
+        return Apellidos;
+    }
+
+    public String getNif() {
+        return Nif;
+    }
+
+    public String getSexo() {
+        return Sexo;
+    }
+
+    public String getFechaNac() {
+        return FechaNac;
+    }
+
+    public String getDireccion() {
+        return Direccion;
+    }
+
+    public String getCodigoPostal() {
+        return CodigoPostal;
+    }
+
+    public String getPoblacion() {
+        return Poblacion;
+    }
+
+    public String getProvincia() {
+        return Provincia;
+    }
+
+    public String getTelefono() {
+        return Telefono;
+    }
+
+    public String getMail() {
+        return Mail;
+    }
+
+    public String getCuentaBancaria() {
+        return CuentaBancaria;
+    }
+
+    public float getCuota() {
+        return Cuota;
+    }
+
+    public List<Aportacion> getLista_aportaciones() {
+        return lista_aportaciones;
+    }
+
+    public String getActividad() {
+        return Actividad;
+    }
+
+    public String getTiempoDedicacion() {
+        return TiempoDedicacion;
+    }
+
+    public List<Observaciones> getObservaciones_conferencia() {
+        return observaciones_conferencia;
+    }
+
+    public Boolean getPermisoAcceso() {
+        return PermisoAcceso;
+    }
+
+    public List<Perfil> getLista_perfilesacceso() {
+        return lista_perfilesacceso;
+    }
+
+    public Boolean getAccesoFichaIndividual() {
+        return AccesoFichaIndividual;
+    }
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public List<FicheroAdjunto> getFicheros_conferenciasantamaria() {
+        return ficheros_conferenciasantamaria;
+    }
+
+    public void setNumIntId(int NumIntId) {
+        this.NumIntId = NumIntId;
+    }
+
+    public void setNumExtId(String NumExtId) {
+        this.NumExtId = NumExtId;
+    }
+
+    public void setFechaAlta(String FechaAlta) {
+        this.FechaAlta = FechaAlta;
+    }
+
+    public void setLista_categorias(List<Categoria> lista_categorias) {
+        this.lista_categorias = lista_categorias;
+    }
+
+    public void setCargo(String Cargo) {
+        this.Cargo = Cargo;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public void setApellidos(String Apellidos) {
+        this.Apellidos = Apellidos;
+    }
+
+    public void setNif(String Nif) {
+        this.Nif = Nif;
+    }
+
+    public void setSexo(String Sexo) {
+        this.Sexo = Sexo;
+    }
+
+    public void setFechaNac(String FechaNac) {
+        this.FechaNac = FechaNac;
+    }
+
+    public void setDireccion(String Direccion) {
+        this.Direccion = Direccion;
+    }
+
+    public void setCodigoPostal(String CodigoPostal) {
+        this.CodigoPostal = CodigoPostal;
+    }
+
+    public void setPoblacion(String Poblacion) {
+        this.Poblacion = Poblacion;
+    }
+
+    public void setProvincia(String Provincia) {
+        this.Provincia = Provincia;
+    }
+
+    public void setTelefono(String Telefono) {
+        this.Telefono = Telefono;
+    }
+
+    public void setMail(String Mail) {
+        this.Mail = Mail;
+    }
+
+    public void setCuentaBancaria(String CuentaBancaria) {
+        this.CuentaBancaria = CuentaBancaria;
+    }
+
+    public void setCuota(float Cuota) {
+        this.Cuota = Cuota;
+    }
+
+    public void setLista_aportaciones(List<Aportacion> lista_aportaciones) {
+        this.lista_aportaciones = lista_aportaciones;
+    }
+
+    public void setActividad(String Actividad) {
+        this.Actividad = Actividad;
+    }
+
+    public void setTiempoDedicacion(String TiempoDedicacion) {
+        this.TiempoDedicacion = TiempoDedicacion;
+    }
+
+    public void setObservaciones_conferencia(List<Observaciones> observaciones_conferencia) {
+        this.observaciones_conferencia = observaciones_conferencia;
+    }
+
+    public void setPermisoAcceso(Boolean PermisoAcceso) {
+        this.PermisoAcceso = PermisoAcceso;
+    }
+
+    public void setLista_perfilesacceso(List<Perfil> lista_perfilesacceso) {
+        this.lista_perfilesacceso = lista_perfilesacceso;
+    }
+
+    public void setAccesoFichaIndividual(Boolean AccesoFichaIndividual) {
+        this.AccesoFichaIndividual = AccesoFichaIndividual;
+    }
+
+    public void setUsuario(String Usuario) {
+        this.Usuario = Usuario;
+    }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
+    public void setFicheros_conferenciasantamaria(List<FicheroAdjunto> ficheros_conferenciasantamaria) {
+        this.ficheros_conferenciasantamaria = ficheros_conferenciasantamaria;
+    }
     
     
 }

@@ -78,6 +78,97 @@ public class Empresa implements Serializable{
         this.lista_colaboraciones = lista_colaboraciones;
     }
     
+    public Empresa(){        
+    }
+
+    public int getCodIntId() {
+        return CodIntId;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public String getFechaAlta() {
+        return FechaAlta;
+    }
+
+    public String getFechaBaja() {
+        return FechaBaja;
+    }
+
+    public String getPersonaContacto() {
+        return PersonaContacto;
+    }
+
+    public String getDireccion() {
+        return Direccion;
+    }
+
+    public String getCodigoPostal() {
+        return CodigoPostal;
+    }
+
+    public String getPoblacion() {
+        return Poblacion;
+    }
+
+    public String getProvincia() {
+        return Provincia;
+    }
+
+    public List<ValorDesplegable> getLista_actividades() {
+        return lista_actividades;
+    }
+
+    public List<ValorDesplegable> getLista_colaboraciones() {
+        return lista_colaboraciones;
+    }
+
+    public void setCodIntId(int CodIntId) {
+        this.CodIntId = CodIntId;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public void setFechaAlta(String FechaAlta) {
+        this.FechaAlta = FechaAlta;
+    }
+
+    public void setFechaBaja(String FechaBaja) {
+        this.FechaBaja = FechaBaja;
+    }
+
+    public void setPersonaContacto(String PersonaContacto) {
+        this.PersonaContacto = PersonaContacto;
+    }
+
+    public void setDireccion(String Direccion) {
+        this.Direccion = Direccion;
+    }
+
+    public void setCodigoPostal(String CodigoPostal) {
+        this.CodigoPostal = CodigoPostal;
+    }
+
+    public void setPoblacion(String Poblacion) {
+        this.Poblacion = Poblacion;
+    }
+
+    public void setProvincia(String Provincia) {
+        this.Provincia = Provincia;
+    }
+
+    public void setLista_actividades(List<ValorDesplegable> lista_actividades) {
+        this.lista_actividades = lista_actividades;
+    }
+
+    public void setLista_colaboraciones(List<ValorDesplegable> lista_colaboraciones) {
+        this.lista_colaboraciones = lista_colaboraciones;
+    }
+    
     
 
 }

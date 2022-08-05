@@ -71,6 +71,89 @@ public class AtencionSocialIgualdad implements Serializable{
         this.ficheros_atencionsocial_igualdad = ficheros_atencionsocial_igualdad;
     }
     
+    public AtencionSocialIgualdad(){
+        
+    }
+
+    public int getNumIntId() {
+        return NumIntId;
+    }
+
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public String getTrabajador() {
+        return Trabajador;
+    }
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public String getProcedenciaDerivacion() {
+        return ProcedenciaDerivacion;
+    }
+
+    public String getMotivoConsulta() {
+        return MotivoConsulta;
+    }
+
+    public String getIntervencion() {
+        return Intervencion;
+    }
+
+    public String getEstadoResolucion() {
+        return EstadoResolucion;
+    }
+
+    public List<Observaciones> getObservaciones_atencionsocial_igualdad() {
+        return observaciones_atencionsocial_igualdad;
+    }
+
+    public List<FicheroAdjunto> getFicheros_atencionsocial_igualdad() {
+        return ficheros_atencionsocial_igualdad;
+    }
+
+    public void setNumIntId(int NumIntId) {
+        this.NumIntId = NumIntId;
+    }
+
+    public void setFecha(String Fecha) {
+        this.Fecha = Fecha;
+    }
+
+    public void setTrabajador(String Trabajador) {
+        this.Trabajador = Trabajador;
+    }
+
+    public void setUsuario(String Usuario) {
+        this.Usuario = Usuario;
+    }
+
+    public void setProcedenciaDerivacion(String ProcedenciaDerivacion) {
+        this.ProcedenciaDerivacion = ProcedenciaDerivacion;
+    }
+
+    public void setMotivoConsulta(String MotivoConsulta) {
+        this.MotivoConsulta = MotivoConsulta;
+    }
+
+    public void setIntervencion(String Intervencion) {
+        this.Intervencion = Intervencion;
+    }
+
+    public void setEstadoResolucion(String EstadoResolucion) {
+        this.EstadoResolucion = EstadoResolucion;
+    }
+
+    public void setObservaciones_atencionsocial_igualdad(List<Observaciones> observaciones_atencionsocial_igualdad) {
+        this.observaciones_atencionsocial_igualdad = observaciones_atencionsocial_igualdad;
+    }
+
+    public void setFicheros_atencionsocial_igualdad(List<FicheroAdjunto> ficheros_atencionsocial_igualdad) {
+        this.ficheros_atencionsocial_igualdad = ficheros_atencionsocial_igualdad;
+    }
     
     
 }

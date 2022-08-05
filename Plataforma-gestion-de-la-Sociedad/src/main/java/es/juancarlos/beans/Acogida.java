@@ -81,6 +81,106 @@ public class Acogida implements Serializable{
         this.ficheros_acogida = ficheros_acogida;
     }
     
-    
+    public Acogida(){
+        
+    }
 
+    public int getNumIntId() {
+        return NumIntId;
+    }
+
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public String getTrabajador() {
+        return Trabajador;
+    }
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public String getProcedenciaDerivacion() {
+        return ProcedenciaDerivacion;
+    }
+
+    public String getAyudaSolicitada_General() {
+        return AyudaSolicitada_General;
+    }
+
+    public String getAyudaSolicitada_Recibos() {
+        return AyudaSolicitada_Recibos;
+    }
+
+    public String getAyudaSolicitada_Sanitaria() {
+        return AyudaSolicitada_Sanitaria;
+    }
+
+    public String getAyudaSolicitada_Otras() {
+        return AyudaSolicitada_Otras;
+    }
+
+    public String getEstadoResolucion() {
+        return EstadoResolucion;
+    }
+
+    public List<Observaciones> getObservaciones_acogida() {
+        return observaciones_acogida;
+    }
+
+    public List<FicheroAdjunto> getFicheros_acogida() {
+        return ficheros_acogida;
+    }
+
+    public void setNumIntId(int NumIntId) {
+        this.NumIntId = NumIntId;
+    }
+
+    public void setFecha(String Fecha) {
+        this.Fecha = Fecha;
+    }
+
+    public void setTrabajador(String Trabajador) {
+        this.Trabajador = Trabajador;
+    }
+
+    public void setUsuario(String Usuario) {
+        this.Usuario = Usuario;
+    }
+
+    public void setProcedenciaDerivacion(String ProcedenciaDerivacion) {
+        this.ProcedenciaDerivacion = ProcedenciaDerivacion;
+    }
+
+    public void setAyudaSolicitada_General(String AyudaSolicitada_General) {
+        this.AyudaSolicitada_General = AyudaSolicitada_General;
+    }
+
+    public void setAyudaSolicitada_Recibos(String AyudaSolicitada_Recibos) {
+        this.AyudaSolicitada_Recibos = AyudaSolicitada_Recibos;
+    }
+
+    public void setAyudaSolicitada_Sanitaria(String AyudaSolicitada_Sanitaria) {
+        this.AyudaSolicitada_Sanitaria = AyudaSolicitada_Sanitaria;
+    }
+
+    public void setAyudaSolicitada_Otras(String AyudaSolicitada_Otras) {
+        this.AyudaSolicitada_Otras = AyudaSolicitada_Otras;
+    }
+
+    public void setEstadoResolucion(String EstadoResolucion) {
+        this.EstadoResolucion = EstadoResolucion;
+    }
+
+    public void setObservaciones_acogida(List<Observaciones> observaciones_acogida) {
+        this.observaciones_acogida = observaciones_acogida;
+    }
+
+    public void setFicheros_acogida(List<FicheroAdjunto> ficheros_acogida) {
+        this.ficheros_acogida = ficheros_acogida;
+    }
+
+    
+    
 }
