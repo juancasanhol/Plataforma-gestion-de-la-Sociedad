@@ -674,7 +674,7 @@ public class Ajax extends HttpServlet {
                 objeto.put("fechainicio", c.getFechaInicio());
                 objeto.put("fechafin", c.getFechaFin());
                 objeto.put("otrainfo", c.getOtraInfo());
-                log(" ID = " + c.getNumIntId());
+                //log(" ID = " + c.getNumIntId());
                 //COMPLETAR DATOS DE LISTAS AQUI
 
                 //log("EL BOOLEAN SE VE ASI: "+u.getPerteneceMinoria());

@@ -9,7 +9,7 @@ $(document).ready(function () {
             //console.log("Desplegables cargados correctamente");
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
-                $("#tbody").append('<tr><td class="d-none" >' + option.id + '</td><td>' + option.nombre+ '</td><td>' + option.localidad +'</td>'+ '<td><a href="VerEmpresa.html"><button onclick="enviaId('+option.id+')" type="button" class="btn btn-primary mb-2">Ver datos</button></a></td>'+'</tr>');
+                $("#tbody").append('<tr><td class="d-none" >' + option.id + '</td><td>' + option.nombre+ '</td><td>' + option.localidad +'</td>'+ '<td><a href="../../Redireccion?accion=verempresa&id='+option.id+'"><button onclick="enviaId('+option.id+')" type="button" class="btn btn-primary mb-2">Ver datos</button></a></td>'+'</tr>');
             });
 
         },
@@ -22,7 +22,7 @@ $(document).ready(function () {
 function enviaId(id) {
   $.ajax({
     type:"POST", 
-    url:"../../VerEmpresa", 
+    url:"../../Redireccion", 
     data:{id:id}
 });
 };

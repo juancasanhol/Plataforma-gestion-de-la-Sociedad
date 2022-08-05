@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 
- * @author Juan Carlos Sánchez Holguín 
+ *
+ * @author Juan Carlos Sánchez Holguín
  */
 @WebServlet(name = "Redireccion", urlPatterns = {"/Redireccion"})
 public class Redireccion extends HttpServlet {
@@ -19,8 +19,9 @@ public class Redireccion extends HttpServlet {
     /**
      * Procesa solicitudes para ambos HTTP <code>GET</code> y <code>POST</code>
      * métodos.
-     * 
-     * Servlet usado para las diferentes redireciones de la aplicación de una página html a otra 
+     *
+     * Servlet usado para las diferentes redireciones de la aplicación de una
+     * página html a otra
      *
      * @param request Servlet request
      * @param response Servlet response
@@ -29,27 +30,36 @@ public class Redireccion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-         String url = "";
-                DAOFactory daof = DAOFactory.getDAOFactory();
-        IGenericoDAO gdao = daof.getGenericoDAO();
-        switch(request.getParameter("accion")){
-            
-            case "P":
-           
-                //gdao.insertOrUpdate(new Usuario(0,"dnni","nombre","apelli","email"));
-                  url = "html/principal.html";
-                
-                break;
-                
-            default:
-                
-                break;
-            
-            
+        log("ID  "+request.getParameter("id"));
+        if (request.getParameter("id") != null) {
+            request.getSession().setAttribute("id", request.getParameter("id"));
         }
+        String url = "";
+        DAOFactory daof = DAOFactory.getDAOFactory();
+        IGenericoDAO gdao = daof.getGenericoDAO();
+        switch (request.getParameter("accion")) {
+            case "verusuario":
+                url = "./html/usuario/EditarUsuario.html";
+                break;
+            case "vercursoformacion":
+                url = "./html/visualizaciones/VerCurso.html";
+                //log("ID CURSO  "+request.getSession().getAttribute("id"));
+                break;
+            case "verempresa":
+                url = "./html/visualizaciones/VerEmpresa.html";
+                break;
+            case "verfichaacogida":
+                url = "./html/visualizaciones/VerFichaAcogida.html";
+                break;
+            case "veraulamagica":
+                url = "./html/visualizaciones/VerAula.html";
+                break;
+            default:
 
-        request.getRequestDispatcher(url).forward(request, response);
+                break;
+        }
+        response.sendRedirect(url);
+        //request.getRequestDispatcher(url).forward(request, response);
 
     }
 

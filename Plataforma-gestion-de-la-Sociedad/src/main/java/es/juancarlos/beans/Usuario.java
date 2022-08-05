@@ -207,6 +207,7 @@ public class Usuario implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
+    @JoinColumn(name = "id_ficheros")
     List<FicheroAdjunto> ficheros_unidadconvivencia;
 
     //SUMA DE INGRESOS DE LOS CONVIVIENTES (SE CALCULA SOLO)
@@ -224,6 +225,7 @@ public class Usuario implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
+    //@JoinColumn(name = "id_listasrecogidas")
     List<BancoAlimentos> lista_recogidas;
 
     //DATOS ORIENTACION LABORAL
@@ -274,6 +276,7 @@ public class Usuario implements Serializable {
         this.Minoria = Minoria;
         this.observaciones_id = observaciones_id;
         this.ficheros_usuario = ficheros_usuario;
+        this.ficheros_unidadconvivencia = null;
         //Todas estas listas se crean ahora para que a la hora de añadir o editar los datos no haya que crearlas
         /*this.observaciones_sanitarias = new ArrayList<Observaciones>();
         this.profesion_observaciones = new ArrayList<ProfesionObservaciones>();
