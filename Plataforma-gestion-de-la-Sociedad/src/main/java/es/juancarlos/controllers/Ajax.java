@@ -3,6 +3,7 @@ package es.juancarlos.controllers;
 import es.juancarlos.beans.AulaMagica;
 import es.juancarlos.beans.CursosFormacion;
 import es.juancarlos.beans.Desplegables;
+import es.juancarlos.beans.Empresa;
 import es.juancarlos.beans.Perfil;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.beans.ValorDesplegable;
@@ -54,7 +55,8 @@ public class Ajax extends HttpServlet {
         AulaMagica a;
         Iterator i, it;
         Desplegables d;
-        List desplegables, cursos, aulas;
+        Empresa e;
+        List desplegables, cursos, aulas, empresas;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
         gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
@@ -678,6 +680,40 @@ public class Ajax extends HttpServlet {
                 objeto.put("id", a.getNumIntId());
                 objeto.put("denominacion", a.getDenominacion());
                 objeto.put("profesor", a.getProfesor());
+                //COMPLETAR DATOS DE LISTAS AQUI
+
+                //log("EL BOOLEAN SE VE ASI: "+u.getPerteneceMinoria());
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
+                break;
+                case "VerEmpresas":
+                empresas = new ArrayList();
+                i = gdao.get(Empresa.class).iterator();
+                while (i.hasNext()) {
+                    e = (Empresa) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("id", e.getCodIntId());
+                    objeto.put("nombre", e.getNombre());
+                    objeto.put("localidad", e.getPoblacion());
+                    empresas.add(objeto);
+                }
+                arrayJSON = new JSONArray(empresas);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                case "VerDatosEmpresa":
+                //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
+                e = (Empresa) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Empresa.class);
+                objeto = new JSONObject();
+                objeto.put("id", e.getCodIntId());
+                objeto.put("nombre", e.getNombre());
+                objeto.put("direccion", e.getDireccion());
+                objeto.put("fechaalta", e.getFechaAlta());
+                objeto.put("fechabaja", e.getFechaBaja());
+                objeto.put("codigopostal", e.getCodigoPostal());
+                objeto.put("poblacion", e.getPoblacion());
+                objeto.put("personacontacto", e.getPersonaContacto());
+                objeto.put("provincia", e.getProvincia());
                 //COMPLETAR DATOS DE LISTAS AQUI
 
                 //log("EL BOOLEAN SE VE ASI: "+u.getPerteneceMinoria());

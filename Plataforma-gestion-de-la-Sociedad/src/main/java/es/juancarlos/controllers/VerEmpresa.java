@@ -1,18 +1,14 @@
 package es.juancarlos.controllers;
 
-import es.juancarlos.beans.Empresa;
-import es.juancarlos.beans.ValorDesplegable;
-import es.juancarlos.daofactory.DAOFactory;
-import es.juancarlos.interfaces.IGenericoDAO;
+
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -20,9 +16,8 @@ import org.json.JSONObject;
  *
  * @author Juan Carlos Sánchez Holguín
  */
-@MultipartConfig
-@WebServlet(name = "Empresas", urlPatterns = {"/Empresas"})
-public class Empresas extends HttpServlet {
+@WebServlet(name = "VerEmpresa", urlPatterns = {"/VerEmpresa"})
+public class VerEmpresa extends HttpServlet {
 
     //para devolver un solo objeto
     JSONObject objeto = null;
@@ -40,17 +35,12 @@ public class Empresas extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        DAOFactory daof = DAOFactory.getDAOFactory();
-        IGenericoDAO gdao = daof.getGenericoDAO();
-        List<ValorDesplegable> actividades = new ArrayList<ValorDesplegable>();
-        List<ValorDesplegable> colaboraciones = new ArrayList<ValorDesplegable>();
-        //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
-        
-        gdao.insertOrUpdate(new Empresa(request.getParameter("Nombre"),request.getParameter("FechaAlta"),request.getParameter("FechaBaja"),request.getParameter("PersonaContacto"),request.getParameter("Direccion"),request.getParameter("CodigoPostal"),request.getParameter("Localidad"),request.getParameter("Provincia"),actividades,colaboraciones));
-        response.sendRedirect("./html/MenuPrincipal/Menu.html");
+        if(request.getParameter("id")!=null){
+        //log("ID DE USUARIO "+request.getParameter("id"));
+        request.getSession().setAttribute("id", request.getParameter("id"));
+        }
+        response.sendRedirect("./html/otros/VerEmpresa.html");
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
