@@ -148,7 +148,7 @@ function MostrarDesplegables(){
             $("#tbody").html("");console.log("ENTRA");
             $.each(respuesta, function (i, option) {
 
-                $("#tbody").append('<tr><td>' +option.nombre+ '</td><td><button class="btn btn-success btnVerValores" id="' + option.nombre + '">Ver valores</button></td></tr>');
+                $("#tbody").append('<tr><td>' +separa(option.nombre)+ '</td><td><button class="btn btn-success btnVerValores" id="' + option.nombre + '">Ver valores</button></td></tr>');
 
                 $("#botonera").html('<a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Volver </a>');
             });
