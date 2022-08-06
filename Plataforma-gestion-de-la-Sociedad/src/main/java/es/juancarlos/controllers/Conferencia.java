@@ -75,14 +75,13 @@ public class Conferencia extends HttpServlet {
         }catch(Exception e){
             cuota=0;
         }
-        List<Categoria> categorias = new ArrayList<Categoria>();
         List<Aportacion> aportaciones = new ArrayList<Aportacion>();
         List<Perfil> perfiles = new ArrayList<Perfil>();
         //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
         
         
         
-        gdao.insertOrUpdate(new ConferenciaSantaMaria(request.getParameter("NumExtId"), request.getParameter("FechaAlta"), categorias, request.getParameter("Cargo"), request.getParameter("Nombre"), request.getParameter("Apellidos"), request.getParameter("Nif"), request.getParameter("Sexo"), request.getParameter("FechaNac"), request.getParameter("Direccion"), request.getParameter("CodigoPostal"), request.getParameter("Poblacion"), request.getParameter("Provincia"), request.getParameter("Telefono"), request.getParameter("Mail"), request.getParameter("CuentaBancaria"), cuota, aportaciones, request.getParameter("Actividad"), request.getParameter("TiempoDedicacion"), observaciones, permisoacceso, perfiles, accesoficha, request.getParameter("Usuario"), request.getParameter("Password"), ficheros));
+        gdao.insertOrUpdate(new ConferenciaSantaMaria(request.getParameter("Categoria"),request.getParameter("NumExtId"), request.getParameter("FechaAlta"), request.getParameter("Cargo"), request.getParameter("Nombre"), request.getParameter("Apellidos"), request.getParameter("Nif"), request.getParameter("Sexo"), request.getParameter("FechaNac"), request.getParameter("Direccion"), request.getParameter("CodigoPostal"), request.getParameter("Poblacion"), request.getParameter("Provincia"), request.getParameter("Telefono"), request.getParameter("Mail"), request.getParameter("CuentaBancaria"), cuota, aportaciones, request.getParameter("Actividad"), request.getParameter("TiempoDedicacion"), observaciones, permisoacceso, perfiles, accesoficha, request.getParameter("Usuario"), request.getParameter("Password"), ficheros));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 

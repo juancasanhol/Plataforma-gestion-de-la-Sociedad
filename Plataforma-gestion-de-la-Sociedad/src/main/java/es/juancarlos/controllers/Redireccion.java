@@ -30,7 +30,7 @@ public class Redireccion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        log("ID  "+request.getParameter("id"));
+        log("ID  " + request.getParameter("id"));
         if (request.getParameter("id") != null) {
             request.getSession().setAttribute("id", request.getParameter("id"));
         }
@@ -57,9 +57,12 @@ public class Redireccion extends HttpServlet {
             case "verfichaatencionsocialigualdad":
                 url = "./html/visualizaciones/VerFichaAtencionSocialIgualdad.html";
                 break;
-                case"veralumnos":
-                    url = "./html/visualizaciones/VerAlumno.html";
-                    break;
+            case "verconferencia":
+                url = "./html/visualizaciones/VerConferencia.html";
+                break;
+            case "veralumnos":
+                url = "./html/visualizaciones/VerAlumno.html";
+                break;
             default:
 
                 break;

@@ -4,6 +4,7 @@ import es.juancarlos.beans.Acogida;
 import es.juancarlos.beans.Alumno;
 import es.juancarlos.beans.AtencionSocialIgualdad;
 import es.juancarlos.beans.AulaMagica;
+import es.juancarlos.beans.ConferenciaSantaMaria;
 import es.juancarlos.beans.CursosFormacion;
 import es.juancarlos.beans.Desplegables;
 import es.juancarlos.beans.Empresa;
@@ -62,7 +63,8 @@ public class Ajax extends HttpServlet {
         Acogida ac;
         AtencionSocialIgualdad asi;
         Alumno al;
-        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos;
+        ConferenciaSantaMaria conf;
+        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
         gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
@@ -841,6 +843,55 @@ public class Ajax extends HttpServlet {
                 objeto.put("promociona", al.getPromociona());
                 objeto.put("finaliza", al.getFinaliza());
                 //COMPLETAR DATOS DE LAS LISTAS DE FALTAS
+
+                
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
+                break;
+                case "VerConferencias":
+                conferencias = new ArrayList();
+                i = gdao.get(ConferenciaSantaMaria.class).iterator();
+                while (i.hasNext()) {
+                    conf = (ConferenciaSantaMaria) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("id", conf.getNumIntId());
+                    objeto.put("nombre", conf.getNombre()+" "+conf.getApellidos());
+                    objeto.put("numeroext", conf.getNumExtId());
+                    conferencias.add(objeto);
+                }
+                arrayJSON = new JSONArray(conferencias);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                case "VerDatosConferencia":
+                //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
+                conf = (ConferenciaSantaMaria) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), ConferenciaSantaMaria.class);
+                objeto = new JSONObject();
+                objeto.put("id", conf.getNumIntId());
+                objeto.put("nombre", conf.getNombre());
+                objeto.put("apellidos", conf.getApellidos());
+                objeto.put("numextid", conf.getNumExtId());
+                objeto.put("fechanac", conf.getFechaNac());
+                objeto.put("provincia", conf.getProvincia());
+                objeto.put("cuota", conf.getCuota());
+                objeto.put("usuario", conf.getUsuario());
+                objeto.put("fechaalta", conf.getFechaAlta());
+                objeto.put("direccion", conf.getDireccion());
+                objeto.put("telefono", conf.getTelefono());
+                objeto.put("password", conf.getPassword());
+                objeto.put("nif", conf.getNif());
+                objeto.put("codigopostal", conf.getCodigoPostal());
+                objeto.put("mail", conf.getMail());
+                objeto.put("actividad", conf.getActividad());
+                objeto.put("cargo", conf.getCargo());
+                objeto.put("sexo", conf.getSexo());
+                objeto.put("poblacion", conf.getPoblacion());
+                objeto.put("cuentabancaria", conf.getCuentaBancaria());
+                objeto.put("tiempodedicacion", conf.getTiempoDedicacion());
+                objeto.put("permisoacceso", conf.getPermisoAcceso());
+                objeto.put("accesofichaindividual", conf.getAccesoFichaIndividual());
+                objeto.put("categoria", conf.getCategor());
+                //COMPLETAR DATOS DE LAS LISTAS DE FICHEROS, OBSERVACIONES, APORTACIONES, PERFILES DE USUARIO Y CATEGORIAS
 
                 
                 response.setContentType("application/json");

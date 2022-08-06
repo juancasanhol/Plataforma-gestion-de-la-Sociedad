@@ -35,10 +35,9 @@ public class ConferenciaSantaMaria implements Serializable{
 
     @Column(name = "FechaAlta", nullable = true)
     String FechaAlta;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @LazyCollection(LazyCollectionOption.FALSE)
-    List<Categoria> lista_categorias;
+    
+    @Column(name = "Categor", nullable = true)
+    String Categor;
 
     @Column(name = "Cargo", nullable = true)
     String Cargo;
@@ -116,10 +115,10 @@ public class ConferenciaSantaMaria implements Serializable{
     @LazyCollection(LazyCollectionOption.FALSE)
     List<FicheroAdjunto> ficheros_conferenciasantamaria;
 
-    public ConferenciaSantaMaria(String NumExtId, String FechaAlta, List<Categoria> lista_categorias, String Cargo, String Nombre, String Apellidos, String Nif, String Sexo, String FechaNac, String Direccion, String CodigoPostal, String Poblacion, String Provincia, String Telefono, String Mail, String CuentaBancaria, float Cuota, List<Aportacion> lista_aportaciones, String Actividad, String TiempoDedicacion, List<Observaciones> observaciones_conferencia, Boolean PermisoAcceso, List<Perfil> lista_perfilesacceso, Boolean AccesoFichaIndividual, String Usuario, String Password, List<FicheroAdjunto> ficheros_conferenciasantamaria) {
+    public ConferenciaSantaMaria(String Categor, String NumExtId, String FechaAlta, String Cargo, String Nombre, String Apellidos, String Nif, String Sexo, String FechaNac, String Direccion, String CodigoPostal, String Poblacion, String Provincia, String Telefono, String Mail, String CuentaBancaria, float Cuota, List<Aportacion> lista_aportaciones, String Actividad, String TiempoDedicacion, List<Observaciones> observaciones_conferencia, Boolean PermisoAcceso, List<Perfil> lista_perfilesacceso, Boolean AccesoFichaIndividual, String Usuario, String Password, List<FicheroAdjunto> ficheros_conferenciasantamaria) {
+        this.Categor = Categor;
         this.NumExtId = NumExtId;
         this.FechaAlta = FechaAlta;
-        this.lista_categorias = lista_categorias;
         this.Cargo = Cargo;
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
@@ -150,6 +149,14 @@ public class ConferenciaSantaMaria implements Serializable{
         
     }
 
+    public String getCategor() {
+        return Categor;
+    }
+
+    public void setCategor(String Categor) {
+        this.Categor = Categor;
+    }
+
     public int getNumIntId() {
         return NumIntId;
     }
@@ -161,11 +168,7 @@ public class ConferenciaSantaMaria implements Serializable{
     public String getFechaAlta() {
         return FechaAlta;
     }
-
-    public List<Categoria> getLista_categorias() {
-        return lista_categorias;
-    }
-
+    
     public String getCargo() {
         return Cargo;
     }
@@ -272,10 +275,6 @@ public class ConferenciaSantaMaria implements Serializable{
 
     public void setFechaAlta(String FechaAlta) {
         this.FechaAlta = FechaAlta;
-    }
-
-    public void setLista_categorias(List<Categoria> lista_categorias) {
-        this.lista_categorias = lista_categorias;
     }
 
     public void setCargo(String Cargo) {
