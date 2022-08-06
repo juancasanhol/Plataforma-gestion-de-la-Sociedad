@@ -57,6 +57,9 @@ public class Redireccion extends HttpServlet {
             case "verfichaatencionsocialigualdad":
                 url = "./html/visualizaciones/VerFichaAtencionSocialIgualdad.html";
                 break;
+                case"veralumnos":
+                    url = "./html/visualizaciones/VerAlumno.html";
+                    break;
             default:
 
                 break;

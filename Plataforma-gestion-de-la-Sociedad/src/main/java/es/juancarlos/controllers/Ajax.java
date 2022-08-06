@@ -1,6 +1,7 @@
 package es.juancarlos.controllers;
 
 import es.juancarlos.beans.Acogida;
+import es.juancarlos.beans.Alumno;
 import es.juancarlos.beans.AtencionSocialIgualdad;
 import es.juancarlos.beans.AulaMagica;
 import es.juancarlos.beans.CursosFormacion;
@@ -60,7 +61,8 @@ public class Ajax extends HttpServlet {
         Empresa e;
         Acogida ac;
         AtencionSocialIgualdad asi;
-        List desplegables, cursos, aulas, empresas, acogidas, atenciones;
+        Alumno al;
+        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
         gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
@@ -806,6 +808,39 @@ public class Ajax extends HttpServlet {
                 objeto.put("usuario", asi.getUsuario());
                 objeto.put("procedenciaderivacion", asi.getProcedenciaDerivacion());
                 //COMPLETAR DATOS DE OBSERVACIONES Y LISTAS DE FICHEROS
+
+                
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
+                break;
+                case "VerAlumnos":
+                alumnos = new ArrayList();
+                i = gdao.get(Alumno.class).iterator();
+                while (i.hasNext()) {
+                    al = (Alumno) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("id", al.getNumIntId());
+                    objeto.put("nombre", al.getPersona());
+                    alumnos.add(objeto);
+                }
+                arrayJSON = new JSONArray(alumnos);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                case "VerDatosAlumno":
+                //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
+                al = (Alumno) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Alumno.class);
+                objeto = new JSONObject();
+                objeto.put("id", al.getNumIntId());
+                objeto.put("nombre", al.getPersona());
+                objeto.put("empresapracticas", al.getEmpresaPracticas());
+                objeto.put("fechaalta", al.getFechaAlta());
+                objeto.put("fechabaja", al.getFechaBaja());
+                objeto.put("cursoescolar", al.getCursoEscolar());
+                objeto.put("aprovechamiento", al.getAprovechamiento());
+                objeto.put("promociona", al.getPromociona());
+                objeto.put("finaliza", al.getFinaliza());
+                //COMPLETAR DATOS DE LAS LISTAS DE FALTAS
 
                 
                 response.setContentType("application/json");

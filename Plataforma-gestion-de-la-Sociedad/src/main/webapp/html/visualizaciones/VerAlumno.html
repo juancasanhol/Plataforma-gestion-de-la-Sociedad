@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Acogida</title>
+    <title>Ver alumno</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,86 +34,98 @@
 
     <div class="container-fluid">
 
-        <!-- FORMULARIO PARA LA CREACION DE UNA FICHA DE ACOGIDA -->
-        <form action="../../Acogidas" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
+        <div class="row">
             <!--El numero interno de identificacion se genera solo-->
             <div class="col-3">
 
-                <legend class="mt-2">Fecha: </legend>
-                <input id="Fecha" type="datetime-local" name="Fecha"><br>
-
-                <legend>Ayuda de recibos solicitada: </legend>
-                <input id="AyudaRecibos" type="text" name="AyudaRecibos" list="DesplegablesAyudaRecibos"> <br>
-                <datalist id="DesplegablesAyudaRecibos">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-                <legend class="mt-2">Observaciones: </legend>
-                <textarea cols="30" id="Observaciones" name="Observaciones"></textarea><br>
+                <legend >Alumno: </legend>
+                <div id="Nombre" name="Nombre"></div><br>
                 
             </div>
 
             <div class="col-3">
 
-                <legend>Usuario que recibe la ayuda: </legend>
-                <input required id="Usuario" type="text" name="Usuario" list="DesplegablesUsuario"> <br>
-                <datalist id="DesplegablesUsuario">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
+                <!--AQUI VAN LAS OBSERVACIONES-->
 
-                <legend>Ayuda de asistencia sanitaria solicitada: </legend>
-                <input id="AyudaSanitaria" type="text" name="AyudaSanitaria" list="DesplegablesAyudaSanitaria"> <br>
-                <datalist id="DesplegablesAyudaSanitaria">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-                
-                <legend class="mt-2">Fichero adjunto: </legend>
-                <input type="file" id="Fichero" name="Fichero"><br>
 
             </div>
 
+            <div class="col-3"></div><div class="col-3"></div>
+            <br>
+            <hr class="mt-5"><div class="col-12">DATOS PARA CURSOS DE FORMACIÓN</div>
+            <br><br>
+            
             <div class="col-3">
 
-                <legend>Procedencia o derivación: </legend>
-                <input id="ProcedenciaDerivacion" type="text" name="ProcedenciaDerivacion" list="DesplegablesProcedenciaDerivacion"> <br>
-                <datalist id="DesplegablesProcedenciaDerivacion">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-                <legend>Otras ayudas solicitadas: </legend>
-                <input id="AyudaOtra" type="text" name="AyudaOtra" list="DesplegablesAyudaOtra"> <br>
-                <datalist id="DesplegablesAyudaOtra">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-                
+                <legend >¿Finaliza?: </legend>
+                <div id="Finaliza" name="Finaliza"></div><br>
                 
             </div>
-
+            
             <div class="col-3">
-                
-                <legend>Ayuda general solicitada: </legend>
-                <input id="AyudaGeneral" type="text" name="AyudaGeneral" list="DesplegablesAyudaGeneral"> <br>
-                <datalist id="DesplegablesAyudaGeneral">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-                
-                <legend>Estado de resolución: </legend>
-                <input id="EstadoResolucion" type="text" name="EstadoResolucion" list="DesplegablesEstadoResolucion"> <br>
-                <datalist id="DesplegablesEstadoResolucion">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
+
+                <legend >¿Aprovechamiento?: </legend>
+                <div id="Aprovechamiento" name="Aprovechamiento"></div><br>
                 
             </div>
+            
+            <div class="col-3">
 
+                <legend >Empresa de prácticas: </legend>
+                <div id="EmpresaPracticas" name="EmpresaPracticas"></div><br>
+                
+            </div>
+            
+            <div class="col-3">
+
+                <!-- AQUI VA LO DE LA LISTA DE FALTAS -->
+                
+            </div>
+            
+            <br>
+            <hr class="mt-5"><div class="col-12">DATOS PARA AULA MÁGICA</div>
+            <br><br>
+            
+            
+            <div class="col-3">
+
+                <legend >Fecha de alta: </legend>
+                <div id="FechaAlta" name="FechaAlta"></div><br>
+                
+                <!-- AQUI VA LO DE LA LISTA DE FALTAS -->
+                
+            </div>
+            
+            <div class="col-3">
+
+                <legend >Fecha de baja: </legend>
+                <div id="FechaBaja" name="FechaBaja"></div><br>
+                
+            </div>
+            
+            <div class="col-3">
+
+                <legend >Curso escolar: </legend>
+                <div id="CursoEscolar" name="CursoEscolar"></div><br>
+                
+            </div>
+            
+            <div class="col-3">
+
+                <legend >¿Promociona?: </legend>
+                <div id="Promociona" name="Promociona"></div><br>
+                
+            </div>
+            
+            
             <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" type="submit" value="Añadir ficha" title="Crear ficha">
-                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
+                <a class="col-4 btn btn-warning offset-1" href="VerAlumnos.html" role="button">Volver</a>
             </div>
-
+    </div>
     </div>
     <br>
     <br><br><br>
-
+    </div>
 
 
     <table>
@@ -222,7 +234,7 @@
             <td><input type="submit" value="Registrar Usuario" title="Registrar al usuario."></td>
         </tr>-->
     </table>
-    </form>
+    
     <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
 
 
@@ -249,7 +261,7 @@
     <script src="../../jquery/jquery-3.6.0.min.js"></script>
     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../js/desplegablesAcogida.js"></script> 
+    <script src="../../js/verDatosAlumno.js"></script>
 </body>
 
 </html>
