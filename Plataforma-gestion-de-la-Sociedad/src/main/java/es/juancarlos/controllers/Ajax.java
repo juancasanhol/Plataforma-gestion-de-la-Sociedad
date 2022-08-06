@@ -1,6 +1,7 @@
 package es.juancarlos.controllers;
 
 import es.juancarlos.beans.Acogida;
+import es.juancarlos.beans.AtencionSocialIgualdad;
 import es.juancarlos.beans.AulaMagica;
 import es.juancarlos.beans.CursosFormacion;
 import es.juancarlos.beans.Desplegables;
@@ -58,7 +59,8 @@ public class Ajax extends HttpServlet {
         Desplegables d;
         Empresa e;
         Acogida ac;
-        List desplegables, cursos, aulas, empresas, acogidas;
+        AtencionSocialIgualdad asi;
+        List desplegables, cursos, aulas, empresas, acogidas, atenciones;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
         gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
@@ -772,6 +774,38 @@ public class Ajax extends HttpServlet {
                 objeto.put("usuario", ac.getUsuario());
                 objeto.put("procedenciaderivacion", ac.getProcedenciaDerivacion());
                 //COMPLETAR DATOS DE LISTAS AQUI
+
+                
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
+                break;
+                case "VerFichasAtencionSocialIgualdad":
+                atenciones = new ArrayList();
+                i = gdao.get(AtencionSocialIgualdad.class).iterator();
+                while (i.hasNext()) {
+                    asi = (AtencionSocialIgualdad) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("id", asi.getNumIntId());
+                    objeto.put("nombre", asi.getUsuario());
+                    atenciones.add(objeto);
+                }
+                arrayJSON = new JSONArray(atenciones);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                case "VerDatosFichaAtencionSocialIgualdad":
+                //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
+                asi = (AtencionSocialIgualdad) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), AtencionSocialIgualdad.class);
+                objeto = new JSONObject();
+                objeto.put("id", asi.getNumIntId());
+                objeto.put("fecha", asi.getFecha());
+                objeto.put("motivoconsulta", asi.getMotivoConsulta());
+                objeto.put("intervencion", asi.getIntervencion());
+                objeto.put("estadoresolucion", asi.getEstadoResolucion());
+                objeto.put("trabajador", asi.getTrabajador());
+                objeto.put("usuario", asi.getUsuario());
+                objeto.put("procedenciaderivacion", asi.getProcedenciaDerivacion());
+                //COMPLETAR DATOS DE OBSERVACIONES Y LISTAS DE FICHEROS
 
                 
                 response.setContentType("application/json");

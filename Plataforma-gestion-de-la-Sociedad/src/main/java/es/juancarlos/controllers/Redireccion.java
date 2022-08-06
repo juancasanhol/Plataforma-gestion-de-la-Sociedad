@@ -35,8 +35,8 @@ public class Redireccion extends HttpServlet {
             request.getSession().setAttribute("id", request.getParameter("id"));
         }
         String url = "";
-        DAOFactory daof = DAOFactory.getDAOFactory();
-        IGenericoDAO gdao = daof.getGenericoDAO();
+        //DAOFactory daof = DAOFactory.getDAOFactory();
+        //IGenericoDAO gdao = daof.getGenericoDAO();
         switch (request.getParameter("accion")) {
             case "verusuario":
                 url = "./html/usuario/EditarUsuario.html";
@@ -53,6 +53,9 @@ public class Redireccion extends HttpServlet {
                 break;
             case "veraulamagica":
                 url = "./html/visualizaciones/VerAula.html";
+                break;
+            case "verfichaatencionsocialigualdad":
+                url = "./html/visualizaciones/VerFichaAtencionSocialIgualdad.html";
                 break;
             default:
 

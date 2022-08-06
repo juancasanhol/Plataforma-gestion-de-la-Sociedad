@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Atención social e igualdad</title>
+    <title>Ver ficha acogida</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,74 +34,58 @@
 
     <div class="container-fluid">
 
-        <!-- FORMULARIO PARA LA CREACION DE UNA FICHA DE ACOGIDA -->
-        <form action="../../AtencionSocial" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
+        <div class="row">
             <!--El numero interno de identificacion se genera solo-->
             <div class="col-3">
 
-                <legend class="mt-2">Fecha: </legend>
-                <input id="Fecha" type="datetime-local" name="Fecha"><br>
-
-                <legend>Intervención: </legend>
-                <input id="Intervencion" type="text" name="Intervencion" list="DesplegablesIntervencion"> <br>
-                <datalist id="DesplegablesIntervencion">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
+                <legend >Fecha: </legend>
+                <div id="Fecha" name="Fecha"></div><br>
+                
+                <legend >Motivo de consulta: </legend>
+                <div id="MotivoConsulta" name="MotivoConsulta"></div><br>
+                
+                <!--LISTA DE FICHEROS AQUI-->
                 
             </div>
 
             <div class="col-3">
 
-                <legend>Usuario: </legend>
-                <input required id="Usuario" type="text" name="Usuario" list="DesplegablesUsuario"> <br>
-                <datalist id="DesplegablesUsuario">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-                <legend>Estado de resolución: </legend>
-                <input id="EstadoResolucion" type="text" name="EstadoResolucion" list="DesplegablesEstadoResolucion"> <br>
-                <datalist id="DesplegablesEstadoResolucion">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-            </div>
-
-            <div class="col-3">
-
-                <legend>Procedencia o derivación: </legend>
-                <input id="ProcedenciaDerivacion" type="text" name="ProcedenciaDerivacion" list="DesplegablesProcedenciaDerivacion"> <br>
-                <datalist id="DesplegablesProcedenciaDerivacion">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-                <legend class="mt-2">Observaciones: </legend>
-                <textarea cols="30" id="Observaciones" name="Observaciones"></textarea><br>
+                <legend >Trabajador que le atiende: </legend>
+                <div id="Trabajador" name="Trabajador"></div><br>
                 
+                <legend >Intervención: </legend>
+                <div id="Intervencion" name="Intervencion"></div><br>
                 
             </div>
 
             <div class="col-3">
                 
-                <legend>Motivo de la consulta: </legend>
-                <input id="MotivoConsulta" type="text" name="MotivoConsulta" list="DesplegablesMotivoConsulta"> <br>
-                <datalist id="DesplegablesMotivoConsulta">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
+                <legend >Usuario: </legend>
+                <div id="Usuario" name="Usuario"></div><br>
                 
-                <legend class="mt-2">Fichero adjunto: </legend>
-                <input type="file" id="Fichero" name="Fichero"><br>
+                <legend >Estado de resolución: </legend>
+                <div id="EstadoResolucion" name="EstadoResolucion"></div><br>
                 
             </div>
 
+            <div class="col-3">
+                
+                <legend >Procedencia/Derivación: </legend>
+                <div id="ProcedenciaDerivacion" name="ProcedenciaDerivacion"></div><br>
+                
+                <!--OBSERVACIONES AQUI-->
+                
+            </div>
+            
+            
             <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" type="submit" value="Añadir ficha acogida" title="Crear ficha">
-                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
+                <a class="col-4 btn btn-warning offset-1" href="VerFichasAtencionSocialIgualdad.html" role="button">Volver</a>
             </div>
-
+    </div>
     </div>
     <br>
     <br><br><br>
-
+    </div>
 
 
     <table>
@@ -210,7 +194,7 @@
             <td><input type="submit" value="Registrar Usuario" title="Registrar al usuario."></td>
         </tr>-->
     </table>
-    </form>
+    
     <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
 
 
@@ -237,7 +221,7 @@
     <script src="../../jquery/jquery-3.6.0.min.js"></script>
     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../js/desplegablesAtencionSocialIgualdad.js"></script> 
+    <script src="../../js/verDatosFichaAtencionSocialIgualdad.js"></script>
 </body>
 
 </html>
