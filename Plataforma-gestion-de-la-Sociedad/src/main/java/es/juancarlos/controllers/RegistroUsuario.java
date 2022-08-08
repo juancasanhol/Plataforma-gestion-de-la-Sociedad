@@ -47,7 +47,7 @@ public class RegistroUsuario extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), "ADMIN");
+        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
         Boolean minoria = false;
         List<Observaciones> observaciones = new ArrayList<Observaciones>();
         if (request.getParameter("PerteneceMinoria") != null) {

@@ -45,7 +45,7 @@ public class BancoAlimento extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), "ADMIN");
+        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
         Boolean asiste = false;
         List<Observaciones> observaciones = new ArrayList<Observaciones>();
         List<Alimentos> alimentos = new ArrayList<Alimentos>();

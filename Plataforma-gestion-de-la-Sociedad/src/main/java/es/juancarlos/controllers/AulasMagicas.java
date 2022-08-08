@@ -53,7 +53,6 @@ public class AulasMagicas extends HttpServlet {
         List<Alumno> alumnos = new ArrayList<Alumno>();
         //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
         
-        //CAMBIAR EL CAMPO DE ABAJO DE ADMIN (EN EL CONSTRUCTOR DE ACOGIDA) POR EL USUARIO QUE HA HECHO LOGIN
         gdao.insertOrUpdate(new AulaMagica(request.getParameter("Denominacion"),request.getParameter("Profesor"),alumnos));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }

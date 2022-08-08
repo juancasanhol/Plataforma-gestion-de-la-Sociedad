@@ -49,7 +49,7 @@ public class Alumnos extends HttpServlet {
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
         //OBTENER TRABAJDOR DEL LOGIN Y CAMBIARLO POR ADMIN
-        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), "ADMIN");
+        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
         List<Observaciones> observaciones = new ArrayList<Observaciones>();
         observaciones.add(observacion);
         boolean promociona = false, finaliza = false, aprovechamiento = false;

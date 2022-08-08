@@ -50,7 +50,7 @@ public class CursoFormacion extends HttpServlet {
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
         //OBTENER TRABAJDOR DEL LOGIN Y CAMBIARLO POR ADMIN
-        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), "ADMIN");
+        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
         List<Observaciones> observaciones = new ArrayList<Observaciones>();
         List<Alumno> alumnos = new ArrayList<Alumno>();
         observaciones.add(observacion);
@@ -58,7 +58,6 @@ public class CursoFormacion extends HttpServlet {
         List<ValorDesplegable> seleccionados = new ArrayList<ValorDesplegable>();
         //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
         
-        //CAMBIAR EL CAMPO DE ABAJO DE ADMIN (EN EL CONSTRUCTOR DE ACOGIDA) POR EL USUARIO QUE HA HECHO LOGIN
         gdao.insertOrUpdate(new CursosFormacion(request.getParameter("NombreCurso"),request.getParameter("TipoCurso"),request.getParameter("FechaInicio"),request.getParameter("FechaFin"),request.getParameter("OtraInfo"),solicitantes,seleccionados,alumnos, observaciones));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }

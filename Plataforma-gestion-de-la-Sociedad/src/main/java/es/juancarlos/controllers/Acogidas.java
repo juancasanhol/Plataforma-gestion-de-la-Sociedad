@@ -46,7 +46,7 @@ public class Acogidas extends HttpServlet {
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
         //OBTENER TRABAJDOR DEL LOGIN Y CAMBIARLO POR ADMIN
-        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), "ADMIN");
+        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
         List<Observaciones> observaciones = new ArrayList<Observaciones>();
         observaciones.add(observacion);
         List<FicheroAdjunto> ficheros = new ArrayList<FicheroAdjunto>();
@@ -58,8 +58,7 @@ public class Acogidas extends HttpServlet {
             //No hay fichero para hacer el submit
             //He usado try catch porque para comprobar si hay fichero o no no sirve con comparar el campo a null
         }
-        //CAMBIAR EL CAMPO DE ABAJO DE ADMIN (EN EL CONSTRUCTOR DE ACOGIDA) POR EL USUARIO QUE HA HECHO LOGIN
-        gdao.insertOrUpdate(new Acogida(request.getParameter("Fecha"),"ADMIN",request.getParameter("Usuario"),request.getParameter("ProcedenciaDerivacion"),request.getParameter("AyudaGeneral"),request.getParameter("AyudaRecibos"),request.getParameter("AyudaSanitaria"),request.getParameter("AyudaOtra"),request.getParameter("EstadoResolucion"), observaciones, ficheros));
+        gdao.insertOrUpdate(new Acogida(request.getParameter("Fecha"),request.getSession().getAttribute("autor").toString(),request.getParameter("Usuario"),request.getParameter("ProcedenciaDerivacion"),request.getParameter("AyudaGeneral"),request.getParameter("AyudaRecibos"),request.getParameter("AyudaSanitaria"),request.getParameter("AyudaOtra"),request.getParameter("EstadoResolucion"), observaciones, ficheros));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 
