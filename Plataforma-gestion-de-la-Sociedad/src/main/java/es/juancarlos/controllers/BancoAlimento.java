@@ -1,27 +1,39 @@
 package es.juancarlos.controllers;
 
+import es.juancarlos.beans.Alimentos;
+import es.juancarlos.beans.BancoAlimentos;
+import es.juancarlos.beans.Observaciones;
+import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  *
  * @author Juan Carlos Sánchez Holguín
  */
-@WebServlet(name = "Redireccion", urlPatterns = {"/Redireccion"})
-public class Redireccion extends HttpServlet {
+@MultipartConfig
+@WebServlet(name = "BancoAlimento", urlPatterns = {"/BancoAlimento"})
+public class BancoAlimento extends HttpServlet {
+
+    //para devolver un solo objeto
+    JSONObject objeto = null;
+
+    //para devolver uno o varios objetos (varios preferiblemente)
+    JSONArray arrayJSON = null;
 
     /**
-     * Procesa solicitudes para ambos HTTP <code>GET</code> y <code>POST</code>
-     * métodos.
-     *
-     * Servlet usado para las diferentes redireciones de la aplicación de una
-     * página html a otra
+     * Servlet usado para consultas Ajax de las diferentes páginas
      *
      * @param request Servlet request
      * @param response Servlet response
@@ -30,49 +42,20 @@ public class Redireccion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        log("ID  " + request.getParameter("id"));
-        if (request.getParameter("id") != null) {
-            request.getSession().setAttribute("id", request.getParameter("id"));
-        }
-        String url = "";
-        //DAOFactory daof = DAOFactory.getDAOFactory();
-        //IGenericoDAO gdao = daof.getGenericoDAO();
-        switch (request.getParameter("accion")) {
-            case "verusuario":
-                url = "./html/usuario/EditarUsuario.html";
-                break;
-            case "vercursoformacion":
-                url = "./html/visualizaciones/VerCurso.html";
-                //log("ID CURSO  "+request.getSession().getAttribute("id"));
-                break;
-            case "verempresa":
-                url = "./html/visualizaciones/VerEmpresa.html";
-                break;
-            case "verfichaacogida":
-                url = "./html/visualizaciones/VerFichaAcogida.html";
-                break;
-            case "veraulamagica":
-                url = "./html/visualizaciones/VerAula.html";
-                break;
-            case "verfichaatencionsocialigualdad":
-                url = "./html/visualizaciones/VerFichaAtencionSocialIgualdad.html";
-                break;
-            case "verconferencia":
-                url = "./html/visualizaciones/VerConferencia.html";
-                break;
-            case "veralumnos":
-                url = "./html/visualizaciones/VerAlumno.html";
-                break;
-            case "verbancos":
-                url = "./html/visualizaciones/VerBancoAlimentos.html";
-                break;
-            default:
 
-                break;
+        DAOFactory daof = DAOFactory.getDAOFactory();
+        IGenericoDAO gdao = daof.getGenericoDAO();
+        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), "ADMIN");
+        Boolean asiste = false;
+        List<Observaciones> observaciones = new ArrayList<Observaciones>();
+        List<Alimentos> alimentos = new ArrayList<Alimentos>();
+        if (request.getParameter("Asiste") != null) {
+            asiste = true;
         }
-        response.sendRedirect(url);
-        //request.getRequestDispatcher(url).forward(request, response);
-
+        observaciones.add(observacion);
+        //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
+        gdao.insertOrUpdate(new BancoAlimentos(request.getParameter("Titular"),request.getParameter("Mes"),asiste,observaciones,alimentos));
+        response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

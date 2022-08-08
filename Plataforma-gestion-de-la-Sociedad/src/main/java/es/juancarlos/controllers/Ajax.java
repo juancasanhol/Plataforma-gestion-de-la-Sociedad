@@ -4,6 +4,7 @@ import es.juancarlos.beans.Acogida;
 import es.juancarlos.beans.Alumno;
 import es.juancarlos.beans.AtencionSocialIgualdad;
 import es.juancarlos.beans.AulaMagica;
+import es.juancarlos.beans.BancoAlimentos;
 import es.juancarlos.beans.ConferenciaSantaMaria;
 import es.juancarlos.beans.CursosFormacion;
 import es.juancarlos.beans.Desplegables;
@@ -64,7 +65,8 @@ public class Ajax extends HttpServlet {
         AtencionSocialIgualdad asi;
         Alumno al;
         ConferenciaSantaMaria conf;
-        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias;
+        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias, bancos;
+        BancoAlimentos b;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
         gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
@@ -513,6 +515,21 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
+                case "BancoAlimentos":
+                //Primero se hace el desplegable para los usuarios y luego los demas
+                desplegables = new ArrayList();
+                it = gdao.get(Usuario.class).iterator();
+                while (it.hasNext()) {
+                    u = (Usuario) it.next();
+                    objeto = new JSONObject();
+                    objeto.put("usuarios", u.getNombre() + " " + u.getApellidos());
+                    desplegables.add(objeto);
+
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
             case "AtencionSocialIgualdad":
                 //Primero se hace el desplegable para los usuarios y luego los demas
                 desplegables = new ArrayList();
@@ -810,6 +827,35 @@ public class Ajax extends HttpServlet {
                 objeto.put("usuario", asi.getUsuario());
                 objeto.put("procedenciaderivacion", asi.getProcedenciaDerivacion());
                 //COMPLETAR DATOS DE OBSERVACIONES Y LISTAS DE FICHEROS
+
+                
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
+                break;
+                case "VerBancosAlimentos":
+                bancos = new ArrayList();
+                i = gdao.get(BancoAlimentos.class).iterator();
+                while (i.hasNext()) {
+                    b = (BancoAlimentos) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("id", b.getIdOperacion());
+                    objeto.put("mes", b.getMes_anio());
+                    objeto.put("titular", b.getTitularUnidad());
+                    bancos.add(objeto);
+                }
+                arrayJSON = new JSONArray(bancos);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                case "VerDatosBancoAlimentos":
+                //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
+                b = (BancoAlimentos) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), BancoAlimentos.class);
+                objeto = new JSONObject();
+                objeto.put("id", b.getIdOperacion());
+                objeto.put("mes", b.getMes_anio());
+                objeto.put("titular", b.getTitularUnidad());
+                objeto.put("asiste", b.getAsiste());
+                //COMPLETAR DATOS DE LAS LISTAS DE FALTAS
 
                 
                 response.setContentType("application/json");

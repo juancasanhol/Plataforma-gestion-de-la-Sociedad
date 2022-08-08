@@ -26,9 +26,12 @@ import org.hibernate.annotations.LazyCollectionOption;
 public class BancoAlimentos implements Serializable{
 
     @Id
-    @Column(name = "IdTitularUnidadConvivencia", nullable = false)
+    @Column(name = "IdOperacion", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int IdTitularUnidadConvivencia;
+    int IdOperacion;
+    
+    @Column(name = "TitularUnidad", nullable = true)
+    String TitularUnidad;
 
     @Column(name = "Mes_anio", nullable = true)
     String Mes_anio;
@@ -43,4 +46,64 @@ public class BancoAlimentos implements Serializable{
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Alimentos> lista_alimentos;
+
+    public BancoAlimentos(String TitularUnidad, String Mes_anio, Boolean Asiste, List<Observaciones> observaciones_id, List<Alimentos> lista_alimentos) {
+        this.TitularUnidad = TitularUnidad;
+        this.Mes_anio = Mes_anio;
+        this.Asiste = Asiste;
+        this.observaciones_id = observaciones_id;
+        this.lista_alimentos = lista_alimentos;
+    }
+
+    public int getIdOperacion() {
+        return IdOperacion;
+    }
+
+    public String getTitularUnidad() {
+        return TitularUnidad;
+    }
+
+    public String getMes_anio() {
+        return Mes_anio;
+    }
+
+    public Boolean getAsiste() {
+        return Asiste;
+    }
+
+    public List<Observaciones> getObservaciones_id() {
+        return observaciones_id;
+    }
+
+    public List<Alimentos> getLista_alimentos() {
+        return lista_alimentos;
+    }
+
+    public void setIdOperacion(int IdOperacion) {
+        this.IdOperacion = IdOperacion;
+    }
+
+    public void setTitularUnidad(String TitularUnidad) {
+        this.TitularUnidad = TitularUnidad;
+    }
+
+    public void setMes_anio(String Mes_anio) {
+        this.Mes_anio = Mes_anio;
+    }
+
+    public void setAsiste(Boolean Asiste) {
+        this.Asiste = Asiste;
+    }
+
+    public void setObservaciones_id(List<Observaciones> observaciones_id) {
+        this.observaciones_id = observaciones_id;
+    }
+
+    public void setLista_alimentos(List<Alimentos> lista_alimentos) {
+        this.lista_alimentos = lista_alimentos;
+    }
+    
+    public BancoAlimentos(){
+        
+    }
 }
