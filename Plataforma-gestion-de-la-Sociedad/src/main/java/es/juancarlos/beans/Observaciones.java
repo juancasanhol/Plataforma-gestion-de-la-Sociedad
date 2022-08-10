@@ -46,9 +46,44 @@ public class Observaciones implements Serializable {
     public Observaciones(String texto, String autor) {
         this.texto = texto;
         this.autor = autor;
-        SimpleDateFormat dtf = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy");
         Calendar calendar = Calendar.getInstance();
         Date dateObj = calendar.getTime();
         this.fecha = dtf.format(dateObj);
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+            
+            
+            
 }

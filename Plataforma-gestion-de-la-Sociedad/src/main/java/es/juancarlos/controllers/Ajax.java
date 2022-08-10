@@ -9,6 +9,7 @@ import es.juancarlos.beans.ConferenciaSantaMaria;
 import es.juancarlos.beans.CursosFormacion;
 import es.juancarlos.beans.Desplegables;
 import es.juancarlos.beans.Empresa;
+import es.juancarlos.beans.Observaciones;
 import es.juancarlos.beans.Perfil;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.beans.ValorDesplegable;
@@ -378,7 +379,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
-                
+
             case "OtrosCarnet":
                 desplegables = new ArrayList();
                 it = gdao.get(Desplegables.class).iterator();
@@ -398,7 +399,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                
+
             case "CursosFormacion":
                 //PARA LOS DESPLEGABLES DE LOS DATOS SANITARIOS
                 desplegables = new ArrayList();
@@ -515,7 +516,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "BancoAlimentos":
+            case "BancoAlimentos":
                 //Primero se hace el desplegable para los usuarios y luego los demas
                 desplegables = new ArrayList();
                 it = gdao.get(Usuario.class).iterator();
@@ -704,7 +705,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
-                case "VerAulas":
+            case "VerAulas":
                 aulas = new ArrayList();
                 i = gdao.get(AulaMagica.class).iterator();
                 while (i.hasNext()) {
@@ -719,7 +720,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerDatosAula":
+            case "VerDatosAula":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
                 a = (AulaMagica) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), AulaMagica.class);
                 objeto = new JSONObject();
@@ -732,7 +733,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
-                case "VerEmpresas":
+            case "VerEmpresas":
                 empresas = new ArrayList();
                 i = gdao.get(Empresa.class).iterator();
                 while (i.hasNext()) {
@@ -747,7 +748,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerDatosEmpresa":
+            case "VerDatosEmpresa":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
                 e = (Empresa) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Empresa.class);
                 objeto = new JSONObject();
@@ -766,7 +767,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
-                case "VerFichasAcogida":
+            case "VerFichasAcogida":
                 acogidas = new ArrayList();
                 i = gdao.get(Acogida.class).iterator();
                 while (i.hasNext()) {
@@ -780,7 +781,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerDatosFichaAcogida":
+            case "VerDatosFichaAcogida":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
                 ac = (Acogida) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Acogida.class);
                 objeto = new JSONObject();
@@ -796,11 +797,10 @@ public class Ajax extends HttpServlet {
                 objeto.put("procedenciaderivacion", ac.getProcedenciaDerivacion());
                 //COMPLETAR DATOS DE LISTAS AQUI
 
-                
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
-                case "VerFichasAtencionSocialIgualdad":
+            case "VerFichasAtencionSocialIgualdad":
                 atenciones = new ArrayList();
                 i = gdao.get(AtencionSocialIgualdad.class).iterator();
                 while (i.hasNext()) {
@@ -814,7 +814,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerDatosFichaAtencionSocialIgualdad":
+            case "VerDatosFichaAtencionSocialIgualdad":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
                 asi = (AtencionSocialIgualdad) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), AtencionSocialIgualdad.class);
                 objeto = new JSONObject();
@@ -828,11 +828,10 @@ public class Ajax extends HttpServlet {
                 objeto.put("procedenciaderivacion", asi.getProcedenciaDerivacion());
                 //COMPLETAR DATOS DE OBSERVACIONES Y LISTAS DE FICHEROS
 
-                
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
-                case "VerBancosAlimentos":
+            case "VerBancosAlimentos":
                 bancos = new ArrayList();
                 i = gdao.get(BancoAlimentos.class).iterator();
                 while (i.hasNext()) {
@@ -847,7 +846,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerDatosBancoAlimentos":
+            case "VerDatosBancoAlimentos":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
                 b = (BancoAlimentos) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), BancoAlimentos.class);
                 objeto = new JSONObject();
@@ -857,11 +856,10 @@ public class Ajax extends HttpServlet {
                 objeto.put("asiste", b.getAsiste());
                 //COMPLETAR DATOS DE LAS LISTAS DE FALTAS
 
-                
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
-                case "VerAlumnos":
+            case "VerAlumnos":
                 alumnos = new ArrayList();
                 i = gdao.get(Alumno.class).iterator();
                 while (i.hasNext()) {
@@ -875,7 +873,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerDatosAlumno":
+            case "VerDatosAlumno":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
                 al = (Alumno) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Alumno.class);
                 objeto = new JSONObject();
@@ -890,18 +888,17 @@ public class Ajax extends HttpServlet {
                 objeto.put("finaliza", al.getFinaliza());
                 //COMPLETAR DATOS DE LAS LISTAS DE FALTAS
 
-                
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
-                case "VerConferencias":
+            case "VerConferencias":
                 conferencias = new ArrayList();
                 i = gdao.get(ConferenciaSantaMaria.class).iterator();
                 while (i.hasNext()) {
                     conf = (ConferenciaSantaMaria) i.next();
                     objeto = new JSONObject();
                     objeto.put("id", conf.getNumIntId());
-                    objeto.put("nombre", conf.getNombre()+" "+conf.getApellidos());
+                    objeto.put("nombre", conf.getNombre() + " " + conf.getApellidos());
                     objeto.put("numeroext", conf.getNumExtId());
                     conferencias.add(objeto);
                 }
@@ -909,7 +906,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerDatosConferencia":
+            case "VerDatosConferencia":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
                 conf = (ConferenciaSantaMaria) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), ConferenciaSantaMaria.class);
                 objeto = new JSONObject();
@@ -939,9 +936,64 @@ public class Ajax extends HttpServlet {
                 objeto.put("categoria", conf.getCategor());
                 //COMPLETAR DATOS DE LAS LISTAS DE FICHEROS, OBSERVACIONES, APORTACIONES, PERFILES DE USUARIO Y CATEGORIAS
 
-                
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
+                break;
+            case "VerObservacionesUsuario":
+                u = (Usuario) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Usuario.class);
+                List observaciones = new ArrayList();
+                for (int tam = 0; tam < u.getObservaciones_id().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("textoobs", u.getObservaciones_id().get(tam).getTexto());
+                    objeto.put("fechaobs", u.getObservaciones_id().get(tam).getFecha());
+                    objeto.put("autorobs", u.getObservaciones_id().get(tam).getAutor());
+                    observaciones.add(objeto);
+                }
+                for (int tam = 0; tam < u.getObservaciones_sanitarias().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("textoobssanitarias", u.getObservaciones_sanitarias().get(tam).getTexto());
+                    objeto.put("fechaobssanitarias", u.getObservaciones_sanitarias().get(tam).getFecha());
+                    objeto.put("autorobssanitarias", u.getObservaciones_sanitarias().get(tam).getAutor());
+                    observaciones.add(objeto);
+                }
+                for (int tam = 0; tam < u.getObservaciones_datos_laborales().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("textoobslaborales", u.getObservaciones_datos_laborales().get(tam).getTexto());
+                    objeto.put("fechaobslaborales", u.getObservaciones_datos_laborales().get(tam).getFecha());
+                    objeto.put("autorobslaborales", u.getObservaciones_datos_laborales().get(tam).getAutor());
+                    observaciones.add(objeto);
+                }
+                for (int tam = 0; tam < u.getObservaciones_formacion().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("textoobsformacion", u.getObservaciones_formacion().get(tam).getTexto());
+                    objeto.put("fechaobsformacion", u.getObservaciones_formacion().get(tam).getFecha());
+                    objeto.put("autorobsformacion", u.getObservaciones_formacion().get(tam).getAutor());
+                    observaciones.add(objeto);
+                }
+                for (int tam = 0; tam < u.getObservaciones_ingresos().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("textoobsingresos", u.getObservaciones_ingresos().get(tam).getTexto());
+                    objeto.put("fechaobsingresos", u.getObservaciones_ingresos().get(tam).getFecha());
+                    objeto.put("autorobsingresos", u.getObservaciones_ingresos().get(tam).getAutor());
+                    observaciones.add(objeto);
+                }
+                for (int tam = 0; tam < u.getObservaciones_ficha_convivencia().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("textoobsconvivencia", u.getObservaciones_ficha_convivencia().get(tam).getTexto());
+                    objeto.put("fechaobsconvivencia", u.getObservaciones_ficha_convivencia().get(tam).getFecha());
+                    objeto.put("autorobsconvivencia", u.getObservaciones_ficha_convivencia().get(tam).getAutor());
+                    observaciones.add(objeto);
+                }
+                for (int tam = 0; tam < u.getObservaciones_orientacion().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("textoobsorientacion", u.getObservaciones_orientacion().get(tam).getTexto());
+                    objeto.put("fechaobsorientacion", u.getObservaciones_orientacion().get(tam).getFecha());
+                    objeto.put("autorobsorientacion", u.getObservaciones_orientacion().get(tam).getAutor());
+                    observaciones.add(objeto);
+                }
+                arrayJSON = new JSONArray(observaciones);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
                 break;
             case "VerDesplegables":
                 List desplegable = new ArrayList();

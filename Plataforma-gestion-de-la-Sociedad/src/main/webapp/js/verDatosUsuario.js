@@ -104,3 +104,30 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).ready(function () {
+    $.ajax({
+        type: "post",
+        url: "../../Ajax",
+        data: {
+            accion: "VerObservacionesUsuario",
+        },
+        success: function (respuesta) {
+            console.log("Desplegables cargados correctamente");
+            //console.log("buena");
+            $.each(respuesta, function (i, option) {
+                //console.log("buena");
+                if(option.textoobs!==undefined){$("#Observaciones").append('Observación: '+option.textoobs+' | Fecha: '+option.fechaobs+' | Autor de observación: '+option.autorobs+'<br>');}
+                if(option.textoobssanitarias!==undefined){$("#ObservacionesSanitarias").append('Observación: '+option.textoobssanitarias+' | Fecha: '+option.fechaobssanitarias+' | Autor de observación: '+option.autorobssanitarias+'<br>');}
+                if(option.textoobslaborales!==undefined){$("#ObservacionesLaborales").append('Observación: '+option.textoobslaborales+' | Fecha: '+option.fechaobslaborales+' | Autor de observación: '+option.autorobslaborales+'<br>');}
+                if(option.textoobsformacion!==undefined){$("#ObservacionesFormacion").append('Observación: '+option.textoobsformacion+' | Fecha: '+option.fechaobsformacion+' | Autor de observación: '+option.autorobsformacion+'<br>');}
+                if(option.textoobsingresos!==undefined){$("#ObservacionesIngresos").append('Observación: '+option.textoobsingresos+' | Fecha: '+option.fechaobsingresos+' | Autor de observación: '+option.autorobsingresos+'<br>');}
+                if(option.textoobsconvivencia!==undefined){$("#ObservacionesConvivencia").append('Observación: '+option.textoobsconvivencia+' | Fecha: '+option.fechaobsconvivencia+' | Autor de observación: '+option.autorobsconvivencia+'<br>');}
+                if(option.textoobsorientacion!==undefined){$("#ObservacionesOrientacion").append('Observación: '+option.textoobsorientacion+' | Fecha: '+option.fechaobsorientacion+' | Autor de observación: '+option.autorobsorientacion+'<br>');}
+            });
+        },
+        error: function () {
+            console.log("ERROR CARGANDO DESPLEGABLES");
+        }
+    });
+});

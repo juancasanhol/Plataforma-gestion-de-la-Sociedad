@@ -122,6 +122,305 @@
                 
             </div>
 
+            <!--DATOS SANITARIOS-->
+
+            <br>
+            <hr class="mt-5">
+            <div class="col-12">DATOS SANITARIOS</div>
+            <br><br>
+
+            <div class="col-3">
+
+                <legend class="mt-2">¿Solicita ayuda farmaceútica? </legend>
+                <input class="mb-3" type="checkbox" id="SolicitaAyudaFarmaceutica" name="SolicitaAyudaFarmaceutica"><br>
+
+                <legend class="mt-2">Grado de discapacidad: </legend>
+                <input id="GradoDiscapacidad" type="text" name="GradoDiscapacidad"
+                    list="DesplegablesGradoDiscapacidad"><br>
+                <datalist id="DesplegablesGradoDiscapacidad">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </datalist>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend>Tratamiento sanitario: </legend>
+                <input type="text" id="TratSanitario" name="TratSanitario"><br>
+                
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesSanitarias"></textarea><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">¿Drogodependencia? </legend>
+                <input class="mb-3" type="checkbox" id="Drogodependencia" name="Drogodependencia"><br>
+
+            </div>
+            <div class="col-3">
+
+                <legend class="mt-2">Tipo de discapacidad: </legend>
+                <input id="TipoDiscapacidad" type="text" name="TipoDiscapacidad"
+                    list="DesplegablesTipoDiscapacidad"><br>
+                <datalist id="DesplegablesTipoDiscapacidad">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </datalist>
+
+            </div>
+            <!--DATOS LABORALES-->
+
+            <br>
+            <hr class="mt-5">
+            <div class="col-12">DATOS LABORALES</div>
+            <br><br>
+
+            <div class="col-3">
+
+                <legend class="mt-2">¿Permiso de residencia? </legend>
+                <input class="mb-3" type="checkbox" id="PermisoResidencia" name="PermisoResidencia"><br>
+
+                <legend class="mt-2">Situación laboral: </legend>
+                <input id="SituacionLaboral" type="text" name="SituacionLaboral"
+                    list="DesplegablesSituacionLaboral"><br>
+                <datalist id="DesplegablesSituacionLaboral" multiple class="col-5">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </datalist>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">¿Permiso de trabajo? </legend>
+                <input class="mb-3" type="checkbox" id="PermisoTrabajo" name="PermisoTrabajo"><br>
+
+                <legend>Último trabajo: </legend>
+                <input type="text" id="UltTrabajo" name="UltTrabajo"><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">¿Carnet de conducir? </legend>
+                <input class="mb-3" type="checkbox" id="CarnetConducir" name="CarnetConducir"><br>
+
+                <legend>Preferencia laboral: </legend>
+                <input type="text" id="PrefLaboral" name="PrefLaboral"><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">Tipo carnet de conducir: </legend>
+                
+                <select id="DesplegablesTipoCarnetConducir" multiple class="col-8">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </select>
+
+                <button id="acesso" type="button" class="btn btn-success me-2  pt-2" style="vertical-align: inherit;"
+                    data-toggle="modal" data-target="#addCarnetConducir">
+                    +
+                </button>
+                
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesLaborales"></textarea><br>
+
+            </div>
+
+            <!--DATOS DE FORMACION-->
+
+            <br>
+            <hr class="mt-5">
+            <div class="col-12">DATOS DE FORMACIÓN</div>
+            <br><br>
+
+            <div class="col-3">
+
+                <legend class="mt-2">Nivel de estudios: </legend>
+                <input id="NivelEstudios" type="text" name="NivelEstudios" list="DesplegablesNivelEstudios"><br>
+                <datalist id="DesplegablesNivelEstudios">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </datalist>
+
+                <legend>Centro de estudios: </legend>
+                <input type="text" id="CentroEst" name="CentroEst"><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend>Formación complementaria: </legend>
+                <input type="text" id="FormacionComp" name="FormacionComp"><br>
+                
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesFormacion"></textarea><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">¿Está estudiando? </legend>
+                <input class="mb-3" type="checkbox" id="EstaEstudiando" name="EstaEstudiando"><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">¿Fracaso escolar? </legend>
+                <input class="mb-3" type="checkbox" id="FracasoEscolar" name="FracasoEscolar"><br>
+
+            </div>
+
+
+            <!--DATOS DE INGRESOS-->
+
+            <br>
+            <hr class="mt-5">
+            <div class="col-12">DATOS DE INGRESOS</div>
+            <br><br>
+
+            <div class="col-3">
+
+                <legend>Importe: </legend>
+                <input type="text" id="Importe" name="Importe"><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">Origen de ingresos: </legend>
+                <input id="OrigenIngresos" type="text" name="OrigenIngresos" list="DesplegablesOrigenIngresos"><br>
+                <datalist id="DesplegablesOrigenIngresos">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </datalist>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesIngresos"></textarea><br>
+                
+            </div>
+
+            <div class="col-3">
+
+            </div>
+
+            <!--DATOS DE UNIDAD DE CONVIVENCIA-->
+
+            <br>
+            <hr class="mt-5">
+            <div class="col-12">DATOS DE UNIDAD DE CONVIVENCIA</div>
+            <br><br>
+
+            <div class="col-3">
+
+                <legend>Denominación: </legend>
+                <input type="text" id="Denominacion" name="Denominacion"><br>
+
+                <legend class="mt-2">¿Sin hogar? </legend>
+                <input class="mb-3" type="checkbox" id="SinHogar" name="SinHogar"><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend>Dirección: </legend>
+                <input type="text" id="Direccion" name="Direccion"><br>
+
+                <legend>Coste de la vivienda al mes: </legend>
+                <input type="text" id="CosteVivienda" name="CosteVivienda"><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend>Localidad: </legend>
+                <input type="text" id="Localidad" name="Localidad"><br>
+
+                <legend class="mt-2">Motivo del coste: </legend>
+                <input id="MotivoCoste" type="text" name="MotivoCoste" list="DesplegablesMotivoCoste"><br>
+                <datalist id="DesplegablesMotivoCoste">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </datalist>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend class="mt-2">¿Familia monoparental? </legend>
+                <input class="mb-3" type="checkbox" id="FamiliaMonoparental" name="FamiliaMonoparental"><br>
+                
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesConvivencia"></textarea><br>
+
+            </div>
+
+            <!--DATOS DEL BANCO DE ALIMENTOS-->
+
+            <br>
+            <hr class="mt-5">
+            <div class="col-12">DATOS DEL BANCO DE ALIMENTOS</div>
+            <br><br>
+
+            <div class="col-3">
+
+                <legend class="mt-2">¿Está en el banco? </legend>
+                <input class="mb-3" type="checkbox" id="EstaBanco" name="EstaBanco"><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend>Fecha de alta: </legend>
+                <input type="datetime-local" id="FechaAlta_BancoAlimentos" name="FechaAlta_BancoAlimentos"><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend>Fecha de baja: </legend>
+                <input type="datetime-local" id="FechaBaja_BancoAlimentos" name="FechaBaja_BancoAlimentos"><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <!--AQUI VA LA LISTA DE RECOGIDAS-->
+                
+            </div>
+
+            <!--DATOS ORIENTACION LABORAL-->
+
+            <br>
+            <hr class="mt-5">
+            <div class="col-12">DATOS DE ORIENTACIÓN LABORAL</div>
+            <br><br>
+
+            <div class="col-3">
+
+                <legend>Fecha de orientación: </legend>
+                <input type="datetime-local" id="FechaOrientacion" name="FechaOrientacion"><br>
+
+            </div>
+
+            <div class="col-3">
+
+                <legend>Beneficiario: </legend>
+                <input type="text" id="Beneficiario" name="Beneficiario"><br>
+
+            </div>
+            
+            
+            <div class="col-3">
+                
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesOrientacion"></textarea><br>
+                
+            </div>
+            
             <div class="col-4 offset-8 mt-5 justify-content-end">
                 <input class="col-4 btn btn-primary" type="submit" value="Registrar Usuario" title="Registrar al usuario.">
                 <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>

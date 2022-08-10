@@ -116,6 +116,9 @@
                 <datalist id="DesplegablesPaisOrigen">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
+                
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="Observaciones"></textarea><br>
 
             </div>
 
@@ -145,6 +148,9 @@
                 <legend>Tratamiento sanitario: </legend>
                 <input type="text" id="TratSanitario" name="TratSanitario"><br>
 
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesSanitarias"></textarea><br>
+                
             </div>
 
             <div class="col-3">
@@ -175,7 +181,7 @@
                 <legend class="mt-2">¿Permiso de residencia? </legend>
                 <input class="mb-3" type="checkbox" id="PermisoResidencia" name="PermisoResidencia"><br>
 
-                <legend class="mt-2">Situacion laboral: </legend>
+                <legend class="mt-2">Situación laboral: </legend>
                 <input id="SituacionLaboral" type="text" name="SituacionLaboral"
                     list="DesplegablesSituacionLaboral"><br>
                 <datalist id="DesplegablesSituacionLaboral" multiple class="col-5">
@@ -216,6 +222,9 @@
                     data-toggle="modal" data-target="#addCarnetConducir">
                     +
                 </button>
+                
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesLaborales"></textarea><br>
 
             </div>
 
@@ -244,6 +253,9 @@
                 <legend>Formación complementaria: </legend>
                 <input type="text" id="FormacionComp" name="FormacionComp"><br>
 
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesFormacion"></textarea><br>
+                
             </div>
 
             <div class="col-3">
@@ -286,6 +298,9 @@
             </div>
 
             <div class="col-3">
+                
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesIngresos"></textarea><br>
 
             </div>
 
@@ -338,6 +353,9 @@
                 <legend class="mt-2">¿Familia monoparental? </legend>
                 <input class="mb-3" type="checkbox" id="FamiliaMonoparental" name="FamiliaMonoparental"><br>
 
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesConvivencia"></textarea><br>
+                
             </div>
 
             <!--DATOS DEL BANCO DE ALIMENTOS-->
@@ -394,6 +412,13 @@
             </div>
 
 
+            <div class="col-3">
+            
+                <legend class="mt-2">Observaciones: </legend>
+                <textarea cols="30" name="ObservacionesOrientacion"></textarea><br>
+            
+            </div>    
+                
             <div class="col-4 offset-8 mt-5 justify-content-end">
                 <input class="col-4 btn btn-primary" type="submit" value="Editar Usuario" title="Editar el usuario.">
                 <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
