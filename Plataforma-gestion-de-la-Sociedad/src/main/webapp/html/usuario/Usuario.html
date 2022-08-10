@@ -218,10 +218,14 @@
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </select>
 
-                <button id="acesso" type="button" class="btn btn-success me-2  pt-2" style="vertical-align: inherit;"
-                    data-toggle="modal" data-target="#addCarnetConducir">
-                    +
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#carnet">
+                   +
                 </button>
+
+                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#carnetDel">
+                    -
+                 </button>
                 
                 <legend class="mt-2">Observaciones: </legend>
                 <textarea cols="30" name="ObservacionesLaborales"></textarea><br>
@@ -562,8 +566,67 @@
             <!-- Copyright -->
         </footer>
     </div>
+
+     <!-- -------------------------------------------------------- EXTRAS -------------------------------------------------------------------------------------- -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="carnet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Añadir Carnet</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <table class="w-100">
+                <thead >
+                    <tr >
+                        <td>Tipo Carnet</td>
+                        <td class="ml-2">Añadir</td>
+                    </tr>
+                </thead>
+                <tbody id="tiposCarnet"></tbody>
+            </table>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="carnetDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Añadir Carnet</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <table class="w-100">
+                <thead >
+                    <tr >
+                        <td>Tipo Carnet</td>
+                        <td class="ml-2">Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody id="tiposCarnetDel"></tbody>
+            </table>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
     <script src="../../jquery/jquery-3.6.0.min.js"></script>
-    <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
     <script src="../../js/desplegablesRegistroUsuario.js"></script> 
 </body>
