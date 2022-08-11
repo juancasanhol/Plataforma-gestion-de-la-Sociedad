@@ -33,7 +33,6 @@ $(document).ready(function () {
 
     $(document).on('click', '.delCarnet', function () {
         var nombreD = $(this).attr("id");
-        console.log(nombreD);
         $("option[value='"+nombreD+"']").remove(); 
         $("#tiposCarnet").append('<tr><td>'+nombreD+'</td><td><button type="button" id='+nombreD+' class="btn btn-success addCarnet">añadir</button></td></tr>'); 
         $(this).closest('tr').remove();

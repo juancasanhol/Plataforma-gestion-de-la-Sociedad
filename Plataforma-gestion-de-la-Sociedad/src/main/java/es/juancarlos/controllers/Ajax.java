@@ -187,6 +187,16 @@ public class Ajax extends HttpServlet {
                             desplegables.add(objeto);
                         }
                     }
+                    
+                    if (d.getNombre().equals("TipoCarnetConducir")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("tipoCarnetConducir", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
                 }
                 arrayJSON = new JSONArray(desplegables);
                 response.setContentType("application/json");
