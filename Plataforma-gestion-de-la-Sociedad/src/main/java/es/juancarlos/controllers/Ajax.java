@@ -1079,6 +1079,20 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
+                case "VerObservacionesConferencia":
+                conf = (ConferenciaSantaMaria) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), ConferenciaSantaMaria.class);
+                observaciones = new ArrayList();
+                for (int tam = 0; tam < conf.getObservaciones_conferencia().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("textoobs", conf.getObservaciones_conferencia().get(tam).getTexto());
+                    objeto.put("fechaobs", conf.getObservaciones_conferencia().get(tam).getFecha());
+                    objeto.put("autorobs", conf.getObservaciones_conferencia().get(tam).getAutor());
+                    observaciones.add(objeto);
+                }
+                arrayJSON = new JSONArray(observaciones);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
             case "VerDesplegables":
                 List desplegable = new ArrayList();
                 i = gdao.get(Desplegables.class).iterator();
