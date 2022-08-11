@@ -23,3 +23,26 @@ $(document).ready(function () {
         }
     });
 });
+
+
+
+$(document).ready(function () {
+    $.ajax({
+        type: "post",
+        url: "../../Ajax",
+        data: {
+            accion: "VerObservacionesBancoAlimentos",
+        },
+        success: function (respuesta) {
+            console.log("Desplegables cargados correctamente");
+            //console.log("buena");
+            $.each(respuesta, function (i, option) {
+                //console.log("buena");
+                if(option.textoobs!==undefined){$("#Observaciones").append('Observación: '+option.textoobs+' | Fecha: '+option.fechaobs+' | Autor de observación: '+option.autorobs+'<br>');}
+            });
+        },
+        error: function () {
+            console.log("ERROR CARGANDO DESPLEGABLES");
+        }
+    });
+});
