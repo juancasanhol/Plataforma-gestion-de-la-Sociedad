@@ -187,6 +187,21 @@
                 <datalist id="DesplegablesSituacionLaboral" multiple class="col-5">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
+                
+                <legend class="mt-2">Bolsa de trabajo: </legend>
+                
+                <select id="DesplegablesBolsaTrabajo" name="DesplegablesBolsaTrabajo" multiple class="col-8">
+                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                </select>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#bolsa">
+                   +
+                </button>
+
+                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#bolsaDel">
+                    -
+                 </button>
 
             </div>
 
@@ -214,7 +229,7 @@
 
                 <legend class="mt-2">Tipo carnet de conducir: </legend>
                 
-                <select id="DesplegablesTipoCarnetConducir" multiple class="col-8">
+                <select id="DesplegablesTipoCarnetConducir" name="DesplegablesTipoCarnetConducir" multiple class="col-8">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </select>
 
@@ -570,7 +585,7 @@
      <!-- -------------------------------------------------------- EXTRAS -------------------------------------------------------------------------------------- -->
 
   
-  <!-- Modal -->
+  <!-- Modal  Carnets-->
   <div class="modal fade" id="carnet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -615,6 +630,61 @@
                     </tr>
                 </thead>
                 <tbody id="tiposCarnetDel"></tbody>
+            </table>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal Bolsa trabajo-->
+  <div class="modal fade" id="bolsa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Añadir Bolsa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <table class="w-100">
+                <thead >
+                    <tr >
+                        <td>Nombre Bolsa</td>
+                        <td class="ml-2">Añadir</td>
+                    </tr>
+                </thead>
+                <tbody id="nombreBolsa"></tbody>
+            </table>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="bolsaDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Añadir Bolsa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <table class="w-100">
+                <thead >
+                    <tr >
+                        <td>Tipo Bolsa</td>
+                        <td class="ml-2">Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody id="nombreBolsaDel"></tbody>
             </table>
          
         </div>

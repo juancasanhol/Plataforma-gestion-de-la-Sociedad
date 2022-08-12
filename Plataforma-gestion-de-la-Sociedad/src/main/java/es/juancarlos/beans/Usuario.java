@@ -116,7 +116,7 @@ public class Usuario implements Serializable {
     String TipoCarnetConducir;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_valor")
+    @JoinColumn(name = "id_valorcarnet")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> otros_carnets;
 
@@ -135,7 +135,7 @@ public class Usuario implements Serializable {
     String PrefLaboral;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_valor")
+    @JoinColumn(name = "id_valorbolsa")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> bolsa_trabajo;
 

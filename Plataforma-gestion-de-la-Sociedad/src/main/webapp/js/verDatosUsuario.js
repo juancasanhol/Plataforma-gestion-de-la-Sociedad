@@ -131,3 +131,45 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).ready(function () {
+    $.ajax({
+        type: "post",
+        url: "../../Ajax",
+        data: {
+            accion: "VerTiposCarnet",
+        },
+        success: function (respuesta) {
+            console.log("Desplegables cargados correctamente");
+            //console.log("buena");
+            $.each(respuesta, function (i, option) {
+                //console.log("buena");
+                if(option.tipocarnet!==undefined){$("#TipoCarnetConducir").append(option.tipocarnet+'<br>');}
+            });
+        },
+        error: function () {
+            console.log("ERROR CARGANDO DESPLEGABLES");
+        }
+    });
+});
+
+$(document).ready(function () {
+    $.ajax({
+        type: "post",
+        url: "../../Ajax",
+        data: {
+            accion: "VerBolsaTrabajo",
+        },
+        success: function (respuesta) {
+            console.log("Desplegables cargados correctamente");
+            //console.log("buena");
+            $.each(respuesta, function (i, option) {
+                //console.log("buena");
+                if(option.bolsatrabajo!==undefined){$("#BolsaTrabajo").append(option.bolsatrabajo+'<br>');}
+            });
+        },
+        error: function () {
+            console.log("ERROR CARGANDO DESPLEGABLES");
+        }
+    });
+});

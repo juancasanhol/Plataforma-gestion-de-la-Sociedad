@@ -66,7 +66,7 @@ public class Ajax extends HttpServlet {
         AtencionSocialIgualdad asi;
         Alumno al;
         ConferenciaSantaMaria conf;
-        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias, bancos, observaciones;
+        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias, bancos, observaciones, valores;
         BancoAlimentos b;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
@@ -194,6 +194,16 @@ public class Ajax extends HttpServlet {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
                             objeto.put("tipoCarnetConducir", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    
+                    if (d.getNombre().equals("BolsaTrabajo")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("nombreBolsa", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
                     }
@@ -1161,7 +1171,7 @@ public class Ajax extends HttpServlet {
                 break;
 
             case "VerValoresDesplegables":
-                List valores = new ArrayList();
+                valores = new ArrayList();
 
                 d = (Desplegables) gdao.getById(request.getParameter("nombre"), Desplegables.class);
                 i = d.getValores().iterator();
@@ -1170,6 +1180,36 @@ public class Ajax extends HttpServlet {
                     objeto = new JSONObject();
                     objeto.put("nombre", d.getNombre());
                     objeto.put("valor", v.getValor());
+                    valores.add(objeto);
+                }
+                arrayJSON = new JSONArray(valores);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                
+                case "VerTiposCarnet":
+                u = (Usuario) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Usuario.class);
+                i = u.getOtros_carnets().iterator();
+                valores = new ArrayList();
+                while (i.hasNext()) {
+                    ValorDesplegable v = (ValorDesplegable) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("tipocarnet", v.getValor());
+                    valores.add(objeto);
+                }
+                arrayJSON = new JSONArray(valores);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+                
+                case "VerBolsaTrabajo":
+                u = (Usuario) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Usuario.class);
+                i = u.getBolsa_trabajo().iterator();
+                valores = new ArrayList();
+                while (i.hasNext()) {
+                    ValorDesplegable v = (ValorDesplegable) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("bolsatrabajo", v.getValor());
                     valores.add(objeto);
                 }
                 arrayJSON = new JSONArray(valores);

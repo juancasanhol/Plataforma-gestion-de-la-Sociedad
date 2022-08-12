@@ -57,46 +57,45 @@ public class RegistroUsuario extends HttpServlet {
         List<Observaciones> observacionesingresos = new ArrayList<Observaciones>();
         List<Observaciones> observacionesconvivencia = new ArrayList<Observaciones>();
         List<Observaciones> observacionesorientacion = new ArrayList<Observaciones>();
-        if(!request.getParameter("Observaciones").equals("")){
+        if (!request.getParameter("Observaciones").equals("")) {
             Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
             observaciones.add(observacion);
         }
-        if(!request.getParameter("ObservacionesSanitarias").equals("")){
+        if (!request.getParameter("ObservacionesSanitarias").equals("")) {
             Observaciones observacionsanitaria = new Observaciones(request.getParameter("ObservacionesSanitarias"), request.getSession().getAttribute("autor").toString());
             observacionessanitarias.add(observacionsanitaria);
         }
-        if(!request.getParameter("ObservacionesLaborales").equals("")){
+        if (!request.getParameter("ObservacionesLaborales").equals("")) {
             Observaciones observacionlaboral = new Observaciones(request.getParameter("ObservacionesLaborales"), request.getSession().getAttribute("autor").toString());
             observacioneslaborales.add(observacionlaboral);
         }
-        if(!request.getParameter("ObservacionesFormacion").equals("")){
+        if (!request.getParameter("ObservacionesFormacion").equals("")) {
             Observaciones observacionformacion = new Observaciones(request.getParameter("ObservacionesFormacion"), request.getSession().getAttribute("autor").toString());
             observacionesformacion.add(observacionformacion);
         }
-        if(!request.getParameter("ObservacionesIngresos").equals("")){
+        if (!request.getParameter("ObservacionesIngresos").equals("")) {
             Observaciones observacioningresos = new Observaciones(request.getParameter("ObservacionesIngresos"), request.getSession().getAttribute("autor").toString());
             observacionesingresos.add(observacioningresos);
         }
-        if(!request.getParameter("ObservacionesConvivencia").equals("")){
+        if (!request.getParameter("ObservacionesConvivencia").equals("")) {
             Observaciones observacionconvivencia = new Observaciones(request.getParameter("ObservacionesConvivencia"), request.getSession().getAttribute("autor").toString());
             observacionesconvivencia.add(observacionconvivencia);
         }
-        if(!request.getParameter("ObservacionesOrientacion").equals("")){
-            Observaciones observacionorientacion = new Observaciones(request.getParameter("ObservacionesOrientacion"), request.getSession().getAttribute("autor").toString());        
+        if (!request.getParameter("ObservacionesOrientacion").equals("")) {
+            Observaciones observacionorientacion = new Observaciones(request.getParameter("ObservacionesOrientacion"), request.getSession().getAttribute("autor").toString());
             observacionesorientacion.add(observacionorientacion);
         }
         Boolean minoria = false, ayudafarmaceutica = false, drogodependencia = false, permisoresidencia = false, permisotrabajo = false, carnetconducir = false, estaestudiando = false, fracasoescolar = false, familiamonoparental = false, sinhogar = false, estabanco = false;
-        
+
         if (request.getParameter("PerteneceMinoria") != null) {
             minoria = true;
         }
 
         List<FicheroAdjunto> ficheros = new ArrayList<FicheroAdjunto>();
-        try{
+        try {
             FicheroAdjunto f = new FicheroAdjunto(GuardarFicheros.GuardarFichero(request, getServletContext().getRealPath(getServletContext().getInitParameter("rutaFicheros")), "Fichero", request.getParameter("Nombre") + "_" + request.getParameter("Apellidos")), false);
             ficheros.add(f);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             //No hay fichero para hacer el submit
             //He usado try catch porque para comprobar si hay fichero o no no sirve con comaprar el campo a null
         }
@@ -145,7 +144,23 @@ public class RegistroUsuario extends HttpServlet {
         List<ValorDesplegable> listacarnets = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> bolsatrabajo = new ArrayList<ValorDesplegable>();
         List<BancoAlimentos> listarecogidas = new ArrayList<BancoAlimentos>();
-        gdao.insertOrUpdate(new Usuario(request.getParameter("Nombre"), request.getParameter("Apellidos"), request.getParameter("FechaAlta"), request.getParameter("FechaBaja"), request.getParameter("TipoDoc"), request.getParameter("NumDoc"), request.getParameter("Telefono"), request.getParameter("Correo"), request.getParameter("PersonaReferencia"), request.getParameter("Sexo"), request.getParameter("FechaNac"), request.getParameter("PaisOrigen"), request.getParameter("Nacionalidad"), minoria, request.getParameter("Minoria"), observaciones, ficheros,ayudafarmaceutica, request.getParameter("TratSanitario"), drogodependencia, request.getParameter("TipoDiscapacidad"), request.getParameter("GradoDiscapacidad"), observacionessanitarias, permisoresidencia, permisotrabajo, carnetconducir, request.getParameter("TipoCarnetConducir"), listacarnets, request.getParameter("SituacionLaboral"), request.getParameter("UltTrabajo"), request.getParameter("PrefLaboral"), bolsatrabajo, observacioneslaborales, request.getParameter("NivelEstudios"), request.getParameter("FormacionComp"), estaestudiando, fracasoescolar, request.getParameter("CentroEst"), observacionesformacion, importe, request.getParameter("OrigenIngresos"), observacionesingresos, request.getParameter("Denominacion"), request.getParameter("Direccion"), request.getParameter("Localidad"), familiamonoparental, sinhogar, costevivienda, request.getParameter("MotivoCoste"), observacionesconvivencia, estabanco, request.getParameter("FechaAlta_BancoAlimentos"), request.getParameter("FechaBaja_BancoAlimentos"), listarecogidas, request.getParameter("FechaOrientacion"), request.getParameter("Beneficiario"), observacionesorientacion));
+        String[] carnets = request.getParameterValues("DesplegablesTipoCarnetConducir");
+        String[] trabajos = request.getParameterValues("DesplegablesBolsaTrabajo");
+        String[] recogidas = request.getParameterValues("DesplegablesListaRecogidas");
+        if (carnets != null) {
+            for (int i = 0; i < carnets.length; i++) {
+                listacarnets.add(new ValorDesplegable(carnets[i]));
+            }
+        }
+        if (trabajos != null) {
+            for (int i = 0; i < trabajos.length; i++) {
+                bolsatrabajo.add(new ValorDesplegable(trabajos[i]));
+            }
+        }
+        /*for(int i=0;i<recogidas.length;i++){
+            listarecogidas.add(new ValorDesplegable(recogidas[i]));
+        }*/
+        gdao.insertOrUpdate(new Usuario(request.getParameter("Nombre"), request.getParameter("Apellidos"), request.getParameter("FechaAlta"), request.getParameter("FechaBaja"), request.getParameter("TipoDoc"), request.getParameter("NumDoc"), request.getParameter("Telefono"), request.getParameter("Correo"), request.getParameter("PersonaReferencia"), request.getParameter("Sexo"), request.getParameter("FechaNac"), request.getParameter("PaisOrigen"), request.getParameter("Nacionalidad"), minoria, request.getParameter("Minoria"), observaciones, ficheros, ayudafarmaceutica, request.getParameter("TratSanitario"), drogodependencia, request.getParameter("TipoDiscapacidad"), request.getParameter("GradoDiscapacidad"), observacionessanitarias, permisoresidencia, permisotrabajo, carnetconducir, request.getParameter("TipoCarnetConducir"), listacarnets, request.getParameter("SituacionLaboral"), request.getParameter("UltTrabajo"), request.getParameter("PrefLaboral"), bolsatrabajo, observacioneslaborales, request.getParameter("NivelEstudios"), request.getParameter("FormacionComp"), estaestudiando, fracasoescolar, request.getParameter("CentroEst"), observacionesformacion, importe, request.getParameter("OrigenIngresos"), observacionesingresos, request.getParameter("Denominacion"), request.getParameter("Direccion"), request.getParameter("Localidad"), familiamonoparental, sinhogar, costevivienda, request.getParameter("MotivoCoste"), observacionesconvivencia, estabanco, request.getParameter("FechaAlta_BancoAlimentos"), request.getParameter("FechaBaja_BancoAlimentos"), listarecogidas, request.getParameter("FechaOrientacion"), request.getParameter("Beneficiario"), observacionesorientacion));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 
