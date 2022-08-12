@@ -9,7 +9,7 @@ $(document).ready(function () {
             console.log("Desplegables cargados correctamente");
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
-                if(option.tipocarnetconducir!==undefined){$("#DesplegablesTipoCarnetConducir").append('<option value="' + option.tipocarnetconducir + '">');}
+                //if(option.tipocarnetconducir!==undefined){$("#DesplegablesTipoCarnetConducir").append('<option value="' + option.tipocarnetconducir + '">');}
                 if(option.situacionlaboral!==undefined){$("#DesplegablesSituacionLaboral").append('<option value="' + option.situacionlaboral + '">');}
             });
 
