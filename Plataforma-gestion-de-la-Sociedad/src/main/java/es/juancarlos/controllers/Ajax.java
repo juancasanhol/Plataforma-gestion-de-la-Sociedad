@@ -212,6 +212,83 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
+            case "EditarUsuario":
+                u = (Usuario) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Usuario.class);
+                desplegables = new ArrayList();
+                List<ValorDesplegable> carnets_usuario = u.getOtros_carnets();
+                List<ValorDesplegable> bolsas_usuario = u.getBolsa_trabajo();
+                List<ValorDesplegable> bolsas = new ArrayList<ValorDesplegable>();
+                List<ValorDesplegable> carnets = new ArrayList<ValorDesplegable>();
+                it = gdao.get(Desplegables.class).iterator();
+                while (it.hasNext()) {
+                    d = (Desplegables) it.next();
+                    if (d.getNombre().equals("TipoCarnetConducir")) {
+                        carnets = d.getValores();
+                    }
+                    if (d.getNombre().equals("BolsaTrabajo")) {
+                        bolsas = d.getValores();
+                    }
+                }
+                //Para rellenar el select de editar carnets de conducir
+                boolean esta = false;
+                if (carnets != null) {
+                    for (int i2 = 0; i2 < carnets.size(); i2++) {
+                        if (carnets_usuario != null) {
+                            for (int j = 0; j < carnets_usuario.size(); j++) {
+                                if (carnets_usuario.get(j) != null && carnets.get(i2) != null) {
+                                    if (carnets_usuario.get(j).getValor().equals(carnets.get(i2).getValor())) {
+                                        esta = true;
+                                    }
+                                }
+                            }
+                        }
+                        if (!esta) {
+                            objeto = new JSONObject();
+                            objeto.put("addcarnet", carnets.get(i2).getValor());
+                            desplegables.add(objeto);
+                        }
+                        esta=false;
+                    }
+                    for (int i2 = 0; i2 < carnets_usuario.size(); i2++) {
+                        if (carnets_usuario.get(i2).getValor() != null) {
+                            objeto = new JSONObject();
+                            objeto.put("borrarcarnet", carnets_usuario.get(i2).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                }
+                //Para rellenar el select de bolsa de trabajo
+                esta = false;
+                if (bolsas != null) {
+                    for (int i2 = 0; i2 < bolsas.size(); i2++) {
+                        if (bolsas_usuario != null) {
+                            for (int j = 0; j < bolsas_usuario.size(); j++) {
+                                if (bolsas_usuario.get(j) != null && bolsas.get(i2) != null) {
+                                    if (bolsas_usuario.get(j).getValor().equals(bolsas.get(i2).getValor())) {
+                                        esta = true;
+                                    }
+                                }
+                            }
+                        }
+                        if (!esta) {
+                            objeto = new JSONObject();
+                            objeto.put("addbolsa", bolsas.get(i2).getValor());
+                            desplegables.add(objeto);
+                        }
+                        esta=false;
+                    }
+                    for (int i2 = 0; i2 < bolsas_usuario.size(); i2++) {
+                        if (bolsas_usuario.get(i2).getValor() != null) {
+                            objeto = new JSONObject();
+                            objeto.put("borrarbolsa", bolsas_usuario.get(i2).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
             case "DatosSanitarios":
                 //PARA LOS DESPLEGABLES DE LOS DATOS SANITARIOS
                 desplegables = new ArrayList();
