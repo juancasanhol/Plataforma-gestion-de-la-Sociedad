@@ -26,6 +26,9 @@ $(document).ready(function () {
         }
     });
     
+    
+    //LISTA OTROS CARNETS   
+    
     $(document).on('click', '.addCarnet', function () {
         var nombreD = $(this).attr("id");
         $("#DesplegablesTipoCarnetConducir").append('<option value='+nombreD+' selected>'+nombreD+'</option>'); 

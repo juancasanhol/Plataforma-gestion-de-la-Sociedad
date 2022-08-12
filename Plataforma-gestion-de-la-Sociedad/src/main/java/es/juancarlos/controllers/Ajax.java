@@ -187,7 +187,7 @@ public class Ajax extends HttpServlet {
                             desplegables.add(objeto);
                         }
                     }
-                    
+
                     if (d.getNombre().equals("TipoCarnetConducir")) {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
@@ -197,7 +197,7 @@ public class Ajax extends HttpServlet {
                             desplegables.add(objeto);
                         }
                     }
-                    
+
                     if (d.getNombre().equals("BolsaTrabajo")) {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
@@ -1071,7 +1071,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerObservacionesAlumno":
+            case "VerObservacionesAlumno":
                 al = (Alumno) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Alumno.class);
                 observaciones = new ArrayList();
                 for (int tam = 0; tam < al.getObservaciones_alumno().size(); tam++) {
@@ -1085,7 +1085,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerObservacionesBancoAlimentos":
+            case "VerObservacionesBancoAlimentos":
                 b = (BancoAlimentos) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), BancoAlimentos.class);
                 observaciones = new ArrayList();
                 for (int tam = 0; tam < b.getObservaciones_id().size(); tam++) {
@@ -1099,7 +1099,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerObservacionesConferencia":
+            case "VerObservacionesConferencia":
                 conf = (ConferenciaSantaMaria) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), ConferenciaSantaMaria.class);
                 observaciones = new ArrayList();
                 for (int tam = 0; tam < conf.getObservaciones_conferencia().size(); tam++) {
@@ -1113,7 +1113,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerObservacionesCurso":
+            case "VerObservacionesCurso":
                 c = (CursosFormacion) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), CursosFormacion.class);
                 observaciones = new ArrayList();
                 for (int tam = 0; tam < c.getObservaciones_cursos_formacion().size(); tam++) {
@@ -1127,7 +1127,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerObservacionesFichaAcogida":
+            case "VerObservacionesFichaAcogida":
                 ac = (Acogida) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Acogida.class);
                 observaciones = new ArrayList();
                 for (int tam = 0; tam < ac.getObservaciones_acogida().size(); tam++) {
@@ -1141,7 +1141,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                case "VerObservacionesFichaAtencionSocialIgualdad":
+            case "VerObservacionesFichaAtencionSocialIgualdad":
                 asi = (AtencionSocialIgualdad) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), AtencionSocialIgualdad.class);
                 observaciones = new ArrayList();
                 for (int tam = 0; tam < asi.getObservaciones_atencionsocial_igualdad().size(); tam++) {
@@ -1186,8 +1186,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                
-                case "VerTiposCarnet":
+            case "VerTiposCarnet":
                 u = (Usuario) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Usuario.class);
                 i = u.getOtros_carnets().iterator();
                 valores = new ArrayList();
@@ -1201,8 +1200,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                
-                case "VerBolsaTrabajo":
+            case "VerBolsaTrabajo":
                 u = (Usuario) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Usuario.class);
                 i = u.getBolsa_trabajo().iterator();
                 valores = new ArrayList();

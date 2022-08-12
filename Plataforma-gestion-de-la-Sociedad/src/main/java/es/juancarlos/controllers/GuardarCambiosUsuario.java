@@ -1,8 +1,10 @@
 package es.juancarlos.controllers;
 
+import es.juancarlos.beans.BancoAlimentos;
 import es.juancarlos.beans.FicheroAdjunto;
 import es.juancarlos.beans.Observaciones;
 import es.juancarlos.beans.Usuario;
+import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
 import es.juancarlos.models.GuardarFicheros;
@@ -133,7 +135,27 @@ public class GuardarCambiosUsuario extends HttpServlet {
             //No hay fichero para hacer el submit
             //He usado try catch porque para comprobar si hay fichero o no no sirve con comaprar el campo a null
         }
-        gdao.insertOrUpdate(new Usuario(id, request.getParameter("Nombre"), request.getParameter("Apellidos"), request.getParameter("FechaAlta"), request.getParameter("FechaBaja"), request.getParameter("TipoDoc"), request.getParameter("NumDoc"), request.getParameter("Telefono"), request.getParameter("Correo"), request.getParameter("PersonaReferencia"), request.getParameter("Sexo"), request.getParameter("FechaNac"), request.getParameter("PaisOrigen"), request.getParameter("Nacionalidad"), minoria, request.getParameter("Minoria"), u.getObservaciones_id(), ficheros, ayudafarmaceutica, request.getParameter("TratSanitario"), drogodependencia, request.getParameter("TipoDiscapacidad"), request.getParameter("GradoDiscapacidad"), u.getObservaciones_sanitarias(), permisoresidencia, permisotrabajo, carnetconducir, request.getParameter("TipoCarnetConducir"), u.getOtros_carnets(), u.getProfesion_observaciones(), request.getParameter("SituacionLaboral"), request.getParameter("UltTrabajo"), request.getParameter("PrefLaboral"), u.getBolsa_trabajo(), u.getObservaciones_datos_laborales(), request.getParameter("NivelEstudios"), request.getParameter("FormacionComp"), estaestudiando, fracasoescolar, request.getParameter("CentroEst"), u.getObservaciones_formacion(), importe, request.getParameter("OrigenIngresos"), u.getObservaciones_ingresos(), request.getParameter("Denominacion"), request.getParameter("Direccion"), request.getParameter("Localidad"), familiamonoparental, sinhogar, costevivienda, request.getParameter("MotivoCoste"), u.getObservaciones_ficha_convivencia(), u.getFicheros_unidadconvivencia(), estabanco, request.getParameter("FechaAlta_BancoAlimentos"), request.getParameter("FechaBaja_BancoAlimentos"), u.getLista_recogidas(), request.getParameter("FechaOrientacion"), request.getParameter("Beneficiario"), u.getObservaciones_orientacion()));
+        
+        List<ValorDesplegable> listacarnets = new ArrayList<ValorDesplegable>();
+        List<ValorDesplegable> bolsatrabajo = new ArrayList<ValorDesplegable>();
+        List<BancoAlimentos> listarecogidas = new ArrayList<BancoAlimentos>();
+        String[] carnets = request.getParameterValues("DesplegablesTipoCarnetConducir");
+        String[] trabajos = request.getParameterValues("DesplegablesBolsaTrabajo");
+        String[] recogidas = request.getParameterValues("DesplegablesListaRecogidas");
+        if (carnets != null) {
+            for (int i = 0; i < carnets.length; i++) {
+                listacarnets.add(new ValorDesplegable(carnets[i]));
+            }
+        }
+        if (trabajos != null) {
+            for (int i = 0; i < trabajos.length; i++) {
+                bolsatrabajo.add(new ValorDesplegable(trabajos[i]));
+            }
+        }
+        /*for(int i=0;i<recogidas.length;i++){
+            listarecogidas.add(new ValorDesplegable(recogidas[i]));
+        }*/
+        gdao.insertOrUpdate(new Usuario(id, request.getParameter("Nombre"), request.getParameter("Apellidos"), request.getParameter("FechaAlta"), request.getParameter("FechaBaja"), request.getParameter("TipoDoc"), request.getParameter("NumDoc"), request.getParameter("Telefono"), request.getParameter("Correo"), request.getParameter("PersonaReferencia"), request.getParameter("Sexo"), request.getParameter("FechaNac"), request.getParameter("PaisOrigen"), request.getParameter("Nacionalidad"), minoria, request.getParameter("Minoria"), u.getObservaciones_id(), ficheros, ayudafarmaceutica, request.getParameter("TratSanitario"), drogodependencia, request.getParameter("TipoDiscapacidad"), request.getParameter("GradoDiscapacidad"), u.getObservaciones_sanitarias(), permisoresidencia, permisotrabajo, carnetconducir, request.getParameter("TipoCarnetConducir"), listacarnets, u.getProfesion_observaciones(), request.getParameter("SituacionLaboral"), request.getParameter("UltTrabajo"), request.getParameter("PrefLaboral"), bolsatrabajo, u.getObservaciones_datos_laborales(), request.getParameter("NivelEstudios"), request.getParameter("FormacionComp"), estaestudiando, fracasoescolar, request.getParameter("CentroEst"), u.getObservaciones_formacion(), importe, request.getParameter("OrigenIngresos"), u.getObservaciones_ingresos(), request.getParameter("Denominacion"), request.getParameter("Direccion"), request.getParameter("Localidad"), familiamonoparental, sinhogar, costevivienda, request.getParameter("MotivoCoste"), u.getObservaciones_ficha_convivencia(), u.getFicheros_unidadconvivencia(), estabanco, request.getParameter("FechaAlta_BancoAlimentos"), request.getParameter("FechaBaja_BancoAlimentos"), u.getLista_recogidas(), request.getParameter("FechaOrientacion"), request.getParameter("Beneficiario"), u.getObservaciones_orientacion()));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 

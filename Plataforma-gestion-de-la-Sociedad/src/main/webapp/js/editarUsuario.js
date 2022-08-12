@@ -81,51 +81,6 @@ $(document).ready(function () {
             console.log("ERROR CARGANDO DESPLEGABLES");
         }
     });
-
-    CargarTiposCarnetConducir();
-
-    
-    $("#addCC").click(function (){
-
-            $.ajax({
-                type: "post",
-                url: "../../Ajax",
-                data: {
-                    accion: "addValoresDesplegables",
-                    nombre: "TipoCarnetConducir",
-                    valor: $("#valor").val()
-                },
-                success: function (respuesta) {
-                    CargarTiposCarnetConducir();
-                    $("#CanCC").click();
-                },
-                error: function () {
-                    console.log("ERROR!! error ");
-                }
-            });
-
-    });
-    
+ 
+   
 });
-
-function CargarTiposCarnetConducir() {
-    $.ajax({
-        type: "post",
-        url: "../../Ajax",
-        data: {
-            accion: "VerValoresDesplegables",
-            nombre: "TipoCarnetConducir"
-
-        },
-        success: function (respuesta) {
-            $("#DesplegablesTipoCarnetConducir").html("");
-
-        $.each(respuesta, function(i, option) {
-            $("#DesplegablesTipoCarnetConducir").append( "<option value="+option.valor+">"+option.valor+"</option>");
-        });
-        },
-        error: function () {
-            console.log("ERROR CARGANDO DESPLEGABLES");
-        }
-    });
-}
