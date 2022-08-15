@@ -45,11 +45,20 @@
                 <legend >Dirección: </legend>
                 <input type="text" id="Direccion" name="Direccion"><br>
                           
-                <legend class="mt-3">Actividades: </legend>
-                <input id="Actividades" type="text" name="Actividades" list="DesplegablesActividades"> <br>
-                <datalist id="DesplegablesActividades">
+                 <legend class="mt-2">Tipo de actividad: </legend>
+                
+                <select id="DesplegablesTipoActividad" name="DesplegablesTipoActividad" multiple class="col-8">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
+                </select>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#actividad">
+                   +
+                </button>
+
+                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#actividadDel">
+                    -
+                 </button>
 
 
             </div>
@@ -62,11 +71,20 @@
                 <legend >Código postal: </legend>
                 <input type="text" id="CodigoPostal" name="CodigoPostal"><br>
                 
-                <legend class="mt-3">Colaboraciones: </legend>
-                <input id="Colaboraciones" type="text" name="Colaboraciones" list="DesplegablesColaboraciones"> <br>
-                <datalist id="DesplegablesColaboraciones">
+                <legend class="mt-2">Tipo de colaboracion: </legend>
+                
+                <select id="DesplegablesTipoColaboracion" name="DesplegablesTipoColaboracion" multiple class="col-8">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
+                </select>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#colaboracion">
+                   +
+                </button>
+
+                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#colaboracionDel">
+                    -
+                 </button>
                 
             </div>
 
@@ -212,6 +230,126 @@
 
     </div>
 
+    
+    
+    
+    
+    
+     <!-- Modal  Actividades-->
+  <div class="modal fade" id="actividad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Añadir Actividad</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <table class="w-100">
+                <thead >
+                    <tr >
+                        <td>Tipo Actividad</td>
+                        <td class="ml-2">Añadir</td>
+                    </tr>
+                </thead>
+                <tbody id="tiposActividad"></tbody>
+            </table>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="actividadDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Añadir Actividad</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <table class="w-100">
+                <thead >
+                    <tr >
+                        <td>Tipo Actividad</td>
+                        <td class="ml-2">Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody id="tiposActividadDel"></tbody>
+            </table>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    
+    
+    <!-- Modal  Colaboraciones-->
+  <div class="modal fade" id="colaboracion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Añadir Colaboración</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <table class="w-100">
+                <thead >
+                    <tr >
+                        <td>Tipo Colaboración</td>
+                        <td class="ml-2">Añadir</td>
+                    </tr>
+                </thead>
+                <tbody id="tiposColaboracion"></tbody>
+            </table>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="colaboracionDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Añadir Colaboración</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <table class="w-100">
+                <thead >
+                    <tr >
+                        <td>Tipo Colaboración</td>
+                        <td class="ml-2">Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody id="tiposColaboracionDel"></tbody>
+            </table>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    
+    
+    
     <!-- pie -->
     <br>
     <br>

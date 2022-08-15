@@ -23,4 +23,26 @@ $(document).ready(function () {
             console.log("ERROR CARGANDO DESPLEGABLES");
         }
     });
+    
+    
+    
+    $.ajax({
+        type: "post",
+        url: "../../Ajax",
+        data: {
+            accion: "VerListasEmpresa",
+        },
+        success: function (respuesta) {
+            console.log("Desplegables cargados correctamente");
+            //console.log("buena");
+            $.each(respuesta, function (i, option) {
+                //console.log("buena");
+                if(option.actividad!==undefined){$("#Actividades").append(option.actividad+'<br>');}
+                if(option.colaboracion!==undefined){$("#Colaboraciones").append(option.colaboracion+'<br>');}
+            });
+        },
+        error: function () {
+            console.log("ERROR CARGANDO DESPLEGABLES");
+        }
+    });
 });

@@ -56,12 +56,12 @@ public class Empresa implements Serializable{
     String Provincia;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_valor")
+    @JoinColumn(name = "id_valoractividad_empresa")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> lista_actividades;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_valor")
+    @JoinColumn(name = "id_valorcolaboracion_empresa")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> lista_colaboraciones;
 

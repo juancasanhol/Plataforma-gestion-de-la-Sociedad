@@ -143,6 +143,7 @@ public class Evento implements ServletContextListener {
         gdao.insertOrUpdate(new Desplegables("OtrasAyudas", lista));
         gdao.insertOrUpdate(new Desplegables("Alimento", lista));
         gdao.insertOrUpdate(new Desplegables("Actividad", lista));
+        gdao.insertOrUpdate(new Desplegables("TiposColaboracion", lista));
         gdao.insertOrUpdate(new Desplegables("ClasesSocios", lista));
         gdao.insertOrUpdate(new Desplegables("Categoria", lista));
         gdao.insertOrUpdate(new Desplegables("Cargo", lista));

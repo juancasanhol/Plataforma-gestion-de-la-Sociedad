@@ -46,7 +46,19 @@ public class Empresas extends HttpServlet {
         List<ValorDesplegable> actividades = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> colaboraciones = new ArrayList<ValorDesplegable>();
         //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
-        
+        String[] listaactividades = request.getParameterValues("DesplegablesTipoActividad");
+        if (listaactividades != null) {
+            for (int i = 0; i < listaactividades.length; i++) {
+                actividades.add(new ValorDesplegable(listaactividades[i]));
+                log(listaactividades[i]);
+            }
+        }
+        String[] listacolaboraciones = request.getParameterValues("DesplegablesTipoColaboracion");
+        if (listacolaboraciones != null) {
+            for (int i = 0; i < listacolaboraciones.length; i++) {
+                colaboraciones.add(new ValorDesplegable(listacolaboraciones[i]));
+            }
+        }
         gdao.insertOrUpdate(new Empresa(request.getParameter("Nombre"),request.getParameter("FechaAlta"),request.getParameter("FechaBaja"),request.getParameter("PersonaContacto"),request.getParameter("Direccion"),request.getParameter("CodigoPostal"),request.getParameter("Localidad"),request.getParameter("Provincia"),actividades,colaboraciones));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
