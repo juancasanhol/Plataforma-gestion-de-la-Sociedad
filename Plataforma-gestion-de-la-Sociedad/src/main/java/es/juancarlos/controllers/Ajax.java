@@ -247,7 +247,7 @@ public class Ajax extends HttpServlet {
                             objeto.put("addcarnet", carnets.get(i2).getValor());
                             desplegables.add(objeto);
                         }
-                        esta=false;
+                        esta = false;
                     }
                     for (int i2 = 0; i2 < carnets_usuario.size(); i2++) {
                         if (carnets_usuario.get(i2).getValor() != null) {
@@ -275,7 +275,7 @@ public class Ajax extends HttpServlet {
                             objeto.put("addbolsa", bolsas.get(i2).getValor());
                             desplegables.add(objeto);
                         }
-                        esta=false;
+                        esta = false;
                     }
                     for (int i2 = 0; i2 < bolsas_usuario.size(); i2++) {
                         if (bolsas_usuario.get(i2).getValor() != null) {
@@ -1290,7 +1290,8 @@ public class Ajax extends HttpServlet {
                 arrayJSON = new JSONArray(valores);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
-                case "VerListasEmpresa":
+                break;
+            case "VerListasEmpresa":
                 e = (Empresa) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Empresa.class);
                 i = e.getLista_actividades().iterator();
                 valores = new ArrayList();

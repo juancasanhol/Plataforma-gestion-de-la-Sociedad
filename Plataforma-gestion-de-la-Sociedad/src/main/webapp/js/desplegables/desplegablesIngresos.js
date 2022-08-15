@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $.ajax({
         type: "post",
-        url: "../../Ajax",
+        url: "../../../Ajax",
         data: {
             accion: "Ingresos",
         },
