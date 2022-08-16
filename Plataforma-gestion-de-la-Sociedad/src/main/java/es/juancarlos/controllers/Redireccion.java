@@ -70,6 +70,21 @@ public class Redireccion extends HttpServlet {
                 case "observacioncurso":
                     url = "./html/observaciones/ObservacionesCursosFormacion.html";
                     break;
+                case "observacionacogida":
+                    url = "./html/observaciones/ObservacionesAcogida.html";
+                    break;
+                case "atencionsocialigualdad":
+                    url = "./html/observaciones/ObservacionesAtencionSocialIgualdad.html";
+                    break;
+                case "conferencia":
+                    url = "./html/observaciones/ObservacionesConferencia.html";
+                    break;
+                case "alumnos":
+                    url = "./html/observaciones/ObservacionesAlumnos.html";
+                    break;
+                case "banco":
+                    url = "./html/observaciones/ObservacionesBanco.html";
+                    break;
                 default:
 
                     break;
