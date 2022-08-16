@@ -45,16 +45,18 @@ public class BancoAlimento extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
         Boolean asiste = false;
         List<Observaciones> observaciones = new ArrayList<Observaciones>();
         List<Alimentos> alimentos = new ArrayList<Alimentos>();
         if (request.getParameter("Asiste") != null) {
             asiste = true;
         }
-        observaciones.add(observacion);
+        if (!request.getParameter("Observaciones").equals("")) {
+            Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
+            observaciones.add(observacion);
+        }
         //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
-        gdao.insertOrUpdate(new BancoAlimentos(request.getParameter("Titular"),request.getParameter("Mes"),asiste,observaciones,alimentos));
+        gdao.insertOrUpdate(new BancoAlimentos(request.getParameter("Titular"), request.getParameter("Mes"), asiste, observaciones, alimentos));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 

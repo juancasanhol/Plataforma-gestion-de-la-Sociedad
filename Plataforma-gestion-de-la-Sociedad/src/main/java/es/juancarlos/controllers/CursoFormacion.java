@@ -49,16 +49,17 @@ public class CursoFormacion extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        //OBTENER TRABAJDOR DEL LOGIN Y CAMBIARLO POR ADMIN
-        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
         List<Observaciones> observaciones = new ArrayList<Observaciones>();
+        if (!request.getParameter("Observaciones").equals("")) {
+            Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
+            observaciones.add(observacion);
+        }
         List<Alumno> alumnos = new ArrayList<Alumno>();
-        observaciones.add(observacion);
         List<ValorDesplegable> solicitantes = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> seleccionados = new ArrayList<ValorDesplegable>();
         //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
-        
-        gdao.insertOrUpdate(new CursosFormacion(request.getParameter("NombreCurso"),request.getParameter("TipoCurso"),request.getParameter("FechaInicio"),request.getParameter("FechaFin"),request.getParameter("OtraInfo"),solicitantes,seleccionados,alumnos, observaciones));
+
+        gdao.insertOrUpdate(new CursosFormacion(request.getParameter("NombreCurso"), request.getParameter("TipoCurso"), request.getParameter("FechaInicio"), request.getParameter("FechaFin"), request.getParameter("OtraInfo"), solicitantes, seleccionados, alumnos, observaciones));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 

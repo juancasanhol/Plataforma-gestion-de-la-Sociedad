@@ -50,4 +50,38 @@ public class FicheroAdjunto implements Serializable{
     public FicheroAdjunto(){
         
     }
+
+    public int getIdFichero() {
+        return IdFichero;
+    }
+
+    public String getRuta() {
+        return Ruta;
+    }
+
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public Boolean getBancoAlimentos() {
+        return BancoAlimentos;
+    }
+
+    public void setIdFichero(int IdFichero) {
+        this.IdFichero = IdFichero;
+    }
+
+    public void setRuta(String Ruta) {
+        this.Ruta = Ruta;
+    }
+
+    public void setFecha(String Fecha) {
+        this.Fecha = Fecha;
+    }
+
+    public void setBancoAlimentos(Boolean BancoAlimentos) {
+        this.BancoAlimentos = BancoAlimentos;
+    }
+    
+    
 }

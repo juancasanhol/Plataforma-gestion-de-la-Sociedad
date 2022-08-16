@@ -46,20 +46,20 @@ public class AtencionSocial extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        //OBTENER TRABAJDOR DEL LOGIN Y CAMBIARLO POR ADMIN
-        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
         List<Observaciones> observaciones = new ArrayList<Observaciones>();
-        observaciones.add(observacion);
-        List<FicheroAdjunto> ficheros = new ArrayList<FicheroAdjunto>();
-        try{
-            FicheroAdjunto f = new FicheroAdjunto(GuardarFicheros.GuardarFichero(request, getServletContext().getRealPath(getServletContext().getInitParameter("rutaFicheros")), "Fichero", "AtencionSocialIgualdad_"+request.getParameter("Usuario")), false);
-            ficheros.add(f);
+        if (!request.getParameter("Observaciones").equals("")) {
+            Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
+            observaciones.add(observacion);
         }
-        catch(Exception e){
+        List<FicheroAdjunto> ficheros = new ArrayList<FicheroAdjunto>();
+        try {
+            FicheroAdjunto f = new FicheroAdjunto(GuardarFicheros.GuardarFichero(request, getServletContext().getRealPath(getServletContext().getInitParameter("rutaFicheros")), "Fichero", "AtencionSocialIgualdad_" + request.getParameter("Usuario")), false);
+            ficheros.add(f);
+        } catch (Exception e) {
             //No hay fichero para hacer el submit
             //He usado try catch porque para comprobar si hay fichero o no no sirve con comparar el campo a null
         }
-        gdao.insertOrUpdate(new AtencionSocialIgualdad(request.getParameter("Fecha"),request.getSession().getAttribute("autor").toString(),request.getParameter("Usuario"),request.getParameter("ProcedenciaDerivacion"),request.getParameter("MotivoConsulta"),request.getParameter("Intervencion"),request.getParameter("EstadoResolucion"), observaciones, ficheros));
+        gdao.insertOrUpdate(new AtencionSocialIgualdad(request.getParameter("Fecha"), request.getSession().getAttribute("autor").toString(), request.getParameter("Usuario"), request.getParameter("ProcedenciaDerivacion"), request.getParameter("MotivoConsulta"), request.getParameter("Intervencion"), request.getParameter("EstadoResolucion"), observaciones, ficheros));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 

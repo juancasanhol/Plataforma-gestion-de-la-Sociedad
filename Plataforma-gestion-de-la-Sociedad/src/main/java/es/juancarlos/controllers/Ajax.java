@@ -1186,6 +1186,12 @@ public class Ajax extends HttpServlet {
                     objeto.put("autorobs", conf.getObservaciones_conferencia().get(tam).getAutor());
                     observaciones.add(objeto);
                 }
+                for (int tam = 0; tam < conf.getFicheros_conferenciasantamaria().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("fichero", conf.getFicheros_conferenciasantamaria().get(tam).getRuta());
+                    objeto.put("fecha", conf.getFicheros_conferenciasantamaria().get(tam).getFecha());
+                    observaciones.add(objeto);
+                }
                 arrayJSON = new JSONArray(observaciones);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
@@ -1214,6 +1220,12 @@ public class Ajax extends HttpServlet {
                     objeto.put("autorobs", ac.getObservaciones_acogida().get(tam).getAutor());
                     observaciones.add(objeto);
                 }
+                for (int tam = 0; tam < ac.getFicheros_acogida().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("fichero", ac.getFicheros_acogida().get(tam).getRuta());
+                    objeto.put("fecha", ac.getFicheros_acogida().get(tam).getFecha());
+                    observaciones.add(objeto);
+                }
                 arrayJSON = new JSONArray(observaciones);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
@@ -1226,6 +1238,12 @@ public class Ajax extends HttpServlet {
                     objeto.put("textoobs", asi.getObservaciones_atencionsocial_igualdad().get(tam).getTexto());
                     objeto.put("fechaobs", asi.getObservaciones_atencionsocial_igualdad().get(tam).getFecha());
                     objeto.put("autorobs", asi.getObservaciones_atencionsocial_igualdad().get(tam).getAutor());
+                    observaciones.add(objeto);
+                }
+                for (int tam = 0; tam < asi.getFicheros_atencionsocial_igualdad().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("fichero", asi.getFicheros_atencionsocial_igualdad().get(tam).getRuta());
+                    objeto.put("fecha", asi.getFicheros_atencionsocial_igualdad().get(tam).getFecha());
                     observaciones.add(objeto);
                 }
                 arrayJSON = new JSONArray(observaciones);

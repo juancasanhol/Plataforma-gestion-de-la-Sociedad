@@ -48,10 +48,11 @@ public class Alumnos extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        //OBTENER TRABAJDOR DEL LOGIN Y CAMBIARLO POR ADMIN
-        Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
         List<Observaciones> observaciones = new ArrayList<Observaciones>();
-        observaciones.add(observacion);
+        if (!request.getParameter("Observaciones").equals("")) {
+            Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
+            observaciones.add(observacion);
+        }
         boolean promociona = false, finaliza = false, aprovechamiento = false;
         if (request.getParameter("Promociona") != null) {
             promociona = true;
@@ -65,8 +66,6 @@ public class Alumnos extends HttpServlet {
         List<Faltas> faltas = new ArrayList<Faltas>();
         //HACER AQUI LO QUE SEA CON LA LISTA DE FALTAS
 
-        
-        
         gdao.insertOrUpdate(new Alumno(request.getParameter("Persona"), request.getParameter("FechaAlta"), request.getParameter("FechaBaja"), request.getParameter("CursoEscolar"), promociona, finaliza, aprovechamiento, request.getParameter("EmpresaPracticas"), faltas, observaciones));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
