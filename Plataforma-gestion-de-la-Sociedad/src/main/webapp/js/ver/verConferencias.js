@@ -9,7 +9,7 @@ $(document).ready(function () {
             //console.log("Desplegables cargados correctamente");
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
-                $("#tbody").append('<tr><td class="d-none" >' + option.id + '</td><td>' + option.numeroext+ '</td><td>' + option.nombre +'</td>'+ '<td><a href="../../Redireccion?accion=verconferencia&id='+option.id+'"><button onclick="enviaId('+option.id+')" type="button" class="btn btn-primary mb-2">Ver datos</button></a></td><td><a href="../../Redireccion?accion=conferencia&id='+option.id+'"><button onclick="enviaId('+option.id+')" type="button" class="btn btn-primary mb-2">Añadir observación o fichero</button></a></td><td><button title="Doble click para borrar" ondblclick="enviaId2('+option.id+')" type="button" class="btn btn-danger del">Borrar</button></td>'+'</tr>');
+                $("#tbody").append('<tr><td class="d-none" >' + option.id + '</td><td>' + option.numeroext+ '</td><td>' + option.nombre +'</td>'+ '<td><a href="../../Redireccion?accion=verconferencia&id='+option.id+'"><button onclick="enviaId('+option.id+')" type="button" class="btn btn-primary mb-2">Ver datos</button></a></td><td><a href="../../Redireccion?accion=conferencia&id='+option.id+'"><button onclick="enviaId('+option.id+')" type="button" class="btn btn-primary mb-2">Añadir observación o fichero</button></a></td><td><a href="../../Imprimir?id='+option.id+'"><button onclick="enviaId3('+option.id+')" type="button" class="btn btn-primary mb-2">Obtener recibo</button></a></td><td><button title="Doble click para borrar" ondblclick="enviaId2('+option.id+')" type="button" class="btn btn-danger del">Borrar</button></td>'+'</tr>');
             });
 
         },
@@ -34,4 +34,12 @@ function enviaId2(id) {
     data:{id:id}
 });
 window.location.href = "../../Borrar?accion=borrarconferencia";
+};
+
+function enviaId3(id) {
+  $.ajax({
+    type:"POST", 
+    url:"../../Imprimir", 
+    data:{id:id}
+});
 };
