@@ -39,12 +39,12 @@ public class CursosFormacion implements Serializable{
     String OtraInfo;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_valor")
+    @JoinColumn(name = "id_valorsolicitante")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> lista_solicitantes;
     
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_valor")
+    @JoinColumn(name = "id_valorseleccionado")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> lista_aseleccionados;//SOLO PUEDEN SER SOLICITANTES
     

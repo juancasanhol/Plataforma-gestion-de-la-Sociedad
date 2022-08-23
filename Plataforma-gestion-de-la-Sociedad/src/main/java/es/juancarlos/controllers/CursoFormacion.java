@@ -60,10 +60,22 @@ public class CursoFormacion extends HttpServlet {
         List<ValorDesplegable> seleccionados = new ArrayList<ValorDesplegable>();
         //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
         String[] listaalumnos = request.getParameterValues("DesplegablesListaAlumnos");
+        String[] listasolicitantes = request.getParameterValues("DesplegablesListaSolicitantes");
+        String[] listaseleccionados = request.getParameterValues("DesplegablesListaSeleccionados");
         Iterator it;
         if (listaalumnos != null) {
             for (int i = 0; i < listaalumnos.length; i++) {
                 alumnos.add(new ValorDesplegable(listaalumnos[i]));
+            }
+        }
+        if (listasolicitantes != null) {
+            for (int i = 0; i < listasolicitantes.length; i++) {
+                solicitantes.add(new ValorDesplegable(listasolicitantes[i]));
+            }
+        }
+        if (listaseleccionados != null) {
+            for (int i = 0; i < listaseleccionados.length; i++) {
+                seleccionados.add(new ValorDesplegable(listaseleccionados[i]));
             }
         }
         gdao.insertOrUpdate(new CursosFormacion(request.getParameter("NombreCurso"), request.getParameter("TipoCurso"), request.getParameter("FechaInicio"), request.getParameter("FechaFin"), request.getParameter("OtraInfo"), solicitantes, seleccionados, alumnos, observaciones));

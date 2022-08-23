@@ -525,6 +525,15 @@ public class Ajax extends HttpServlet {
                     desplegables.add(objeto);
 
                 }
+                it = gdao.get(Usuario.class).iterator();
+                while (it.hasNext()) {
+                    u = (Usuario) it.next();
+                    objeto = new JSONObject();
+                    objeto.put("solicitante", (u.getNombre()+" "+u.getApellidos()).replaceAll(" ", "_"));
+                    objeto.put("seleccionado", (u.getNombre()+" "+u.getApellidos()).replaceAll(" ", "_"));
+                    desplegables.add(objeto);
+
+                }
                 arrayJSON = new JSONArray(desplegables);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
@@ -1218,6 +1227,18 @@ public class Ajax extends HttpServlet {
                 for (int tam = 0; tam < c.getLista_alumnos().size(); tam++) {
                     objeto = new JSONObject();
                     objeto.put("alumno", c.getLista_alumnos().get(tam).getValor());
+                    observaciones.add(objeto);
+                }
+                //Seleccionados
+                for (int tam = 0; tam < c.getLista_aseleccionados().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("seleccionado", c.getLista_aseleccionados().get(tam).getValor());
+                    observaciones.add(objeto);
+                }
+                //Solicitantes
+                for (int tam = 0; tam < c.getLista_solicitantes().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("solicitante",c.getLista_solicitantes().get(tam).getValor());
                     observaciones.add(objeto);
                 }
                 arrayJSON = new JSONArray(observaciones);
