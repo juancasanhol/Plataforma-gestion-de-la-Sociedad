@@ -1214,6 +1214,12 @@ public class Ajax extends HttpServlet {
                     objeto.put("autorobs", c.getObservaciones_cursos_formacion().get(tam).getAutor());
                     observaciones.add(objeto);
                 }
+                //Apovecho esta parte para mostrar los alumnos
+                for (int tam = 0; tam < c.getLista_alumnos().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("alumno", c.getLista_alumnos().get(tam).getValor());
+                    observaciones.add(objeto);
+                }
                 arrayJSON = new JSONArray(observaciones);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);

@@ -35,6 +35,7 @@ $(document).ready(function () {
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
                 if(option.textoobs!==undefined){$("#Observaciones").append('Observación: '+option.textoobs+' | Fecha: '+option.fechaobs+' | Autor de observación: '+option.autorobs+'<br>');}
+                if(option.alumno!==undefined){$("#Alumnos").append(option.alumno+'<br>');}
             });
         },
         error: function () {

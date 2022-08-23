@@ -55,7 +55,7 @@ public class CursoFormacion extends HttpServlet {
             Observaciones observacion = new Observaciones(request.getParameter("Observaciones"), request.getSession().getAttribute("autor").toString());
             observaciones.add(observacion);
         }
-        List<Alumno> alumnos = new ArrayList<Alumno>();
+        List<ValorDesplegable> alumnos = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> solicitantes = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> seleccionados = new ArrayList<ValorDesplegable>();
         //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
@@ -63,15 +63,7 @@ public class CursoFormacion extends HttpServlet {
         Iterator it;
         if (listaalumnos != null) {
             for (int i = 0; i < listaalumnos.length; i++) {
-                it = gdao.get(Alumno.class).iterator();
-                while (it.hasNext()) {
-                    Alumno al = (Alumno) it.next();
-                    if (listaalumnos[i].equals(al.getPersona())) {
-                        alumnos.add(al);
-                    }
-
-                }
-
+                alumnos.add(new ValorDesplegable(listaalumnos[i]));
             }
         }
         gdao.insertOrUpdate(new CursosFormacion(request.getParameter("NombreCurso"), request.getParameter("TipoCurso"), request.getParameter("FechaInicio"), request.getParameter("FechaFin"), request.getParameter("OtraInfo"), solicitantes, seleccionados, alumnos, observaciones));

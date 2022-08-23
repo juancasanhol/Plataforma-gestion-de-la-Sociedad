@@ -10,7 +10,7 @@ $(document).ready(function () {
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
                 if(option.tipocurso!==undefined){$("#DesplegablesTipoCurso").append('<option value="' + option.tipocurso + '">');}
-                if(option.alumno!==undefined){$("#nombreAlumno").append('<tr><td>'+option.alumno.replace("_"," ")+'</td><td><button type="button" id='+option.alumno+' class="btn btn-success addAlumno">añadir</button></td></tr>');}    
+                if(option.alumno!==undefined){$("#nombreAlumno").append('<tr><td>'+option.alumno.replaceAll("_","&nbsp;")+'</td><td><button type="button" id='+option.alumno.replaceAll("_","&nbsp;")+' class="btn btn-success addAlumno">añadir</button></td></tr>');}    
             });
 
         },
@@ -24,17 +24,16 @@ $(document).ready(function () {
     /////LISTA ALUMNOS
     
     $(document).on('click', '.addAlumno', function () {
-        var nombreD = $(this).attr("id").replace("_"," ");
+        var nombreD = $(this).attr("id");
         $("#DesplegablesListaAlumnos").append('<option value='+nombreD+' selected>'+nombreD+'</option>'); 
-        $("#nombreAlumnoDel").append('<tr><td>'+nombreD+'</td><td><button type="button" id='+nombreD.replace(" ","_")+' class="btn btn-danger delAlumno">eliminar</button></td></tr>'); 
+        $("#nombreAlumnoDel").append('<tr><td>'+nombreD+'</td><td><button type="button" id='+nombreD+' class="btn btn-danger delAlumno">eliminar</button></td></tr>'); 
         $(this).closest('tr').remove();
     });
 
     $(document).on('click', '.delAlumno', function () {
-        var nombreD = $(this).attr("id").replace("_"," ");
-        console.log(nombreD);
+        var nombreD = $(this).attr("id");
         $("option[value='"+nombreD+"']").remove(); 
-        $("#nombreAlumno").append('<tr><td>'+nombreD+'</td><td><button type="button" id='+nombreD.replace(" ","_")+' class="btn btn-success addAlumno">añadir</button></td></tr>'); 
+        $("#nombreAlumno").append('<tr><td>'+nombreD+'</td><td><button type="button" id='+nombreD+' class="btn btn-success addAlumno">añadir</button></td></tr>'); 
         $(this).closest('tr').remove();
     });
     

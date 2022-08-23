@@ -50,13 +50,13 @@ public class CursosFormacion implements Serializable{
     
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<Alumno> lista_alumnos;
+    List<ValorDesplegable> lista_alumnos;
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_cursos_formacion;//Son las observaciones referentes a los cursos de formacion
 
-    public CursosFormacion(String NombreCurso, String TipoCurso, String FechaInicio, String FechaFin, String OtraInfo, List<ValorDesplegable> lista_solicitantes, List<ValorDesplegable> lista_aseleccionados, List<Alumno> lista_alumnos, List<Observaciones> observaciones_cursos_formacion) {
+    public CursosFormacion(String NombreCurso, String TipoCurso, String FechaInicio, String FechaFin, String OtraInfo, List<ValorDesplegable> lista_solicitantes, List<ValorDesplegable> lista_aseleccionados, List<ValorDesplegable> lista_alumnos, List<Observaciones> observaciones_cursos_formacion) {
         this.NombreCurso = NombreCurso;
         this.TipoCurso = TipoCurso;
         this.FechaInicio = FechaInicio;
@@ -109,7 +109,7 @@ public class CursosFormacion implements Serializable{
         return lista_aseleccionados;
     }
 
-    public List<Alumno> getLista_alumnos() {
+    public List<ValorDesplegable> getLista_alumnos() {
         return lista_alumnos;
     }
 
@@ -149,7 +149,7 @@ public class CursosFormacion implements Serializable{
         this.lista_aseleccionados = lista_aseleccionados;
     }
 
-    public void setLista_alumnos(List<Alumno> lista_alumnos) {
+    public void setLista_alumnos(List<ValorDesplegable> lista_alumnos) {
         this.lista_alumnos = lista_alumnos;
     }
 
