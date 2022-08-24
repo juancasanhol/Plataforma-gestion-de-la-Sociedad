@@ -103,9 +103,7 @@ $(document).ready(function () {
             console.log("ERROR CARGANDO DESPLEGABLES");
         }
     });
-});
 
-$(document).ready(function () {
     $.ajax({
         type: "post",
         url: "../../Ajax",
@@ -130,9 +128,7 @@ $(document).ready(function () {
             console.log("ERROR CARGANDO DESPLEGABLES");
         }
     });
-});
 
-$(document).ready(function () {
     $.ajax({
         type: "post",
         url: "../../Ajax",
@@ -151,9 +147,7 @@ $(document).ready(function () {
             console.log("ERROR CARGANDO DESPLEGABLES");
         }
     });
-});
 
-$(document).ready(function () {
     $.ajax({
         type: "post",
         url: "../../Ajax",
