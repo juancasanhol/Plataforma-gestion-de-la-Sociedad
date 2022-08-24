@@ -50,9 +50,13 @@ public class AulasMagicas extends HttpServlet {
 
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        List<Alumno> alumnos = new ArrayList<Alumno>();
-        //AÑADE AQUI LO QUE SEA DE LAS LISTAS DE DESPLEGABLES
-        
+        List<ValorDesplegable> alumnos = new ArrayList<ValorDesplegable>();
+        String[] listaalumnos = request.getParameterValues("DesplegablesListaAlumnos");
+        if (listaalumnos != null) {
+            for (int i = 0; i < listaalumnos.length; i++) {
+                alumnos.add(new ValorDesplegable(listaalumnos[i]));
+            }
+        }
         gdao.insertOrUpdate(new AulaMagica(request.getParameter("Denominacion"),request.getParameter("Profesor"),alumnos));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }

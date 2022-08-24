@@ -401,6 +401,13 @@ public class Ajax extends HttpServlet {
                         }
                     }
                 }
+                it = gdao.get(Alumno.class).iterator();
+                while (it.hasNext()) {
+                    al = (Alumno) it.next();
+                    objeto = new JSONObject();
+                    objeto.put("alumno", al.getPersona().replaceAll(" ", "_"));
+                    desplegables.add(objeto);
+                }
                 arrayJSON = new JSONArray(desplegables);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
@@ -529,10 +536,22 @@ public class Ajax extends HttpServlet {
                 while (it.hasNext()) {
                     u = (Usuario) it.next();
                     objeto = new JSONObject();
-                    objeto.put("solicitante", (u.getNombre()+" "+u.getApellidos()).replaceAll(" ", "_"));
-                    objeto.put("seleccionado", (u.getNombre()+" "+u.getApellidos()).replaceAll(" ", "_"));
+                    objeto.put("solicitante", (u.getNombre() + " " + u.getApellidos()).replaceAll(" ", "_"));
+                    objeto.put("seleccionado", (u.getNombre() + " " + u.getApellidos()).replaceAll(" ", "_"));
                     desplegables.add(objeto);
 
+                }
+                arrayJSON = new JSONArray(desplegables);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                break;
+            case "VerAlumnosAula":
+                AulaMagica am = (AulaMagica) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), AulaMagica.class);
+                desplegables = new ArrayList();
+                for (int tam = 0; tam < am.getLista_alumnos().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("alumno", am.getLista_alumnos().get(tam).getValor().replaceAll(" ", "_"));
+                    desplegables.add(objeto);
                 }
                 arrayJSON = new JSONArray(desplegables);
                 response.setContentType("application/json");
@@ -1238,7 +1257,7 @@ public class Ajax extends HttpServlet {
                 //Solicitantes
                 for (int tam = 0; tam < c.getLista_solicitantes().size(); tam++) {
                     objeto = new JSONObject();
-                    objeto.put("solicitante",c.getLista_solicitantes().get(tam).getValor());
+                    objeto.put("solicitante", c.getLista_solicitantes().get(tam).getValor());
                     observaciones.add(objeto);
                 }
                 arrayJSON = new JSONArray(observaciones);
