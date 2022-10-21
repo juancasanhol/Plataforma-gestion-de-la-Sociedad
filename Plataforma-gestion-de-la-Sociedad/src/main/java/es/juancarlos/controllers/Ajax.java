@@ -1419,10 +1419,27 @@ public class Ajax extends HttpServlet {
                 gdao.delete(d);
 
                 break;
+                
+            case "VisualizarAlimentos":
+                d = (Desplegables) gdao.getById("Alimento", Desplegables.class);
+                i = d.getValores().iterator();
+                valores = new ArrayList();                    
+                    while (i.hasNext()) {
+                        ValorDesplegable v = (ValorDesplegable) i.next();
+                        objeto = new JSONObject();
+                        objeto.put("alimento", v.getValor());
+                        valores.add(objeto);
+                    }
+                arrayJSON = new JSONArray(valores);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                
+                break;
 
         }
-
+           
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
