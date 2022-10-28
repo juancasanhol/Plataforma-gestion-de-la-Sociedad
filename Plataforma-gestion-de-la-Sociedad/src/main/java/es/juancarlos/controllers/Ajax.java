@@ -13,9 +13,11 @@ import es.juancarlos.beans.Observaciones;
 import es.juancarlos.beans.Perfil;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.beans.ValorDesplegable;
+import es.juancarlos.dao.ListaDao;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IAjaxDAO;
 import es.juancarlos.interfaces.IGenericoDAO;
+import es.juancarlos.interfaces.IListaDao;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -57,6 +59,7 @@ public class Ajax extends HttpServlet {
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
         IAjaxDAO adao = daof.getAjaxDAO();
+        IListaDao ldao =daof.getListaDAO();
 
         Usuario u;
         CursosFormacion c;
@@ -1423,13 +1426,14 @@ public class Ajax extends HttpServlet {
                 break;
                 
             case "VisualizarAlimentos":
-                d = (Desplegables) gdao.getById("Alimento", Desplegables.class);
-                i = d.getValores().iterator();
+                List l = ldao.OrderList();
+                System.out.println(l.toString());
+                i = l.iterator();
                 valores = new ArrayList();                    
                     while (i.hasNext()) {
-                        ValorDesplegable v = (ValorDesplegable) i.next();
+                        String nombreAlimentos = (String) i.next();
                         objeto = new JSONObject();
-                        objeto.put("alimento", v.getValor());
+                        objeto.put("nombre", nombreAlimentos);
                         valores.add(objeto);
                     }
                 arrayJSON = new JSONArray(valores);

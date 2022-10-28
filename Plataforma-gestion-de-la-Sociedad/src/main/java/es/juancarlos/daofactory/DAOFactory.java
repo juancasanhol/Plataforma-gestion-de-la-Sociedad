@@ -3,6 +3,7 @@ package es.juancarlos.daofactory;
 
 import es.juancarlos.interfaces.IGenericoDAO;
 import es.juancarlos.interfaces.IAjaxDAO;
+import es.juancarlos.interfaces.IListaDao;
 
 /**
  * 
@@ -26,6 +27,7 @@ public abstract class DAOFactory {
      *
      * @return DAOFactory()
      */
+    public abstract IListaDao getListaDAO ();
     public static DAOFactory getDAOFactory() {
         DAOFactory daof = null;
 

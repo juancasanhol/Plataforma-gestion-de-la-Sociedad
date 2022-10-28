@@ -2,8 +2,10 @@ package es.juancarlos.daofactory;
 
 import es.juancarlos.dao.AjaxDAO;
 import es.juancarlos.dao.GenericoDAO;
+import es.juancarlos.dao.ListaDao;
 import es.juancarlos.interfaces.IGenericoDAO;
 import es.juancarlos.interfaces.IAjaxDAO;
+import es.juancarlos.interfaces.IListaDao;
 
 
 
@@ -30,5 +32,9 @@ public class MySQLDAOFactory extends DAOFactory{
     public IAjaxDAO getAjaxDAO() {
         return (IAjaxDAO) new AjaxDAO();
     }
-
+    
+    @Override
+    public IListaDao getListaDAO() {
+        return (IListaDao) new ListaDao();
+    }
 }
