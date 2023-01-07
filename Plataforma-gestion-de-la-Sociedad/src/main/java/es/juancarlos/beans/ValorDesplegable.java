@@ -19,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "ValoresDesplegables")
-public class ValorDesplegable implements Serializable{
+public class ValorDesplegable implements Serializable, Comparable<ValorDesplegable>{
     
     @Id
     @Column(name = "Id", nullable = false)
@@ -53,5 +53,9 @@ public class ValorDesplegable implements Serializable{
         this.valor = valor;
     }
     
+    @Override
+    public int compareTo(ValorDesplegable v1) {
+        return this.valor.compareToIgnoreCase(v1.valor);
+    }
     
 }

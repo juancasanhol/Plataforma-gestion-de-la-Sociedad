@@ -1325,9 +1325,10 @@ public class Ajax extends HttpServlet {
                 break;
 
             case "VerValoresDesplegables":
-                valores = new ArrayList();
+                valores = new ArrayList<ValorDesplegable>();
 
                 d = (Desplegables) gdao.getById(request.getParameter("nombre"), Desplegables.class);
+                Collections.sort(d.getValores());
                 i = d.getValores().iterator();
                 while (i.hasNext()) {
                     ValorDesplegable v = (ValorDesplegable) i.next();
@@ -1392,7 +1393,7 @@ public class Ajax extends HttpServlet {
             case "addValoresDesplegables":
                 d = (Desplegables) gdao.getById(request.getParameter("nombre"), Desplegables.class);
                 d.getValores().add(new ValorDesplegable(request.getParameter("valor")));
-
+                Collections.sort(d.getValores());
                 gdao.insertOrUpdate(d);
 
                 break;
