@@ -3,13 +3,14 @@ $(document).ready(function(){
             type: "post",
             url: "../../Ajax",
             data: {
-                accion: "VisualizarAlimentos",
-                dato:"" // aqui se pasan los datos que se quiera en forma de string o int 
+                accion: "VerValoresDesplegables",
+                nombre: "Alimento" // aqui se pasan los datos que se quiera en forma de string o int 
             },
             success: function(respuesta) {
                 console.log("buena");
                 $.each(respuesta,function(i,option){
-                    $("#tbodyalimentos").append("<tr><td><b>"+option.alimento+"</b></td><td> </td><td><input type='number' min='0'/></td></tr>");
+                    console.log(i);
+                    $("#tbodyalimentos").append("<tr><td><b>"+option.valor+"</b></td><td> </td><td><input type='number' min='0'/></td></tr>");
                 });
             },
             error: function() {

@@ -1425,7 +1425,7 @@ public class Ajax extends HttpServlet {
 
                 break;
                 
-            case "VisualizarAlimentos":
+            /*case "VisualizarAlimentos":
                 List l = ldao.OrderList();
                 System.out.println(l.toString());
                 i = l.iterator();
@@ -1440,7 +1440,7 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 
-                break;
+                break;*/
                 
                 case "verProfesores":
 
