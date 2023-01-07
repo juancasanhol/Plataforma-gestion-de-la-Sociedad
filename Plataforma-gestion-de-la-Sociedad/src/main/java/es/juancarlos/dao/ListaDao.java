@@ -57,7 +57,7 @@ public class ListaDao implements IListaDao {
         Query q = null;
         try {
             startTransaction();
-            q = sesion.createQuery("SELECT d.Nombre FROM Desplegables AS d where d.id_valor='Alimento' ORDER BY d.Nombre ASC");
+            q = sesion.createQuery("SELECT d.Nombre FROM Desplegables AS d where d.valores.valor='Alimento' ORDER BY d.Nombre ASC");
             listadoAlimentos = q.list();
 
         } catch (HibernateException e) {
