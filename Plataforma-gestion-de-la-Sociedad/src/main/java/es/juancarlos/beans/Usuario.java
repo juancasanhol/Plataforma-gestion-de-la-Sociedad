@@ -30,6 +30,9 @@ public class Usuario implements Serializable {
 
     @Column(name = "Nombre", nullable = false)
     String Nombre;
+    
+    @Column(name = "EsProfe", nullable = false)
+    Boolean EsProfe;
 
     @Column(name = "Apellidos", nullable = false)
     String Apellidos;
@@ -40,16 +43,16 @@ public class Usuario implements Serializable {
     @Column(name = "FechaBaja", nullable = true)
     String FechaBaja;
 
-    @Column(name = "TipoDoc", nullable = true)//DESPLEGABLE
+    @Column(name = "TipoDoc", nullable = false)//DESPLEGABLE
     String TipoDoc;
 
-    @Column(name = "NumDoc", nullable = true)
+    @Column(name = "NumDoc", nullable = false)
     String NumDoc;
 
-    @Column(name = "Telefono", nullable = true)
+    @Column(name = "Telefono", nullable = false)
     String Telefono;
 
-    @Column(name = "Correo", nullable = true)
+    @Column(name = "Correo", nullable = false)
     String Correo;
 
     @Column(name = "PersonaReferencia", nullable = true)//DESPLEGABLE
@@ -58,7 +61,7 @@ public class Usuario implements Serializable {
     @Column(name = "Sexo", nullable = true)//DESPLEGABLE
     String Sexo;
 
-    @Column(name = "FechaNac", nullable = true)
+    @Column(name = "FechaNac", nullable = false)
     String FechaNac;
 
     @Column(name = "PaisOrigen", nullable = true)//DESPLEGABLE
@@ -182,10 +185,10 @@ public class Usuario implements Serializable {
     @Column(name = "Denominacion", nullable = true)
     String Denominacion;
 
-    @Column(name = "Direccion", nullable = true)
+    @Column(name = "Direccion", nullable = false)
     String Direccion;
 
-    @Column(name = "Localidad", nullable = true)
+    @Column(name = "Localidad", nullable = false)
     String Localidad = "Mérida"; //POR DEFECTO ES MERIDA
 
     @Column(name = "FamiliaMonoparental", nullable = true)//CHECK
