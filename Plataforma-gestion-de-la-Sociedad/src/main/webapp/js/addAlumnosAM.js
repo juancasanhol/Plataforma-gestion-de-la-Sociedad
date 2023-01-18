@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#addAlumno").click(function (){
+    $("#4addAlumno").click(function (){
 
         $.ajax({
             type: "post",

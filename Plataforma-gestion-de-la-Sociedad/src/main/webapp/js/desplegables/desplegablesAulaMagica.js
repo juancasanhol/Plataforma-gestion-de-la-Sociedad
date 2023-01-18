@@ -3,14 +3,14 @@ $(document).ready(function () {
         type: "post",
         url: "../../Ajax",
         data: {
-            accion: "AulaMagica",
+            accion: "AulaMagicaProf",
         },
         success: function (respuesta) {
             console.log("Desplegables cargados correctamente");
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
-                if(option.profesores!==undefined){$("#DesplegablesProfesor").append('<option value="' + option.profesores + '">');}
-                if(option.alumno!==undefined){$("#nombreAlumno").append('<tr><td>'+option.alumno.replaceAll("_","&nbsp;")+'</td><td><button type="button" id='+option.alumno.replaceAll("_","&nbsp;")+' class="btn btn-success addAlumno">añadir</button></td></tr>');}                   
+                    $("#DesplegablesProfesor").append('<option value="' + option.nombre + '"></option>');
+                //if(option.alumno!==undefined){$("#nombreAlumno").append('<tr><td>'+option.alumno.replaceAll("_","&nbsp;")+'</td><td><button type="button" id='+option.alumno.replaceAll("_","&nbsp;")+' class="btn btn-success addAlumno">añadir</button></td></tr>');}                   
             });
 
         },
@@ -21,18 +21,30 @@ $(document).ready(function () {
     
     /////LISTA ALUMNOS
     
-    $(document).on('click', '.addAlumno', function () {
-        var nombreD = $(this).attr("id");
-        $("#DesplegablesListaAlumnos").append('<option value='+nombreD+' selected>'+nombreD+'</option>'); 
-        $("#nombreAlumnoDel").append('<tr><td>'+nombreD+'</td><td><button type="button" id='+nombreD+' class="btn btn-danger delAlumno">eliminar</button></td></tr>'); 
-        $(this).closest('tr').remove();
+    $("#addAlumno").click(function (){
+
+        $("#DesplegablesListaAlumnos").append('<option value='+$("#nomAlum").val()+'-'+$("#apeAlum").val()+'-'+$("#curAlum").val()+'-'+$("#colAlum").val()+'>'+$("#nomAlum").val()+'-'+$("#apeAlum").val()+'-'+$("#curAlum").val()+'-'+$("#colAlum").val()+'</option>'); 
+       // $("#nombreAlumnoDel").append('<tr><td>'+nombreD+'</td><td><button type="button" id='+nombreD+' class="btn btn-danger delAlumno">eliminar</button></td></tr>'); 
+        //$(this).closest('tr').remove();
+        $("#nombreAlumnoDel").append('<tr><td>'+$("#nomAlum").val()+'-'+$("#apeAlum").val()+'</td><td><button type="button" id='+$("#nomAlum").val()+'-'+$("#apeAlum").val()+'-'+$("#curAlum").val()+'-'+$("#colAlum").val()+' class="btn btn-danger delAlumno">Quitar</button></td></tr>');
+
     });
 
     $(document).on('click', '.delAlumno', function () {
-        var nombreD = $(this).attr("id");
-        $("#DesplegablesListaAlumnos option[value='"+nombreD+"']").remove(); 
-        $("#nombreAlumno").append('<tr><td>'+nombreD+'</td><td><button type="button" id='+nombreD+' class="btn btn-success addAlumno">añadir</button></td></tr>'); 
-        $(this).closest('tr').remove();
+        valores=[] 
+        valor=$(this).attr('id');
+        console.log($(this).attr('id'));
+
+        $("#DesplegablesListaAlumnos option[value='"+valor+"']").remove(); 
+        //$("#nombreAlumnoDel").append('<tr><td>'+valores[0]+'</td><td><button type="button" id='+valores[0]+' class="btn btn-success addAlumno">añadir</button></td></tr>'); 
+        //$(this).closest('tr').remove();
+        $("#nombreAlumnoDel").html("");
+        $("#DesplegablesListaAlumnos option").each(function() {
+            
+            valores=$(this).val().split('-');
+            $("#nombreAlumnoDel").append('<tr><td>'+valores[0]+'-'+valores[1]+'</td><td><button type="button" id='+valores[0]+'-'+valores[1]+'-'+valores[2]+'-'+valores[3]+' class="btn btn-danger delAlumno">Quitar</button></td></tr>');
+
+        });
     });
     
 });

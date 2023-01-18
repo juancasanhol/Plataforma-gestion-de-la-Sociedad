@@ -54,5 +54,13 @@ public class Perfil implements Serializable {
         this.Password = Password;
     }
 
+    public boolean isProfesor() {
+        return profesor;
+    }
+
+    public void setProfesor(boolean profesor) {
+        this.profesor = profesor;
+    }
+
     
 }

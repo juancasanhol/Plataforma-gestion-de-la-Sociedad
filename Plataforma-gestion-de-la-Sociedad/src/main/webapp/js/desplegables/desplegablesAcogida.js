@@ -1,4 +1,10 @@
 $(document).ready(function () {
+
+    $("#AyudaRecibosDiv").hide();
+    $("#AyudaAsistenciaSanitariaDiv").hide();
+    $("#AyudaGeneralDiv").hide();
+    $("#OtrasAyudasDiv").hide();
+
     $.ajax({
         type: "post",
         url: "../../Ajax",
@@ -23,4 +29,31 @@ $(document).ready(function () {
             console.log("ERROR CARGANDO DESPLEGABLES");
         }
     });
-});
+
+    $(document).on('change', '#ayudas', function () {
+      
+        $("#AyudaRecibosDiv").hide();
+        $("#AyudaAsistenciaSanitariaDiv").hide();
+        $("#AyudaGeneralDiv").hide();
+        $("#OtrasAyudasDiv").hide();
+
+        switch ( $("#ayudas").val()) {
+            case 'AyudaRecibos':
+                $("#AyudaRecibosDiv").show();
+              break;
+            case 'AyudaAsistenciaSanitaria':
+                $("#AyudaAsistenciaSanitariaDiv").show();
+                break;
+            case 'AyudaGeneral':
+                $("#AyudaGeneralDiv").show();
+              break;
+            case 'OtrasAyudas':
+                $("#OtrasAyudasDiv").show();
+                break;
+           
+          }
+
+    });
+});    
+
+

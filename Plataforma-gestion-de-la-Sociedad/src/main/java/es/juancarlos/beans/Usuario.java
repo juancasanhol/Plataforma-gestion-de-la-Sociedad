@@ -28,13 +28,13 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
 
-    @Column(name = "Nombre", nullable = false)
+    @Column(name = "Nombre", nullable = true)
     String Nombre;
     
-    @Column(name = "EsProfe", nullable = false)
+    @Column(name = "EsProfe", nullable = true)
     Boolean EsProfe;
 
-    @Column(name = "Apellidos", nullable = false)
+    @Column(name = "Apellidos", nullable = true)
     String Apellidos;
 
     @Column(name = "FechaAlta", nullable = true)
@@ -43,16 +43,16 @@ public class Usuario implements Serializable {
     @Column(name = "FechaBaja", nullable = true)
     String FechaBaja;
 
-    @Column(name = "TipoDoc", nullable = false)//DESPLEGABLE
+    @Column(name = "TipoDoc", nullable = true)//DESPLEGABLE
     String TipoDoc;
 
-    @Column(name = "NumDoc", nullable = false)
+    @Column(name = "NumDoc", nullable = true)
     String NumDoc;
 
-    @Column(name = "Telefono", nullable = false)
+    @Column(name = "Telefono", nullable = true)
     String Telefono;
 
-    @Column(name = "Correo", nullable = false)
+    @Column(name = "Correo", nullable = true)
     String Correo;
 
     @Column(name = "PersonaReferencia", nullable = true)//DESPLEGABLE
@@ -61,7 +61,7 @@ public class Usuario implements Serializable {
     @Column(name = "Sexo", nullable = true)//DESPLEGABLE
     String Sexo;
 
-    @Column(name = "FechaNac", nullable = false)
+    @Column(name = "FechaNac", nullable = true)
     String FechaNac;
 
     @Column(name = "PaisOrigen", nullable = true)//DESPLEGABLE
@@ -185,10 +185,10 @@ public class Usuario implements Serializable {
     @Column(name = "Denominacion", nullable = true)
     String Denominacion;
 
-    @Column(name = "Direccion", nullable = false)
+    @Column(name = "Direccion", nullable = true)
     String Direccion;
 
-    @Column(name = "Localidad", nullable = false)
+    @Column(name = "Localidad", nullable = true)
     String Localidad = "Mérida"; //POR DEFECTO ES MERIDA
 
     @Column(name = "FamiliaMonoparental", nullable = true)//CHECK
