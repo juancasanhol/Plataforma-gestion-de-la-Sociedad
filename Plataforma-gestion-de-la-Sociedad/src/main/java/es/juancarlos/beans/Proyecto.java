@@ -5,10 +5,14 @@
 package es.juancarlos.beans;
 
 import java.util.ArrayList;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  *
@@ -17,10 +21,12 @@ import javax.persistence.Id;
 public class Proyecto {
     
     @Id
-    @Column(name = "CodIntId", nullable = false)
+    @Column(name = "idProyecto", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idProyecto;
-    @Column(name = "listaProyecto", nullable = false)
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     ArrayList <Usuario> listaProyecto;
     
     @Column(name = "Nombre", nullable = true)
