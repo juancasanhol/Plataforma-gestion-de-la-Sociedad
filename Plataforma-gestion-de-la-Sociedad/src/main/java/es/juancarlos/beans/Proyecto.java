@@ -28,7 +28,6 @@ public class Proyecto {
     @Id
     @Column(name = "NumIntId", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @OneToMany(cascade = CascadeType.ALL)
     int NumIntId;
 
     @Column(name = "Nombre", nullable = true)
