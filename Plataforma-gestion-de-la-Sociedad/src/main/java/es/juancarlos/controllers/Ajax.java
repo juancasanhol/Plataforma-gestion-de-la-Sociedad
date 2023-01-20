@@ -1467,6 +1467,23 @@ public class Ajax extends HttpServlet {
                 response.getWriter().print(arrayJSON);
                 
                 break;
+                case "VerListaProyecyo":
+                    i =gdao.get(Usuario.class).iterator();
+                    valores = new ArrayList();
+                    while (i.hasNext()) {
+                        u = (Usuario) i.next();
+                        objeto = new JSONObject();
+                        objeto.put("nombre", u.getNombre());
+                        objeto.put("apellido", u.getApellidos());
+                        objeto.put("NIE", u.getNumDoc());
+                        valores.add(objeto);
+                    }
+                    arrayJSON = new JSONArray(valores);
+                    response.setContentType("application/json");
+                    response.getWriter().print(arrayJSON);
+                
+                    
+                    break;
 
         }
            

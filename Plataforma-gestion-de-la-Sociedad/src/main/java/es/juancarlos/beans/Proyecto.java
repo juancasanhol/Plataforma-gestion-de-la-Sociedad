@@ -53,33 +53,21 @@ public class Proyecto {
         return NumIntId;
     }
 
-    public void setNumIntId(int NumIntId) {
-        this.NumIntId = NumIntId;
-    }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public String getAccion() {
         return accion;
     }
 
-    public void setAccion(String accion) {
-        this.accion = accion;
-    }
 
     public List<Usuario> getListaUsuarios() {
         return listaUsuarios;
     }
 
-    public void setListaUsuarios(List<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
-    }
     
     
 
