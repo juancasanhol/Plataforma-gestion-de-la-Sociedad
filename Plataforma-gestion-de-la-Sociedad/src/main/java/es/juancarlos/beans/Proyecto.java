@@ -5,6 +5,10 @@
 package es.juancarlos.beans;
 
 import java.util.ArrayList;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
@@ -12,14 +16,22 @@ import java.util.ArrayList;
  */
 public class Proyecto {
     
-    private ArrayList <Usuario> listaProyecto;
+    @Id
+    @Column(name = "CodIntId", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int idProyecto;
+    @Column(name = "listaProyecto", nullable = false)
+    ArrayList <Usuario> listaProyecto;
     
-    private String nombre;
-    private String actualizacion;
+    @Column(name = "Nombre", nullable = true)
+    String Nombre;
     
-    public Proyecto(String nombre, String actualizacion, ArrayList <Usuario> listaProyecto){
-        this.nombre=nombre;
-        this.actualizacion=actualizacion;
+    @Column(name = "Actualizacion", nullable = true)
+    String Actualizacion;
+    
+    public Proyecto(String Nombre, String Actualizacion, ArrayList <Usuario> listaProyecto){
+        this.Nombre=Nombre;
+        this.Actualizacion=Actualizacion;
         this.listaProyecto=listaProyecto;
     }
 
@@ -28,12 +40,10 @@ public class Proyecto {
     }
 
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
     public String getActualizacion() {
-        return actualizacion;
-    }
-    
-    
+        return Actualizacion;
+    }    
 }
