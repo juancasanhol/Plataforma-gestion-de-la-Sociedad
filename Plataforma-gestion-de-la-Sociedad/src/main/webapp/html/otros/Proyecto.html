@@ -34,20 +34,27 @@
     </header>
 
     <div class="container-fluid">
-        
+        <div class="row">
             <div class="col-3">
 
                 <legend class="mt-2">PROGRAMA DE: </legend> 
-                <input id="NombrePrograma" type="text" name="NombrePrograma">
-                
-                <legend class="mt-2">ACCIÓN/ACTUALIZACION O TALLER: </legend>
-                <input cols="30" id="Actualizacion" type="text" name="Actualizacion">
-
+                <input class="w-75" id="NombrePrograma" type="text" name="NombrePrograma">
             </div>
             <div class="col-3">
-                <table class="mt-5">
+                <legend class="mt-2">ACCIÓN/ACTUALIZACION O TALLER: </legend>
+                <input  class="w-75" id="Actualizacion" type="text" name="Actualizacion">
+            </div>
+
+            <div class="col-6">
+                <table class="">
                     <thead>
-                        <tr><td><b>NOMBRE Y APELLIDOS</b></td><td> </td><td><b>NIE</b></td><td> </td><td><b>FIRMA</b></td><td> </td><td><b>FECHA</b></td></tr>
+                        <tr>
+                            <td><b>NOMBRE Y APELLIDOS</b></td>
+                            <td> </td>
+                            <td><b>NIE</b></td>
+                            <td> </td>
+                            <td><b>FECHA</b></td>
+                        </tr>
                         
                     </thead>
                     <tbody id="tbodyProyecto">
@@ -55,7 +62,7 @@
                     </tbody>
                 </table>
             </div>
-            
+        </div>
 
             <div class="col-4 offset-8 mt-5 justify-content-end">
                 <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>

@@ -5,12 +5,15 @@
 package es.juancarlos.beans;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -18,38 +21,67 @@ import org.hibernate.annotations.LazyCollectionOption;
  *
  * @author Pablo
  */
+@Entity
+@Table(name = "Proyecto")
 public class Proyecto {
-    
+
     @Id
-    @Column(name = "idProyecto", nullable = false)
+    @Column(name = "NumIntId", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idProyecto;
+    @OneToMany(cascade = CascadeType.ALL)
+    int NumIntId;
+
+    @Column(name = "Nombre", nullable = true)
+    private String nombre;
+    
+    @Column(name = "Accion", nullable = true)
+    private String accion;
     
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
-    ArrayList <Usuario> listaProyecto;
-    
-    @Column(name = "Nombre", nullable = true)
-    String Nombre;
-    
-    @Column(name = "Actualizacion", nullable = true)
-    String Actualizacion;
-    
-    public Proyecto(String Nombre, String Actualizacion, ArrayList <Usuario> listaProyecto){
-        this.Nombre=Nombre;
-        this.Actualizacion=Actualizacion;
-        this.listaProyecto=listaProyecto;
+    List<Usuario> listaUsuarios;
+
+    public Proyecto() {
     }
 
-    public ArrayList<Usuario> getListaProyecto() {
-        return listaProyecto;
+    public Proyecto(String nombre, String accion, List<Usuario> listaUsuarios) {
+        this.nombre = nombre;
+        this.accion = accion;
+        this.listaUsuarios = listaUsuarios;
+    }
+
+    public int getNumIntId() {
+        return NumIntId;
+    }
+
+    public void setNumIntId(int NumIntId) {
+        this.NumIntId = NumIntId;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public String getActualizacion() {
-        return Actualizacion;
-    }    
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getAccion() {
+        return accion;
+    }
+
+    public void setAccion(String accion) {
+        this.accion = accion;
+    }
+
+    public List<Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
+
+    public void setListaUsuarios(List<Usuario> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
+    }
+    
+    
+
 }
