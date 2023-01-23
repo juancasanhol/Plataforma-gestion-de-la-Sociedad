@@ -47,21 +47,31 @@
                 </div>
 
                 <div class="col-6">
-                    <table class="">
-                    <thead>
+                    <table class="table-striped">
+                    <thead >
                         <tr>
                             <td><b>NOMBRE Y APELLIDOS</b></td>
-                            <td> </td>
+
                             <td><b>NIE</b></td>
-                            <td> </td>
+
                             <td><b>FECHA</b></td>
                         </tr>
                         
                     </thead>
                     <tbody id="tbodyProyecto">
-                        <datalist id="VerUsuario">
 
-                        </datalist>
+                        <tr>
+                            <td>
+                                <input required id="usuarioadd" type="text" name="" list="DesplegablesUsuario"> <br>
+                                <datalist id="DesplegablesUsuario">
+                                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                                </datalist>
+                        </td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                        
                         
                     </tbody>
                 </table>
@@ -98,7 +108,7 @@
     <script src="../../jquery/jquery-3.6.0.min.js"></script>
     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../js/desplegables/desplegablesAcogida.js"></script>
+    <script src="../../js/usuariosProyecto.js"></script>
 </body>
 
 </html>

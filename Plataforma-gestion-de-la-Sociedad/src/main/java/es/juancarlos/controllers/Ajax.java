@@ -59,7 +59,7 @@ public class Ajax extends HttpServlet {
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
         IAjaxDAO adao = daof.getAjaxDAO();
-        IListaDao ldao =daof.getListaDAO();
+        IListaDao ldao = daof.getListaDAO();
 
         Usuario u;
         CursosFormacion c;
@@ -392,16 +392,16 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                
+
             case "AulaMagicaProf":
                 desplegables = new ArrayList();
                 it = gdao.get(Perfil.class).iterator();
                 while (it.hasNext()) {
-                   Perfil p = (Perfil) it.next();
+                    Perfil p = (Perfil) it.next();
                     if (p.isProfesor()) {
                         objeto = new JSONObject();
                         objeto.put("nombre", p.getUsuario());
-                        desplegables.add(objeto);   
+                        desplegables.add(objeto);
                     }
                 }
                 arrayJSON = new JSONArray(desplegables);
@@ -1416,7 +1416,7 @@ public class Ajax extends HttpServlet {
                 gdao.delete(d);
 
                 break;
-                
+
             /*case "VisualizarAlimentos":
                 List l = ldao.OrderList();
                 System.out.println(l.toString());
@@ -1433,10 +1433,9 @@ public class Ajax extends HttpServlet {
                 response.getWriter().print(arrayJSON);
                 
                 break;*/
-                
-                case "verProfesores":
+            case "verProfesores":
 
-                i =gdao.get(Perfil.class).iterator();
+                i = gdao.get(Perfil.class).iterator();
                 valores = new ArrayList();
                 while (i.hasNext()) {
                     Perfil p = (Perfil) i.next();
@@ -1448,10 +1447,10 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
-                
-                case "verAlumnos":
 
-                i =gdao.get(Usuario.class).iterator();
+            case "verAlumnos":
+
+                i = gdao.get(Usuario.class).iterator();
                 valores = new ArrayList();
                 while (i.hasNext()) {
                     u = (Usuario) i.next();
@@ -1465,30 +1464,40 @@ public class Ajax extends HttpServlet {
                 arrayJSON = new JSONArray(valores);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
-                
+
                 break;
-                case "VerListaProyecyo":
-                    i =gdao.get(Usuario.class).iterator();
-                    valores = new ArrayList();
-                    while (i.hasNext()) {
-                        u = (Usuario) i.next();
-                        objeto = new JSONObject();
-                        objeto.put("nombre", u.getNombre());
-                        objeto.put("apellido", u.getApellidos());
-                        objeto.put("NIE", u.getNumDoc());
-                        valores.add(objeto);
-                    }
-                    arrayJSON = new JSONArray(valores);
-                    response.setContentType("application/json");
-                    response.getWriter().print(arrayJSON);
+            case "usuariosProyecto":
+                i = gdao.get(Usuario.class).iterator();
+                valores = new ArrayList();
+                while (i.hasNext()) {
+                    u = (Usuario) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("nombre", u.getNombre() + " " + u.getApellidos());
+                    objeto.put("id", u.getNumIntId());
+                    valores.add(objeto);
+                }
+                arrayJSON = new JSONArray(valores);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+
+                break;
+
+            case "usuariosProyectoadd":
                 
-                    
-                    break;
+                u =(Usuario) gdao.getById(Integer.parseInt(request.getParameter("id")),Usuario.class);
+
+                   objeto=new JSONObject();
+                   objeto.put("nombre", u.getNombre() + " " + u.getApellidos());
+                   objeto.put("id", u.getNumIntId());
+                   objeto.put("numDoc", u.getNumDoc());
+                
+                response.setContentType("application/json");
+                response.getWriter().print(objeto);
+                break;
 
         }
-           
+
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
