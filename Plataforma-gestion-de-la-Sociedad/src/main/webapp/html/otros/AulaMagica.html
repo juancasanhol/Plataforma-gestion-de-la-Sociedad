@@ -35,7 +35,7 @@
     <div class="container-fluid">
 
         <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
-        <form action="../../AulasMagicas" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
+        <form action="" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
             <!--El numero interno de identificacion se genera solo-->
             <div class="col-3">
 
@@ -47,7 +47,7 @@
             <div class="col-3">
 
                <legend class="mt-2">Profesor: </legend>
-                <input id="TipoDoc" type="text" name="Profesor" list="DesplegablesProfesor"> <br>
+                <input id="Profesor" type="text" name="Profesor" list="DesplegablesProfesor"> <br>
                 <datalist id="DesplegablesProfesor">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist><br>
@@ -78,7 +78,7 @@
             </div>
 
             <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" type="submit" value="Añadir aula" title="Añadir aula mágica.">
+                <input id="addAula"class="col-4 btn btn-primary" type="submit" value="Añadir aula" title="Añadir aula mágica.">
                 <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
             </div>
 

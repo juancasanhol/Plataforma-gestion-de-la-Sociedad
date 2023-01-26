@@ -57,7 +57,7 @@ public class AulasMagicas extends HttpServlet {
                 alumnos.add(new ValorDesplegable(listaalumnos[i]));
             }
         }
-        gdao.insertOrUpdate(new AulaMagica(request.getParameter("Denominacion"),request.getParameter("Profesor"),alumnos));
+       // gdao.insertOrUpdate(new AulaMagica(request.getParameter("Denominacion"),request.getParameter("Profesor"),alumnos));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 

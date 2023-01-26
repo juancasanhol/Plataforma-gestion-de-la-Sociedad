@@ -1,4 +1,7 @@
 $(document).ready(function(){
+ListaAlimentos=""
+ListaAlimentosValores=""
+
     $.ajax({
             type: "post",
             url: "../../Ajax",
@@ -10,7 +13,13 @@ $(document).ready(function(){
                 console.log("buena");
                 $.each(respuesta,function(i,option){
                     console.log(i);
-                    $("#tbodyalimentos").append("<tr><td><b>"+option.valor+"</b></td><td> </td><td><input type='number' min='0'/></td></tr>");
+                    if (i=0){
+                        ListaAlimentos+=option.valor;
+                    }else{
+                        ListaAlimentos+=option.valor+";";
+                    }
+                  
+                    $("#tbodyalimentos").append("<tr><td><b>"+option.valor+"</b></td><td> </td><td><input id='"+option.valor+"' type='number' min='0'/></td></tr>");
                 });
             },
             error: function() {
@@ -20,6 +29,16 @@ $(document).ready(function(){
         });
         
     $(document).on('click', '.add', function () {
+        alimetos=ListaAlimentos.split(";")
+        for (e = 0;e<alimetos.length-1; e++){
+            console.log(e)
+            if (i=0){
+                ListaAlimentosValores+=$('#'+alimetos[i]).val();
+            }else{
+                ListaAlimentosValores+=$('#'+alimetos[i]).val()+";";
+            }
+        }
+
         $.ajax({
             type: "post",
             url: "../../Ajax",
@@ -29,7 +48,8 @@ $(document).ready(function(){
                 Mes_anio: $("#Mes").val(),
                 Asiste: $("#Asiste").val(),
                 observaciones_id: $("#Observaciones").val(),
-                lista_alimentos: $("#tbodyalimentos").val()
+                lista_alimentos: ListaAlimentos,
+                lista_alimentos_valores: ListaAlimentosValores,
             },
             success: function (respuesta) {
 

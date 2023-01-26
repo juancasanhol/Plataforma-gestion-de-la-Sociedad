@@ -53,6 +53,9 @@ public class Alumno implements Serializable{
 
     @Column(name = "EmpresaPracticas", nullable = true)
     String EmpresaPracticas;
+    
+    @Column(name = "Colegio", nullable = true)
+    String colegio;
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -165,6 +168,14 @@ public class Alumno implements Serializable{
 
     public void setObservaciones_alumno(List<Observaciones> observaciones_alumno) {
         this.observaciones_alumno = observaciones_alumno;
+    }
+
+    public String getColegio() {
+        return colegio;
+    }
+
+    public void setColegio(String colegio) {
+        this.colegio = colegio;
     }
     
     

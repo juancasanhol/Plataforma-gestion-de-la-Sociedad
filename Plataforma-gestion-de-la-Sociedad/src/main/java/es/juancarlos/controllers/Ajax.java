@@ -546,7 +546,7 @@ public class Ajax extends HttpServlet {
                 desplegables = new ArrayList();
                 for (int tam = 0; tam < am.getLista_alumnos().size(); tam++) {
                     objeto = new JSONObject();
-                    objeto.put("alumno", am.getLista_alumnos().get(tam).getValor().replaceAll(" ", "_"));
+                    objeto.put("alumno", am.getLista_alumnos().get(tam).getPersona().replaceAll(" ", "_"));
                     desplegables.add(objeto);
                 }
                 arrayJSON = new JSONArray(desplegables);
@@ -1493,6 +1493,35 @@ public class Ajax extends HttpServlet {
                 
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
+                break;
+                
+            case "adddAula":
+                AulaMagica aula= new AulaMagica();
+                
+                //request.getParameter("denom")
+                //request.getParameter("profe")
+                System.out.println(request.getParameter("alumnos"));
+                String alumnosAMPara =request.getParameter("alumnos");
+                String [] alumnosAM = alumnosAMPara.split(";");
+                alumnos=new ArrayList<Alumno>();
+                for (String alumno: alumnosAM){
+                    
+                    String[] datos = alumno.split("-");
+                    Alumno alu=new Alumno();
+                    alu.setPersona(datos[0]+" "+ datos[1]);
+                    alu.setCursoEscolar(datos[2]);
+                    alu.setColegio(datos[3]);
+                    
+                    gdao.insertOrUpdate(alu);
+                    alumnos.add(alu);
+                }
+                gdao.insertOrUpdate(new AulaMagica(request.getParameter("denom"), request.getParameter("profe"), alumnos));
+                
+                break;
+                
+            case "addAlimentos":
+                BancoAlimento banco = new BancoAlimento();
+                
                 break;
 
         }

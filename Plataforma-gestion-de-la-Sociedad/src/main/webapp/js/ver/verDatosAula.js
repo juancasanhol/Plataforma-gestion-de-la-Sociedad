@@ -29,7 +29,7 @@ $(document).ready(function () {
             //console.log("buena");
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
-                if(option.alumno!==undefined){$("#Alumnos").append(option.alumno+'<br>');}
+                if(option.alumno!==undefined){$("#Alumnos").append(option.alumno.replace("_"," ")+'<br>');}
             });
         },
         error: function () {

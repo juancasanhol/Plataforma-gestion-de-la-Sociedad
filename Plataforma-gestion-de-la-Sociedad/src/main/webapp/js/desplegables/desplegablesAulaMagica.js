@@ -23,7 +23,7 @@ $(document).ready(function () {
     
     $("#addAlumno").click(function (){
 
-        $("#DesplegablesListaAlumnos").append('<option value='+$("#nomAlum").val()+'-'+$("#apeAlum").val()+'-'+$("#curAlum").val()+'-'+$("#colAlum").val()+'>'+$("#nomAlum").val()+'-'+$("#apeAlum").val()+'-'+$("#curAlum").val()+'-'+$("#colAlum").val()+'</option>'); 
+        $("#DesplegablesListaAlumnos").append('<option value='+$("#nomAlum").val()+'-'+$("#apeAlum").val()+'-'+$("#curAlum").val()+'-'+$("#colAlum").val()+' selected>'+$("#nomAlum").val()+'-'+$("#apeAlum").val()+'-'+$("#curAlum").val()+'-'+$("#colAlum").val()+'</option>'); 
        // $("#nombreAlumnoDel").append('<tr><td>'+nombreD+'</td><td><button type="button" id='+nombreD+' class="btn btn-danger delAlumno">eliminar</button></td></tr>'); 
         //$(this).closest('tr').remove();
         $("#nombreAlumnoDel").append('<tr><td>'+$("#nomAlum").val()+'-'+$("#apeAlum").val()+'</td><td><button type="button" id='+$("#nomAlum").val()+'-'+$("#apeAlum").val()+'-'+$("#curAlum").val()+'-'+$("#colAlum").val()+' class="btn btn-danger delAlumno">Quitar</button></td></tr>');
