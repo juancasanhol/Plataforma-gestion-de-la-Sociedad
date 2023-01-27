@@ -80,7 +80,6 @@
         </form>
 
             <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-5 btn btn-primary" id="addUA" type="button" value="Registrar Proyecto" title="Registrar proyecto.">
                 <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
             </div>
 

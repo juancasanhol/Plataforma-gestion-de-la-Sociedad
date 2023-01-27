@@ -162,6 +162,8 @@
                 </div>
                 <div class="modal-body">
                     <a class="btn btn-primary btn-sm " href="../otros/Proyecto.html" role="button">Acceder</a>
+                </div>
+                <div class="modal-body">
                     <a class="btn btn-primary btn-sm " href="../otros/CrearProyecto.html" role="button">Crear</a>
                 </div>
                 <div class="modal-footer">
