@@ -31,13 +31,15 @@ public class Proyecto {
     int NumIntId;
 
     @Column(name = "Nombre", nullable = true)
-    private String nombre;
+    String nombre;
     
     @Column(name = "Accion", nullable = true)
-    private String accion;
+    String accion;
     
-    @Column (name= "Fecha", nullable =true)
-    private String fecha;
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List <String> listfecha;
     
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -46,15 +48,16 @@ public class Proyecto {
     public Proyecto() {
     }
 
-    public Proyecto(String nombre, String accion, List listaUsuarios, String fecha) {
+    //Chupi cambio List fechas + id (user que entro)
+    public Proyecto(String nombre, String accion, List listaUsuarios, List listfecha) {
         this.nombre = nombre;
         this.accion = accion;
         this.listaUsuarios = listaUsuarios;
-        this.fecha=fecha;
+        this.listfecha=listfecha;
     }
     
-    public String getFecha() {
-        return fecha;
+    public List getListfecha() {
+        return listfecha;
     }
 
     public int getNumIntId() {

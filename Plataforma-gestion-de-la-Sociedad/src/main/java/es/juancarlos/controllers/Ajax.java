@@ -1523,6 +1523,21 @@ public class Ajax extends HttpServlet {
                 BancoAlimento banco = new BancoAlimento();
                 
                 break;
+                
+            case "addProyecto":
+                // listausuarios= "id;"
+                //Split por ;
+                //foreach de array.length 
+                    //gdao byid().id.getid(listausuario)
+                    //user nuevo= new USer();
+                    //nuevo = (Usuario) gdao.getById(Integer.parseInt(request.getParameter("id")),Usuario.class);
+                    //listadouserproyc.add(nuevo);
+                // Proyecto pr = new Proyecto(nombre,actualizacion,listuserproyc)
+                
+                u =(Usuario) gdao.getById(Integer.parseInt(request.getParameter("id")),Usuario.class);
+                
+                
+                break;
 
         }
 
