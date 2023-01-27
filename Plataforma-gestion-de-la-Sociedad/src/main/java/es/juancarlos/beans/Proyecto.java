@@ -45,6 +45,12 @@ public class Proyecto {
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Usuario> listaUsuarios;
 
+    public Proyecto(String nombre, String accion, List<Usuario> listaUsuarios) {
+        this.nombre = nombre;
+        this.accion = accion;
+        this.listaUsuarios = listaUsuarios;
+    }
+
     public Proyecto() {
     }
 

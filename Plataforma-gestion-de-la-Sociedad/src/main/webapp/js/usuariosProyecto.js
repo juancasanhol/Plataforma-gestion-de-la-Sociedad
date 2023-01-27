@@ -41,6 +41,8 @@ $(document).ready(function () {
 
 
     });
+    
+    
     //Change about the click getting the ids not the items
     $("#addProyecto").click(function () {
         let selecteds = "";
@@ -58,11 +60,10 @@ $(document).ready(function () {
             type: "post",
             url: "../../Ajax",
             data: {
-                //change names
-                accion: "adddAula",
+                accion: "addUserProyec",
                 usuarios: selecteds,
-                denom: $("#Denominacion").val(),
-                profe: $("#Profesor").val(),
+                nombre: $("#NombrePrograma").val(),
+                actualizacion: $("#Actualizacion").val(),
 
             },
             success: function (respuesta) {

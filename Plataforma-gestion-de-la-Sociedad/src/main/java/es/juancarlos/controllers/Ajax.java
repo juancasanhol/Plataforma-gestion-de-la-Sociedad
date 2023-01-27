@@ -11,6 +11,7 @@ import es.juancarlos.beans.Desplegables;
 import es.juancarlos.beans.Empresa;
 import es.juancarlos.beans.Observaciones;
 import es.juancarlos.beans.Perfil;
+import es.juancarlos.beans.Proyecto;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.dao.ListaDao;
@@ -71,7 +72,7 @@ public class Ajax extends HttpServlet {
         AtencionSocialIgualdad asi;
         Alumno al;
         ConferenciaSantaMaria conf;
-        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias, bancos, observaciones, valores;
+        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias, bancos, observaciones, valores,listadouserproyect;
         BancoAlimentos b;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
@@ -1525,9 +1526,21 @@ public class Ajax extends HttpServlet {
                 break;
                 
             case "addProyecto":
+                listadouserproyect=new ArrayList<Usuario>();
+                //listadofechas=new ArrayList<>();
+                
+                String [] listado=new String() [selectds.length()];
+                for (String iduser : listado) {
+                    Usuario user= new Usuario();
+                    user=(Usuario) gdao.getById(Integer.parseInt(request.getParameter("id")),Usuario.class);
+                    listadouserproyect.add(user);
+                }
+                Proyecto pr= new Proyecto(request.getParameter("nombre"),request.getParameter("actualizacion"),listadouserproyect);
+                
+                
                 // listausuarios= "id;"
                 //Split por ;
-                //foreach de array.length 
+                //foreach de array
                     //gdao byid().id.getid(listausuario)
                     //user nuevo= new USer();
                     //nuevo = (Usuario) gdao.getById(Integer.parseInt(request.getParameter("id")),Usuario.class);
