@@ -94,7 +94,7 @@ $(document).ready(function () {
     });
     
     
-    $(document).on('click', '.addSeleccionado', function () {
+    $(document).on('click', '#addCurso', function () {
 
         let Lsol ="";
         $("#DesplegablesListaSolicitantes").children().each((idx, el) => {
@@ -106,13 +106,13 @@ $(document).ready(function () {
             }
           });
 
-          let Lsel ="";
+          let LSel ="";
           $("#DesplegablesListaSeleccionados").children().each((idx, el) => {
               // Obtenemos los atributos que necesitamos
               if (idx==0){
-                  Lsol +=el.value
+                LSel +=el.value
               }else{
-                  Lsol +=";"+el.value
+                LSel +=";"+el.value
               }
             });
 
@@ -120,12 +120,14 @@ $(document).ready(function () {
             $("#DesplegablesListaAlumnos").children().each((idx, el) => {
                 // Obtenemos los atributos que necesitamos
                 if (idx==0){
-                    Lsol +=el.value
+                    LAlu +=el.value
                 }else{
-                    Lsol +=";"+el.value
+                    LAlu +=";"+el.value
                 }
               });
-
+        console.log(Lsol);
+        console.log(LSel);
+        console.log(LAlu);
         
         $.ajax({
             type: "post",
@@ -135,8 +137,10 @@ $(document).ready(function () {
                 nombre: $("#NombreCurso").val(),
                 tipo: $("#TipoCurso").val(),
                 otra:$("#TipoDoc").val(),
+                Fini:$("#FechaInicio").val(),
+                Ffin:$("#FechaFin").val(),
                 obs:$("#Observaciones").val(),
-                Lsol:Lsol,
+                LSol:Lsol,
                 LSel:LSel,
                 LAlu:LAlu,
  

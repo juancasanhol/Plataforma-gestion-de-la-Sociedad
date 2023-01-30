@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
@@ -38,32 +40,46 @@ public class CursosFormacion implements Serializable{
     @Column(name = "OtraInfo", nullable = true)//DESPLEGABLE
     String OtraInfo;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_valorsolicitante")
-    @LazyCollection(LazyCollectionOption.FALSE)
-    List<ValorDesplegable> lista_solicitantes;
     
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_valorseleccionado")
+    @JoinTable(
+        name = "LISTA_SOLICITANTES",
+        joinColumns = @JoinColumn(name = "FK_CURSO", nullable = false),
+        inverseJoinColumns = @JoinColumn(name="FK_USUARIO", nullable = false)
+    )
+    @ManyToMany(cascade = CascadeType.DETACH)
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<ValorDesplegable> lista_aseleccionados;//SOLO PUEDEN SER SOLICITANTES
+    List<Usuario> lista_solicitantes;
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "LISTA_SELECCIONADOS",
+        joinColumns = @JoinColumn(name = "FK_CURSO", nullable = false),
+        inverseJoinColumns = @JoinColumn(name="FK_USUARIO", nullable = false)
+    )
+    @ManyToMany(cascade = CascadeType.DETACH)
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<ValorDesplegable> lista_alumnos;
+    List<Usuario> lista_seleccionados;//SOLO PUEDEN SER SOLICITANTES
+    
+    @JoinTable(
+        name = "LISTA_ALUMNOS",
+        joinColumns = @JoinColumn(name = "FK_CURSO", nullable = false),
+        inverseJoinColumns = @JoinColumn(name="FK_USUARIO", nullable = false)
+    )
+    @ManyToMany(cascade = CascadeType.DETACH)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<Usuario> lista_alumnos;
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_cursos_formacion;//Son las observaciones referentes a los cursos de formacion
 
-    public CursosFormacion(String NombreCurso, String TipoCurso, String FechaInicio, String FechaFin, String OtraInfo, List<ValorDesplegable> lista_solicitantes, List<ValorDesplegable> lista_aseleccionados, List<ValorDesplegable> lista_alumnos, List<Observaciones> observaciones_cursos_formacion) {
+    public CursosFormacion(String NombreCurso, String TipoCurso, String FechaInicio, String FechaFin, String OtraInfo, List<Usuario> lista_solicitantes, List<Usuario> lista_aseleccionados, List<Usuario> lista_alumnos, List<Observaciones> observaciones_cursos_formacion) {
         this.NombreCurso = NombreCurso;
         this.TipoCurso = TipoCurso;
         this.FechaInicio = FechaInicio;
         this.FechaFin = FechaFin;
         this.OtraInfo = OtraInfo;
         this.lista_solicitantes = lista_solicitantes;
-        this.lista_aseleccionados = lista_aseleccionados;
+        this.lista_seleccionados = lista_aseleccionados;
         this.lista_alumnos = lista_alumnos;
         this.observaciones_cursos_formacion = observaciones_cursos_formacion;
     }
@@ -101,15 +117,15 @@ public class CursosFormacion implements Serializable{
         return OtraInfo;
     }
 
-    public List<ValorDesplegable> getLista_solicitantes() {
+    public List<Usuario> getLista_solicitantes() {
         return lista_solicitantes;
     }
 
-    public List<ValorDesplegable> getLista_aseleccionados() {
-        return lista_aseleccionados;
+    public List<Usuario> getLista_seleccionados() {
+        return lista_seleccionados;
     }
 
-    public List<ValorDesplegable> getLista_alumnos() {
+    public List<Usuario> getLista_alumnos() {
         return lista_alumnos;
     }
 
@@ -141,15 +157,15 @@ public class CursosFormacion implements Serializable{
         this.OtraInfo = OtraInfo;
     }
 
-    public void setLista_solicitantes(List<ValorDesplegable> lista_solicitantes) {
+    public void setLista_solicitantes(List<Usuario> lista_solicitantes) {
         this.lista_solicitantes = lista_solicitantes;
     }
 
-    public void setLista_aseleccionados(List<ValorDesplegable> lista_aseleccionados) {
-        this.lista_aseleccionados = lista_aseleccionados;
+    public void setLista_seleccionados(List<Usuario> lista_aseleccionados) {
+        this.lista_seleccionados = lista_aseleccionados;
     }
 
-    public void setLista_alumnos(List<ValorDesplegable> lista_alumnos) {
+    public void setLista_alumnos(List<Usuario> lista_alumnos) {
         this.lista_alumnos = lista_alumnos;
     }
 

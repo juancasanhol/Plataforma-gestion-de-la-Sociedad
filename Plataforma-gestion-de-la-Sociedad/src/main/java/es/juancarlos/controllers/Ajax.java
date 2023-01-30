@@ -22,9 +22,11 @@ import es.juancarlos.interfaces.IAjaxDAO;
 import es.juancarlos.interfaces.IGenericoDAO;
 import es.juancarlos.interfaces.IListaDao;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -74,7 +76,7 @@ public class Ajax extends HttpServlet {
         AtencionSocialIgualdad asi;
         Alumno al;
         ConferenciaSantaMaria conf;
-        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias, bancos, observaciones, valores,listadouserproyect;
+        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias, bancos, observaciones, valores, listadouserproyect;
         BancoAlimentos b;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
@@ -126,13 +128,12 @@ public class Ajax extends HttpServlet {
                 break;
 
             case "addPerfil":
-                if (request.getParameter("prof").equals("1")){
-                    gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd"),true));
-                }else{
-                    gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd"),false));
+                if (request.getParameter("prof").equals("1")) {
+                    gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd"), true));
+                } else {
+                    gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd"), false));
 
                 }
-                
 
                 break;
 
@@ -864,9 +865,9 @@ public class Ajax extends HttpServlet {
                 objeto.put("fechainicio", c.getFechaInicio());
                 objeto.put("fechafin", c.getFechaFin());
                 objeto.put("otrainfo", c.getOtraInfo());
+
                 //log(" ID = " + c.getNumIntId());
                 //COMPLETAR DATOS DE LISTAS AQUI
-
                 //log("EL BOOLEAN SE VE ASI: "+u.getPerteneceMinoria());
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
@@ -1238,7 +1239,7 @@ public class Ajax extends HttpServlet {
                 response.getWriter().print(arrayJSON);
                 break;
             case "VerObservacionesCurso":
-                c = (CursosFormacion) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), CursosFormacion.class);
+                c = (CursosFormacion) gdao.getById(Integer.parseInt((String) request.getSession().getAttribute("id")), CursosFormacion.class);
                 observaciones = new ArrayList();
                 for (int tam = 0; tam < c.getObservaciones_cursos_formacion().size(); tam++) {
                     objeto = new JSONObject();
@@ -1247,22 +1248,25 @@ public class Ajax extends HttpServlet {
                     objeto.put("autorobs", c.getObservaciones_cursos_formacion().get(tam).getAutor());
                     observaciones.add(objeto);
                 }
-                //Apovecho esta parte para mostrar los alumnos
-                for (int tam = 0; tam < c.getLista_alumnos().size(); tam++) {
+
+                for (Usuario alu : c.getLista_solicitantes()) {
                     objeto = new JSONObject();
-                    objeto.put("alumno", c.getLista_alumnos().get(tam).getValor());
+                    objeto.put("solId", alu.getNumIntId());
+                    objeto.put("solNom", alu.getNombre() + " " + alu.getApellidos());
                     observaciones.add(objeto);
                 }
-                //Seleccionados
-                for (int tam = 0; tam < c.getLista_aseleccionados().size(); tam++) {
+
+                for (Usuario alu : c.getLista_seleccionados()) {
                     objeto = new JSONObject();
-                    objeto.put("seleccionado", c.getLista_aseleccionados().get(tam).getValor());
+                    objeto.put("aluId", alu.getNumIntId());
+                    objeto.put("aluNom", alu.getNombre() + " " + alu.getApellidos());
                     observaciones.add(objeto);
                 }
-                //Solicitantes
-                for (int tam = 0; tam < c.getLista_solicitantes().size(); tam++) {
+
+                for (Usuario alu : c.getLista_alumnos()) {
                     objeto = new JSONObject();
-                    objeto.put("solicitante", c.getLista_solicitantes().get(tam).getValor());
+                    objeto.put("aluId", alu.getNumIntId());
+                    objeto.put("solNom", alu.getNombre() + " " + alu.getApellidos());
                     observaciones.add(objeto);
                 }
                 arrayJSON = new JSONArray(observaciones);
@@ -1492,105 +1496,117 @@ public class Ajax extends HttpServlet {
                 break;
 
             case "usuariosProyectoadd":
-                
-                u =(Usuario) gdao.getById(Integer.parseInt(request.getParameter("id")),Usuario.class);
 
-                   objeto=new JSONObject();
-                   objeto.put("nombre", u.getNombre() + " " + u.getApellidos());
-                   objeto.put("id", u.getNumIntId());
-                   objeto.put("numDoc", u.getNumDoc());
-                
+                u = (Usuario) gdao.getById(Integer.parseInt(request.getParameter("id")), Usuario.class);
+
+                objeto = new JSONObject();
+                objeto.put("nombre", u.getNombre() + " " + u.getApellidos());
+                objeto.put("id", u.getNumIntId());
+                objeto.put("numDoc", u.getNumDoc());
+
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
-                
+
             case "adddAula":
-                AulaMagica aula= new AulaMagica();
-                
+                AulaMagica aula = new AulaMagica();
+
                 //request.getParameter("denom")
                 //request.getParameter("profe")
                 System.out.println(request.getParameter("alumnos"));
-                String alumnosAMPara =request.getParameter("alumnos");
-                String [] alumnosAM = alumnosAMPara.split(";");
-                alumnos=new ArrayList<Alumno>();
-                for (String alumno: alumnosAM){
-                    
+                String alumnosAMPara = request.getParameter("alumnos");
+                String[] alumnosAM = alumnosAMPara.split(";");
+                alumnos = new ArrayList<Alumno>();
+                for (String alumno : alumnosAM) {
+
                     String[] datos = alumno.split("-");
-                    Alumno alu=new Alumno();
-                    alu.setPersona(datos[0]+" "+ datos[1]);
+                    Alumno alu = new Alumno();
+                    alu.setPersona(datos[0] + " " + datos[1]);
                     alu.setCursoEscolar(datos[2]);
                     alu.setColegio(datos[3]);
-                    
+
                     gdao.insertOrUpdate(alu);
                     alumnos.add(alu);
                 }
                 gdao.insertOrUpdate(new AulaMagica(request.getParameter("denom"), request.getParameter("profe"), alumnos));
-                
+
                 break;
-                
+
             case "addAlimentos":
                 BancoAlimento banco = new BancoAlimento();
-                
+
                 break;
-                
+
             case "addProyecto":
-                
-                String identif=request.getParameter("ids");
-                String fechasAjax=request.getParameter("fechas");
+
+                String identif = request.getParameter("ids");
+                String fechasAjax = request.getParameter("fechas");
                 Proyecto p = new Proyecto();
-                
-                
+
                 p.setNombre(request.getParameter("nombre"));
                 p.setAccion(request.getParameter("actualizacion"));
-                
-                String [] ids=identif.split(";");
-                String [] fechas =fechasAjax.split(";");
-                
-                List <Usuario> listadoU=new ArrayList<Usuario>();
-                List <UsuXFecha> listadoF=new ArrayList<UsuXFecha>();
-                
+
+                String[] ids = identif.split(";");
+                String[] fechas = fechasAjax.split(";");
+
+                List<Usuario> listadoU = new ArrayList<Usuario>();
+                List<UsuXFecha> listadoF = new ArrayList<UsuXFecha>();
+
                 UsuXFecha f;
-                for (int j =0;j<ids.length;j++){
-                    f=new UsuXFecha();
-                    
-                    u=new Usuario();
-                    u=(Usuario) gdao.getById(Integer.parseInt(ids[j]), Usuario.class);
+                for (int j = 0; j < ids.length; j++) {
+                    f = new UsuXFecha();
+
+                    u = new Usuario();
+                    u = (Usuario) gdao.getById(Integer.parseInt(ids[j]), Usuario.class);
                     listadoU.add(u);
-                    
+
                     f.setUsuario(u);
                     f.setFecha(fechas[j]);
                     listadoF.add(f);
                 }
-                
+
                 p.setListaUsuarios(listadoU);
                 p.setListaFechas(listadoF);
-                
+
                 gdao.insertOrUpdate(p);
 
-                //listadouserproyect=new ArrayList<Usuario>();
-                //listadofechas=new ArrayList<>();
-                
-               /* String [] listado=new String() [selectds.length()];
-                for (String iduser : listado) {
-                    Usuario user= new Usuario();
-                    user=(Usuario) gdao.getById(Integer.parseInt(request.getParameter("id")),Usuario.class);
-                    listadouserproyect.add(user);
+                break;
+
+            case "CursosFormacionAdd":
+
+                List<Usuario> solicitantes = new ArrayList<>();
+                List<Usuario> seleccionados = new ArrayList<>();
+                alumnos = new ArrayList<>();
+                observaciones = new ArrayList();
+
+                c = new CursosFormacion();
+
+                String[] sol = request.getParameter("LSol").split(";");
+                String[] sel = request.getParameter("LSel").split(";");
+                String[] alu = request.getParameter("LAlu").split(";");
+                Observaciones ob = new Observaciones();
+
+                for (String id : sol) {
+                    solicitantes.add((Usuario) gdao.getById(Integer.parseInt(id), Usuario.class));
                 }
-                Proyecto pr= new Proyecto(request.getParameter("nombre"),request.getParameter("actualizacion"),listadouserproyect);
-                */
+                for (String id : sel) {
+                    seleccionados.add((Usuario) gdao.getById(Integer.parseInt(id), Usuario.class));
+                }
+                for (String id : alu) {
+                    alumnos.add((Usuario) gdao.getById(Integer.parseInt(id), Usuario.class));
+                }
                 
-                // listausuarios= "id;"
-                //Split por ;
-                //foreach de array
-                    //gdao byid().id.getid(listausuario)
-                    //user nuevo= new USer();
-                    //nuevo = (Usuario) gdao.getById(Integer.parseInt(request.getParameter("id")),Usuario.class);
-                    //listadouserproyc.add(nuevo);
-                // Proyecto pr = new Proyecto(nombre,actualizacion,listuserproyc)
+                SimpleDateFormat df=new SimpleDateFormat("dd/MM/yyy");
+                Date fecha = new Date();
                 
                 
-                
-                
+                ob.setTexto(request.getParameter("obs"));
+                ob.setFecha(df.format(fecha));
+                observaciones.add(ob);
+
+                c = new CursosFormacion(request.getParameter("nombre"), request.getParameter("tipo"), request.getParameter("Fini"), request.getParameter("Ffin"), request.getParameter("otra"), solicitantes, seleccionados, alumnos, observaciones);
+
+                gdao.insertOrUpdate(c);
                 break;
 
         }

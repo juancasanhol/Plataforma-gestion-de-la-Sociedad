@@ -28,13 +28,13 @@ $(document).ready(function () {
         },
         success: function (respuesta) {
             console.log("Desplegables cargados correctamente");
-            //console.log("buena");
+            console.log(respuesta);
             $.each(respuesta, function (i, option) {
-                //console.log("buena");
+                console.log("buena");
                 if(option.textoobs!==undefined){$("#Observaciones").append('Observación: '+option.textoobs+' | Fecha: '+option.fechaobs+' | Autor de observación: '+option.autorobs+'<br>');}
-                if(option.alumno!==undefined){$("#Alumnos").append(option.alumno+'<br>');}
-                if(option.seleccionado!==undefined){$("#Seleccionados").append(option.seleccionado+'<br>');}
-                if(option.solicitante!==undefined){$("#Solicitantes").append(option.solicitante+'<br>');}
+                if(option.aluNom!==undefined){$("#Alumnos").append(option.aluNom+'<br>');}
+                if(option.selNom!==undefined){$("#Seleccionados").append(option.selNom+'<br>');}
+                if(option.solNom!==undefined){$("#Solicitantes").append(option.solNom+'<br>');}
             });
         },
         error: function () {

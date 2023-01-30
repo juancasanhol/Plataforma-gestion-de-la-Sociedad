@@ -33,14 +33,14 @@ public class Evento implements ServletContextListener {
      */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-
+    //para eliminar todos los desplegables 
         Iterator i = (Iterator) gdao.get(Desplegables.class).iterator();
         while (i.hasNext()) {
 
             Desplegables d = (Desplegables) i.next();
             gdao.delete(d);
         }
-        
+        //para eliminar todos los valores de los desplegables 
         i = (Iterator) gdao.get(ValorDesplegable.class).iterator();
         while (i.hasNext()) {
 

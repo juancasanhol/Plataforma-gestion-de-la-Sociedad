@@ -78,7 +78,7 @@ public class CursoFormacion extends HttpServlet {
                 seleccionados.add(new ValorDesplegable(listaseleccionados[i]));
             }
         }
-        gdao.insertOrUpdate(new CursosFormacion(request.getParameter("NombreCurso"), request.getParameter("TipoCurso"), request.getParameter("FechaInicio"), request.getParameter("FechaFin"), request.getParameter("OtraInfo"), solicitantes, seleccionados, alumnos, observaciones));
+        //gdao.insertOrUpdate(new CursosFormacion(request.getParameter("NombreCurso"), request.getParameter("TipoCurso"), request.getParameter("FechaInicio"), request.getParameter("FechaFin"), request.getParameter("OtraInfo"), solicitantes, seleccionados, alumnos, observaciones));
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
 
