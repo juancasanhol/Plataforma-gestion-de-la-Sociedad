@@ -12,6 +12,7 @@ import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -32,6 +33,21 @@ public class Evento implements ServletContextListener {
      */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+
+        Iterator i = (Iterator) gdao.get(Desplegables.class).iterator();
+        while (i.hasNext()) {
+
+            Desplegables d = (Desplegables) i.next();
+            gdao.delete(d);
+        }
+        
+        i = (Iterator) gdao.get(ValorDesplegable.class).iterator();
+        while (i.hasNext()) {
+
+            ValorDesplegable v = (ValorDesplegable) i.next();
+            gdao.delete(v);
+        }
+
         //Creacion de los desplegables en la base de datos
         List<ValorDesplegable> lista = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> lista1 = new ArrayList<ValorDesplegable>();
@@ -44,7 +60,7 @@ public class Evento implements ServletContextListener {
         List<ValorDesplegable> lista8 = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> lista9 = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> lista10 = new ArrayList<ValorDesplegable>();
-       /* ValorDesplegable vd = new ValorDesplegable("DNI");
+        ValorDesplegable vd = new ValorDesplegable("DNI");
         lista1.add(vd);
         vd = new ValorDesplegable("Driving license");
         lista1.add(vd);
@@ -55,17 +71,48 @@ public class Evento implements ServletContextListener {
         vd = new ValorDesplegable("Heterosexual");
         lista2.add(vd);
         vd = new ValorDesplegable("FRANCIA");
+
         lista3.add(vd);
-        vd = new ValorDesplegable("ESPAÑA");
-        lista3.add(vd);
-        vd = new ValorDesplegable("ITALIA");
-        lista3.add(vd);
-        vd = new ValorDesplegable("ALEMANIA");
-        lista3.add(vd);
-        vd = new ValorDesplegable("Aleman");
-        lista4.add(vd);
-        vd = new ValorDesplegable("Musulman");
-        lista4.add(vd);
+        lista3.add(new ValorDesplegable("ESPAÑA"));
+        lista3.add(new ValorDesplegable("ITALIA"));
+        lista3.add(new ValorDesplegable("BRASIL"));
+        lista3.add(new ValorDesplegable("ARGENTINA"));
+        lista3.add(new ValorDesplegable("COLOMBIA"));
+        lista3.add(new ValorDesplegable("PERÚ"));
+        lista3.add(new ValorDesplegable("CHILE"));
+        lista3.add(new ValorDesplegable("ECUADOR"));
+        lista3.add(new ValorDesplegable("VENEZUELA"));
+        lista3.add(new ValorDesplegable("BOLIVIA"));
+        lista3.add(new ValorDesplegable("URUGUAY"));
+        lista3.add(new ValorDesplegable("PARAGUAY"));
+        lista3.add(new ValorDesplegable("RUMANIA"));
+        lista3.add(new ValorDesplegable("BULGARIA"));
+        lista3.add(new ValorDesplegable("UCRANIA"));
+        lista3.add(new ValorDesplegable("ESLOVENIA"));
+        lista3.add(new ValorDesplegable("POLONIA"));
+        lista3.add(new ValorDesplegable("GUINEA ECUATORIAL"));
+        lista3.add(new ValorDesplegable("SAHARA"));
+        lista3.add(new ValorDesplegable("MARRUECOS"));
+
+        lista4.add(new ValorDesplegable("ESPAÑOLA"));
+        lista4.add(new ValorDesplegable("ITALIANA"));
+        lista4.add(new ValorDesplegable("BRASILEÑA"));
+        lista4.add(new ValorDesplegable("ARGENTINA"));
+        lista4.add(new ValorDesplegable("COLOMBIANA"));
+        lista4.add(new ValorDesplegable("PERUANA"));
+        lista4.add(new ValorDesplegable("CHILENA"));
+        lista4.add(new ValorDesplegable("VENEZOLANA"));
+        lista4.add(new ValorDesplegable("BOLIVIANA"));
+        lista4.add(new ValorDesplegable("URUGUAYA"));
+        lista4.add(new ValorDesplegable("PARAGUAYANA"));
+        lista4.add(new ValorDesplegable("RUMANA"));
+        lista4.add(new ValorDesplegable("UCRANIANA"));
+        lista4.add(new ValorDesplegable("ESLOVENA"));
+        lista4.add(new ValorDesplegable("POLACA"));
+        lista4.add(new ValorDesplegable("ECUATOGUINEANA"));
+        lista4.add(new ValorDesplegable("SAHARIANA"));
+        lista4.add(new ValorDesplegable("MARROQUÍ"));
+
         vd = new ValorDesplegable("Discapacitado (sin brazo)");
         lista5.add(vd);
         vd = new ValorDesplegable("Discapacitado (sin pierna)");
@@ -108,11 +155,11 @@ public class Evento implements ServletContextListener {
         lista10.add(vd);
         vd = new ValorDesplegable("UEX");
         lista10.add(vd);
-        gdao.insertOrUpdate(new Usuario("Gonzalo","Potro"));
-        gdao.insertOrUpdate(new Usuario("Iker","Casillas"));
-        gdao.insertOrUpdate(new Usuario("Dolores","Fuertes"));
-        gdao.insertOrUpdate(new Usuario("Manuela","Macias"));
-        gdao.insertOrUpdate(new Usuario("Juan","Gonzalez"));*/
+        gdao.insertOrUpdate(new Usuario("Gonzalo", "Potro"));
+        gdao.insertOrUpdate(new Usuario("Iker", "Casillas"));
+        gdao.insertOrUpdate(new Usuario("Dolores", "Fuertes"));
+        gdao.insertOrUpdate(new Usuario("Manuela", "Macias"));
+        gdao.insertOrUpdate(new Usuario("Juan", "Gonzalez"));
         //////////////////////////////////////////////////////////
         gdao.insertOrUpdate(new Desplegables("TipoDocumentoIdentificativo", lista1));
         gdao.insertOrUpdate(new Desplegables("Sexo", lista2));
@@ -148,10 +195,10 @@ public class Evento implements ServletContextListener {
         gdao.insertOrUpdate(new Desplegables("Categoria", lista));
         gdao.insertOrUpdate(new Desplegables("Cargo", lista));
         gdao.insertOrUpdate(new Desplegables("Profesores", lista));
-        
+
         //usuario administrador
-        gdao.insertOrUpdate(new Perfil("admin","admin",false));
-        
+        gdao.insertOrUpdate(new Perfil("admin", "admin", false));
+
     }
 
     /**

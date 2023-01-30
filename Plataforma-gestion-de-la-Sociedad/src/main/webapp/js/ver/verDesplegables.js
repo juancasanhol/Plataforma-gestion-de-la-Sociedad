@@ -145,7 +145,7 @@ function MostrarDesplegables(){
             accion: "VerDesplegables",
         },
         success: function (respuesta) {
-            $("#tbody").html("");console.log("ENTRA");
+            $("#tbody").html("");
             $.each(respuesta, function (i, option) {
 
                 $("#tbody").append('<tr><td>' +separa(option.nombre)+ '</td><td><button class="btn btn-success btnVerValores" id="' + option.nombre + '">Ver valores</button></td></tr>');

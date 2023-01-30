@@ -29,10 +29,6 @@ public class UsuXFecha implements Serializable {
     @Column(name = "Id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int NumIntId;
-
-    @ManyToOne
-    @JoinColumn(name = "FK_Proyecto")
-    Proyecto proyecto;
     
     @OneToOne(cascade=CascadeType.ALL)
     @PrimaryKeyJoinColumn
@@ -47,14 +43,6 @@ public class UsuXFecha implements Serializable {
 
     public void setNumIntId(int NumIntId) {
         this.NumIntId = NumIntId;
-    }
-
-    public Proyecto getProyecto() {
-        return proyecto;
-    }
-
-    public void setProyecto(Proyecto proyecto) {
-        this.proyecto = proyecto;
     }
 
     public Usuario getUsuario() {

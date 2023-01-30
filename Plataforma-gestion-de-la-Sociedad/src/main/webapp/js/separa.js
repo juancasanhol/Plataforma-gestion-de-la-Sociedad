@@ -15,6 +15,6 @@ function separa(palabra){
     
            
     }
-    console.log(retorno);
+    
 return retorno;
 }

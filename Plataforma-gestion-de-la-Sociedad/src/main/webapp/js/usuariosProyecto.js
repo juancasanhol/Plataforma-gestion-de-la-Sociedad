@@ -19,7 +19,6 @@ $(document).ready(function () {
     });
 
     $("#usuarioadd").change(function () {
-        console.log("entra");
         $.ajax({
             type: "post",
             url: "../../Ajax",
@@ -56,7 +55,6 @@ $(document).ready(function () {
                     doc+=$("#doc"+id).text()+";";
                     ids+=id+";";
                     }
-        console.log("+1");
                 });
 
         $.ajax({
@@ -71,7 +69,7 @@ $(document).ready(function () {
 
             },
             success: function (respuesta) {
-
+                window.location.reload();
             },
             error: function () {
                 console.log("ERROR!!");

@@ -541,8 +541,8 @@ public class Ajax extends HttpServlet {
                 while (it.hasNext()) {
                     u = (Usuario) it.next();
                     objeto = new JSONObject();
+                    objeto.put("idSol", u.getNumIntId());
                     objeto.put("solicitante", (u.getNombre() + " " + u.getApellidos()).replaceAll(" ", "_"));
-                    objeto.put("seleccionado", (u.getNombre() + " " + u.getApellidos()).replaceAll(" ", "_"));
                     desplegables.add(objeto);
 
                 }
@@ -1549,19 +1549,17 @@ public class Ajax extends HttpServlet {
                 List <Usuario> listadoU=new ArrayList<Usuario>();
                 List <UsuXFecha> listadoF=new ArrayList<UsuXFecha>();
                 
-                UsuXFecha f=new UsuXFecha();
-                for (int j =0;j<ids.length-1;j++){
-                    
+                UsuXFecha f;
+                for (int j =0;j<ids.length;j++){
+                    f=new UsuXFecha();
                     
                     u=new Usuario();
-                    u=(Usuario) gdao.getById(ids[j], Usuario.class);
+                    u=(Usuario) gdao.getById(Integer.parseInt(ids[j]), Usuario.class);
                     listadoU.add(u);
                     
                     f.setUsuario(u);
                     f.setFecha(fechas[j]);
-                    
-                    f.setProyecto(p);
-                    gdao.insertOrUpdate(f);
+                    listadoF.add(f);
                 }
                 
                 p.setListaUsuarios(listadoU);

@@ -2,8 +2,7 @@ $(document).ready(function () {
    
     $("#addUA").click(function (){
 
-
-        if($("#Passwd").val()==$("#Passwd2").val()){
+        if($("#passwd").val()==$("#passwdConf").val()){
 
             if ($('#profCheck').is(':checked')){
                 profe=1;
@@ -13,7 +12,7 @@ $(document).ready(function () {
         
             $.ajax({
                 type: "post",
-                url: "Ajax",
+                url: "../../Ajax",
                 data: {
                     accion: "addPerfil",
                     usuario: $("#usuario").val(),
@@ -21,12 +20,10 @@ $(document).ready(function () {
                     prof: profe
                 },
                 success: function (respuesta) {
-        
-                    if(respuesta.aceso){
-                        location.href ='html/MenuPrincipal/Menu.html';
-                    }else{
-                        
-                    }
+                    $("#usuario").val("")
+                    $("#passwd").val("")
+                    $("#passwdConf").val("")
+                   
                   
                 },
                 error: function () {

@@ -20,7 +20,11 @@ import javax.persistence.Table;
 @Table(name = "Perfil")
 public class Perfil implements Serializable {
 
-    @Id
+     @Id
+    @Column(name = "Id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int NumIntId;
+     
     @Column(name = "Usuario", nullable = false)
     String Usuario;
 
