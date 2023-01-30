@@ -5,16 +5,29 @@ $(document).ready(function () {
 
         if($("#Passwd").val()==$("#Passwd2").val()){
 
+            if ($('#profCheck').is(':checked')){
+                profe=1;
+            }else{
+                profe=0;
+            }
+        
             $.ajax({
                 type: "post",
-                url: "../../Ajax",
+                url: "Ajax",
                 data: {
                     accion: "addPerfil",
-                    usuario: $("#Nombre").val(),
-                    passwd: $("#Passwd").val()
+                    usuario: $("#usuario").val(),
+                    passwd: $("#passwd").val(),
+                    prof: profe
                 },
                 success: function (respuesta) {
-                    location.href ='../MenuPrincipal/Menu.html';
+        
+                    if(respuesta.aceso){
+                        location.href ='html/MenuPrincipal/Menu.html';
+                    }else{
+                        
+                    }
+                  
                 },
                 error: function () {
                     console.log("ERROR!! error al comprobar el aceso");

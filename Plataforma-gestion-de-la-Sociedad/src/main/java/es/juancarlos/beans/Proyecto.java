@@ -7,11 +7,14 @@ package es.juancarlos.beans;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
@@ -39,7 +42,7 @@ public class Proyecto {
     
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
-    List <String> listfecha;
+    List<UsuXFecha> listaFechas;
     
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -59,11 +62,6 @@ public class Proyecto {
         this.nombre = nombre;
         this.accion = accion;
         this.listaUsuarios = listaUsuarios;
-        this.listfecha=listfecha;
-    }
-    
-    public List getListfecha() {
-        return listfecha;
     }
 
     public int getNumIntId() {
@@ -83,6 +81,30 @@ public class Proyecto {
 
     public List<Usuario> getListaUsuarios() {
         return listaUsuarios;
+    }
+
+    public List<UsuXFecha> getListaFechas() {
+        return listaFechas;
+    }
+
+    public void setListaFechas(List<UsuXFecha> listaFechas) {
+        this.listaFechas = listaFechas;
+    }
+
+    public void setNumIntId(int NumIntId) {
+        this.NumIntId = NumIntId;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setAccion(String accion) {
+        this.accion = accion;
+    }
+
+    public void setListaUsuarios(List<Usuario> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
     }
 
     

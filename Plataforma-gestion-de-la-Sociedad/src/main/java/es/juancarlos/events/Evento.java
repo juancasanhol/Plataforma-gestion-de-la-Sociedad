@@ -44,7 +44,7 @@ public class Evento implements ServletContextListener {
         List<ValorDesplegable> lista8 = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> lista9 = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> lista10 = new ArrayList<ValorDesplegable>();
-        ValorDesplegable vd = new ValorDesplegable("DNI");
+       /* ValorDesplegable vd = new ValorDesplegable("DNI");
         lista1.add(vd);
         vd = new ValorDesplegable("Driving license");
         lista1.add(vd);
@@ -112,7 +112,7 @@ public class Evento implements ServletContextListener {
         gdao.insertOrUpdate(new Usuario("Iker","Casillas"));
         gdao.insertOrUpdate(new Usuario("Dolores","Fuertes"));
         gdao.insertOrUpdate(new Usuario("Manuela","Macias"));
-        gdao.insertOrUpdate(new Usuario("Juan","Gonzalez"));
+        gdao.insertOrUpdate(new Usuario("Juan","Gonzalez"));*/
         //////////////////////////////////////////////////////////
         gdao.insertOrUpdate(new Desplegables("TipoDocumentoIdentificativo", lista1));
         gdao.insertOrUpdate(new Desplegables("Sexo", lista2));
@@ -150,7 +150,7 @@ public class Evento implements ServletContextListener {
         gdao.insertOrUpdate(new Desplegables("Profesores", lista));
         
         //usuario administrador
-        gdao.insertOrUpdate(new Perfil("admin","admin"));
+        gdao.insertOrUpdate(new Perfil("admin","admin",false));
         
     }
 

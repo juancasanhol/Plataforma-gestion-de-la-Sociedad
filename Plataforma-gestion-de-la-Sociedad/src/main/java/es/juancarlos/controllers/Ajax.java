@@ -11,7 +11,9 @@ import es.juancarlos.beans.Desplegables;
 import es.juancarlos.beans.Empresa;
 import es.juancarlos.beans.Observaciones;
 import es.juancarlos.beans.Perfil;
+import es.juancarlos.beans.UsuXFecha;
 import es.juancarlos.beans.Proyecto;
+import es.juancarlos.beans.UsuXFecha;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.dao.ListaDao;
@@ -124,7 +126,13 @@ public class Ajax extends HttpServlet {
                 break;
 
             case "addPerfil":
-                gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd")));
+                if (request.getParameter("prof").equals("1")){
+                    gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd"),true));
+                }else{
+                    gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd"),false));
+
+                }
+                
 
                 break;
 
@@ -1526,17 +1534,52 @@ public class Ajax extends HttpServlet {
                 break;
                 
             case "addProyecto":
-                listadouserproyect=new ArrayList<Usuario>();
+                
+                String identif=request.getParameter("ids");
+                String fechasAjax=request.getParameter("fechas");
+                Proyecto p = new Proyecto();
+                
+                
+                p.setNombre(request.getParameter("nombre"));
+                p.setAccion(request.getParameter("actualizacion"));
+                
+                String [] ids=identif.split(";");
+                String [] fechas =fechasAjax.split(";");
+                
+                List <Usuario> listadoU=new ArrayList<Usuario>();
+                List <UsuXFecha> listadoF=new ArrayList<UsuXFecha>();
+                
+                UsuXFecha f=new UsuXFecha();
+                for (int j =0;j<ids.length-1;j++){
+                    
+                    
+                    u=new Usuario();
+                    u=(Usuario) gdao.getById(ids[j], Usuario.class);
+                    listadoU.add(u);
+                    
+                    f.setUsuario(u);
+                    f.setFecha(fechas[j]);
+                    
+                    f.setProyecto(p);
+                    gdao.insertOrUpdate(f);
+                }
+                
+                p.setListaUsuarios(listadoU);
+                p.setListaFechas(listadoF);
+                
+                gdao.insertOrUpdate(p);
+
+                //listadouserproyect=new ArrayList<Usuario>();
                 //listadofechas=new ArrayList<>();
                 
-                String [] listado=new String() [selectds.length()];
+               /* String [] listado=new String() [selectds.length()];
                 for (String iduser : listado) {
                     Usuario user= new Usuario();
                     user=(Usuario) gdao.getById(Integer.parseInt(request.getParameter("id")),Usuario.class);
                     listadouserproyect.add(user);
                 }
                 Proyecto pr= new Proyecto(request.getParameter("nombre"),request.getParameter("actualizacion"),listadouserproyect);
-                
+                */
                 
                 // listausuarios= "id;"
                 //Split por ;
@@ -1547,7 +1590,7 @@ public class Ajax extends HttpServlet {
                     //listadouserproyc.add(nuevo);
                 // Proyecto pr = new Proyecto(nombre,actualizacion,listuserproyc)
                 
-                u =(Usuario) gdao.getById(Integer.parseInt(request.getParameter("id")),Usuario.class);
+                
                 
                 
                 break;

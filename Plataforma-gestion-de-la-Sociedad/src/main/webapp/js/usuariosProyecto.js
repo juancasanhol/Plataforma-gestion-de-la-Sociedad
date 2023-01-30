@@ -28,9 +28,8 @@ $(document).ready(function () {
                 id: $("#usuarioadd").val(),
             },
             success: function (respuesta) {
-                console.log(respuesta);
                 $("#tbodyProyecto option[value='" + respuesta.id + "']").remove();
-                $("#tbodyProyecto").append("<tr><td>" + respuesta.nombre + "</td><td>" + respuesta.numDoc + "</td><td><input required id='fecha" + respuesta.id + "' type='date' name=''></td>/tr>");
+                $("#tbodyProyecto").append("<tr class='fila' id ="+respuesta.id+"><td id=nom"+respuesta.id+">" + respuesta.nombre + "</td><td id=doc"+respuesta.id+">" + respuesta.numDoc + "</td><td><input required id='fecha" + respuesta.id + "' type='date' name=''></td>/tr>");
 
 
             },
@@ -45,25 +44,30 @@ $(document).ready(function () {
     
     //Change about the click getting the ids not the items
     $("#addProyecto").click(function () {
-        let selecteds = "";
-        $("#tbodyProyecto").children(':selected').each((idx, el) => {
-            // Obtenemos los atributos que necesitamos
-            if (idx == 0) {
-                selecteds += el.value
-            } else {
-                selecteds += ";" + el.value
-            }
-
-        });
+        let ids = "";
+        let fechas=""
+        let doc="";
+                $("#tbodyProyecto").children().each((idx, el) => {
+                    // Obtenemos los atributos que necesitamos
+                    if (el.getAttribute('id') != null){
+                    id=el.getAttribute('id');
+                    fechas+=$("#fecha"+id).val();
+                    fechas+=";";
+                    doc+=$("#doc"+id).text()+";";
+                    ids+=id+";";
+                    }
+        console.log("+1");
+                });
 
         $.ajax({
             type: "post",
             url: "../../Ajax",
             data: {
-                accion: "addUserProyec",
-                usuarios: selecteds,
+                accion: "addProyecto",
                 nombre: $("#NombrePrograma").val(),
                 actualizacion: $("#Actualizacion").val(),
+                ids: ids,
+                fechas: fechas,
 
             },
             success: function (respuesta) {

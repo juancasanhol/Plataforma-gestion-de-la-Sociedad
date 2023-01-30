@@ -33,9 +33,10 @@ public class Perfil implements Serializable {
     public Perfil() {
     }
 
-    public Perfil(String Usuario, String Password) {
+    public Perfil(String Usuario, String Password, boolean prof) {
         this.Usuario = Usuario;
         this.Password = Password;
+        this.profesor=prof;
     }
 
     public String getUsuario() {
