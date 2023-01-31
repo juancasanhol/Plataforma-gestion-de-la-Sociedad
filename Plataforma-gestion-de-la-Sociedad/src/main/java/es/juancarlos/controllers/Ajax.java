@@ -574,6 +574,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idActividad", lista.get(j).getId());
                             objeto.put("actividad", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -583,6 +584,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                             objeto.put("idTiposcolaboracion", lista.get(j).getId());
                             objeto.put("tiposcolaboracion", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -893,7 +895,7 @@ public class Ajax extends HttpServlet {
                 break;
             case "VerDatosAula":
                 //PARA MOSTRAR LOS DATOS DE LOS USUARIOS ANTES DE EDITAR
-                a = (AulaMagica) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), AulaMagica.class);
+                a = (AulaMagica) gdao.getById(Integer.parseInt((String) request.getSession().getAttribute("id")), AulaMagica.class);
                 objeto = new JSONObject();
                 objeto.put("id", a.getNumIntId());
                 objeto.put("denominacion", a.getDenominacion());
@@ -904,6 +906,27 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
+                
+            case "addEmpresa":
+                
+                List<ValorDesplegable> activi = new ArrayList<>();
+                List<ValorDesplegable> colabo = new ArrayList<>();
+                alumnos = new ArrayList<>();
+                
+               String[] act = request.getParameter("actividad").split(";");
+               String[] colab = request.getParameter("colab").split(";");
+
+               for (String actividad : act) {
+                    activi.add((ValorDesplegable) gdao.getById(Integer.parseInt(actividad), ValorDesplegable.class));
+               }
+               
+               for (String colaboracion : colab) {
+                    colabo.add((ValorDesplegable) gdao.getById(Integer.parseInt(colaboracion), ValorDesplegable.class));
+               }
+               
+               e =new Empresa(request.getParameter("nombre"), request.getParameter("fechaAlta"), request.getParameter("fechaBaja"), request.getParameter("personaContacto"), request.getParameter("direccion"), request.getParameter("codigoPostal"), request.getParameter("poblacion"), request.getParameter("provincia"), activi, colabo);
+               gdao.insertOrUpdate(e);
+                break;
             case "VerEmpresas":
                 empresas = new ArrayList();
                 try {
@@ -913,7 +936,7 @@ public class Ajax extends HttpServlet {
                         objeto = new JSONObject();
                         objeto.put("id", e.getCodIntId());
                         objeto.put("nombre", e.getNombre());
-                        objeto.put("localidad", e.getPoblacion());
+                        objeto.put("localidad", e.getLocalidad());
                         empresas.add(objeto);
                     }
                 } catch (Exception exc) {
@@ -933,7 +956,7 @@ public class Ajax extends HttpServlet {
                 objeto.put("fechaalta", e.getFechaAlta());
                 objeto.put("fechabaja", e.getFechaBaja());
                 objeto.put("codigopostal", e.getCodigoPostal());
-                objeto.put("poblacion", e.getPoblacion());
+                objeto.put("poblacion", e.getLocalidad());
                 objeto.put("personacontacto", e.getPersonaContacto());
                 objeto.put("provincia", e.getProvincia());
                 //COMPLETAR DATOS DE LISTAS AQUI

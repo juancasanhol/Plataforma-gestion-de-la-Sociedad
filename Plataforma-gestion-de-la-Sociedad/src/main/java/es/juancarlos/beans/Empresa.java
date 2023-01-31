@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
@@ -49,30 +51,38 @@ public class Empresa implements Serializable{
     @Column(name = "CodigoPostal", nullable = true)
     String CodigoPostal;
 
-    @Column(name = "Poblacion", nullable = true)
-    String Poblacion;
+    @Column(name = "Localidad", nullable = true)
+    String Localidad;
 
     @Column(name = "Provincia", nullable = true)
     String Provincia;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_valoractividad_empresa")
+    @JoinTable(
+        name = "LISTA_ACTIVIDADES",
+        joinColumns = @JoinColumn(name = "FK_EMPRESA", nullable = false),
+        inverseJoinColumns = @JoinColumn(name="FK_ACTIVIDAD", nullable = false)
+    )
+    @ManyToMany(cascade = CascadeType.DETACH)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> lista_actividades;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_valorcolaboracion_empresa")
+    @JoinTable(
+        name = "LISTA_COLABORACIONES",
+        joinColumns = @JoinColumn(name = "FK_EMPRESA", nullable = false),
+        inverseJoinColumns = @JoinColumn(name="FK_COLABORACION", nullable = false)
+    )
+    @ManyToMany(cascade = CascadeType.DETACH)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> lista_colaboraciones;
 
-    public Empresa(String Nombre, String FechaAlta, String FechaBaja, String PersonaContacto, String Direccion, String CodigoPostal, String Poblacion, String Provincia, List<ValorDesplegable> lista_actividades, List<ValorDesplegable> lista_colaboraciones) {
+    public Empresa(String Nombre, String FechaAlta, String FechaBaja, String PersonaContacto, String Direccion, String CodigoPostal, String Localidad, String Provincia, List<ValorDesplegable> lista_actividades, List<ValorDesplegable> lista_colaboraciones) {
         this.Nombre = Nombre;
         this.FechaAlta = FechaAlta;
         this.FechaBaja = FechaBaja;
         this.PersonaContacto = PersonaContacto;
         this.Direccion = Direccion;
         this.CodigoPostal = CodigoPostal;
-        this.Poblacion = Poblacion;
+        this.Localidad = Localidad;
         this.Provincia = Provincia;
         this.lista_actividades = lista_actividades;
         this.lista_colaboraciones = lista_colaboraciones;
@@ -109,8 +119,8 @@ public class Empresa implements Serializable{
         return CodigoPostal;
     }
 
-    public String getPoblacion() {
-        return Poblacion;
+    public String getLocalidad() {
+        return Localidad;
     }
 
     public String getProvincia() {
@@ -153,8 +163,8 @@ public class Empresa implements Serializable{
         this.CodigoPostal = CodigoPostal;
     }
 
-    public void setPoblacion(String Poblacion) {
-        this.Poblacion = Poblacion;
+    public void setLocalidad(String Localidad) {
+        this.Localidad = Localidad;
     }
 
     public void setProvincia(String Provincia) {
