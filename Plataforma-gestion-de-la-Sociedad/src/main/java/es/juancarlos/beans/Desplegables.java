@@ -30,7 +30,7 @@ public class Desplegables implements Serializable{
     
     
     @OneToMany(cascade = CascadeType.ALL)  
-    @JoinColumn(name = "id_valor")
+    @JoinColumn(name = "id_desplegable")
     @LazyCollection(LazyCollectionOption.FALSE)
     List<ValorDesplegable> valores;
 

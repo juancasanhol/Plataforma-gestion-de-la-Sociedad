@@ -78,6 +78,7 @@ public class Ajax extends HttpServlet {
         ConferenciaSantaMaria conf;
         List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias, bancos, observaciones, valores, listadouserproyect;
         BancoAlimentos b;
+        Perfil p;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
         gdao.insertOrUpdate(new Usuario("PROBANDO1", "PROBANDO1"));
         gdao.insertOrUpdate(new Usuario("PROBANDO2", "PROBANDO2"));*/
@@ -117,14 +118,23 @@ public class Ajax extends HttpServlet {
             //ESTA PARTE ES PARA EL Logueo
 
             case "login":
-
+                p=null;
+                p=(Perfil) gdao.getById(adao.LoginId(request.getParameter("usuario"), request.getParameter("passwd")), Perfil.class);
                 objeto = new JSONObject();
-                objeto.put("aceso", adao.Login(request.getParameter("usuario"), request.getParameter("passwd")));
-
+                
+                if(!p.equals(null)){
+                    objeto.put("aceso", true);
+                        
+                    request.getSession().setAttribute("autor", p.getUsuario());
+                    request.getSession().setAttribute("idAutor",p.getNumIntId());
+                    request.getSession().setAttribute("profe",p.isProfesor());
+                      
+                }else{
+                      objeto.put("aceso", true);
+                }             
+                
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
-                //Para obtener el autor de las observaciones
-                request.getSession().setAttribute("autor", request.getParameter("usuario"));
                 break;
 
             case "addPerfil":
@@ -407,7 +417,7 @@ public class Ajax extends HttpServlet {
                 desplegables = new ArrayList();
                 it = gdao.get(Perfil.class).iterator();
                 while (it.hasNext()) {
-                    Perfil p = (Perfil) it.next();
+                    p = (Perfil) it.next();
                     if (p.isProfesor()) {
                         objeto = new JSONObject();
                         objeto.put("nombre", p.getUsuario());
@@ -602,6 +612,7 @@ public class Ajax extends HttpServlet {
                     while (it.hasNext()) {
                         u = (Usuario) it.next();
                         objeto = new JSONObject();
+                         objeto.put("idUsuario", u.getNumIntId());
                         objeto.put("usuarios", u.getNombre() + " " + u.getApellidos());
                         desplegables.add(objeto);
 
@@ -616,6 +627,7 @@ public class Ajax extends HttpServlet {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
+                            objeto.put("idProcedenciaderivacion", lista.get(j).getId());
                             objeto.put("procedenciaderivacion", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -624,6 +636,7 @@ public class Ajax extends HttpServlet {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
+                            objeto.put("idAyudageneral", lista.get(j).getId());
                             objeto.put("ayudageneral", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -632,6 +645,7 @@ public class Ajax extends HttpServlet {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
+                            objeto.put("idAyudarecibos", lista.get(j).getId());
                             objeto.put("ayudarecibos", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -640,6 +654,7 @@ public class Ajax extends HttpServlet {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
+                            objeto.put("idAyudasanitaria", lista.get(j).getId());
                             objeto.put("ayudasanitaria", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -648,6 +663,7 @@ public class Ajax extends HttpServlet {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
+                            objeto.put("idAyudaotra", lista.get(j).getId());
                             objeto.put("ayudaotra", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -656,6 +672,7 @@ public class Ajax extends HttpServlet {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
+                             objeto.put("idEstadoresolucion", lista.get(j).getId());
                             objeto.put("estadoresolucion", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -993,10 +1010,10 @@ public class Ajax extends HttpServlet {
                 objeto.put("ayudarecibos", ac.getAyudaSolicitada_Recibos());
                 objeto.put("ayudasanitaria", ac.getAyudaSolicitada_Sanitaria());
                 objeto.put("ayudaotra", ac.getAyudaSolicitada_Otras());
-                objeto.put("estadoresolucion", ac.getEstadoResolucion());
-                objeto.put("trabajador", ac.getTrabajador());
-                objeto.put("usuario", ac.getUsuario());
-                objeto.put("procedenciaderivacion", ac.getProcedenciaDerivacion());
+                objeto.put("estadoresolucion", ac.getEstadoResolucion().getValor());
+                objeto.put("trabajador", ac.getTrabajador().getNombre()+" "+ac.getTrabajador().getApellidos());
+                objeto.put("usuario", ac.getUsuario().getNombre()+" "+ac.getUsuario().getApellidos());
+                objeto.put("procedenciaderivacion", ac.getProcedenciaDerivacion().getValor());
                 //COMPLETAR DATOS DE LISTAS AQUI
 
                 response.setContentType("application/json");
@@ -1474,7 +1491,7 @@ public class Ajax extends HttpServlet {
                 i = gdao.get(Perfil.class).iterator();
                 valores = new ArrayList();
                 while (i.hasNext()) {
-                    Perfil p = (Perfil) i.next();
+                    p = (Perfil) i.next();
                     objeto = new JSONObject();
                     objeto.put("Nombre", p.getUsuario());
                     valores.add(objeto);
@@ -1556,7 +1573,7 @@ public class Ajax extends HttpServlet {
                 break;
 
             case "addAlimentos":
-                BancoAlimento banco = new BancoAlimento();
+                BancoAlimentos banco = new BancoAlimentos();
 
                 break;
 
@@ -1564,10 +1581,10 @@ public class Ajax extends HttpServlet {
 
                 String identif = request.getParameter("ids");
                 String fechasAjax = request.getParameter("fechas");
-                Proyecto p = new Proyecto();
+                Proyecto pro = new Proyecto();
 
-                p.setNombre(request.getParameter("nombre"));
-                p.setAccion(request.getParameter("actualizacion"));
+                pro.setNombre(request.getParameter("nombre"));
+                pro.setAccion(request.getParameter("actualizacion"));
 
                 String[] ids = identif.split(";");
                 String[] fechas = fechasAjax.split(";");
@@ -1588,10 +1605,10 @@ public class Ajax extends HttpServlet {
                     listadoF.add(f);
                 }
 
-                p.setListaUsuarios(listadoU);
-                p.setListaFechas(listadoF);
+                pro.setListaUsuarios(listadoU);
+                pro.setListaFechas(listadoF);
 
-                gdao.insertOrUpdate(p);
+                gdao.insertOrUpdate(pro);
 
                 break;
 
@@ -1630,6 +1647,67 @@ public class Ajax extends HttpServlet {
                 c = new CursosFormacion(request.getParameter("nombre"), request.getParameter("tipo"), request.getParameter("Fini"), request.getParameter("Ffin"), request.getParameter("otra"), solicitantes, seleccionados, alumnos, observaciones);
 
                 gdao.insertOrUpdate(c);
+                break;
+                
+            case "addAcogida":
+                ac=new Acogida();
+                ac.setFecha(request.getParameter("fecha"));
+                ac.setTecnicoPrevencionSocial(request.getParameter("its"));
+                
+                
+                
+                u =new Usuario();
+                u=(Usuario)gdao.getById(Integer.parseInt(request.getSession().getAttribute("idAutor").toString()), Usuario.class);
+                ac.setTrabajador(u);
+                
+
+                
+                List <ValorDesplegable> ag=new ArrayList<>();
+                List <ValorDesplegable> ao=new ArrayList<>();
+                List <ValorDesplegable> ar=new ArrayList<>();
+                List <ValorDesplegable> ass=new ArrayList<>();
+                List <Observaciones> obs=new ArrayList<>();
+                
+                if(!request.getParameter("obs").equals("") && !request.getParameter("obs").equals(null)){
+                    Observaciones o = new Observaciones(request.getParameter("obs"),u);
+                    o.setAutor(u);
+                    obs.add(o); 
+                }
+                
+                u =new Usuario();
+                ac.setUsuario((Usuario) gdao.getById(Integer.parseInt(request.getParameter("usuario")), Usuario.class));
+                //(ValorDesplegable) gdao.getById(request.getParameter("pd"), ValorDesplegable.class)
+                
+                if(!request.getParameter("ag").equals("") && !request.getParameter("ag").equals(null)){
+                                    ag.add((ValorDesplegable) gdao.getById(Integer.parseInt(request.getParameter("ag")), ValorDesplegable.class));
+                }
+                if(!request.getParameter("oa").equals("") && !request.getParameter("oa").equals(null)){
+                                    ao.add((ValorDesplegable) gdao.getById(Integer.parseInt(request.getParameter("oa")), ValorDesplegable.class));
+                }
+                if(!request.getParameter("ar").equals("") && !request.getParameter("ar").equals(null)){
+                                    ar.add((ValorDesplegable) gdao.getById(Integer.parseInt(request.getParameter("ar")), ValorDesplegable.class));
+                }
+                if(!request.getParameter("aas").equals("") && !request.getParameter("aas").equals(null)){
+                     ass.add((ValorDesplegable) gdao.getById(Integer.parseInt(request.getParameter("ass")), ValorDesplegable.class));    
+                }
+                        
+                ac.setAyudaSolicitada_General(ag);
+                ac.setAyudaSolicitada_Otras(ao);
+                ac.setAyudaSolicitada_Recibos(ar);
+                ac.setAyudaSolicitada_Sanitaria(ass);
+  
+                ac.setObservaciones_acogida(obs);
+                
+                
+                ac.setEstadoResolucion((ValorDesplegable) gdao.getById(Integer.parseInt(request.getParameter("er")), ValorDesplegable.class));
+                
+                ac.setProcedenciaDerivacion((ValorDesplegable) gdao.getById(Integer.parseInt(request.getParameter("pd")), ValorDesplegable.class));
+                
+                gdao.insertOrUpdate(ac);
+
+                
+                
+                
                 break;
 
         }

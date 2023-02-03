@@ -8,11 +8,15 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -34,16 +38,18 @@ public class Observaciones implements Serializable {
     @Column(name = "fecha", nullable = true)
     public String fecha;
 
-    @Column(name = "autor", nullable = true)
-    public String autor;
+    @OneToOne(cascade=CascadeType.DETACH)
+    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "FK_USUARIO_OBSERVACIONES")
+    public Usuario autor;
 
     public Observaciones() {
         this.fecha = "";
         texto = "";
-        autor = "";
+        autor = null;
     }
 
-    public Observaciones(String texto, String autor) {
+    public Observaciones(String texto, Usuario autor) {
         this.texto = texto;
         this.autor = autor;
         SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy");
@@ -64,7 +70,7 @@ public class Observaciones implements Serializable {
         this.fecha = fecha;
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(Usuario autor) {
         this.autor = autor;
     }
 
@@ -80,7 +86,7 @@ public class Observaciones implements Serializable {
         return fecha;
     }
 
-    public String getAutor() {
+    public Usuario getAutor() {
         return autor;
     }
             

@@ -43,6 +43,14 @@ public class Perfil implements Serializable {
         this.profesor=prof;
     }
 
+    public int getNumIntId() {
+        return NumIntId;
+    }
+
+    public void setNumIntId(int NumIntId) {
+        this.NumIntId = NumIntId;
+    }
+
     public String getUsuario() {
         return Usuario;
     }

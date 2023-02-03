@@ -15,6 +15,8 @@ public interface IAjaxDAO<T> {
      * parametro  <strong>true</strong>=No existe <strong>false</strong>= Existe
      */
     public boolean Login(String usuario,String pass);
+    
+    public int LoginId(String usuario,String pass);
 
     /**
      *

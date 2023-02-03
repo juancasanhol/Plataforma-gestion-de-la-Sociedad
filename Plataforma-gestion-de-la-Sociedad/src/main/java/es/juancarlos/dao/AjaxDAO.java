@@ -46,6 +46,31 @@ public class AjaxDAO implements IAjaxDAO {
         return valor == 1;
 
     }
+    
+    @Override
+    public int LoginId (String usuario,String pass) {
+
+        List<Object> listadoResultados = null;
+        Query q = null;
+        int valor = 0;
+        try {
+            startTransaction();
+            q = sesion.createQuery("SELECT p.NumIntId from Perfil as p WHERE p.Usuario = :usu AND p.Password = :passwd");
+            q.setParameter("usu", usuario);
+            q.setParameter("passwd", pass);
+            listadoResultados = q.list();
+            valor = Integer.parseInt(String.valueOf(listadoResultados.get(0)));
+
+        } catch (HibernateException e) {
+            this.handleExcepcion(e);
+        } finally {
+
+            endTransaction();
+        }
+
+        return valor;
+
+    }
 
     /**
      *
