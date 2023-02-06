@@ -38,7 +38,7 @@
         <form action="../../RegistroUsuario" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
             <!--El numero interno de identificacion se genera solo-->
 
-            <div class="text-danger text-center fw-bold">EXISTEN ERRORES!!</div>
+           <!--<div class="text-danger text-center fw-bold">EXISTEN ERRORES!!</div>--> 
             <div class="col-12 text-center">
 
                 <legend >Nombre: </legend>
@@ -50,10 +50,13 @@
                 <legend >Repetir contraseña: </legend>
                 <input required type="password" name="Passwd2" id="passwdConf"><br>
                 
-                <legend >¿Eres profesor? : 
-                    <input required type="checkbox" id="profCheck">
-                    <br>
-                </legend>
+                <legend >¿Tipo Usuario? : 
+
+                </legend><br>
+                <select required id="tipoUsu">
+
+                </select>
+                <br>
                 
             </div>
 

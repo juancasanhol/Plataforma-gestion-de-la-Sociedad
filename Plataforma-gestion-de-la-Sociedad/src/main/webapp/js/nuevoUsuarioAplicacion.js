@@ -1,5 +1,28 @@
 $(document).ready(function () {
    
+
+    $.ajax({
+        type: "post",
+        url: "../../Ajax",
+        data: {
+            accion: "tipos",
+        },
+        success: function (respuesta) {
+
+            $.each(respuesta, function (i, option) {
+                //console.log("buena");
+                $("#tipoUsu").append("<option value='"+option.tipo+"'>"+option.tipo+"</option>");
+            });
+
+          
+        },
+        error: function () {
+            console.log("ERROR!! error al comprobar el aceso");
+        }
+    });
+
+
+
     $("#addUA").click(function (){
 
         if($("#passwd").val()==$("#passwdConf").val()){
@@ -17,7 +40,7 @@ $(document).ready(function () {
                     accion: "addPerfil",
                     usuario: $("#usuario").val(),
                     passwd: $("#passwd").val(),
-                    prof: profe
+                    tipo: $("#tipoUsu").val()
                 },
                 success: function (respuesta) {
                     $("#usuario").val("")

@@ -5,6 +5,7 @@
  */
 package es.juancarlos.events;
 
+import Enum.TipoPerfil;
 import es.juancarlos.beans.Desplegables;
 import es.juancarlos.beans.Perfil;
 import es.juancarlos.beans.Usuario;
@@ -197,7 +198,7 @@ public class Evento implements ServletContextListener {
         gdao.insertOrUpdate(new Desplegables("Profesores", lista));
 
         //usuario administrador
-        gdao.insertOrUpdate(new Perfil("admin", "admin", false));
+        gdao.insertOrUpdate(new Perfil("admin", "admin", TipoPerfil.ADMIN));
 
     }
 

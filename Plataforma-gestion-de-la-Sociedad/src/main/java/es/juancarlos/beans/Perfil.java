@@ -4,9 +4,12 @@
  */
 package es.juancarlos.beans;
 
+import Enum.TipoPerfil;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,16 +34,17 @@ public class Perfil implements Serializable {
     @Column(name = "Password", nullable = false)
     String Password;
     
-    @Column(name = "profesor", nullable = true)
-    boolean profesor;
+    @Column(name = "Tipo", nullable = true)
+    @Enumerated(value = EnumType.STRING)
+    TipoPerfil Tipo;
 
     public Perfil() {
     }
 
-    public Perfil(String Usuario, String Password, boolean prof) {
+    public Perfil(String Usuario, String Password, TipoPerfil tipo) {
         this.Usuario = Usuario;
         this.Password = Password;
-        this.profesor=prof;
+        this.Tipo=tipo;
     }
 
     public int getNumIntId() {
@@ -67,12 +71,12 @@ public class Perfil implements Serializable {
         this.Password = Password;
     }
 
-    public boolean isProfesor() {
-        return profesor;
+    public TipoPerfil getTipo() {
+        return Tipo;
     }
 
-    public void setProfesor(boolean profesor) {
-        this.profesor = profesor;
+    public void setTipo(TipoPerfil Tipo) {
+        this.Tipo = Tipo;
     }
 
     

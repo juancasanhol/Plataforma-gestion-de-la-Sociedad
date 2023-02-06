@@ -1,5 +1,6 @@
 package es.juancarlos.controllers;
 
+import Enum.TipoPerfil;
 import es.juancarlos.beans.Acogida;
 import es.juancarlos.beans.Alumno;
 import es.juancarlos.beans.AtencionSocialIgualdad;
@@ -127,7 +128,7 @@ public class Ajax extends HttpServlet {
                         
                     request.getSession().setAttribute("autor", p.getUsuario());
                     request.getSession().setAttribute("idAutor",p.getNumIntId());
-                    request.getSession().setAttribute("profe",p.isProfesor());
+                    request.getSession().setAttribute("tipo",p.getTipo());
                       
                 }else{
                       objeto.put("aceso", true);
@@ -136,13 +137,43 @@ public class Ajax extends HttpServlet {
                 response.setContentType("application/json");
                 response.getWriter().print(objeto);
                 break;
+                
+            case "tipos":
+                
+                List retorno = new ArrayList();
+                TipoPerfil [] enu = TipoPerfil.values();
+                
+            for (TipoPerfil enu1 : enu) {
+                objeto = new JSONObject();
+                objeto.put("tipo", enu1);
+                retorno.add(objeto);
+            }
+
+                arrayJSON = new JSONArray(retorno);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                
+                break;
+
 
             case "addPerfil":
-                if (request.getParameter("prof").equals("1")) {
-                    gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd"), true));
-                } else {
-                    gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd"), false));
-
+                
+                
+                switch(request.getParameter("tipo")){
+                    
+                    case "ADMIN":
+                            gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd"), TipoPerfil.ADMIN));
+                        break;
+                        
+                    case "PROFESOR":
+                            gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd"), TipoPerfil.PROFESOR));
+                        break;
+                        
+                        
+                    case "PROFESIONAL":
+                            gdao.insertOrUpdate(new Perfil(request.getParameter("usuario"), request.getParameter("passwd"), TipoPerfil.PROFESIONAL));
+                        break;
+                    
                 }
 
                 break;
@@ -418,7 +449,7 @@ public class Ajax extends HttpServlet {
                 it = gdao.get(Perfil.class).iterator();
                 while (it.hasNext()) {
                     p = (Perfil) it.next();
-                    if (p.isProfesor()) {
+                    if (p.getTipo().equals(TipoPerfil.PROFESOR)) {
                         objeto = new JSONObject();
                         objeto.put("nombre", p.getUsuario());
                         desplegables.add(objeto);
@@ -1492,9 +1523,11 @@ public class Ajax extends HttpServlet {
                 valores = new ArrayList();
                 while (i.hasNext()) {
                     p = (Perfil) i.next();
-                    objeto = new JSONObject();
-                    objeto.put("Nombre", p.getUsuario());
-                    valores.add(objeto);
+                    if (p.getTipo().equals(TipoPerfil.PROFESOR)){
+                        objeto = new JSONObject();
+                        objeto.put("Nombre", p.getUsuario());
+                        valores.add(objeto);
+                    }
                 }
                 arrayJSON = new JSONArray(valores);
                 response.setContentType("application/json");
