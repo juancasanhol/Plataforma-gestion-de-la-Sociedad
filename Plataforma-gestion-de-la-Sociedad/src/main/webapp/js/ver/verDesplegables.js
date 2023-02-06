@@ -58,9 +58,8 @@ $(document).ready(function () {
     });
 
 
-   /* $(document).on('click', '.del', function () {
+    $(document).on('click', '.del', function () {
         var nombreD = $(this).attr("id");
-        console.log($(this).attr("id"));
         $.ajax({
             type: "post",
             url: "../../Ajax",
@@ -81,7 +80,7 @@ $(document).ready(function () {
 
 
 
-    });*/
+    });
 
 
 });
