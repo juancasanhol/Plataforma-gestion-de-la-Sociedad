@@ -20,6 +20,7 @@ import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.dao.ListaDao;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IAjaxDAO;
+import es.juancarlos.interfaces.IDesplegablesDAO;
 import es.juancarlos.interfaces.IGenericoDAO;
 import es.juancarlos.interfaces.IListaDao;
 import java.io.IOException;
@@ -66,6 +67,7 @@ public class Ajax extends HttpServlet {
         IGenericoDAO gdao = daof.getGenericoDAO();
         IAjaxDAO adao = daof.getAjaxDAO();
         IListaDao ldao = daof.getListaDAO();
+        IDesplegablesDAO ddao=daof.getDesplegablesDAO();
 
         Usuario u;
         CursosFormacion c;
@@ -1737,11 +1739,35 @@ public class Ajax extends HttpServlet {
                 ac.setProcedenciaDerivacion((ValorDesplegable) gdao.getById(Integer.parseInt(request.getParameter("pd")), ValorDesplegable.class));
                 
                 gdao.insertOrUpdate(ac);
-
+            break; 
                 
+            case "DatosEstadisticos":
+                valores = new ArrayList();
+                d=new Desplegables();
+                List des=gdao.get(Desplegables.class);
                 
+                i=des.iterator();
                 
-                break;
+                 while (i.hasNext()) {
+                  d = (Desplegables) i.next();
+                  if(d.getNombre().equals("Colectivos")){
+                      break;
+                  }
+                }
+                
+                i=d.getValores().iterator();
+                
+                 while (i.hasNext()) {
+                    ValorDesplegable v = (ValorDesplegable) i.next();
+                    objeto = new JSONObject();
+                    objeto.put("value", v.getValor());
+                    valores.add(objeto);
+                }
+                arrayJSON = new JSONArray(valores);
+                response.setContentType("application/json");
+                response.getWriter().print(arrayJSON);
+                
+            break;
 
         }
 

@@ -1,13 +1,13 @@
 package es.juancarlos.daofactory;
 
-
 import es.juancarlos.interfaces.IGenericoDAO;
 import es.juancarlos.interfaces.IAjaxDAO;
+import es.juancarlos.interfaces.IDesplegablesDAO;
 import es.juancarlos.interfaces.IListaDao;
 
 /**
- * 
- * @author Juan Carlos Sánchez Holguín 
+ *
+ * @author Juan Carlos Sánchez Holguín
  */
 public abstract class DAOFactory {
 
@@ -16,18 +16,21 @@ public abstract class DAOFactory {
      * @return GenericoDAO
      */
     public abstract IGenericoDAO getGenericoDAO();
-    
-       /**
+
+    /**
      *
      * @return GenericoDAO
      */
     public abstract IAjaxDAO getAjaxDAO();
-   
+
+    public abstract IDesplegablesDAO getDesplegablesDAO();
+
     /**
      *
      * @return DAOFactory()
      */
-    public abstract IListaDao getListaDAO ();
+    public abstract IListaDao getListaDAO();
+
     public static DAOFactory getDAOFactory() {
         DAOFactory daof = null;
 
