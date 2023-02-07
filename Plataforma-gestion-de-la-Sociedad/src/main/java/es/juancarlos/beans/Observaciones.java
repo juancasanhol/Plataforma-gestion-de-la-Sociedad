@@ -41,7 +41,7 @@ public class Observaciones implements Serializable {
     @OneToOne(cascade=CascadeType.DETACH)
     @PrimaryKeyJoinColumn
     @JoinColumn(name = "FK_USUARIO_OBSERVACIONES")
-    public Usuario autor;
+    public Perfil autor;
 
     public Observaciones() {
         this.fecha = "";
@@ -49,7 +49,7 @@ public class Observaciones implements Serializable {
         autor = null;
     }
 
-    public Observaciones(String texto, Usuario autor) {
+    public Observaciones(String texto, Perfil autor) {
         this.texto = texto;
         this.autor = autor;
         SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy");
@@ -70,7 +70,7 @@ public class Observaciones implements Serializable {
         this.fecha = fecha;
     }
 
-    public void setAutor(Usuario autor) {
+    public void setAutor(Perfil autor) {
         this.autor = autor;
     }
 
@@ -86,7 +86,7 @@ public class Observaciones implements Serializable {
         return fecha;
     }
 
-    public Usuario getAutor() {
+    public Perfil getAutor() {
         return autor;
     }
             

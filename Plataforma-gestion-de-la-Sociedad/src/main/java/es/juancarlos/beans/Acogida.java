@@ -40,17 +40,14 @@ public class Acogida implements Serializable{
     String Fecha;
     
     @OneToOne(cascade=CascadeType.DETACH)
-    @PrimaryKeyJoinColumn
     @JoinColumn(name = "FK_USUARIO_TRABAJADOR_ACOGIDA")        
-    Usuario Trabajador; //El que atiende
+    Perfil Trabajador; //El que atiende
 
     @OneToOne(cascade=CascadeType.ALL)
-    @PrimaryKeyJoinColumn
     @JoinColumn(name = "FK_USUARIO_FICHA_ACOGIDA")
     Usuario Usuario;
 
     @OneToOne(cascade=CascadeType.ALL)
-    @PrimaryKeyJoinColumn
     @JoinColumn(name = "FK_VALOR_PD_ACOGIDA")
     ValorDesplegable ProcedenciaDerivacion;//AYUNTAMIENTO, CARITAS, COLEGIO...
 
@@ -92,7 +89,6 @@ public class Acogida implements Serializable{
     List<ValorDesplegable> AyudaSolicitada_Otras;
     
     @OneToOne(cascade=CascadeType.ALL)
-    @PrimaryKeyJoinColumn
     @JoinColumn(name = "FK_VALOR_ER_ACOGIDA")
     ValorDesplegable EstadoResolucion;
 
@@ -112,7 +108,7 @@ public class Acogida implements Serializable{
         
     }
     
-    public Acogida(String Fecha, Usuario Trabajador, Usuario Usuario, ValorDesplegable ProcedenciaDerivacion, List<ValorDesplegable> AyudaSolicitada_General, List<ValorDesplegable> AyudaSolicitada_Recibos, List<ValorDesplegable> AyudaSolicitada_Sanitaria, List<ValorDesplegable> AyudaSolicitada_Otras, ValorDesplegable EstadoResolucion, List<Observaciones> observaciones_acogida, List<FicheroAdjunto> ficheros_acogida) {
+    public Acogida(String Fecha, Perfil Trabajador, Usuario Usuario, ValorDesplegable ProcedenciaDerivacion, List<ValorDesplegable> AyudaSolicitada_General, List<ValorDesplegable> AyudaSolicitada_Recibos, List<ValorDesplegable> AyudaSolicitada_Sanitaria, List<ValorDesplegable> AyudaSolicitada_Otras, ValorDesplegable EstadoResolucion, List<Observaciones> observaciones_acogida, List<FicheroAdjunto> ficheros_acogida) {
         this.Fecha = Fecha;
         this.Trabajador = Trabajador;
         this.Usuario = Usuario;
@@ -142,11 +138,11 @@ public class Acogida implements Serializable{
         this.Fecha = Fecha;
     }
 
-    public Usuario getTrabajador() {
+    public Perfil getTrabajador() {
         return Trabajador;
     }
 
-    public void setTrabajador(Usuario Trabajador) {
+    public void setTrabajador(Perfil Trabajador) {
         this.Trabajador = Trabajador;
     }
 

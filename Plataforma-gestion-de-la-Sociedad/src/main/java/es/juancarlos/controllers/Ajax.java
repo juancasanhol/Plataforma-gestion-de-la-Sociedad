@@ -1044,7 +1044,7 @@ public class Ajax extends HttpServlet {
                 objeto.put("ayudasanitaria", ac.getAyudaSolicitada_Sanitaria());
                 objeto.put("ayudaotra", ac.getAyudaSolicitada_Otras());
                 objeto.put("estadoresolucion", ac.getEstadoResolucion().getValor());
-                objeto.put("trabajador", ac.getTrabajador().getNombre()+" "+ac.getTrabajador().getApellidos());
+                objeto.put("trabajador", ac.getTrabajador().getUsuario());
                 objeto.put("usuario", ac.getUsuario().getNombre()+" "+ac.getUsuario().getApellidos());
                 objeto.put("procedenciaderivacion", ac.getProcedenciaDerivacion().getValor());
                 //COMPLETAR DATOS DE LISTAS AQUI
@@ -1353,7 +1353,7 @@ public class Ajax extends HttpServlet {
                     objeto = new JSONObject();
                     objeto.put("textoobs", ac.getObservaciones_acogida().get(tam).getTexto());
                     objeto.put("fechaobs", ac.getObservaciones_acogida().get(tam).getFecha());
-                    objeto.put("autorobs", ac.getObservaciones_acogida().get(tam).getAutor());
+                    objeto.put("autorobs", ac.getObservaciones_acogida().get(tam).getAutor().getUsuario());
                     observaciones.add(objeto);
                 }
                 for (int tam = 0; tam < ac.getFicheros_acogida().size(); tam++) {
@@ -1362,6 +1362,28 @@ public class Ajax extends HttpServlet {
                     objeto.put("fecha", ac.getFicheros_acogida().get(tam).getFecha());
                     observaciones.add(objeto);
                 }
+                
+                for (int tam = 0; tam < ac.getAyudaSolicitada_General().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("ag", ac.getAyudaSolicitada_General().get(tam).getValor());
+                    observaciones.add(objeto);
+                }
+                for (int tam = 0; tam < ac.getAyudaSolicitada_Otras().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("ao", ac.getAyudaSolicitada_Otras().get(tam).getValor());
+                    observaciones.add(objeto);
+                }
+                for (int tam = 0; tam < ac.getAyudaSolicitada_Recibos().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("ar", ac.getAyudaSolicitada_Recibos().get(tam).getValor());
+                    observaciones.add(objeto);
+                }
+                for (int tam = 0; tam < ac.getAyudaSolicitada_Sanitaria().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("as", ac.getAyudaSolicitada_Sanitaria().get(tam).getValor());
+                    observaciones.add(objeto);
+                }
+                                
                 arrayJSON = new JSONArray(observaciones);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
@@ -1691,9 +1713,9 @@ public class Ajax extends HttpServlet {
                 
                 
                 
-                u =new Usuario();
-                u=(Usuario)gdao.getById(Integer.parseInt(request.getSession().getAttribute("idAutor").toString()), Usuario.class);
-                ac.setTrabajador(u);
+                p =new Perfil();
+                p=(Perfil)gdao.getById(Integer.parseInt(request.getSession().getAttribute("idAutor").toString()), Perfil.class);
+                ac.setTrabajador(p);
                 
 
                 
@@ -1704,8 +1726,8 @@ public class Ajax extends HttpServlet {
                 List <Observaciones> obs=new ArrayList<>();
                 
                 if(!request.getParameter("obs").equals("") && !request.getParameter("obs").equals(null)){
-                    Observaciones o = new Observaciones(request.getParameter("obs"),u);
-                    o.setAutor(u);
+                    Observaciones o = new Observaciones(request.getParameter("obs"),p);
+                    o.setAutor(p);
                     obs.add(o); 
                 }
                 
