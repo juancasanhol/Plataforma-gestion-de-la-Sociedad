@@ -32,6 +32,7 @@ function Loging(){
 
             if(respuesta.aceso){
                 location.href ='html/MenuPrincipal/Menu.html';
+                window.sessionStorage['tipo']= respuesta.tipo
             }else{
                 
             }

@@ -127,6 +127,7 @@ public class Ajax extends HttpServlet {
                 
                 if(!p.equals(null)){
                     objeto.put("aceso", true);
+                    objeto.put("tipo", p.getTipo());
                         
                     request.getSession().setAttribute("autor", p.getUsuario());
                     request.getSession().setAttribute("idAutor",p.getNumIntId());
