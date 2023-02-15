@@ -9,7 +9,7 @@ $(document).ready(function () {
             console.log("Desplegables cargados correctamente");
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
-                if(option.usuarios!==undefined){$("#DesplegablesTitular").append('<option value="' + option.usuarios + '">');}
+                if(option.usuarios!==undefined){$("#DesplegablesTitular").append('<option value="' + option.idUsuarios + '">' + option.usuarios + '</option>');}
             });
 
         },

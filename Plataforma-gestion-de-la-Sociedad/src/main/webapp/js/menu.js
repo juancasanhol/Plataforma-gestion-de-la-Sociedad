@@ -6,17 +6,17 @@ $(document).ready(function () {
         $(".opcionesTodas").hide()
         $(".error").show()
     } 
-
+    $(".error").hide()
     switch (tipo) {
-        case ADMIN:
+        case "ADMIN":
             $(".opcionesTodas").show()
             break;
 
-        case PROFESOR:
+        case "PROFESOR":
             $(".opcionesProfesor").show()
             break;
 
-        case PROFESIONAL:
+        case "PROFESIONAL":
             $(".opcionesProfesional").show()
             break;
 

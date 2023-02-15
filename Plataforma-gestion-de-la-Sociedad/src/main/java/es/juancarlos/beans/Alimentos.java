@@ -24,4 +24,30 @@ public class Alimentos implements Serializable {
 
     @Column(name = "Unidades", nullable = true)
     int Unidades;
+
+    public Alimentos(String Alimento, int Unidades) {
+        this.Alimento = Alimento;
+        this.Unidades = Unidades;
+    }
+
+    public Alimentos() {
+    }
+
+    public String getAlimento() {
+        return Alimento;
+    }
+
+    public void setAlimento(String Alimento) {
+        this.Alimento = Alimento;
+    }
+
+    public int getUnidades() {
+        return Unidades;
+    }
+
+    public void setUnidades(int Unidades) {
+        this.Unidades = Unidades;
+    }
+    
+    
 }

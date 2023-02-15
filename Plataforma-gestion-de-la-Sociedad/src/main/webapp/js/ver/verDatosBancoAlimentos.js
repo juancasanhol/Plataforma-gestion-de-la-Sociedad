@@ -35,6 +35,9 @@ $(document).ready(function () {
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
                 if(option.textoobs!==undefined){$("#Observaciones").append('Observación: '+option.textoobs+' | Fecha: '+option.fechaobs+' | Autor de observación: '+option.autorobs+'<br>');}
+                
+                if(option.nombreAli!==undefined){$("#tbodyalimentos").append('<tr><td>'+option.nombreAli+'</td><td>'+option.unidadesAli+'</td></tr>');}
+
             });
         },
         error: function () {

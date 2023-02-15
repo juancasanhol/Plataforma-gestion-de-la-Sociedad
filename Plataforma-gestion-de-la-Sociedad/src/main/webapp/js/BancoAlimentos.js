@@ -31,7 +31,6 @@ ListaAlimentosValores=""
     $(document).on('click', '.add', function () {
         alimetos=ListaAlimentos.split(";")
         for (e = 0;e<alimetos.length-1; e++){
-            console.log(e)
             if (i=0){
                 ListaAlimentosValores+=$('#'+alimetos[i]).val();
             }else{
@@ -46,8 +45,8 @@ ListaAlimentosValores=""
                 accion: "addAlimentos",
                 TitularUnidad: $("#Titular").val(),
                 Mes_anio: $("#Mes").val(),
-                Asiste: $("#Asiste").val(),
-                observaciones_id: $("#Observaciones").val(),
+                Asiste: $('#Asiste').is(':checked'),
+                observaciones: $("#Observaciones").val(),
                 lista_alimentos: ListaAlimentos,
                 lista_alimentos_valores: ListaAlimentosValores,
             },
@@ -57,10 +56,7 @@ ListaAlimentosValores=""
             error: function () {
                 console.log("ERROR ");
             },
-            complete: function (xhr, status) {
-                $("#valor").val("")
-                MostrarValores(nombreD);
-            }
+
         });
     });   
      

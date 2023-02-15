@@ -12,7 +12,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -30,8 +35,9 @@ public class BancoAlimentos implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int IdOperacion;
     
-    @Column(name = "TitularUnidad", nullable = true)
-    String TitularUnidad;
+    @OneToOne(cascade=CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    Usuario TitularUnidad;
 
     @Column(name = "Mes_anio", nullable = true)
     String Mes_anio;
@@ -43,11 +49,16 @@ public class BancoAlimentos implements Serializable{
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Observaciones> observaciones_id;//Son las observaciones referentes al banco de alimentos
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "lista_alimentos_BancoAlimenmtos",
+        joinColumns = @JoinColumn(name = "FK_ID_BANCO_ALIMENTO", nullable = false),
+        inverseJoinColumns = @JoinColumn(name="FK_ALIMENTO", nullable = false)
+    )
+    @ManyToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Alimentos> lista_alimentos;
 
-    public BancoAlimentos(String TitularUnidad, String Mes_anio, Boolean Asiste, List<Observaciones> observaciones_id, List<Alimentos> lista_alimentos) {
+    public BancoAlimentos(Usuario TitularUnidad, String Mes_anio, Boolean Asiste, List<Observaciones> observaciones_id, List<Alimentos> lista_alimentos) {
         this.TitularUnidad = TitularUnidad;
         this.Mes_anio = Mes_anio;
         this.Asiste = Asiste;
@@ -59,7 +70,7 @@ public class BancoAlimentos implements Serializable{
         return IdOperacion;
     }
 
-    public String getTitularUnidad() {
+    public Usuario getTitularUnidad() {
         return TitularUnidad;
     }
 
@@ -83,7 +94,7 @@ public class BancoAlimentos implements Serializable{
         this.IdOperacion = IdOperacion;
     }
 
-    public void setTitularUnidad(String TitularUnidad) {
+    public void setTitularUnidad(Usuario TitularUnidad) {
         this.TitularUnidad = TitularUnidad;
     }
 

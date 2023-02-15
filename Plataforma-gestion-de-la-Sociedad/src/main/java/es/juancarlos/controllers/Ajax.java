@@ -2,6 +2,7 @@ package es.juancarlos.controllers;
 
 import Enum.TipoPerfil;
 import es.juancarlos.beans.Acogida;
+import es.juancarlos.beans.Alimentos;
 import es.juancarlos.beans.Alumno;
 import es.juancarlos.beans.AtencionSocialIgualdad;
 import es.juancarlos.beans.AulaMagica;
@@ -725,6 +726,7 @@ public class Ajax extends HttpServlet {
                     while (it.hasNext()) {
                         u = (Usuario) it.next();
                         objeto = new JSONObject();
+                        objeto.put("idUsuarios", u.getNumIntId());
                         objeto.put("usuarios", u.getNombre() + " " + u.getApellidos());
                         desplegables.add(objeto);
 
@@ -1097,7 +1099,7 @@ public class Ajax extends HttpServlet {
                         objeto = new JSONObject();
                         objeto.put("id", b.getIdOperacion());
                         objeto.put("mes", b.getMes_anio());
-                        objeto.put("titular", b.getTitularUnidad());
+                        objeto.put("titular", b.getTitularUnidad().getNombre()+" "+ b.getTitularUnidad().getApellidos());
                         bancos.add(objeto);
                     }
                 } catch (Exception exc) {
@@ -1113,7 +1115,7 @@ public class Ajax extends HttpServlet {
                 objeto = new JSONObject();
                 objeto.put("id", b.getIdOperacion());
                 objeto.put("mes", b.getMes_anio());
-                objeto.put("titular", b.getTitularUnidad());
+                objeto.put("titular", b.getTitularUnidad().getNombre()+" "+ b.getTitularUnidad().getApellidos());
                 objeto.put("asiste", b.getAsiste());
                 //COMPLETAR DATOS DE LAS LISTAS DE FALTAS
 
@@ -1280,15 +1282,23 @@ public class Ajax extends HttpServlet {
                 break;
             case "VerObservacionesBancoAlimentos":
                 b = (BancoAlimentos) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), BancoAlimentos.class);
-                observaciones = new ArrayList();
+                retorno = new ArrayList();
                 for (int tam = 0; tam < b.getObservaciones_id().size(); tam++) {
                     objeto = new JSONObject();
                     objeto.put("textoobs", b.getObservaciones_id().get(tam).getTexto());
                     objeto.put("fechaobs", b.getObservaciones_id().get(tam).getFecha());
-                    objeto.put("autorobs", b.getObservaciones_id().get(tam).getAutor());
-                    observaciones.add(objeto);
+                    objeto.put("autorobs", b.getObservaciones_id().get(tam).getAutor().getUsuario());
+                    retorno.add(objeto);
                 }
-                arrayJSON = new JSONArray(observaciones);
+                
+                for (int tam = 0; tam < b.getLista_alimentos().size(); tam++) {
+                    objeto = new JSONObject();
+                    objeto.put("nombreAli", b.getLista_alimentos().get(tam).getAlimento());
+                    objeto.put("unidadesAli", b.getLista_alimentos().get(tam).getUnidades());
+                    retorno.add(objeto);
+                }
+                
+                arrayJSON = new JSONArray(retorno);
                 response.setContentType("application/json");
                 response.getWriter().print(arrayJSON);
                 break;
@@ -1632,7 +1642,42 @@ public class Ajax extends HttpServlet {
 
             case "addAlimentos":
                 BancoAlimentos banco = new BancoAlimentos();
+                                
+                String [] alimentos;
+                String [] ValoresAlimentos;
+                
+                List <Alimentos> alimen=new ArrayList();
+      
+                
+                
+                banco.setTitularUnidad((Usuario) gdao.getById(Integer.parseInt(request.getParameter("TitularUnidad")), Usuario.class));
+                banco.setMes_anio(request.getParameter("Mes_anio"));
+                System.out.println(request.getParameter("Asiste"));
+                if (request.getParameter("Asiste").equals("true")){
+                banco.setAsiste(true);
+                }else{
+                banco.setAsiste(false);
+                }
 
+                
+                alimentos=request.getParameter("lista_alimentos").split(";");
+                ValoresAlimentos=request.getParameter("lista_alimentos_valores").split(";");
+                
+                for(int j=0;j<alimentos.length;j++){
+                    Alimentos aux=new Alimentos(alimentos[j],Integer.parseInt(ValoresAlimentos[j]));
+                    alimen.add(aux);
+                }
+                
+                banco.setLista_alimentos(alimen);
+                
+                Observaciones obsB=new Observaciones(request.getParameter("observaciones"), (Perfil) gdao.getById(Integer.parseInt(String.valueOf(request.getSession().getAttribute("idAutor"))), Perfil.class));
+                
+                observaciones = new ArrayList();
+                observaciones.add(obsB);
+                
+                banco.setObservaciones_id(observaciones);
+                
+                gdao.insertOrUpdate(banco);
                 break;
 
             case "addProyecto":
