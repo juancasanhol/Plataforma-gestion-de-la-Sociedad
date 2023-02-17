@@ -12,7 +12,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -33,11 +35,13 @@ public class AtencionSocialIgualdad implements Serializable{
     @Column(name = "Fecha", nullable = true)
     String Fecha;
 
-    @Column(name = "Trabajador", nullable = true)
-    String Trabajador; //El que atiende
+    @OneToOne(cascade=CascadeType.DETACH)
+    @JoinColumn(name = "FK_USUARIO_TRABAJADOR_ATENCION_SOCIAL") 
+    Perfil Trabajador; //El que atiende
 
-    @Column(name = "Usuario", nullable = true)
-    String Usuario;
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "FK_USUARIO_ATENCION_SOCIAL")
+    Usuario Usuario;
 
     @Column(name = "ProcedenciaDerivacion", nullable = true)
     String ProcedenciaDerivacion;//AYUNTAMIENTO, CARITAS, COLEGIO...
@@ -59,7 +63,7 @@ public class AtencionSocialIgualdad implements Serializable{
     @LazyCollection(LazyCollectionOption.FALSE)
     List<FicheroAdjunto> ficheros_atencionsocial_igualdad;
 
-    public AtencionSocialIgualdad(String Fecha, String Trabajador, String Usuario, String ProcedenciaDerivacion, String MotivoConsulta, String Intervencion, String EstadoResolucion, List<Observaciones> observaciones_atencionsocial_igualdad, List<FicheroAdjunto> ficheros_atencionsocial_igualdad) {
+    public AtencionSocialIgualdad(String Fecha, Perfil Trabajador, Usuario Usuario, String ProcedenciaDerivacion, String MotivoConsulta, String Intervencion, String EstadoResolucion, List<Observaciones> observaciones_atencionsocial_igualdad, List<FicheroAdjunto> ficheros_atencionsocial_igualdad) {
         this.Fecha = Fecha;
         this.Trabajador = Trabajador;
         this.Usuario = Usuario;
@@ -83,11 +87,11 @@ public class AtencionSocialIgualdad implements Serializable{
         return Fecha;
     }
 
-    public String getTrabajador() {
+    public Perfil getTrabajador() {
         return Trabajador;
     }
 
-    public String getUsuario() {
+    public Usuario getUsuario() {
         return Usuario;
     }
 
@@ -123,11 +127,11 @@ public class AtencionSocialIgualdad implements Serializable{
         this.Fecha = Fecha;
     }
 
-    public void setTrabajador(String Trabajador) {
+    public void setTrabajador(Perfil Trabajador) {
         this.Trabajador = Trabajador;
     }
 
-    public void setUsuario(String Usuario) {
+    public void setUsuario(Usuario Usuario) {
         this.Usuario = Usuario;
     }
 

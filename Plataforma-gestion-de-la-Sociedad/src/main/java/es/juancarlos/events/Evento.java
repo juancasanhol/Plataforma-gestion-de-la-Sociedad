@@ -35,7 +35,7 @@ public class Evento implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
     //para eliminar todos los desplegables 
-        Iterator i = (Iterator) gdao.get(Desplegables.class).iterator();
+        /*Iterator i = (Iterator) gdao.get(Desplegables.class).iterator();
         while (i.hasNext()) {
 
             Desplegables d = (Desplegables) i.next();
@@ -48,7 +48,7 @@ public class Evento implements ServletContextListener {
             ValorDesplegable v = (ValorDesplegable) i.next();
             gdao.delete(v);
         }
-
+*/
         //Creacion de los desplegables en la base de datos
         List<ValorDesplegable> lista = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> lista1 = new ArrayList<ValorDesplegable>();

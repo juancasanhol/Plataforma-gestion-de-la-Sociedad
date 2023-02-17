@@ -80,7 +80,7 @@ public class Ajax extends HttpServlet {
         AtencionSocialIgualdad asi;
         Alumno al;
         ConferenciaSantaMaria conf;
-        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias, bancos, observaciones, valores, listadouserproyect;
+        List desplegables, cursos, aulas, empresas, acogidas, atenciones, alumnos, conferencias, bancos, observaciones,obs, valores, listadouserproyect;
         BancoAlimentos b;
         Perfil p;
         /*gdao.insertOrUpdate(new Usuario("PROBANDO0", "PROBANDO0"));
@@ -746,6 +746,7 @@ public class Ajax extends HttpServlet {
                     while (it.hasNext()) {
                         u = (Usuario) it.next();
                         objeto = new JSONObject();
+                        objeto.put("idUsuarios", u.getNumIntId());
                         objeto.put("usuarios", u.getNombre() + " " + u.getApellidos());
                         desplegables.add(objeto);
                     }
@@ -759,6 +760,7 @@ public class Ajax extends HttpServlet {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
+                            objeto.put("idProcedenciaderivacion", lista.get(j).getId());
                             objeto.put("procedenciaderivacion", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -767,6 +769,7 @@ public class Ajax extends HttpServlet {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
+                            objeto.put("idIntervencion", lista.get(j).getId());
                             objeto.put("intervencion", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -775,6 +778,7 @@ public class Ajax extends HttpServlet {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
+                            objeto.put("idMotivoconsulta", lista.get(j).getId());
                             objeto.put("motivoconsulta", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -783,6 +787,7 @@ public class Ajax extends HttpServlet {
                         List<ValorDesplegable> lista = d.getValores();
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
+                            objeto.put("idEstadoresolucion", lista.get(j).getId());
                             objeto.put("estadoresolucion", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -1063,7 +1068,7 @@ public class Ajax extends HttpServlet {
                         asi = (AtencionSocialIgualdad) i.next();
                         objeto = new JSONObject();
                         objeto.put("id", asi.getNumIntId());
-                        objeto.put("nombre", asi.getUsuario());
+                        objeto.put("datos", asi.getFecha()+" "+asi.getMotivoConsulta()+" "+asi.getEstadoResolucion());
                         atenciones.add(objeto);
                     }
                 } catch (Exception exc) {
@@ -1082,8 +1087,8 @@ public class Ajax extends HttpServlet {
                 objeto.put("motivoconsulta", asi.getMotivoConsulta());
                 objeto.put("intervencion", asi.getIntervencion());
                 objeto.put("estadoresolucion", asi.getEstadoResolucion());
-                objeto.put("trabajador", asi.getTrabajador());
-                objeto.put("usuario", asi.getUsuario());
+                objeto.put("trabajador", asi.getTrabajador().getUsuario());
+                objeto.put("usuario", asi.getUsuario().getNombre()+" "+asi.getUsuario().getApellidos());
                 objeto.put("procedenciaderivacion", asi.getProcedenciaDerivacion());
                 //COMPLETAR DATOS DE OBSERVACIONES Y LISTAS DE FICHEROS
 
@@ -1769,7 +1774,7 @@ public class Ajax extends HttpServlet {
                 List <ValorDesplegable> ao=new ArrayList<>();
                 List <ValorDesplegable> ar=new ArrayList<>();
                 List <ValorDesplegable> ass=new ArrayList<>();
-                List <Observaciones> obs=new ArrayList<>();
+                obs=new ArrayList<>();
                 
                 if(!request.getParameter("obs").equals("") && !request.getParameter("obs").equals(null)){
                     Observaciones o = new Observaciones(request.getParameter("obs"),p);
@@ -1836,6 +1841,44 @@ public class Ajax extends HttpServlet {
                 response.getWriter().print(arrayJSON);
                 
             break;
+            
+            case "addFicha":
+                
+                AtencionSocialIgualdad atencionS=new AtencionSocialIgualdad();
+                obs=new ArrayList<>();
+                
+                ValorDesplegable valor;
+                u=(Usuario) gdao.getById(Integer.parseInt(request.getParameter("usuario")), Usuario.class);
+                p=(Perfil)gdao.getById(Integer.parseInt(request.getSession().getAttribute("idAutor").toString()), Perfil.class);
+                
+                atencionS.setUsuario(u);
+                atencionS.setFecha(request.getParameter("fecha"));
+                atencionS.setTrabajador(p);
+                
+                valor=(ValorDesplegable) gdao.getById(Integer.parseInt(request.getParameter("procedenciaDerivacion")), ValorDesplegable.class);
+                atencionS.setProcedenciaDerivacion(valor.getValor());
+                
+                valor=(ValorDesplegable) gdao.getById(Integer.parseInt(request.getParameter("motivoConsulta")), ValorDesplegable.class);
+                atencionS.setMotivoConsulta(valor.getValor());
+                
+                valor=(ValorDesplegable) gdao.getById(Integer.parseInt(request.getParameter("intervencion")), ValorDesplegable.class);
+                atencionS.setIntervencion(valor.getValor());                
+                
+                valor=(ValorDesplegable) gdao.getById(Integer.parseInt(request.getParameter("estadoResolucion")), ValorDesplegable.class);
+                atencionS.setEstadoResolucion(valor.getValor()); 
+
+                if(!request.getParameter("Observaciones").equals("") && !request.getParameter("Observaciones").equals(null)){
+                    Observaciones o = new Observaciones(request.getParameter("Observaciones"),p);
+                    o.setAutor(p);
+                    obs.add(o); 
+                }
+                atencionS.setObservaciones_atencionsocial_igualdad(obs);
+                
+                gdao.insertOrUpdate(atencionS);
+                
+
+                
+                break;
 
         }
 
