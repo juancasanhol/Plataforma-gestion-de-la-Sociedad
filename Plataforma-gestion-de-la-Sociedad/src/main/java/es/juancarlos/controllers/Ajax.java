@@ -267,6 +267,18 @@ public class Ajax extends HttpServlet {
                             desplegables.add(objeto);
                         }
                     }
+                    
+                    if (d.getNombre().equals("Parentesco")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idParentesco", lista.get(j).getId());
+                            objeto.put("parentesco", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    
                 }
                 arrayJSON = new JSONArray(desplegables);
                 response.setContentType("application/json");
@@ -836,6 +848,17 @@ public class Ajax extends HttpServlet {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
                             objeto.put("sexo", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
+                    
+                    if (d.getNombre().equals("Colectivos")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idColectivos", lista.get(j).getId());
+                             objeto.put("colectivos", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
                     }

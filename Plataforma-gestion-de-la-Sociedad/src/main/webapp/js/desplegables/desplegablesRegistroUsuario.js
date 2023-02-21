@@ -1,4 +1,9 @@
+var numFilaIngreso=1;
+var numFilaUnidadFamiliar=1;
 $(document).ready(function () {
+   
+
+
     $.ajax({
         type: "post",
         url: "../../Ajax",
@@ -16,7 +21,8 @@ $(document).ready(function () {
                 if(option.minoriaetnica!==undefined){$("#DesplegablesMinoria").append('<option value="' + option.minoriaetnica + '">');}
                 if(option.usuarios!==undefined){$("#DesplegablesPersonaReferencia").append('<option value="' + option.usuarios + '">');}
                 if(option.tipoCarnetConducir!==undefined){$("#tiposCarnet").append('<tr><td>'+option.tipoCarnetConducir+'</td><td><button type="button" id='+option.tipoCarnetConducir+' class="btn btn-success addCarnet">añadir</button></td></tr>');}    
-                if(option.nombreBolsa!==undefined){$("#nombreBolsa").append('<tr><td>'+option.nombreBolsa+'</td><td><button type="button" id='+option.nombreBolsa+' class="btn btn-success addBolsa">añadir</button></td></tr>');}    
+                if(option.nombreBolsa!==undefined){$("#nombreBolsa").append('<tr><td>'+option.nombreBolsa+'</td><td><button type="button" id='+option.nombreBolsa+' class="btn btn-success addBolsa">añadir</button></td></tr>');} 
+                if(option.parentesco!==undefined){$("#DesplegablesParentesco").append('<option value="' + option.idParentesco + '">' + option.parentesco + '</option');}     
             
             });
             
@@ -60,5 +66,16 @@ $(document).ready(function () {
         $(this).closest('tr').remove();
     });
 
+    
 
+    $(document).on('click', '#addFilaIngreso', function () {
+    numFilaIngreso+=1;
+    $("#tbodyIng").append("<tr><td scope='row'><input type='text' id='origenIng"+numFilaIngreso+"' list='DesplegablesOrigenIngresos'></td><td><input type='number' name='' id='importeIng"+numFilaIngreso+"' min='0'></td><td><input type='text' name='' id='procedenciaIng"+numFilaIngreso+"'></td></tr>");
+    });
+
+
+    $(document).on('click', '#addFilaUC', function () {
+        numFilaUnidadFamiliar+=1;
+        $('#tbodyUC').append("<tr><td scope='row'><input type='text' name='' id='nomUC"+numFilaUnidadFamiliar+"'></td><td ><input type='text' name='' id='parenUC"+numFilaUnidadFamiliar+"' list='DesplegablesParentesco' ></td><td><input type='date' name='' id='fechaUC"+numFilaUnidadFamiliar+"' min='0'></td><td><input type='text' name='' id='profesUC"+numFilaUnidadFamiliar+"'></td></tr>");
+        });
 });

@@ -13,6 +13,7 @@ $(document).ready(function () {
                 if(option.actividad!==undefined){$("#DesplegablesActividad").append('<option value="' + option.actividad + '">');}
                 if(option.cargo!==undefined){$("#DesplegablesCargo").append('<option value="' + option.cargo + '">');}
                 if(option.sexo!==undefined){$("#DesplegablesSexo").append('<option value="' + option.sexo + '">');}
+                if(option.colectivos!==undefined){$("#DesplegablesColectivo").append('<option value="' + option.idColectivos + '">' + option.colectivos + '</option>');}
             });
 
         },

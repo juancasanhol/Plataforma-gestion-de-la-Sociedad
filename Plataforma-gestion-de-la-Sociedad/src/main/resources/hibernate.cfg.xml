@@ -50,6 +50,7 @@
         <mapping class="es.juancarlos.beans.TipoServicioObservaciones" />
         <mapping class="es.juancarlos.beans.Proyecto" />
         <mapping class="es.juancarlos.beans.UsuXFecha" />
+        <mapping class="es.juancarlos.beans.MiembrosFamilia" />
         
         
         
