@@ -7,6 +7,7 @@ package es.juancarlos.events;
 
 import Enum.TipoPerfil;
 import es.juancarlos.beans.Desplegables;
+import es.juancarlos.beans.MiembrosFamilia;
 import es.juancarlos.beans.Perfil;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.beans.ValorDesplegable;
@@ -55,11 +56,7 @@ public class Evento implements ServletContextListener {
         List<ValorDesplegable> lista2 = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> lista3 = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> lista4 = new ArrayList<ValorDesplegable>();
-        List<ValorDesplegable> lista5 = new ArrayList<ValorDesplegable>();
-        List<ValorDesplegable> lista6 = new ArrayList<ValorDesplegable>();
-        List<ValorDesplegable> lista7 = new ArrayList<ValorDesplegable>();
-        List<ValorDesplegable> lista8 = new ArrayList<ValorDesplegable>();
-        List<ValorDesplegable> lista9 = new ArrayList<ValorDesplegable>();
+       
         List<ValorDesplegable> lista10 = new ArrayList<ValorDesplegable>();
         List<ValorDesplegable> lista11 = new ArrayList<ValorDesplegable>();
         
@@ -116,48 +113,10 @@ public class Evento implements ServletContextListener {
         lista4.add(new ValorDesplegable("SAHARIANA"));
         lista4.add(new ValorDesplegable("MARROQUÍ"));
 
-        vd = new ValorDesplegable("Discapacitado (sin brazo)");
-        lista5.add(vd);
-        vd = new ValorDesplegable("Discapacitado (sin pierna)");
-        lista5.add(vd);
-        vd = new ValorDesplegable("Jugadores de lol");
-        lista5.add(vd);
-        vd = new ValorDesplegable("Homosexual");
-        lista5.add(vd);
-        vd = new ValorDesplegable("Gordos");
-        lista5.add(vd);
-        vd = new ValorDesplegable("Ciego");
-        lista6.add(vd);
-        vd = new ValorDesplegable("Discapacitado (sin pierna)");
-        lista6.add(vd);
-        vd = new ValorDesplegable("Discapacitado (sin brazo)");
-        lista6.add(vd);
-        vd = new ValorDesplegable("Poco");
-        lista7.add(vd);
-        vd = new ValorDesplegable("Mucho");
-        lista7.add(vd);
-        vd = new ValorDesplegable("Mucho");
-        lista7.add(vd);
-        vd = new ValorDesplegable("Demasiado");
-        lista7.add(vd);
-        vd = new ValorDesplegable("Parado");
-        lista8.add(vd);
-        vd = new ValorDesplegable("Contrato indefinido");
-        lista8.add(vd);
-        vd = new ValorDesplegable("Contrato temporal");
-        lista8.add(vd);
-        vd = new ValorDesplegable("COCHE");
-        lista9.add(vd);
-        vd = new ValorDesplegable("MOTO");
-        lista9.add(vd);
-        vd = new ValorDesplegable("AVION");
-        lista9.add(vd);
-        vd = new ValorDesplegable("SES");
-        lista10.add(vd);
-        vd = new ValorDesplegable("SATSE");
-        lista10.add(vd);
-        vd = new ValorDesplegable("UEX");
-        lista10.add(vd);
+        lista10.add(new ValorDesplegable("Usuario/a"));
+        lista10.add(new ValorDesplegable("Cónyuge/pareja"));
+        lista10.add(new ValorDesplegable("Hijos"));
+        lista10.add(new ValorDesplegable("Otros"));
         
         lista11.add(new ValorDesplegable("FAMILIAS"));
         lista11.add(new ValorDesplegable("INFANCIA Y JUVENTUD"));
@@ -168,24 +127,24 @@ public class Evento implements ServletContextListener {
         lista11.add(new ValorDesplegable("INMIGRANTES"));
         lista11.add(new ValorDesplegable("HOSPITALIZADAS"));
         
-        gdao.insertOrUpdate(new Usuario("Gonzalo", "Potro"));
+        /*gdao.insertOrUpdate(new Usuario("Gonzalo", "Potro"));
         gdao.insertOrUpdate(new Usuario("Iker", "Casillas"));
         gdao.insertOrUpdate(new Usuario("Dolores", "Fuertes"));
         gdao.insertOrUpdate(new Usuario("Manuela", "Macias"));
-        gdao.insertOrUpdate(new Usuario("Juan", "Gonzalez"));
+        gdao.insertOrUpdate(new Usuario("Juan", "Gonzalez"));*/
         //////////////////////////////////////////////////////////
         gdao.insertOrUpdate(new Desplegables("TipoDocumentoIdentificativo", lista1));
         gdao.insertOrUpdate(new Desplegables("Sexo", lista2));
         gdao.insertOrUpdate(new Desplegables("PaisOrigen", lista3));
         gdao.insertOrUpdate(new Desplegables("Nacionalidad", lista4));
-        gdao.insertOrUpdate(new Desplegables("MinoriaEtnica", lista5));
-        gdao.insertOrUpdate(new Desplegables("TipoDiscapacidad", lista6));
-        gdao.insertOrUpdate(new Desplegables("GradoDiscapacidad", lista7));
-        gdao.insertOrUpdate(new Desplegables("TipoCarnetConducir", lista9));
+        gdao.insertOrUpdate(new Desplegables("MinoriaEtnica", lista));
+        gdao.insertOrUpdate(new Desplegables("TipoDiscapacidad", lista));
+        gdao.insertOrUpdate(new Desplegables("GradoDiscapacidad", lista));
+        gdao.insertOrUpdate(new Desplegables("TipoCarnetConducir", lista));
         gdao.insertOrUpdate(new Desplegables("OtrosCarnets", lista));
         gdao.insertOrUpdate(new Desplegables("Profesion", lista));
-        gdao.insertOrUpdate(new Desplegables("SituacionLaboral", lista8));
-        gdao.insertOrUpdate(new Desplegables("BolsaTrabajo", lista10));
+        gdao.insertOrUpdate(new Desplegables("SituacionLaboral", lista));
+        gdao.insertOrUpdate(new Desplegables("BolsaTrabajo", lista));
         gdao.insertOrUpdate(new Desplegables("NivelEstudios", lista));
         gdao.insertOrUpdate(new Desplegables("OrigenIngresos", lista));
         gdao.insertOrUpdate(new Desplegables("MotivoCosteVivienda", lista));
@@ -209,11 +168,24 @@ public class Evento implements ServletContextListener {
         gdao.insertOrUpdate(new Desplegables("Cargo", lista));
         gdao.insertOrUpdate(new Desplegables("Profesores", lista));
         gdao.insertOrUpdate(new Desplegables("Colectivos", lista11));
-        gdao.insertOrUpdate(new Desplegables("Parentesco", lista));
+        gdao.insertOrUpdate(new Desplegables("Parentesco", lista10));
 
         //usuario administrador
         gdao.insertOrUpdate(new Perfil("admin", "admin", TipoPerfil.ADMIN));
-
+        
+        Usuario u=new Usuario();
+        List <MiembrosFamilia> lMF=new ArrayList<>();
+        MiembrosFamilia mF=new MiembrosFamilia("familiar1", "ape1", "10/10/1997", "prof1");
+        lMF.add(mF);
+        mF=new MiembrosFamilia("familiar2", "ape2", "10/10/1998", "prof2");
+        lMF.add(mF);
+        
+        u.setNombre("prueba");
+        u.setApellidos("pruebaApe");
+        u.setFamiliares(lMF);
+        
+        
+        gdao.insertOrUpdate(u);
     }
 
     /**

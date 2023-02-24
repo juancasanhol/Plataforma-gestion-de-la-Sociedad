@@ -373,19 +373,21 @@
 
             <table class="table">
                 <thead>
-                    <tr>
+                    <tr id="theadUC">
                         <th>Nombre</th>
                         <th>Parentesco</th>
                         <th>Fecha Nac</th>
                         <th>Profesion</th>
+                        <th id="thAyudaHijo" hidden>Ayuda Hijo</th>
                     </tr>
                 </thead>
                 <tbody id="tbodyUC">
-                    <tr>
+                    <tr id="row1">
                         <td scope="row"><input type="text" name="" id="nomUC1"></td>
-                        <td ><input type="text" name="" id="parenUC1" list="DesplegablesParentesco" ></td>
+                        <td ><input type="text" name="" id="parenUC1" class="parent" list="DesplegablesParentesco" ></td>
                         <td><input type="date" name="" id="fechaUC1" min="0"></td>
                         <td><input type="text" name="" id="profesUC1"></td>
+                        <td id='tdAyudaHijo1'hidden><input type='checkbox'></td>
                     </tr>
                    
                 </tbody>

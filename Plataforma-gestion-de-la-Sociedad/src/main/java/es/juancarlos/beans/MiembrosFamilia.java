@@ -39,5 +39,56 @@ public class MiembrosFamilia {
     
     @Column(name = "Profesion", nullable = true)
     String Profesion;
+
+    public MiembrosFamilia() {
+    }
+
+    public MiembrosFamilia(String nombre, String Apellido, String FechaNacimiento, String Profesion) {
+        this.nombre = nombre;
+        this.Apellido = Apellido;
+        this.FechaNacimiento = FechaNacimiento;
+        this.Profesion = Profesion;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return Apellido;
+    }
+
+    public void setApellido(String Apellido) {
+        this.Apellido = Apellido;
+    }
+
+    public String getFechaNacimiento() {
+        return FechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String FechaNacimiento) {
+        this.FechaNacimiento = FechaNacimiento;
+    }
+
+    public String getProfesion() {
+        return Profesion;
+    }
+
+    public void setProfesion(String Profesion) {
+        this.Profesion = Profesion;
+    }
+    
     
 }

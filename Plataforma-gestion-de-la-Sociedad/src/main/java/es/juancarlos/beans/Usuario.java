@@ -252,7 +252,7 @@ public class Usuario implements Serializable {
         joinColumns = @JoinColumn(name = "FK_ID_FAMILIAR_PRINCIPAL", nullable = false),
         inverseJoinColumns = @JoinColumn(name="FK_FAMILIAR", nullable = false)
     )
-    @ManyToMany(cascade = CascadeType.DETACH)
+    @ManyToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<MiembrosFamilia> familiares;
 
