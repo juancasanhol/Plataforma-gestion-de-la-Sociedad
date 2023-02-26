@@ -1,6 +1,26 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- */
+$(document).ready(function () {
+
+    $("#addUser").click(function () {
+        //ENTRA EN EL CLICK DEL BOTON
+
+        $.ajax({
+            type: "post",
+            url: "../../Ajax",
+            data: {
+                accion: "addUser",
+                id:$("#addUser")
+//                HAY QUE PILLAR LOS DATOS
+            },
+            success: function (respuesta) {
+                
+            },
+            error: function () {
+                console.log("ERROR!!");
+            }
+        });
+
+    });
 
 
+
+});
