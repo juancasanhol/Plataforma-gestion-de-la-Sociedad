@@ -12,13 +12,13 @@ $(document).ready(function () {
                 tipoDoc: $("TipoDoc").val(),
                 personaReferencia: $("personaReferencia").val(),
                 nacionalidad: $("nacionalidad").val(),
-                nombre: $("nombre").val(),
-                nombre: $("nombre").val(),
-                nombre: $("nombre").val(),
+//                nombre: $("nombre").val(),
+//                nombre: $("nombre").val(),
+//                nombre: $("nombre").val(),
 //                HAY QUE PILLAR LOS DATOS
             },
             success: function (respuesta) {
-                
+
             },
             error: function () {
                 console.log("ERROR!!");
