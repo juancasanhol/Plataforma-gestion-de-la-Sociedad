@@ -47,19 +47,18 @@ public class RegistroUsuario extends HttpServlet {
      * @param response Servlet response
      * @throws ServletException Si ocurre un error específico del Servlet
      * @throws IOException Si ocurre un error de I/O
+     * @throws IllegalAccessException
+     * @throws InvocationTargetException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, IllegalAccessException, InvocationTargetException {
                 Usuario u = new Usuario();
 
-        try {
-            //todos aquellos campos de request que coincidan con el nombre de las variables del bean se insertaran
-            BeanUtils.populate(u, request.getParameterMap());
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InvocationTargetException ex) {
-            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      
+        //todos aquellos campos de request que coincidan con el nombre de las variables del bean se insertaran
+       
+        u.Cargar( request.getParameterMap());
+       
 /*
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
@@ -190,7 +189,13 @@ public class RegistroUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -204,7 +209,13 @@ public class RegistroUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

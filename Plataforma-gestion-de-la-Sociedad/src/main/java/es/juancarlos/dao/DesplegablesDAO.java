@@ -1,10 +1,9 @@
 package es.juancarlos.dao;
 
 import es.juancarlos.beans.Desplegables;
-import es.juancarlos.interfaces.IAjaxDAO;
+import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.interfaces.IDesplegablesDAO;
 import es.juancarlos.persistencia.HibernateUtil;
-import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -19,15 +18,15 @@ public class DesplegablesDAO implements IDesplegablesDAO {
     Session sesion;
 
        @Override
-    public Desplegables getByID(String id) {
+    public ValorDesplegable getByID(String val) {
         
-        Desplegables retorno  = null;
+        ValorDesplegable retorno  = null;
         Query q = null;
         try {
             startTransaction();
-            q = sesion.createQuery("SELECT d.Nombre from Desplegables as d WHERE d.Nombre = :id");
-            q.setParameter("id", id);
-            retorno=(Desplegables) q.uniqueResult();
+            q = sesion.createQuery("SELECT v from ValorDesplegable as v WHERE v.valor = :val");
+            q.setParameter("val", val);
+            retorno=(ValorDesplegable) q.uniqueResult();
         } catch (HibernateException e) {
             this.handleExcepcion(e);
         } finally {

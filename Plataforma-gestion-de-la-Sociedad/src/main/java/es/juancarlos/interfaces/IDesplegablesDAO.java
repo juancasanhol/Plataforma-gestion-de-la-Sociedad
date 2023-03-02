@@ -5,7 +5,7 @@
  */
 package es.juancarlos.interfaces;
 
-import es.juancarlos.beans.Desplegables;
+import es.juancarlos.beans.ValorDesplegable;
 
 /**
  *
@@ -13,6 +13,6 @@ import es.juancarlos.beans.Desplegables;
  */
 public interface IDesplegablesDAO {
     
-    public Desplegables getByID(String id);
+    public ValorDesplegable getByID(String id);
     
 }

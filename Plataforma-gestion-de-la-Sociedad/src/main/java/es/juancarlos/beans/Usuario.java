@@ -1,8 +1,8 @@
 package es.juancarlos.beans;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,9 +32,6 @@ public class Usuario implements Serializable {
 
     @Column(name = "Nombre", nullable = true)
     String Nombre;
-    
-    @Column(name = "EsProfe", nullable = true)
-    Boolean EsProfe;
 
     @Column(name = "Apellidos", nullable = true)
     String Apellidos;
@@ -183,7 +180,6 @@ public class Usuario implements Serializable {
     List<Observaciones> observaciones_ingresos;//Son las observaciones referentes a los ingresos
 
     //DATOS DE LA FICHA DE UNIDAD DE CONVIVENCIA, LOS CUALES NO SON OBLIGATORIOS TENER
-    
     @Column(name = "Denominacion", nullable = true)
     String Denominacion;
 
@@ -216,8 +212,6 @@ public class Usuario implements Serializable {
     List<FicheroAdjunto> ficheros_unidadconvivencia;
 
     //SUMA DE INGRESOS DE LOS CONVIVIENTES (SE CALCULA SOLO)
-    
-
     //DATOS DEL BANCO DE ALIMENTOS
     @Column(name = "EstaBanco", nullable = true)//CHECK
     Boolean EstaBanco;
@@ -246,11 +240,11 @@ public class Usuario implements Serializable {
     @LazyCollection(LazyCollectionOption.FALSE)
     @JoinColumn(name = "id_obs_orientacion")
     List<Observaciones> observaciones_orientacion;//Son las observaciones referentes a orientacion laboral
-    
-     @JoinTable(
-        name = "FAMILIARES",
-        joinColumns = @JoinColumn(name = "FK_ID_FAMILIAR_PRINCIPAL", nullable = false),
-        inverseJoinColumns = @JoinColumn(name="FK_FAMILIAR", nullable = false)
+
+    @JoinTable(
+            name = "FAMILIARES",
+            joinColumns = @JoinColumn(name = "FK_ID_FAMILIAR_PRINCIPAL", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "FK_FAMILIAR", nullable = false)
     )
     @ManyToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -351,8 +345,7 @@ public class Usuario implements Serializable {
         this.FechaOrientacion = FechaOrientacion;
         this.Beneficiario = Beneficiario;
     }*/
-
-    public Usuario(int NumIntId, String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id, List<FicheroAdjunto> ficheros_usuario, Boolean SolicitaAyudaFarmaceutica, String TratSanitario, Boolean Drogodependencia, String TipoDiscapacidad, String GradoDiscapacidad, List<Observaciones> observaciones_sanitarias, Boolean PermisoResidencia, Boolean PermisoTrabajo, Boolean CarnetConducir, String TipoCarnetConducir, List<ValorDesplegable> otros_carnets, List<ProfesionObservaciones> profesion_observaciones, String SituacionLaboral, String UltTrabajo, String PrefLaboral, List<ValorDesplegable> bolsa_trabajo, List<Observaciones> observaciones_datos_laborales, String NivelEstudios, String FormacionComp, Boolean EstaEstudiando, Boolean FracasoEscolar, String CentroEst, List<Observaciones> observaciones_formacion, float Importe, String OrigenIngresos, List<Observaciones> observaciones_ingresos, String Denominacion, String Direccion,String Localidad, Boolean FamiliaMonoparental, Boolean SinHogar, float CosteVivienda, String MotivoCoste, List<Observaciones> observaciones_ficha_convivencia, List<FicheroAdjunto> ficheros_unidadconvivencia, Boolean EstaBanco, String FechaAlta_BancoAlimentos, String FechaBaja_BancoAlimentos, List<BancoAlimentos> lista_recogidas, String FechaOrientacion, String Beneficiario, List<Observaciones> observaciones_orientacion) {
+    public Usuario(int NumIntId, String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id, List<FicheroAdjunto> ficheros_usuario, Boolean SolicitaAyudaFarmaceutica, String TratSanitario, Boolean Drogodependencia, String TipoDiscapacidad, String GradoDiscapacidad, List<Observaciones> observaciones_sanitarias, Boolean PermisoResidencia, Boolean PermisoTrabajo, Boolean CarnetConducir, String TipoCarnetConducir, List<ValorDesplegable> otros_carnets, List<ProfesionObservaciones> profesion_observaciones, String SituacionLaboral, String UltTrabajo, String PrefLaboral, List<ValorDesplegable> bolsa_trabajo, List<Observaciones> observaciones_datos_laborales, String NivelEstudios, String FormacionComp, Boolean EstaEstudiando, Boolean FracasoEscolar, String CentroEst, List<Observaciones> observaciones_formacion, float Importe, String OrigenIngresos, List<Observaciones> observaciones_ingresos, String Denominacion, String Direccion, String Localidad, Boolean FamiliaMonoparental, Boolean SinHogar, float CosteVivienda, String MotivoCoste, List<Observaciones> observaciones_ficha_convivencia, List<FicheroAdjunto> ficheros_unidadconvivencia, Boolean EstaBanco, String FechaAlta_BancoAlimentos, String FechaBaja_BancoAlimentos, List<BancoAlimentos> lista_recogidas, String FechaOrientacion, String Beneficiario, List<Observaciones> observaciones_orientacion) {
         this.NumIntId = NumIntId;
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
@@ -414,8 +407,6 @@ public class Usuario implements Serializable {
         this.Beneficiario = Beneficiario;
         this.observaciones_orientacion = observaciones_orientacion;
     }
-
-    
 
     public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id, List<FicheroAdjunto> ficheros_usuario, Boolean SolicitaAyudaFarmaceutica, String TratSanitario, Boolean Drogodependencia, String TipoDiscapacidad, String GradoDiscapacidad, List<Observaciones> observaciones_sanitarias, Boolean PermisoResidencia, Boolean PermisoTrabajo, Boolean CarnetConducir, String TipoCarnetConducir, List<ValorDesplegable> otros_carnets, /*List<ProfesionObservaciones> profesion_observaciones,*/ String SituacionLaboral, String UltTrabajo, String PrefLaboral, List<ValorDesplegable> bolsa_trabajo, List<Observaciones> observaciones_datos_laborales, String NivelEstudios, String FormacionComp, Boolean EstaEstudiando, Boolean FracasoEscolar, String CentroEst, List<Observaciones> observaciones_formacion, float Importe, String OrigenIngresos, List<Observaciones> observaciones_ingresos, String Denominacion, String Direccion, String Localidad, Boolean FamiliaMonoparental, Boolean SinHogar, float CosteVivienda, String MotivoCoste, List<Observaciones> observaciones_ficha_convivencia,/* List<FicheroAdjunto> ficheros_unidadconvivencia,*/ Boolean EstaBanco, String FechaAlta_BancoAlimentos, String FechaBaja_BancoAlimentos, List<BancoAlimentos> lista_recogidas, String FechaOrientacion, String Beneficiario, List<Observaciones> observaciones_orientacion) {
         this.Nombre = Nombre;
@@ -479,8 +470,6 @@ public class Usuario implements Serializable {
         this.observaciones_orientacion = observaciones_orientacion;
     }
 
-    
-    
     public int getNumIntId() {
         return NumIntId;
     }
@@ -961,19 +950,144 @@ public class Usuario implements Serializable {
         this.observaciones_orientacion = observaciones_orientacion;
     }
 
-    public Boolean getEsProfe() {
-        return EsProfe;
-    }
-
-    public void setEsProfe(Boolean EsProfe) {
-        this.EsProfe = EsProfe;
-    }
-
     public List<MiembrosFamilia> getFamiliares() {
         return familiares;
     }
 
     public void setFamiliares(List<MiembrosFamilia> familiares) {
         this.familiares = familiares;
-    }   
+    }
+
+    public void Cargar(Map<String, ? extends Object> properties) {
+        String[] au;
+        for (String property : properties.keySet()) {
+            switch (property) {
+
+                case "Nombre":
+                    au = (String[]) properties.get(property);
+                    setNombre(au[0]);
+                    break;
+
+                case "TipoDoc":
+                    au = (String[]) properties.get(property);
+                    setTipoDoc(au[0]);
+                    break;
+
+                case "PersonaReferencia":
+                    au = (String[]) properties.get(property);
+                    setPersonaReferencia(au[0]);
+                    break;
+
+                case "Nacionalidad"://desplegable
+                    au = (String[]) properties.get(property);
+                    setNacionalidad(au[0]);
+                    break;
+
+                case "Apellidos":
+                    au = (String[]) properties.get(property);
+                    setApellidos(au[0]);
+                    break;
+
+                case "NumDoc":
+                    au = (String[]) properties.get(property);
+                    setNumDoc(au[0]);
+                    break;
+
+                case "Sexo"://desplegable
+                    au = (String[]) properties.get(property);
+                    setSexo(au[0]);
+                    break;
+
+                case "FechaAlta":
+                    au = (String[]) properties.get(property);
+                    setFechaAlta(au[0]);
+                    break;
+
+                case "Telefono":
+                    au = (String[]) properties.get(property);
+                    setTelefono(au[0]);
+                    break;
+
+                case "FechaNac":
+                    au = (String[]) properties.get(property);
+                    setFechaNac(au[0]);
+                    break;
+
+                case "Minoria"://desplegable
+                    au = (String[]) properties.get(property);
+                    setMinoria(au[0]);
+                    break;
+
+                case "FechaBaja":
+                    au = (String[]) properties.get(property);
+                    setFechaBaja(au[0]);
+                    break;
+
+                case "Correo":
+                    au = (String[]) properties.get(property);
+                    setCorreo(au[0]);
+                    break;
+
+                case "PaisOrigen":
+                    au = (String[]) properties.get(property);
+                    setPaisOrigen(au[0]);
+                    break;
+
+                case "GradoDiscapacidad":
+                    au = (String[]) properties.get(property);
+                    setGradoDiscapacidad(au[0]);
+                    break;
+
+                case "TratSanitario":
+                    au = (String[]) properties.get(property);
+                    setTratSanitario(au[0]);
+                    break;
+
+                case "TipoDiscapacidad":
+                    au = (String[]) properties.get(property);
+                    setTipoDiscapacidad(au[0]);
+                    break;
+
+                case "SituacionLaboral":
+                    au = (String[]) properties.get(property);
+                    setSituacionLaboral(au[0]);
+                    break;
+
+                case "UltTrabajo":
+                    au = (String[]) properties.get(property);
+                    setUltTrabajo(au[0]);
+                    break;
+
+                case "PrefLaboral":
+                    au = (String[]) properties.get(property);
+                    setPrefLaboral(au[0]);
+                    break;
+                case "PerteneceMinoria":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setPerteneceMinoria(true);
+                    } else {
+                        setPerteneceMinoria(false);
+                    }
+
+                    break;
+//------------------------------------------------------------------------
+
+                /*Ficherio ObservacionesSanitarias Observaciones ObservacionesLaborales NivelEstudios
+                    CentroEst FormacionComp
+                    ObservacionesFormacion ObservacionesIngresos
+                    Denominacion Direccion
+                    CosteVivienda Localidad
+                    MotivoCoste ObservacionesConvivencia
+                    FechaAlta_BancoAlimentos FechaBaja_BancoAlimentos
+                    FechaOrientacion Beneficiario
+                    ObservacionesOrientacion*/
+                default:
+                    System.out.println(property);
+                    break;
+            }
+        }
+
+    }
+
 }
