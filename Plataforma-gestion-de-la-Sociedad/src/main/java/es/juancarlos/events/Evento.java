@@ -172,20 +172,6 @@ public class Evento implements ServletContextListener {
 
         //usuario administrador
         gdao.insertOrUpdate(new Perfil("admin", "admin", TipoPerfil.ADMIN));
-        
-        Usuario u=new Usuario();
-        List <MiembrosFamilia> lMF=new ArrayList<>();
-        MiembrosFamilia mF=new MiembrosFamilia("familiar1", "ape1", "10/10/1997", "prof1");
-        lMF.add(mF);
-        mF=new MiembrosFamilia("familiar2", "ape2", "10/10/1998", "prof2");
-        lMF.add(mF);
-        
-        u.setNombre("prueba");
-        u.setApellidos("pruebaApe");
-        u.setFamiliares(lMF);
-        
-        
-        gdao.insertOrUpdate(u);
     }
 
     /**

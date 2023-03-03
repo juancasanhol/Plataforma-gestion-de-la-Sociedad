@@ -275,6 +275,16 @@ public class Ajax extends HttpServlet {
                             desplegables.add(objeto);
                         }
                     }
+                     if (d.getNombre().equals("OrigenIngresos")) {
+                        List<ValorDesplegable> lista = d.getValores();
+                        for (int j = 0; j < lista.size(); j++) {
+                            objeto = new JSONObject();
+                            //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idOrigenIngresos", lista.get(j).getId());
+                            objeto.put("origenIngresos", lista.get(j).getValor());
+                            desplegables.add(objeto);
+                        }
+                    }
 
                 }
                 arrayJSON = new JSONArray(desplegables);
@@ -510,7 +520,7 @@ public class Ajax extends HttpServlet {
                 objeto.put("fechanac", u.getFechaNac());
                 objeto.put("paisorigen", u.getPaisOrigen());
                 objeto.put("nacionalidad", u.getNacionalidad());
-                objeto.put("perteneceminoria", u.getPerteneceMinoria());
+                objeto.put("perteneceminoria", u.isPerteneceMinoria());
                 objeto.put("minoria", u.getMinoria());
                 objeto.put("solicitaayudafarmaceutica", u.getSolicitaAyudaFarmaceutica());
                 objeto.put("tratsanitario", u.getTratSanitario());
@@ -529,8 +539,8 @@ public class Ajax extends HttpServlet {
                 objeto.put("estaestudiando", u.getEstaEstudiando());
                 objeto.put("fracasoescolar", u.getFracasoEscolar());
                 objeto.put("centroest", u.getCentroEst());
-                objeto.put("importe", u.getImporte());
-                objeto.put("origeningresos", u.getOrigenIngresos());
+                objeto.put("ingresos", u.getIngresos());
+                objeto.put("unidadConvivencia", u.getFamiliares());
                 objeto.put("denominacion", u.getDenominacion());
                 objeto.put("direccion", u.getDireccion());
                 objeto.put("localidad", u.getLocalidad());
@@ -910,7 +920,7 @@ public class Ajax extends HttpServlet {
                         usuarios.add(objeto);
                     }
                 } catch (Exception exc) {
-                    //Para cargar los desplegables sin errores
+                    System.out.println(exc);
                 }
                 arrayJSON = new JSONArray(usuarios);
                 response.setContentType("application/json");

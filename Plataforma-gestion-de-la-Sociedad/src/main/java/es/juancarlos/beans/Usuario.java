@@ -1,6 +1,10 @@
 package es.juancarlos.beans;
 
+import antlr.StringUtils;
+import es.juancarlos.daofactory.DAOFactory;
+import es.juancarlos.interfaces.IGenericoDAO;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.CascadeType;
@@ -99,6 +103,9 @@ public class Usuario implements Serializable {
     @Column(name = "GradoDiscapacidad", nullable = true)//DESPLEGABLE
     String GradoDiscapacidad;
 
+    @Column(name = "Hospitalizado", nullable = true)//CHECK
+    Boolean Hospitalizado;
+
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     @JoinColumn(name = "id_obs_sanitarias")
@@ -168,12 +175,6 @@ public class Usuario implements Serializable {
     List<Observaciones> observaciones_formacion;//Son las observaciones referentes a los datos de formacion
 
     ///////////////////INGRESOS/////////////////
-    @Column(name = "Importe", nullable = true)
-    float Importe;
-
-    @Column(name = "OrigenIngresos", nullable = true)//DESPLEGABLE
-    String OrigenIngresos;
-
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     @JoinColumn(name = "id_obs_ingresos")
@@ -240,7 +241,7 @@ public class Usuario implements Serializable {
     @LazyCollection(LazyCollectionOption.FALSE)
     @JoinColumn(name = "id_obs_orientacion")
     List<Observaciones> observaciones_orientacion;//Son las observaciones referentes a orientacion laboral
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @JoinTable(
             name = "FAMILIARES",
             joinColumns = @JoinColumn(name = "FK_ID_FAMILIAR_PRINCIPAL", nullable = false),
@@ -249,6 +250,15 @@ public class Usuario implements Serializable {
     @ManyToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<MiembrosFamilia> familiares;
+
+    @JoinTable(
+            name = "INGRESOS",
+            joinColumns = @JoinColumn(name = "FK_ID_INGRESO_DE", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "FK_INGRESO", nullable = false)
+    )
+    @ManyToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<Ingresos> ingresos;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     public Usuario() {
@@ -345,7 +355,7 @@ public class Usuario implements Serializable {
         this.FechaOrientacion = FechaOrientacion;
         this.Beneficiario = Beneficiario;
     }*/
-    public Usuario(int NumIntId, String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id, List<FicheroAdjunto> ficheros_usuario, Boolean SolicitaAyudaFarmaceutica, String TratSanitario, Boolean Drogodependencia, String TipoDiscapacidad, String GradoDiscapacidad, List<Observaciones> observaciones_sanitarias, Boolean PermisoResidencia, Boolean PermisoTrabajo, Boolean CarnetConducir, String TipoCarnetConducir, List<ValorDesplegable> otros_carnets, List<ProfesionObservaciones> profesion_observaciones, String SituacionLaboral, String UltTrabajo, String PrefLaboral, List<ValorDesplegable> bolsa_trabajo, List<Observaciones> observaciones_datos_laborales, String NivelEstudios, String FormacionComp, Boolean EstaEstudiando, Boolean FracasoEscolar, String CentroEst, List<Observaciones> observaciones_formacion, float Importe, String OrigenIngresos, List<Observaciones> observaciones_ingresos, String Denominacion, String Direccion, String Localidad, Boolean FamiliaMonoparental, Boolean SinHogar, float CosteVivienda, String MotivoCoste, List<Observaciones> observaciones_ficha_convivencia, List<FicheroAdjunto> ficheros_unidadconvivencia, Boolean EstaBanco, String FechaAlta_BancoAlimentos, String FechaBaja_BancoAlimentos, List<BancoAlimentos> lista_recogidas, String FechaOrientacion, String Beneficiario, List<Observaciones> observaciones_orientacion) {
+    public Usuario(int NumIntId, String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones_id, List<FicheroAdjunto> ficheros_usuario, Boolean SolicitaAyudaFarmaceutica, String TratSanitario, Boolean Drogodependencia, String TipoDiscapacidad, String GradoDiscapacidad, List<Observaciones> observaciones_sanitarias, Boolean PermisoResidencia, Boolean PermisoTrabajo, Boolean CarnetConducir, String TipoCarnetConducir, List<ValorDesplegable> otros_carnets, List<ProfesionObservaciones> profesion_observaciones, String SituacionLaboral, String UltTrabajo, String PrefLaboral, List<ValorDesplegable> bolsa_trabajo, List<Observaciones> observaciones_datos_laborales, String NivelEstudios, String FormacionComp, Boolean EstaEstudiando, Boolean FracasoEscolar, String CentroEst, List<Observaciones> observaciones_formacion, String OrigenIngresos, List<Observaciones> observaciones_ingresos, String Denominacion, String Direccion, String Localidad, Boolean FamiliaMonoparental, Boolean SinHogar, float CosteVivienda, String MotivoCoste, List<Observaciones> observaciones_ficha_convivencia, List<FicheroAdjunto> ficheros_unidadconvivencia, Boolean EstaBanco, String FechaAlta_BancoAlimentos, String FechaBaja_BancoAlimentos, List<BancoAlimentos> lista_recogidas, String FechaOrientacion, String Beneficiario, List<Observaciones> observaciones_orientacion) {
         this.NumIntId = NumIntId;
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
@@ -387,8 +397,6 @@ public class Usuario implements Serializable {
         this.FracasoEscolar = FracasoEscolar;
         this.CentroEst = CentroEst;
         this.observaciones_formacion = observaciones_formacion;
-        this.Importe = Importe;
-        this.OrigenIngresos = OrigenIngresos;
         this.observaciones_ingresos = observaciones_ingresos;
         this.Denominacion = Denominacion;
         this.Direccion = Direccion;
@@ -449,8 +457,6 @@ public class Usuario implements Serializable {
         this.FracasoEscolar = FracasoEscolar;
         this.CentroEst = CentroEst;
         this.observaciones_formacion = observaciones_formacion;
-        this.Importe = Importe;
-        this.OrigenIngresos = OrigenIngresos;
         this.observaciones_ingresos = observaciones_ingresos;
         this.Denominacion = Denominacion;
         this.Direccion = Direccion;
@@ -582,7 +588,7 @@ public class Usuario implements Serializable {
         this.Nacionalidad = Nacionalidad;
     }
 
-    public Boolean getPerteneceMinoria() {
+    public Boolean isPerteneceMinoria() {
         return PerteneceMinoria;
     }
 
@@ -798,22 +804,6 @@ public class Usuario implements Serializable {
         this.observaciones_formacion = observaciones_formacion;
     }
 
-    public float getImporte() {
-        return Importe;
-    }
-
-    public void setImporte(float Importe) {
-        this.Importe = Importe;
-    }
-
-    public String getOrigenIngresos() {
-        return OrigenIngresos;
-    }
-
-    public void setOrigenIngresos(String OrigenIngresos) {
-        this.OrigenIngresos = OrigenIngresos;
-    }
-
     public List<Observaciones> getObservaciones_ingresos() {
         return observaciones_ingresos;
     }
@@ -958,7 +948,27 @@ public class Usuario implements Serializable {
         this.familiares = familiares;
     }
 
+    public Boolean getHospitalizado() {
+        return Hospitalizado;
+    }
+
+    public void setHospitalizado(Boolean Hospitalizado) {
+        this.Hospitalizado = Hospitalizado;
+    }
+
+    public List<Ingresos> getIngresos() {
+        return ingresos;
+    }
+
+    public void setIngresos(List<Ingresos> ingresos) {
+        this.ingresos = ingresos;
+    }
+
     public void Cargar(Map<String, ? extends Object> properties) {
+
+        DAOFactory daof = DAOFactory.getDAOFactory();
+        IGenericoDAO gdao = daof.getGenericoDAO();
+
         String[] au;
         for (String property : properties.keySet()) {
             switch (property) {
@@ -1071,23 +1081,239 @@ public class Usuario implements Serializable {
                     }
 
                     break;
+
+                case "NivelEstudios":
+                    au = (String[]) properties.get(property);
+                    setNivelEstudios(au[0]);
+                    break;
+
+                case "CentroEst":
+                    au = (String[]) properties.get(property);
+                    setCentroEst(au[0]);
+                    break;
+
+                case "FormacionComp":
+                    au = (String[]) properties.get(property);
+                    setFormacionComp(au[0]);
+                    break;
+
+                case "Denominacion":
+                    au = (String[]) properties.get(property);
+                    setDenominacion(au[0]);
+                    break;
+
+                case "Direccion":
+                    au = (String[]) properties.get(property);
+                    setDireccion(au[0]);
+                    break;
+
+                case "CosteVivienda":
+                    au = (String[]) properties.get(property);
+                    if (isNumeric(au[0]) == true) {
+                        setCosteVivienda(Integer.parseInt(au[0]));
+                    } else {
+                        setCosteVivienda(0);
+                    }
+
+                    break;
+
+                case "Localidad":
+                    au = (String[]) properties.get(property);
+                    setLocalidad(au[0]);
+                    break;
+
+                case "FechaAlta_BancoAlimentos":
+                    au = (String[]) properties.get(property);
+                    setFechaAlta_BancoAlimentos(au[0]);
+                    break;
+
+                case "FechaBaja_BancoAlimentos":
+                    au = (String[]) properties.get(property);
+                    setFechaBaja_BancoAlimentos(au[0]);
+                    break;
+
+                case "FechaOrientacion":
+                    au = (String[]) properties.get(property);
+                    setFechaOrientacion(au[0]);
+                    break;
+
+                case "Beneficiario":
+                    au = (String[]) properties.get(property);
+                    setBeneficiario(au[0]);
+                    break;
+                case "MotivoCoste":
+                    au = (String[]) properties.get(property);
+                    setMotivoCoste(au[0]);
+                    break;
+                case "SinHogar":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setSinHogar(true);
+                    } else {
+                        setSinHogar(false);
+                    }
+                    break;
+                case "FamiliaMonoparental":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setFamiliaMonoparental(true);
+                    } else {
+                        setFamiliaMonoparental(false);
+                    }
+                    break;
+                case "EstaBanco":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setEstaBanco(true);
+                    } else {
+                        setEstaBanco(false);
+                    }
+                    break;
+
+                case "SolicitaAyudaFarmaceutica":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setSolicitaAyudaFarmaceutica(true);
+                    } else {
+                        setSolicitaAyudaFarmaceutica(false);
+                    }
+                    break;
+
+                case "Drogodependencia":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setDrogodependencia(true);
+                    } else {
+                        setDrogodependencia(false);
+                    }
+                    break;
+
+                case "hospitalizado":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setHospitalizado(true);
+                    } else {
+                        setHospitalizado(false);
+                    }
+                    break;
+
+                case "PermisoResidencia":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setPermisoResidencia(true);
+                    } else {
+                        setPermisoResidencia(false);
+                    }
+                    break;
+
+                case "PermisoTrabajo":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setPermisoTrabajo(true);
+                    } else {
+                        setPermisoTrabajo(false);
+                    }
+                    break;
+
+                case "CarnetConducir":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setCarnetConducir(true);
+                    } else {
+                        setCarnetConducir(false);
+                    }
+                    break;
+
+                case "EstaEstudiando":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setEstaEstudiando(true);
+                    } else {
+                        setEstaEstudiando(false);
+                    }
+                    break;
+
+                case "FracasoEscolar":
+                    au = (String[]) properties.get(property);
+                    if (au[0].equals("on")) {
+                        setFracasoEscolar(true);
+                    } else {
+                        setFracasoEscolar(false);
+                    }
+                    break;
+                case "datosUC":
+                    au = (String[]) properties.get(property);
+                    if (au[0] != null && !au[0].equals(";;;;false;;")) {
+                        List<MiembrosFamilia> listaFamiliares = new ArrayList<>();
+                        String[] miembros = au[0].split(";;");
+                        MiembrosFamilia miembroLista;
+                        for (String miembro : miembros) {
+                            String[] datosMiembro = miembro.split(";");
+                            if (datosMiembro[1] != null && !datosMiembro[1].equals("")) {
+                                ValorDesplegable v = (ValorDesplegable) gdao.getById(Integer.parseInt(datosMiembro[1]), ValorDesplegable.class);
+                                miembroLista = new MiembrosFamilia(datosMiembro[0], v.valor, datosMiembro[2], datosMiembro[3], Boolean.valueOf(datosMiembro[4]));
+                            } else {
+                                miembroLista = new MiembrosFamilia(datosMiembro[0], "Sin Parentezco", datosMiembro[2], datosMiembro[3], Boolean.valueOf(datosMiembro[4]));
+                            }
+
+                            listaFamiliares.add(miembroLista);
+                        }
+                        setFamiliares(listaFamiliares);
+                    }
+                    break;
+
+                case "datosIng":
+                    au = (String[]) properties.get(property);
+                    if (au[0] != null && !au[0].equals(";;;")) {
+
+                        List<Ingresos> listaIngresos = new ArrayList<>();
+                        Ingresos ingresoLista;
+                        String[] ingresos = au[0].split(";;");
+
+                        for (String ingreso : ingresos) {
+                            String[] datosIngreso = ingreso.split(";");
+                            if (datosIngreso[1] != null && !datosIngreso[1].equals("")) {
+                                ValorDesplegable v = (ValorDesplegable) gdao.getById(Integer.parseInt(datosIngreso[1]), ValorDesplegable.class);
+                                ingresoLista = new Ingresos(v.getValor(), Integer.parseInt(datosIngreso[0]));
+                            } else {
+                                ingresoLista = new Ingresos("Sin Origen", Integer.parseInt(datosIngreso[0]));
+                            }
+
+                            listaIngresos.add(ingresoLista);
+                        }
+                        setIngresos(listaIngresos);
+                    }
+                    break;
 //------------------------------------------------------------------------
 
-                /*Ficherio ObservacionesSanitarias Observaciones ObservacionesLaborales NivelEstudios
-                    CentroEst FormacionComp
-                    ObservacionesFormacion ObservacionesIngresos
-                    Denominacion Direccion
-                    CosteVivienda Localidad
-                    MotivoCoste ObservacionesConvivencia
-                    FechaAlta_BancoAlimentos FechaBaja_BancoAlimentos
-                    FechaOrientacion Beneficiario
-                    ObservacionesOrientacion*/
+                /*Fichero
+Observaciones
+ObservacionesSanitarias
+ObservacionesLaborales
+ObservacionesFormacion
+ObservacionesIngresos
+ObservacionesConvivencia
+ObservacionesOrientacion*/
                 default:
                     System.out.println(property);
                     break;
             }
         }
 
+    }
+
+    public static boolean isNumeric(String cadena) {
+
+        boolean resultado;
+
+        try {
+            Integer.parseInt(cadena);
+            resultado = true;
+        } catch (NumberFormatException excepcion) {
+            resultado = false;
+        }
+
+        return resultado;
     }
 
 }

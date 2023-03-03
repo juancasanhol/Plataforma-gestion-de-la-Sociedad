@@ -23,7 +23,8 @@
 
                 <div class="col-md-2">
                     <div class="col-2">
-                        <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png" alt="logo"></a>
+                        <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png"
+                                alt="logo"></a>
                     </div>
                 </div>
 
@@ -39,8 +40,8 @@
             <!--El numero interno de identificacion se genera solo-->
             <div class="col-3">
 
-                <legend >Nombre: </legend>
-                <input required id= "Nombre" type="text" name="Nombre"><br>
+                <legend>Nombre: </legend>
+                <input required id="Nombre" type="text" name="Nombre"><br>
 
                 <legend class="mt-3">Tipo de documento identificativo: </legend>
                 <input id="TipoDoc" type="text" name="TipoDoc" list="DesplegablesTipoDoc"> <br>
@@ -49,7 +50,8 @@
                 </datalist><br>
 
                 <legend class="mt-2">Persona de referencia: </legend>
-                <input type="text" id="personaReferencia" name="PersonaReferencia" list="DesplegablesPersonaReferencia"> <br>
+                <input type="text" id="personaReferencia" name="PersonaReferencia" list="DesplegablesPersonaReferencia">
+                <br>
                 <datalist id="DesplegablesPersonaReferencia">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist><br>
@@ -71,13 +73,13 @@
                 <input type="text" id="NumDoc" name="NumDoc"><br>
 
                 <legend class="mt-2">Sexo: </legend>
-                <input type="text" name="Sexo"  id="DesplegablesSexo" list="DesplegablesSexo"> <br>
+                <input type="text" name="Sexo" id="DesplegablesSexo" list="DesplegablesSexo"> <br>
                 <datalist id="DesplegablesSexo">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
 
                 <legend class="mt-2">¿Pertenece a una minoría? </legend>
-                <input class="mb-3" type="checkbox"  id="PerteneceMinoria"  name="PerteneceMinoria"><br>
+                <input class="mb-3" type="checkbox" id="PerteneceMinoria" name="PerteneceMinoria"><br>
 
                 <legend class="mt-2">Ficheros Adjuntos: </legend>
                 <input type="file" id="Fichero" name="Fichero"><br>
@@ -87,17 +89,17 @@
             <div class="col-3">
 
                 <legend class="mt-2">Fecha de alta: </legend>
-                <input type="date" id="FechaAlta"  name="FechaAlta"><br>
+                <input type="date" id="FechaAlta" name="FechaAlta"><br>
 
 
                 <legend class="mt-3">Telefono: </legend>
-                <input type="tel" id="Telefono"  name="Telefono"><br>
+                <input type="tel" id="Telefono" name="Telefono"><br>
 
                 <legend class="mt-2">Fecha de macimiento: </legend>
-                <input type="date" id="FechaNac"  name="FechaNac"><br>
+                <input type="date" id="FechaNac" name="FechaNac"><br>
 
                 <legend class="mt-2">Minoría: </legend>
-                <input type="text" id="DesplegablesMinoria"  name="Minoria" list="DesplegablesMinoria"> <br>
+                <input type="text" id="DesplegablesMinoria" name="Minoria" list="DesplegablesMinoria"> <br>
                 <datalist id="DesplegablesMinoria"><br>
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
@@ -106,20 +108,20 @@
             <div class="col-3">
 
                 <legend>Fecha de baja: </legend>
-                <input type="date" id="FechaBaja"  name="FechaBaja"><br>
+                <input type="date" id="FechaBaja" name="FechaBaja"><br>
 
                 <legend class="mt-3">Correo: </legend>
-                <input type="email" id="Correo"  name="Correo"><br>
+                <input type="email" id="Correo" name="Correo"><br>
 
                 <legend class="mt-2">País de origen: </legend>
-                <input  type="text" id="PaisOrigen"  name="PaisOrigen" list="DesplegablesPaisOrigen"><br>
+                <input type="text" id="PaisOrigen" name="PaisOrigen" list="DesplegablesPaisOrigen"><br>
                 <datalist id="DesplegablesPaisOrigen">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
 
                 <legend class="mt-2">Observaciones: </legend>
                 <textarea cols="30" name="Observaciones"></textarea><br>
-                
+
             </div>
 
             <!--DATOS SANITARIOS-->
@@ -147,7 +149,7 @@
 
                 <legend>Tratamiento sanitario: </legend>
                 <input type="text" id="TratSanitario" name="TratSanitario"><br>
-                
+
                 <legend class="mt-2">Observaciones: </legend>
                 <textarea cols="30" name="ObservacionesSanitarias"></textarea><br>
 
@@ -195,21 +197,21 @@
                 <datalist id="DesplegablesSituacionLaboral" multiple class="col-5">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </datalist>
-                
+
                 <legend class="mt-2">Bolsa de trabajo: </legend>
-                
+
                 <select id="DesplegablesBolsaTrabajo" name="DesplegablesBolsaTrabajo" multiple class="col-8">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </select>
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#bolsa">
-                   +
+                    +
                 </button>
 
                 <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#bolsaDel">
                     -
-                 </button>
+                </button>
 
             </div>
 
@@ -236,20 +238,21 @@
             <div class="col-3">
 
                 <legend class="mt-2">Tipo carnet de conducir: </legend>
-                
-                <select id="DesplegablesTipoCarnetConducir" name="DesplegablesTipoCarnetConducir" multiple class="col-8">
+
+                <select id="DesplegablesTipoCarnetConducir" name="DesplegablesTipoCarnetConducir" multiple
+                    class="col-8">
                     <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
                 </select>
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#carnet">
-                   +
+                    +
                 </button>
 
                 <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#carnetDel">
                     -
-                 </button>
-                
+                </button>
+
                 <legend class="mt-2">Observaciones: </legend>
                 <textarea cols="30" name="ObservacionesLaborales"></textarea><br>
 
@@ -279,7 +282,7 @@
 
                 <legend>Formación complementaria: </legend>
                 <input type="text" id="FormacionComp" name="FormacionComp"><br>
-                
+
                 <legend class="mt-2">Observaciones: </legend>
                 <textarea cols="30" name="ObservacionesFormacion"></textarea><br>
 
@@ -310,25 +313,23 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Origen</th>
                         <th>Importe</th>
                         <th>Procedencia</th>
                     </tr>
                 </thead>
                 <tbody id="tbodyIng">
                     <tr>
-                        <td scope="row"><input type="text" name="" id="origenIng1" list="DesplegablesOrigenIngresos"></td>
-                        <td><input type="number" name="" id="importeIng1" min="0"></td>
-                        <td><input type="text" name="" id="procedenciaIng1"></td>
+                        <td  scope='row'><input type="number" name="" id="importeIng1" min="0"></td>
+                        <td><input type="text" name="" id="procedenciaIng1" list="DesplegablesOrigenIngresos"></td>
                     </tr>
-                   
+
                 </tbody>
             </table>
             <datalist id="DesplegablesOrigenIngresos">
                 <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
             </datalist>
 
-<!--
+            <!--
             <div class="col-3">
 
                 <legend>Importe: </legend>
@@ -348,10 +349,11 @@
 
             <div class="col-12 text-center">
                 Nueva Fila
-               <!-- Button trigger modal -->
-               <button type="button" id="addFilaIngreso" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#">
-                +
-             </button>
+                <!-- Button trigger modal -->
+                <button type="button" id="addFilaIngreso" class="btn btn-success " data-bs-toggle="modal"
+                    data-bs-target="#">
+                    +
+                </button>
 
             </div>
 
@@ -359,7 +361,7 @@
 
                 <legend class="mt-2">Observaciones: </legend>
                 <textarea cols="30" name="ObservacionesIngresos"></textarea><br>
-                
+
             </div>
 
 
@@ -384,12 +386,12 @@
                 <tbody id="tbodyUC">
                     <tr id="row1">
                         <td scope="row"><input type="text" name="" id="nomUC1"></td>
-                        <td ><input type="text" name="" id="parenUC1" class="parent" list="DesplegablesParentesco" ></td>
+                        <td><input type="text" name="" id="parenUC1" class="parent" list="DesplegablesParentesco"></td>
                         <td><input type="date" name="" id="fechaUC1" min="0"></td>
                         <td><input type="text" name="" id="profesUC1"></td>
                         <td id='tdAyudaHijo1' hidden><input type='checkbox'></td>
                     </tr>
-                   
+
                 </tbody>
             </table>
             <datalist id="DesplegablesParentesco">
@@ -398,10 +400,10 @@
 
             <div class="col-12 text-center mb-4">
                 Nueva Fila
-               <!-- Button trigger modal -->
-               <button type="button" id="addFilaUC" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#">
-                +
-             </button>
+                <!-- Button trigger modal -->
+                <button type="button" id="addFilaUC" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#">
+                    +
+                </button>
 
             </div>
 
@@ -442,7 +444,7 @@
 
                 <legend class="mt-2">¿Familia monoparental? </legend>
                 <input class="mb-3" type="checkbox" id="FamiliaMonoparental" name="FamiliaMonoparental"><br>
-                
+
                 <legend class="mt-2">Observaciones: </legend>
                 <textarea cols="30" name="ObservacionesConvivencia"></textarea><br>
 
@@ -479,7 +481,7 @@
             <div class="col-3">
 
                 <!--AQUI VA LA LISTA DE RECOGIDAS-->
-                
+
             </div>
 
             <!--DATOS ORIENTACION LABORAL-->
@@ -502,20 +504,21 @@
                 <input type="text" id="Beneficiario" name="Beneficiario"><br>
 
             </div>
-            
-            
+
+
             <div class="col-3">
-                
+
                 <legend class="mt-2">Observaciones: </legend>
                 <textarea cols="30" name="ObservacionesOrientacion"></textarea><br>
-                
-            </div>
-            
-            <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" type="submit" value="Registrar Usuario" title="Registrar al usuario.">
-                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
+
             </div>
 
+            <div class="col-4 offset-8 mt-5 justify-content-end">
+                <input class="col-4 btn btn-primary" type="button" value="Registrar Usuario" id="registrarButton"
+                    title="Registrar al usuario.">
+                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
+            </div>
+        </form>
     </div>
     <br>
     <br><br><br>
@@ -544,123 +547,125 @@
         </footer>
     </div>
 
-     <!-- -------------------------------------------------------- EXTRAS -------------------------------------------------------------------------------------- -->
+    <!-- -------------------------------------------------------- EXTRAS -------------------------------------------------------------------------------------- -->
 
-  
-  <!-- Modal  Carnets-->
-  <div class="modal fade" id="carnet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Añadir Carnet</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Tipo Carnet</td>
-                        <td class="ml-2">Añadir</td>
-                    </tr>
-                </thead>
-                <tbody id="tiposCarnet"></tbody>
-            </table>
-         
+    <!-- Modal  Carnets-->
+    <div class="modal fade" id="carnet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Añadir Carnet</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="w-100">
+                        <thead>
+                            <tr>
+                                <td>Tipo Carnet</td>
+                                <td class="ml-2">Añadir</td>
+                            </tr>
+                        </thead>
+                        <tbody id="tiposCarnet"></tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <div class="modal fade" id="carnetDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Añadir Carnet</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+    <div class="modal fade" id="carnetDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Añadir Carnet</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Tipo Carnet</td>
-                        <td class="ml-2">Eliminar</td>
-                    </tr>
-                </thead>
-                <tbody id="tiposCarnetDel"></tbody>
-            </table>
-         
+                    <table class="w-100">
+                        <thead>
+                            <tr>
+                                <td>Tipo Carnet</td>
+                                <td class="ml-2">Eliminar</td>
+                            </tr>
+                        </thead>
+                        <tbody id="tiposCarnetDel"></tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
     </div>
-  </div>
-  
-  <!-- Modal Bolsa trabajo-->
-  <div class="modal fade" id="bolsa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Añadir Bolsa</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Nombre Bolsa</td>
-                        <td class="ml-2">Añadir</td>
-                    </tr>
-                </thead>
-                <tbody id="nombreBolsa"></tbody>
-            </table>
-         
+    <!-- Modal Bolsa trabajo-->
+    <div class="modal fade" id="bolsa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Añadir Bolsa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="w-100">
+                        <thead>
+                            <tr>
+                                <td>Nombre Bolsa</td>
+                                <td class="ml-2">Añadir</td>
+                            </tr>
+                        </thead>
+                        <tbody id="nombreBolsa"></tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <div class="modal fade" id="bolsaDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Añadir Bolsa</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+    <div class="modal fade" id="bolsaDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Añadir Bolsa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Tipo Bolsa</td>
-                        <td class="ml-2">Eliminar</td>
-                    </tr>
-                </thead>
-                <tbody id="nombreBolsaDel"></tbody>
-            </table>
-         
+                    <table class="w-100">
+                        <thead>
+                            <tr>
+                                <td>Tipo Bolsa</td>
+                                <td class="ml-2">Eliminar</td>
+                            </tr>
+                        </thead>
+                        <tbody id="nombreBolsaDel"></tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
     </div>
-  </div>
- 
+
     <script src="../../jquery/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../js/desplegables/desplegablesRegistroUsuario.js"></script> 
+    <script src="../../js/desplegables/desplegablesRegistroUsuario.js"></script>
     <script src="../../js/nuevoUsuario.js"></script>
 </body>
 

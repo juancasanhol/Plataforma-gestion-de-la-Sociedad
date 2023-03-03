@@ -31,23 +31,27 @@ public class MiembrosFamilia {
     @Column(name = "Nombre", nullable = true)
     String nombre;
     
-    @Column(name = "Apellido", nullable = true)
-    String Apellido;
+    @Column(name = "Parentezco", nullable = true)
+    String Parentezco;
     
     @Column(name = "FechaNacimiento", nullable = true)
     String FechaNacimiento;
     
     @Column(name = "Profesion", nullable = true)
     String Profesion;
+    
+    @Column(name = "AyudaHijo", nullable = true)//CHECK
+    Boolean AyudaHijo;
 
     public MiembrosFamilia() {
     }
 
-    public MiembrosFamilia(String nombre, String Apellido, String FechaNacimiento, String Profesion) {
+    public MiembrosFamilia( String nombre, String Parentezco, String FechaNacimiento, String Profesion, Boolean AyudaHijo) {
         this.nombre = nombre;
-        this.Apellido = Apellido;
+        this.Parentezco = Parentezco;
         this.FechaNacimiento = FechaNacimiento;
         this.Profesion = Profesion;
+        this.AyudaHijo = AyudaHijo;
     }
 
     public int getId() {
@@ -66,12 +70,12 @@ public class MiembrosFamilia {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return Apellido;
+    public String getParentezco() {
+        return Parentezco;
     }
 
-    public void setApellido(String Apellido) {
-        this.Apellido = Apellido;
+    public void setParentezco(String Parentezco) {
+        this.Parentezco = Parentezco;
     }
 
     public String getFechaNacimiento() {
@@ -89,6 +93,16 @@ public class MiembrosFamilia {
     public void setProfesion(String Profesion) {
         this.Profesion = Profesion;
     }
+
+    public Boolean getAyudaHijo() {
+        return AyudaHijo;
+    }
+
+    public void setAyudaHijo(Boolean AyudaHijo) {
+        this.AyudaHijo = AyudaHijo;
+    }
+    
+    
     
     
 }

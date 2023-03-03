@@ -51,6 +51,7 @@
         <mapping class="es.juancarlos.beans.Proyecto" />
         <mapping class="es.juancarlos.beans.UsuXFecha" />
         <mapping class="es.juancarlos.beans.MiembrosFamilia" />
+        <mapping class="es.juancarlos.beans.Ingresos" />
         
         
         
