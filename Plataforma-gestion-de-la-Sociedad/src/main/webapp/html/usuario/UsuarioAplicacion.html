@@ -10,6 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/generico.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
 </head>
 
 <body>
@@ -32,55 +33,48 @@
         </div>
     </header>
 
-    <div class="container-fluid">
+    <div class="container-fluid contenedor1">
 
         <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
-        <form action="../../RegistroUsuario" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
+        <form action="../../RegistroUsuario" enctype="multipart/form-data" method="post" accept-charet="utf-8"
+            id="Identificacion" class="row">
             <!--El numero interno de identificacion se genera solo-->
 
-           <!--<div class="text-danger text-center fw-bold">EXISTEN ERRORES!!</div>--> 
+            <!--<div class="text-danger text-center fw-bold">EXISTEN ERRORES!!</div>-->
             <div class="col-12 text-center">
 
-                <legend >Nombre: </legend>
+                <legend>Nombre: </legend>
                 <input required type="text" name="usuario" id="usuario"><br>
 
-                <legend >Contraseña: </legend>
+                <legend>Contraseña: </legend>
                 <input required type="password" name="Passwd" id="passwd"><br>
 
-                <legend >Repetir contraseña: </legend>
+                <legend>Repetir contraseña: </legend>
                 <input required type="password" name="Passwd2" id="passwdConf"><br>
-                
-                <legend >¿Tipo Usuario? : 
+
+                <legend>¿Tipo Usuario? :
 
                 </legend><br>
                 <select required id="tipoUsu">
 
                 </select>
                 <br>
-                
+
             </div>
 
-
-            <div class="col-4 offset-5 mt-5 " >
-                <input class="col-5 btn btn-primary" id="addUA" type="button" value="Registrar Usuario" title="Registrar al usuario.">
-                <a class="col-5 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
+            <div class="botones5 mt-5">
+                <input class="col-2 btn btn-primary" id="addUA" type="button" value="Registrar Usuario"
+                    title="Registrar al usuario.">
+                <a class="col-2 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar
+                </a>
             </div>
-            </div>
 
+        </form>
     </div>
 
-    </form>
     <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
 
-
-    </div>
-
     <!-- pie -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <div class="container-fluid">
         <footer class="text-center text-white" style="background-color: #5DADE2;">
             <!-- Copyright -->
@@ -96,7 +90,7 @@
     <script src="../../jquery/jquery-3.6.0.min.js"></script>
     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../js/nuevoUsuarioAplicacion.js"></script> 
+    <script src="../../js/nuevoUsuarioAplicacion.js"></script>
 </body>
 
 </html>
