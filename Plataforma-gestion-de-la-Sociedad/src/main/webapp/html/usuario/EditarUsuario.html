@@ -10,26 +10,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/generico.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
 </head>
 
 <body>
 
-
     <!-- cabecera -->
     <header class="p-3 bg-primary text-white">
         <div class="container">
-
-            <div class="row">
-
-                <div class="col-md-2">
-                    <div class="col-2">
-                        <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png"
-                                alt="logo"></a>
-                    </div>
-                </div>
-
+            <div>
+                <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png" alt="logo"></a>
             </div>
-
         </div>
     </header>
 
@@ -37,539 +28,453 @@
 
         <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
         <form action="../../GuardarCambiosUsuario" enctype="multipart/form-data" method="post" accept-charet="utf-8"
-            id="Identificacion" class="row">
+            id="Identificacion">
             <!--El numero interno de identificacion se genera solo-->
-            <div class="col-3">
 
-                <legend>Nombre: </legend>
-                <input required type="text" id="Nombre" name="Nombre"><br>
+            <div class="grid-container">
+                <div>
 
-                <legend class="mt-3">Tipo de documento identificativo: </legend>
-                <input id="TipoDoc" type="text" name="TipoDoc" list="DesplegablesTipoDoc"> <br>
-                <datalist id="DesplegablesTipoDoc">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
+                    <legend>Nombre: </legend>
+                    <input required type="text" id="Nombre" name="Nombre"><br>
 
-                <legend class="mt-2">Persona de referencia: </legend>
-                <input id="PersonaReferencia" type="text" name="PersonaReferencia" list="DesplegablesPersonaReferencia">
-                <br>
-                <datalist id="DesplegablesPersonaReferencia">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
+                    <legend class="mt-3">Tipo de documento identificativo: </legend>
+                    <input id="TipoDoc" type="text" name="TipoDoc" list="DesplegablesTipoDoc"> <br>
+                    <datalist id="DesplegablesTipoDoc">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist><br>
 
-                <legend class="mt-2">Nacionalidad: </legend>
-                <input id="Nacionalidad" type="text" name="Nacionalidad" list="DesplegablesNacionalidad"> <br>
-                <datalist id="DesplegablesNacionalidad">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
-                
-                <legend class="mt-2">Añadir ficheros Adjuntos: </legend>
-                <input type="file" id="Fichero" name="Fichero"><br>
+                    <legend class="mt-2">Persona de referencia: </legend>
+                    <input id="PersonaReferencia" type="text" name="PersonaReferencia"
+                        list="DesplegablesPersonaReferencia">
+                    <br>
+                    <datalist id="DesplegablesPersonaReferencia">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist><br>
 
-            </div>
+                    <legend class="mt-2">Nacionalidad: </legend>
+                    <input id="Nacionalidad" type="text" name="Nacionalidad" list="DesplegablesNacionalidad"> <br>
+                    <datalist id="DesplegablesNacionalidad">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist><br>
 
-            <div class="col-3">
+                    <legend class="mt-2">Añadir ficheros Adjuntos: </legend>
+                    <input type="file" id="Fichero" name="Fichero"><br>
 
-                <legend>Apellidos: </legend>
-                <input required type="text" id="Apellidos" name="Apellidos"><br>
+                </div>
 
-                <legend class="mt-3">Número del documento: </legend>
-                <input type="text" id="NumDoc" name="NumDoc"><br>
+                <div>
 
-                <legend class="mt-2">Sexo: </legend>
-                <input id="Sexo" type="text" name="Sexo" list="DesplegablesSexo"> <br>
-                <datalist id="DesplegablesSexo">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
+                    <legend>Apellidos: </legend>
+                    <input required type="text" id="Apellidos" name="Apellidos"><br>
 
-                <legend class="mt-2">¿Pertenece a una minoría? </legend>
-                <input class="mb-3" type="checkbox" id="PerteneceMinoria" name="PerteneceMinoria"><br>
+                    <legend class="mt-3">Número del documento: </legend>
+                    <input type="text" id="NumDoc" name="NumDoc"><br>
+
+                    <legend class="mt-2">Sexo: </legend>
+                    <input id="Sexo" type="text" name="Sexo" list="DesplegablesSexo"> <br>
+                    <datalist id="DesplegablesSexo">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+                    <legend class="mt-2">¿Pertenece a una minoría? </legend>
+                    <input class="mb-3" type="checkbox" id="PerteneceMinoria" name="PerteneceMinoria"><br>
 
 
-            </div>
+                </div>
 
-            <div class="col-3">
+                <div>
 
-                <legend class="mt-2">Fecha de alta: </legend>
-                <input type="datetime-local" id="FechaAlta" name="FechaAlta"><br>
+                    <legend>Fecha de alta: </legend>
+                    <input type="datetime-local" id="FechaAlta" name="FechaAlta"><br>
 
-                <legend class="mt-3">Telefono: </legend>
-                <input type="tel" id="Telefono" name="Telefono"><br>
+                    <legend class="mt-3">Telefono: </legend>
+                    <input type="tel" id="Telefono" name="Telefono"><br>
 
-                <legend class="mt-2">Fecha de macimiento: </legend>
-                <input type="datetime-local" id="FechaNac" name="FechaNac"><br>
+                    <legend class="mt-2">Fecha de nacimiento: </legend>
+                    <input type="datetime-local" id="FechaNac" name="FechaNac"><br>
 
-                <legend class="mt-2">Minoría: </legend>
-                <input id="Minoria" type="text" name="Minoria" list="DesplegablesMinoria"> <br>
-                <datalist id="DesplegablesMinoria"><br>
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-            </div>
+                    <legend class="mt-2">Minoría: </legend>
+                    <input id="Minoria" type="text" name="Minoria" list="DesplegablesMinoria"> <br>
+                    <datalist id="DesplegablesMinoria"><br>
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+                </div>
 
-            <div class="col-3">
+                <div>
 
-                <legend>Fecha de baja: </legend>
-                <input type="datetime-local" id="FechaBaja" name="FechaBaja"><br>
+                    <legend>Fecha de baja: </legend>
+                    <input type="datetime-local" id="FechaBaja" name="FechaBaja"><br>
 
-                <legend class="mt-3">Correo: </legend>
-                <input type="email" id="Correo" name="Correo"><br>
+                    <legend class="mt-3">Correo: </legend>
+                    <input type="email" id="Correo" name="Correo"><br>
 
-                <legend class="mt-2">País de origen: </legend>
-                <input id="PaisOrigen" type="text" name="PaisOrigen" list="DesplegablesPaisOrigen"><br>
-                <datalist id="DesplegablesPaisOrigen">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-                
-                <legend class="mt-2">Añadir observaciones: </legend>
-                <textarea cols="30" name="Observaciones"></textarea><br>
+                    <legend class="mt-2">País de origen: </legend>
+                    <input id="PaisOrigen" type="text" name="PaisOrigen" list="DesplegablesPaisOrigen"><br>
+                    <datalist id="DesplegablesPaisOrigen">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
 
+                    <legend class="mt-2">Añadir observaciones: </legend>
+                    <textarea cols="30" name="Observaciones"></textarea><br>
+
+                </div>
             </div>
 
             <!--DATOS SANITARIOS-->
 
             <br>
-            <hr class="mt-5">
-            <div class="col-12">DATOS SANITARIOS</div>
+            <hr>
+            <div class="col-12 texto">DATOS SANITARIOS</div>
             <br><br>
 
-            <div class="col-3">
+            <div class="grid-container">
+                <div>
 
-                <legend class="mt-2">¿Solicita ayuda farmaceútica? </legend>
-                <input class="mb-3" type="checkbox" id="SolicitaAyudaFarmaceutica" name="SolicitaAyudaFarmaceutica"><br>
+                    <legend class="mt-2">¿Solicita ayuda farmaceútica? </legend>
+                    <input class="mb-3" type="checkbox" id="SolicitaAyudaFarmaceutica"
+                        name="SolicitaAyudaFarmaceutica"><br>
 
-                <legend class="mt-2">Grado de discapacidad: </legend>
-                <input id="GradoDiscapacidad" type="text" name="GradoDiscapacidad"
-                    list="DesplegablesGradoDiscapacidad"><br>
-                <datalist id="DesplegablesGradoDiscapacidad">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
+                    <legend class="mt-2">Grado de discapacidad: </legend>
+                    <input id="GradoDiscapacidad" type="text" name="GradoDiscapacidad"
+                        list="DesplegablesGradoDiscapacidad"><br>
+                    <datalist id="DesplegablesGradoDiscapacidad">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
 
+                </div>
+
+                <div>
+
+                    <legend class="mt-2">Tratamiento sanitario: </legend>
+                    <input type="text" id="TratSanitario" name="TratSanitario"><br>
+
+                    <legend class="mt-2">Añadir observaciones: </legend>
+                    <textarea cols="30" name="ObservacionesSanitarias"></textarea><br>
+
+                </div>
+
+                <div>
+
+                    <legend class="mt-2">¿Drogodependencia? </legend>
+                    <input class="mb-3" type="checkbox" id="Drogodependencia" name="Drogodependencia"><br>
+
+                </div>
+
+                <div>
+
+                    <legend class="mt-2">Tipo de discapacidad: </legend>
+                    <input id="TipoDiscapacidad" type="text" name="TipoDiscapacidad"
+                        list="DesplegablesTipoDiscapacidad"><br>
+                    <datalist id="DesplegablesTipoDiscapacidad">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+                </div>
             </div>
 
-            <div class="col-3">
-
-                <legend>Tratamiento sanitario: </legend>
-                <input type="text" id="TratSanitario" name="TratSanitario"><br>
-
-                <legend class="mt-2">Añadir observaciones: </legend>
-                <textarea cols="30" name="ObservacionesSanitarias"></textarea><br>
-                
-            </div>
-
-            <div class="col-3">
-
-                <legend class="mt-2">¿Drogodependencia? </legend>
-                <input class="mb-3" type="checkbox" id="Drogodependencia" name="Drogodependencia"><br>
-
-            </div>
-            <div class="col-3">
-
-                <legend class="mt-2">Tipo de discapacidad: </legend>
-                <input id="TipoDiscapacidad" type="text" name="TipoDiscapacidad"
-                    list="DesplegablesTipoDiscapacidad"><br>
-                <datalist id="DesplegablesTipoDiscapacidad">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-            </div>
             <!--DATOS LABORALES-->
 
-            <br>
-            <hr class="mt-5">
-            <div class="col-12">DATOS LABORALES</div>
+            <br><br>
+            <hr>
+            <div class="col-12 texto">DATOS LABORALES</div>
             <br><br>
 
-            <div class="col-3">
+            <div class="grid-container">
+                <div>
 
-                <legend class="mt-2">¿Permiso de residencia? </legend>
-                <input class="mb-3" type="checkbox" id="PermisoResidencia" name="PermisoResidencia"><br>
+                    <legend class="mt-2">¿Permiso de residencia? </legend>
+                    <input class="mb-3" type="checkbox" id="PermisoResidencia" name="PermisoResidencia"><br>
 
-                <legend class="mt-2">Situación laboral: </legend>
-                <input id="SituacionLaboral" type="text" name="SituacionLaboral"
-                    list="DesplegablesSituacionLaboral"><br>
-                <datalist id="DesplegablesSituacionLaboral" multiple class="col-5">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-                
-                <legend class="mt-2">Bolsa de trabajo: </legend>
-                
-                <select id="DesplegablesBolsaTrabajo" name="DesplegablesBolsaTrabajo" multiple class="col-8">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </select>
+                    <legend class="mt-2">Situación laboral: </legend>
+                    <input id="SituacionLaboral" type="text" name="SituacionLaboral"
+                        list="DesplegablesSituacionLaboral"><br>
+                    <datalist id="DesplegablesSituacionLaboral" multiple class="col-5">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
 
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#bolsa">
-                   +
-                </button>
+                    <legend class="mt-2">Bolsa de trabajo: </legend>
 
-                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#bolsaDel">
-                    -
-                 </button>
+                    <select id="DesplegablesBolsaTrabajo" name="DesplegablesBolsaTrabajo" multiple class="col-8">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </select>
 
-            </div>
+                    <!-- Button trigger modal -->
+                    <div class="botones1">
+                        <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#bolsa">
+                            +
+                        </button>
 
-            <div class="col-3">
+                        <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#bolsaDel">
+                            -
+                        </button>
+                    </div>
 
-                <legend class="mt-2">¿Permiso de trabajo? </legend>
-                <input class="mb-3" type="checkbox" id="PermisoTrabajo" name="PermisoTrabajo"><br>
+                </div>
 
-                <legend>Último trabajo: </legend>
-                <input type="text" id="UltTrabajo" name="UltTrabajo"><br>
+                <div>
 
-            </div>
+                    <legend class="mt-2">¿Permiso de trabajo? </legend>
+                    <input class="mb-3" type="checkbox" id="PermisoTrabajo" name="PermisoTrabajo"><br>
 
-            <div class="col-3">
+                    <legend>Último trabajo: </legend>
+                    <input type="text" id="UltTrabajo" name="UltTrabajo"><br>
 
-                <legend class="mt-2">¿Carnet de conducir? </legend>
-                <input class="mb-3" type="checkbox" id="CarnetConducir" name="CarnetConducir"><br>
+                </div>
 
-                <legend>Preferencia laboral: </legend>
-                <input type="text" id="PrefLaboral" name="PrefLaboral"><br>
+                <div>
 
-            </div>
+                    <legend class="mt-2">¿Carnet de conducir? </legend>
+                    <input class="mb-3" type="checkbox" id="CarnetConducir" name="CarnetConducir"><br>
 
-            <div class="col-3">
+                    <legend>Preferencia laboral: </legend>
+                    <input type="text" id="PrefLaboral" name="PrefLaboral"><br>
 
-                <legend class="mt-2">Tipo carnet de conducir: </legend>
-                
-                <select id="DesplegablesTipoCarnetConducir" name="DesplegablesTipoCarnetConducir" multiple class="col-8">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </select>
+                </div>
 
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#carnet">
-                   +
-                </button>
+                <div>
 
-                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#carnetDel">
-                    -
-                 </button>
-                
-                <legend class="mt-2">Añadir observaciones: </legend>
-                <textarea cols="30" name="ObservacionesLaborales"></textarea><br>
+                    <legend class="mt-2">Tipo carnet de conducir: </legend>
 
+                    <select id="DesplegablesTipoCarnetConducir" name="DesplegablesTipoCarnetConducir" multiple
+                        class="col-8">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </select>
+
+                    <!-- Button trigger modal -->
+                    <div class="botones1">
+                        <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#carnet">
+                            +
+                        </button>
+
+                        <button type="button" class="btn btn-danger " data-bs-toggle="modal"
+                            data-bs-target="#carnetDel">
+                            -
+                        </button>
+                    </div>
+
+                    <legend class="mt-2">Añadir observaciones: </legend>
+                    <textarea cols="30" name="ObservacionesLaborales"></textarea><br>
+
+                </div>
             </div>
 
             <!--DATOS DE FORMACION-->
 
             <br>
-            <hr class="mt-5">
-            <div class="col-12">DATOS DE FORMACIÓN</div>
+            <hr>
+            <div class="col-12 texto">DATOS DE FORMACIÓN</div>
             <br><br>
 
-            <div class="col-3">
+            <div class="grid-container">
+                <div>
 
-                <legend class="mt-2">Nivel de estudios: </legend>
-                <input id="NivelEstudios" type="text" name="NivelEstudios" list="DesplegablesNivelEstudios"><br>
-                <datalist id="DesplegablesNivelEstudios">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
+                    <legend class="mt-2">Nivel de estudios: </legend>
+                    <input id="NivelEstudios" type="text" name="NivelEstudios" list="DesplegablesNivelEstudios"><br>
+                    <datalist id="DesplegablesNivelEstudios">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
 
-                <legend>Centro de estudios: </legend>
-                <input type="text" id="CentroEst" name="CentroEst"><br>
+                    <legend>Centro de estudios: </legend>
+                    <input type="text" id="CentroEst" name="CentroEst"><br>
 
+                </div>
+
+                <div>
+
+                    <legend>Formación complementaria: </legend>
+                    <input type="text" id="FormacionComp" name="FormacionComp"><br>
+
+                    <legend class="mt-2">Añadir observaciones: </legend>
+                    <textarea cols="30" name="ObservacionesFormacion"></textarea><br>
+
+                </div>
+
+                <div>
+
+                    <legend>¿Está estudiando? </legend>
+                    <input class="mb-3" type="checkbox" id="EstaEstudiando" name="EstaEstudiando"><br>
+
+                </div>
+
+                <div>
+
+                    <legend>¿Fracaso escolar? </legend>
+                    <input class="mb-3" type="checkbox" id="FracasoEscolar" name="FracasoEscolar"><br>
+
+                </div>
             </div>
-
-            <div class="col-3">
-
-                <legend>Formación complementaria: </legend>
-                <input type="text" id="FormacionComp" name="FormacionComp"><br>
-
-                <legend class="mt-2">Añadir observaciones: </legend>
-                <textarea cols="30" name="ObservacionesFormacion"></textarea><br>
-                
-            </div>
-
-            <div class="col-3">
-
-                <legend class="mt-2">¿Está estudiando? </legend>
-                <input class="mb-3" type="checkbox" id="EstaEstudiando" name="EstaEstudiando"><br>
-
-            </div>
-
-            <div class="col-3">
-
-                <legend class="mt-2">¿Fracaso escolar? </legend>
-                <input class="mb-3" type="checkbox" id="FracasoEscolar" name="FracasoEscolar"><br>
-
-            </div>
-
 
             <!--DATOS DE INGRESOS-->
 
             <br>
-            <hr class="mt-5">
-            <div class="col-12">DATOS DE INGRESOS</div>
+            <hr>
+            <div class="col-12 texto">DATOS DE INGRESOS</div>
             <br><br>
 
-            <div class="col-3">
+            <div class="grid-container">
+                <div>
 
-                <legend>Importe: </legend>
-                <input type="text" id="Importe" name="Importe"><br>
+                    <legend class="mt-2">Importe: </legend>
+                    <input type="text" id="Importe" name="Importe"><br>
 
-            </div>
+                </div>
 
-            <div class="col-3">
+                <div>
 
-                <legend class="mt-2">Origen de ingresos: </legend>
-                <input id="OrigenIngresos" type="text" name="OrigenIngresos" list="DesplegablesOrigenIngresos"><br>
-                <datalist id="DesplegablesOrigenIngresos">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
+                    <legend class="mt-2">Origen de ingresos: </legend>
+                    <input id="OrigenIngresos" type="text" name="OrigenIngresos" list="DesplegablesOrigenIngresos"><br>
+                    <datalist id="DesplegablesOrigenIngresos">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
 
-            </div>
+                </div>
 
-            <div class="col-3">
-                
-                <legend class="mt-2">Añadir observaciones: </legend>
-                <textarea cols="30" name="ObservacionesIngresos"></textarea><br>
+                <div>
 
-            </div>
+                    <legend class="mt-2">Añadir observaciones: </legend>
+                    <textarea cols="30" name="ObservacionesIngresos"></textarea><br>
 
-            <div class="col-3">
+                </div>
 
+                <div>
+
+                </div>
             </div>
 
             <!--DATOS DE UNIDAD DE CONVIVENCIA-->
 
             <br>
-            <hr class="mt-5">
-            <div class="col-12">DATOS DE UNIDAD DE CONVIVENCIA</div>
+            <hr>
+            <div class="col-12 texto">DATOS DE UNIDAD DE CONVIVENCIA</div>
             <br><br>
 
-            <div class="col-3">
+            <div class="grid-container">
+                <div>
 
-                <legend>Denominación: </legend>
-                <input type="text" id="Denominacion" name="Denominacion"><br>
+                    <legend class="mt-2">Denominación: </legend>
+                    <input type="text" id="Denominacion" name="Denominacion"><br>
 
-                <legend class="mt-2">¿Sin hogar? </legend>
-                <input class="mb-3" type="checkbox" id="SinHogar" name="SinHogar"><br>
+                    <legend class="mt-2">¿Sin hogar? </legend>
+                    <input class="mb-3" type="checkbox" id="SinHogar" name="SinHogar"><br>
 
-            </div>
+                </div>
 
-            <div class="col-3">
+                <div>
 
-                <legend>Dirección: </legend>
-                <input type="text" id="Direccion" name="Direccion"><br>
+                    <legend class="mt-2">Dirección: </legend>
+                    <input type="text" id="Direccion" name="Direccion"><br>
 
-                <legend>Coste de la vivienda al mes: </legend>
-                <input type="text" id="CosteVivienda" name="CosteVivienda"><br>
+                    <legend class="mt-2">Coste de la vivienda al mes: </legend>
+                    <input type="text" id="CosteVivienda" name="CosteVivienda"><br>
 
-            </div>
+                </div>
 
-            <div class="col-3">
+                <div>
 
-                <legend>Localidad: </legend>
-                <input type="text" id="Localidad" name="Localidad"><br>
+                    <legend class="mt-2">Localidad: </legend>
+                    <input type="text" id="Localidad" name="Localidad"><br>
 
-                <legend class="mt-2">Motivo del coste: </legend>
-                <input id="MotivoCoste" type="text" name="MotivoCoste" list="DesplegablesMotivoCoste"><br>
-                <datalist id="DesplegablesMotivoCoste">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
+                    <legend class="mt-2">Motivo del coste: </legend>
+                    <input id="MotivoCoste" type="text" name="MotivoCoste" list="DesplegablesMotivoCoste"><br>
+                    <datalist id="DesplegablesMotivoCoste">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
 
-            </div>
+                </div>
 
-            <div class="col-3">
+                <div>
 
-                <legend class="mt-2">¿Familia monoparental? </legend>
-                <input class="mb-3" type="checkbox" id="FamiliaMonoparental" name="FamiliaMonoparental"><br>
+                    <legend class="mt-2">¿Familia monoparental? </legend>
+                    <input class="mb-3" type="checkbox" id="FamiliaMonoparental" name="FamiliaMonoparental"><br>
 
-                <legend class="mt-2">Añadir observaciones: </legend>
-                <textarea cols="30" name="ObservacionesConvivencia"></textarea><br>
-                
+                    <legend>Añadir observaciones: </legend>
+                    <textarea cols="30" name="ObservacionesConvivencia"></textarea><br>
+
+                </div>
             </div>
 
             <!--DATOS DEL BANCO DE ALIMENTOS-->
 
             <br>
-            <hr class="mt-5">
-            <div class="col-12">DATOS DEL BANCO DE ALIMENTOS</div>
+            <hr>
+            <div class="col-12 texto">DATOS DEL BANCO DE ALIMENTOS</div>
             <br><br>
 
-            <div class="col-3">
+            <div class="grid-container">
+                <div>
 
-                <legend class="mt-2">¿Está en el banco? </legend>
-                <input class="mb-3" type="checkbox" id="EstaBanco" name="EstaBanco"><br>
+                    <legend class="mt-2">¿Está en el banco? </legend>
+                    <input class="mb-3" type="checkbox" id="EstaBanco" name="EstaBanco"><br>
 
-            </div>
+                </div>
 
-            <div class="col-3">
+                <div>
 
-                <legend>Fecha de alta: </legend>
-                <input type="datetime-local" id="FechaAlta_BancoAlimentos" name="FechaAlta_BancoAlimentos"><br>
+                    <legend class="mt-2">Fecha de alta: </legend>
+                    <input type="datetime-local" id="FechaAlta_BancoAlimentos" name="FechaAlta_BancoAlimentos"><br>
 
-            </div>
+                </div>
 
-            <div class="col-3">
+                <div>
 
-                <legend>Fecha de baja: </legend>
-                <input type="datetime-local" id="FechaBaja_BancoAlimentos" name="FechaBaja_BancoAlimentos"><br>
+                    <legend class="mt-2">Fecha de baja: </legend>
+                    <input type="datetime-local" id="FechaBaja_BancoAlimentos" name="FechaBaja_BancoAlimentos"><br>
 
-            </div>
+                </div>
 
-            <div class="col-3">
+                <div>
 
+                </div>
             </div>
 
             <!--DATOS ORIENTACION LABORAL-->
 
             <br>
-            <hr class="mt-5">
-            <div class="col-12">DATOS DE ORIENTACIÓN LABORAL</div>
+            <hr>
+            <div class="col-12 texto">DATOS DE ORIENTACIÓN LABORAL</div>
             <br><br>
 
-            <div class="col-3">
+            <div class="grid-container">
+                <div>
 
-                <legend>Fecha de orientación: </legend>
-                <input type="datetime-local" id="FechaOrientacion" name="FechaOrientacion"><br>
+                    <legend class="mt-2">Fecha de orientación: </legend>
+                    <input type="datetime-local" id="FechaOrientacion" name="FechaOrientacion"><br>
 
+                </div>
+
+                <div>
+
+                    <legend class="mt-2">Beneficiario: </legend>
+                    <input type="text" id="Beneficiario" name="Beneficiario"><br>
+
+                </div>
+
+                <div>
+
+                    <legend class="mt-2">Añadir observaciones: </legend>
+                    <textarea cols="30" name="ObservacionesOrientacion"></textarea><br>
+
+                </div>
+
+                <div class="botones2">
+                    <div class="col-4 mt-5 justify-content-end">
+                        <input class="col-4 btn btn-primary" type="submit" value="Editar Usuario"
+                            title="Editar el usuario.">
+                        <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html"
+                            role="button">Cancelar
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-3">
-
-                <legend>Beneficiario: </legend>
-                <input type="text" id="Beneficiario" name="Beneficiario"><br>
-
-            </div>
-
-
-            <div class="col-3">
-            
-                <legend class="mt-2">Añadir observaciones: </legend>
-                <textarea cols="30" name="ObservacionesOrientacion"></textarea><br>
-            
-            </div>    
-                
-            <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" type="submit" value="Editar Usuario" title="Editar el usuario.">
-                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
-            </div>
+        </form>
 
     </div>
     <br>
     <br><br><br>
-
-
-
-    <table>
-        <tr>
-            <!-- <td>
-                <legend>Nombre: </legend>
-                <input required type="text" name="Nombre">
-            </td>
-            <td>
-                <legend>Apellidos: </legend>
-                <input required type="text" name="Apellidos">
-            </td>
-            <td>
-                <legend>Fecha de alta: </legend>
-                <input type="datetime-local" name="FechaAlta">
-            </td>
-            <td>
-                <legend>Fecha de baja: </legend>
-                <input type="datetime-local" name="FechaBaja">
-            </td>
-        </tr> 
-        <tr>
-            <td>
-                <legend>Tipo de documento identificativo: </legend>
-                <input id="TipoDoc" type="text" name="TipoDoc" list="DesplegablesTipoDoc"> <br>
-                <datalist id="DesplegablesTipoDoc">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
-                </datalist>
-            </td>
-            <td>
-                <legend>Número del documento: </legend>
-                <input type="text" name="NumDoc">
-            </td>
-            <td>
-                <legend>Telefono: </legend>
-                <input type="tel" name="Telefono">
-            </td>
-            <td>
-                <legend>Correo: </legend>
-                <input type="email" name="Correo">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <legend>Persona de referencia: </legend>
-                <input type="text" name="PersonaReferencia" list="DesplegablesPersonaReferencia"> <br>
-                <datalist id="DesplegablesPersonaReferencia">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
-                </datalist>
-            </td>
-            <td>
-                <legend>Sexo: </legend>
-                <input type="text" name="Sexo" list="DesplegablesSexo"> <br>
-                <datalist id="DesplegablesSexo">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
-                </datalist>
-            </td>
-            <td>
-                <legend>Fecha de macimiento: </legend>
-                <input type="datetime-local" name="FechaNac">
-            </td>
-            <td>
-                <legend>País de origen: </legend>
-                <input type="text" name="PaisOrigen" list="DesplegablesPaisOrigen">
-                <datalist id="DesplegablesPaisOrigen">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
-                </datalist>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <legend>Nacionalidad: </legend>
-                <input type="text" name="Nacionalidad" list="DesplegablesNacionalidad"> <br>
-                <datalist id="DesplegablesNacionalidad">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
-                </datalist>
-            </td>
-            <td>
-                <legend>¿Pertenece a una minoría?: </legend>
-                <input type="checkbox" name="PerteneceMinoria">
-            </td>
-            <td>
-                <legend>Minoría: </legend>
-                <input type="text" name="Minoria" list="DesplegablesMinoria"> <br>
-                <datalist id="DesplegablesMinoria">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE--
-                </datalist>
-            </td>
-            <td>
-                <legend>Número del documento: </legend>
-                <input type="text" name="NumDoc">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <legend>Observaciones: </legend>
-                <textarea cols="30" name="Observaciones"></textarea>
-            </td>
-            <td>
-                <legend>Ficheros Adjuntos: </legend>
-                <input type="file" id="Fichero">
-            </td>
-            <p>
-                <!--<font size="1">${mensaje}</font>--
-            </p>
-            <td><input type="submit" value="Registrar Usuario" title="Registrar al usuario."></td>
-        </tr>-->
-    </table>
-    </form>
     <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
 
-
-    </div>
-
     <!-- pie -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <div class="container-fluid">
         <footer class="text-center text-white" style="background-color: #5DADE2;">
             <!-- Copyright -->
@@ -585,121 +490,125 @@
 
     <!-- -------------------------------------------------------- EXTRAS -------------------------------------------------------------------------------------- -->
 
-     <!-- Modal  Carnets-->
-  <div class="modal fade" id="carnet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Añadir Carnet</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+    <!-- Modal  Carnets-->
+    <div class="modal fade" id="carnet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Tipo Carnet</td>
-                        <td class="ml-2">Añadir</td>
-                    </tr>
-                </thead>
-                <tbody id="tiposCarnet"></tbody>
-            </table>
-         
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Añadir Carnet</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="w-100">
+                        <thead>
+                            <tr>
+                                <td>Tipo Carnet</td>
+                                <td class="ml-2">Añadir</td>
+                            </tr>
+                        </thead>
+                        <tbody id="tiposCarnet"></tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
+
     </div>
-  </div>
 
-  <div class="modal fade" id="carnetDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Añadir Carnet</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+    <div class="modal fade" id="carnetDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Tipo Carnet</td>
-                        <td class="ml-2">Eliminar</td>
-                    </tr>
-                </thead>
-                <tbody id="tiposCarnetDel"></tbody>
-            </table>
-         
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Añadir Carnet</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="w-100">
+                        <thead>
+                            <tr>
+                                <td>Tipo Carnet</td>
+                                <td class="ml-2">Eliminar</td>
+                            </tr>
+                        </thead>
+                        <tbody id="tiposCarnetDel"></tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
+
     </div>
-  </div>
-  
-  <!-- Modal Bolsa trabajo-->
-  <div class="modal fade" id="bolsa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Añadir Bolsa</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Nombre Bolsa</td>
-                        <td class="ml-2">Añadir</td>
-                    </tr>
-                </thead>
-                <tbody id="nombreBolsa"></tbody>
-            </table>
-         
+    <!-- Modal Bolsa trabajo-->
+    <div class="modal fade" id="bolsa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Añadir Bolsa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="w-100">
+                        <thead>
+                            <tr>
+                                <td>Nombre Bolsa</td>
+                                <td class="ml-2">Añadir</td>
+                            </tr>
+                        </thead>
+                        <tbody id="nombreBolsa"></tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <div class="modal fade" id="bolsaDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Añadir Bolsa</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+    <div class="modal fade" id="bolsaDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Añadir Bolsa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Tipo Bolsa</td>
-                        <td class="ml-2">Eliminar</td>
-                    </tr>
-                </thead>
-                <tbody id="nombreBolsaDel"></tbody>
-            </table>
-         
+                    <table class="w-100">
+                        <thead>
+                            <tr>
+                                <td>Tipo Bolsa</td>
+                                <td class="ml-2">Eliminar</td>
+                            </tr>
+                        </thead>
+                        <tbody id="nombreBolsaDel"></tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
-  
 
-
-  <script src="../../jquery/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../jquery/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
     <script src="../../js/desplegables/desplegablesEditarUsuario.js"></script>
     <script src="../../js/desplegables/desplegablesDatosSanitarios.js"></script>
     <script src="../../js/desplegables/desplegablesDatosLaborales.js"></script>

@@ -2,134 +2,130 @@
 <html lang="es">
 
 <head>
-    <title>Gestion Sociedad</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/generico.css">
+  <title>Gestion Sociedad</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/generico.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
 </head>
 
 <body>
 
 
-    <!-- cabecera -->
+  <!-- cabecera -->
+  <div class="head">
     <header class="p-3 bg-primary text-white">
-        <div class="container">
+      <div class="container">
 
-            <div class="row">
+              <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png" alt="logo"></a>
+ 
+      </div>
+    </header>
+  </div>
 
-                <div class="col-md-2">
-                    <div class="col-2">
-                        <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png"
-                                alt="logo"></a>
-                    </div>
-                </div>
+  <div class="container-fluid">
 
-            </div>
+    <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
+    <form action="../../GuardarCambiosUsuario" enctype="multipart/form-data" method="post" accept-charet="utf-8"
+      id="Identificacion" class="row">
+      <!--El numero interno de identificacion se genera solo-->
+
+      <div class="grid-container2">
+
+        <div>
+
+          <legend class="mt-2">Nombre: </legend>
+          <input required type="text" id="Nombre" name="Nombre"><br>
+
+          <legend class="mt-2">Localidad: </legend>
+          <input type="text" id="Localidad" name="Localidad"><br>
+
+          <legend class="mt-2">Correo: </legend>
+          <input type="email" id="Correo" name="Correo"><br>
 
         </div>
-    </header>
 
-    <div class="container-fluid">
+        <div>
 
-        <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
-        <form action="../../GuardarCambiosUsuario" enctype="multipart/form-data" method="post" accept-charet="utf-8"
-            id="Identificacion" class="row">
-            <!--El numero interno de identificacion se genera solo-->
-            <div class="col-3">
+          <legend class="mt-2">Apellidos: </legend>
+          <input required type="text" id="Apellidos" name="Apellidos"><br>
 
-                <legend class="mt-2">Nombre: </legend>
-                <input required type="text" id="Nombre" name="Nombre"><br>
+          <legend class="mt-2">Domicilio:</legend>
+          <input id="Domicilio" type="text" name="Domicilio"><br>
 
-                <legend class="mt-2">Localidad: </legend>
-                <input type="text" id="Localidad" name="Localidad"><br>
-                
-                <legend class="mt-2">Correo: </legend>
-                <input type="email" id="Correo" name="Correo"><br> 
-                
-            </div>
+          <legend class="mt-2">Telf. de Contacto:</legend>
+          <input id="Contacto" type="text" name="Contacto"><br>
 
-            <div class="col-3">
+        </div>
 
-                <legend class="mt-2">Apellidos: </legend>
-                <input required type="text" id="Apellidos" name="Apellidos"><br>
-                
-                <legend class="mt-2">Domicilio:</legend>
-                <input id="Domicilio" type="text" name="Domicilio"><br>
-                
-                <legend class="mt-2">Telf. de Contacto:</legend>
-                <input id="Contacto" type="text" name="Contacto"><br>
-                
-            </div>
+        <div>
 
-            <div class="col-3">
-                
-                <legend class="mt-2">DNI/pasaporte: </legend>
-                <input id="NumDoc" type="text" name="DNIPASAPORTE" > <br>
-                
-                <legend class="mt-2">Piso</legend>
-                <input id="Piso" type="text" name="Piso"><br>
-                
-                <legend class="mt-2">Móvil:</legend>
-                <input id="Móvil" type="text" name="Móvil"><br>
-                                
-            </div>
+          <legend class="mt-2">DNI/pasaporte: </legend>
+          <input id="NumDoc" type="text" name="DNIPASAPORTE"> <br>
 
-            <div class="col-3">
+          <legend class="mt-2">Piso</legend>
+          <input id="Piso" type="text" name="Piso"><br>
 
-                
-                <legend class="mt-2">Fecha de macimiento: </legend>
-                <input type="datetime-local" id="FechaNac" name="FechaNac"><br>
-                
-                <legend class="mt-2">Código Postal:</legend>
-                <input id="CP" type="text" name="CP"><br>                
+          <legend class="mt-2">Móvil:</legend>
+          <input id="Móvil" type="text" name="Móvil"><br>
 
-                
-                <legend class="mt-2">Otra información de interes: </legend>
-                <textarea cols="30" name="Observaciones"></textarea><br>
-                                
-            </div> 
-                
-            <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" type="submit" value="Editar Usuario" title="Editar el usuario.">
-                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
-            </div>
+        </div>
 
-    </div>
-    <br>
-    <br><br><br>
+        <div>
+
+          <legend class="mt-2">Fecha de nacimiento: </legend>
+          <input type="datetime-local" id="FechaNac" name="FechaNac"><br>
+
+          <legend class="mt-2">Código Postal:</legend>
+          <input id="CP" type="text" name="CP"><br>
+
+
+          <legend class="mt-2">Otra información de interes: </legend>
+          <textarea cols="30" name="Observaciones"></textarea><br>
+
+        </div>
+
+        <div class="botones3">
+          <div class="col-4 offset-8 mt-5 justify-content-end">
+            <input class="col-4 btn btn-primary" type="submit" value="Editar Usuario" title="Editar el usuario.">
+            <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
+          </div>
+        </div>
+
+      </div>
 
     </form>
-    <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
 
+  </div>
 
-    </div>
+  </form>
+  <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
 
-    <!-- pie -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container-fluid">
-        <footer class="text-center text-white" style="background-color: #5DADE2;">
-            <!-- Copyright -->
-            <div class="text-center text-dark p-3 fixed-bottom bg-primary">
-                <font style="vertical-align: inherit;">
-                    © 2022 Copyright:
-                </font>
-                <font style="vertical-align: inherit;">Ch Ordenadores</font>
-            </div>
-            <!-- Copyright -->
-        </footer>
-    </div>
+  </div>
 
-    <!-- -------------------------------------------------------- EXTRAS -------------------------------------------------------------------------------------- -->
+  <!-- pie -->
+  <br>
+  <br>
+  <div class="container-fluid">
+    <footer class="text-center text-white" style="background-color: #5DADE2;">
+      <!-- Copyright -->
+      <div class="text-center text-dark p-3 fixed-bottom bg-primary">
+        <font style="vertical-align: inherit;">
+          © 2022 Copyright:
+        </font>
+        <font style="vertical-align: inherit;">Ch Ordenadores</font>
+      </div>
+      <!-- Copyright -->
+    </footer>
+  </div>
 
-     <!-- Modal  Carnets-->
+  <!-- -------------------------------------------------------- EXTRAS -------------------------------------------------------------------------------------- -->
+
+  <!-- Modal  Carnets-->
   <div class="modal fade" id="carnet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -139,16 +135,16 @@
         </div>
         <div class="modal-body">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Tipo Carnet</td>
-                        <td class="ml-2">Añadir</td>
-                    </tr>
-                </thead>
-                <tbody id="tiposCarnet"></tbody>
-            </table>
-         
+          <table class="w-100">
+            <thead>
+              <tr>
+                <td>Tipo Carnet</td>
+                <td class="ml-2">Añadir</td>
+              </tr>
+            </thead>
+            <tbody id="tiposCarnet"></tbody>
+          </table>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -166,16 +162,16 @@
         </div>
         <div class="modal-body">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Tipo Carnet</td>
-                        <td class="ml-2">Eliminar</td>
-                    </tr>
-                </thead>
-                <tbody id="tiposCarnetDel"></tbody>
-            </table>
-         
+          <table class="w-100">
+            <thead>
+              <tr>
+                <td>Tipo Carnet</td>
+                <td class="ml-2">Eliminar</td>
+              </tr>
+            </thead>
+            <tbody id="tiposCarnetDel"></tbody>
+          </table>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -183,7 +179,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Modal Bolsa trabajo-->
   <div class="modal fade" id="bolsa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -194,16 +190,16 @@
         </div>
         <div class="modal-body">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Nombre Bolsa</td>
-                        <td class="ml-2">Añadir</td>
-                    </tr>
-                </thead>
-                <tbody id="nombreBolsa"></tbody>
-            </table>
-         
+          <table class="w-100">
+            <thead>
+              <tr>
+                <td>Nombre Bolsa</td>
+                <td class="ml-2">Añadir</td>
+              </tr>
+            </thead>
+            <tbody id="nombreBolsa"></tbody>
+          </table>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -221,16 +217,16 @@
         </div>
         <div class="modal-body">
 
-            <table class="w-100">
-                <thead >
-                    <tr >
-                        <td>Tipo Bolsa</td>
-                        <td class="ml-2">Eliminar</td>
-                    </tr>
-                </thead>
-                <tbody id="nombreBolsaDel"></tbody>
-            </table>
-         
+          <table class="w-100">
+            <thead>
+              <tr>
+                <td>Tipo Bolsa</td>
+                <td class="ml-2">Eliminar</td>
+              </tr>
+            </thead>
+            <tbody id="nombreBolsaDel"></tbody>
+          </table>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -238,19 +234,19 @@
       </div>
     </div>
   </div>
-  
-
 
   <script src="../../jquery/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
   <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../js/desplegables/desplegablesEditarUsuario.js"></script>
-    <script src="../../js/desplegables/desplegablesDatosSanitarios.js"></script>
-    <script src="../../js/desplegables/desplegablesDatosLaborales.js"></script>
-    <script src="../../js/desplegables/desplegablesDatosFormacion.js"></script>
-    <script src="../../js/desplegables/desplegablesIngresos.js"></script>
-    <script src="../../js/desplegables/desplegablesUnidadConvivencia.js"></script>
-    <script src="../../js/editarUsuario.js"></script>
+  <script src="../../js/desplegables/desplegablesEditarUsuario.js"></script>
+  <script src="../../js/desplegables/desplegablesDatosSanitarios.js"></script>
+  <script src="../../js/desplegables/desplegablesDatosLaborales.js"></script>
+  <script src="../../js/desplegables/desplegablesDatosFormacion.js"></script>
+  <script src="../../js/desplegables/desplegablesIngresos.js"></script>
+  <script src="../../js/desplegables/desplegablesUnidadConvivencia.js"></script>
+  <script src="../../js/editarUsuario.js"></script>
 </body>
 
 </html>

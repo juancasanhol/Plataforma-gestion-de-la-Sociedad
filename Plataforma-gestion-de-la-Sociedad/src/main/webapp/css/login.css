@@ -4,7 +4,7 @@
         margin: 0;
         padding: 0;
         height: 100%;
-        background: white !important;
+        background: rgb(124, 25, 25) !important;
     }
     .user_card {
         height: 400px;
@@ -67,4 +67,19 @@
     }
     .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
         background-color: #c0392b !important;
+    }
+    @media only screen and (min-width: 0px) and (max-width: 576px) {
+        .user_card{margin-top: -10px;}
+    }
+    @media only screen and (min-width: 576px) and (max-width: 768px) {
+        .user_card{margin-top: -20px;}
+    }
+    @media only screen and (min-width: 768px) and (max-width: 992px) {
+        .user_card{margin-top: -30px;}
+    }
+    @media only screen and (min-width: 992px) and (max-width: 1200px) {
+        .user_card{margin-top: -40px;}
+    }
+    @media only screen and (min-width: 1200px) and (max-width: 1800px) {
+        .user_card{margin-top: -45px;}
     }
