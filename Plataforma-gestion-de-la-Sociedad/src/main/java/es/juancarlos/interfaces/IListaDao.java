@@ -4,6 +4,7 @@
  */
 package es.juancarlos.interfaces;
 
+import es.juancarlos.beans.Usuario;
 import java.util.List;
 
 /**
@@ -17,4 +18,6 @@ public interface IListaDao {
      * parametro  <strong>true</strong>=Ordenada <strong>false</strong>= NO Ordenada
      */
     public List OrderList();
+    
+    public List<Usuario> ListadoXBanco_Fega();
 }

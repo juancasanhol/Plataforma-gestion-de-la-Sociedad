@@ -34,13 +34,6 @@ public class ListaDao implements IListaDao {
         }
         sesion.close();
     }
-    public IGenericoDAO getGenericoDAO() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public IAjaxDAO getAjaxDAO() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
     private void handleExcepcion(HibernateException he) throws HibernateException {
         if (sesion.getTransaction().isActive()) {

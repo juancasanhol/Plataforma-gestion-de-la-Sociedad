@@ -95,6 +95,11 @@ $(document).ready(function () {
             }else{
                 $("#EstaBanco").val('No');
             }
+            if (respuesta.estabanco === true) {
+                $("#EstaFEGA").val('Sí');
+            }else{
+                $("#EstaFEGA").val('No');
+            }
             $("#FechaAlta_BancoAlimentos").val(respuesta.fechaalta_bancoalimentos);
             $("#FechaBaja_BancoAlimentos").val(respuesta.fechabaja_bancoalimentos);
             $("#FechaOrientacion").val(respuesta.fechaorientacion);
