@@ -19,5 +19,5 @@ public interface IListaDao {
      */
     public List OrderList();
     
-    public List<Usuario> ListadoXBanco_Fega();
+    public List<Usuario> ListadoXBanco_Fega(Boolean banco, boolean fega);
 }

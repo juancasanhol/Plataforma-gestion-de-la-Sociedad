@@ -9,6 +9,7 @@ $(document).ready(function () {
         success: function (respuesta) {
             console.log("Desplegables cargados correctamente");
             //console.log("buena");
+            $("#id").val(respuesta.id);
             $("#Nombre").val(respuesta.nombre);
             $("#Apellidos").val(respuesta.apellidos);
             $("#FechaAlta").val(respuesta.fechaalta);
@@ -86,27 +87,27 @@ $(document).ready(function () {
             $("#TipoCarnetConducir").val(respuesta.tipocarnetconducir);
 
             $.each(respuesta.ingresos, function (i, option) {
-                if(i==0){i++}
-                $("#tbodyIng").append("<tr><td  scope='row'><input type='number' name='' id='importeIng" + i + "' min='0' value="+option.importe+"></td><td><input type='text' name='' id='procedenciaIng" + i + "' value="+option.concepto+"></td></tr>");
+                
+                $("#tbodyIng").append("<tr><td  scope='row'><input type='number' name='' id='importeIng" + (i+1) + "' min='0' value="+option.importe+"></td><td><input type='text' name='' id='procedenciaIng" + (i+1) + "' value="+option.concepto+"></td></tr>");
             });
 
             $.each(respuesta.unidadConvivencia, function (i, option) {
-                if(i==0){i++}
+                
                 if(option.ayudaHijo){
 
                     if(option.parentezco=="Hijos"){
-                        $('#tbodyUC').append("<tr id='row" + i + "'><td scope='row'><input type='text' name='' id='nomUC" + i + "' value="+option.nombre+"></td><td ><input type='text' name='' id='parenUC" + i + "' value="+option.parentezco+" class='parent'></td><td><input type='date' name='' id='fechaUC" + i + "' min='0' value="+option.fechaNacimiento+"></td><td><input type='text' name='' id='profesUC" + i + "' value="+option.profesion+"></td><td id='tdAyudaHijo" + i + "'><input type='checkbox' id='ayudaHijo" + i + "' checked></td></tr>");
+                        $('#tbodyUC').append("<tr id='row" + (i+1) + "'><td scope='row'><input type='text' name='' id='nomUC" + (i+1) + "' value="+option.nombre+"></td><td ><input type='text' name='' id='parenUC" + (i+1) + "' value="+option.parentezco+" class='parent'></td><td><input type='date' name='' id='fechaUC" + (i+1) + "' min='0' value="+option.fechaNacimiento+"></td><td><input type='text' name='' id='profesUC" + (i+1) + "' value="+option.profesion+"></td><td id='tdAyudaHijo" + (i+1) + "'><input type='checkbox' id='ayudaHijo" + (i+1) + "' checked></td></tr>");
 
                     }else{
-                        $('#tbodyUC').append("<tr id='row" + i + "'><td scope='row'><input type='text' name='' id='nomUC" + i + "' value="+option.nombre+"></td><td ><input type='text' name='' id='parenUC" + i + "' value="+option.parentezco+" class='parent'></td><td><input type='date' name='' id='fechaUC" + i + "' min='0' value="+option.fechaNacimiento+"></td><td><input type='text' name='' id='profesUC" + i + "' value="+option.profesion+"></td><td id='tdAyudaHijo" + i + "'hidden><input type='checkbox' id='ayudaHijo" + i + "' checked></td></tr>");
+                        $('#tbodyUC').append("<tr id='row" + (i+1) + "'><td scope='row'><input type='text' name='' id='nomUC" + (i+1) + "' value="+option.nombre+"></td><td ><input type='text' name='' id='parenUC" + (i+1) + "' value="+option.parentezco+" class='parent'></td><td><input type='date' name='' id='fechaUC" + (i+1) + "' min='0' value="+option.fechaNacimiento+"></td><td><input type='text' name='' id='profesUC" + (i+1) + "' value="+option.profesion+"></td><td id='tdAyudaHijo" + (i+1) + "'hidden><input type='checkbox' id='ayudaHijo" + (i+1) + "' checked></td></tr>");
 
                     }
 
                 }else{
                     if(option.parentezco=="Hijos"){
-                        $('#tbodyUC').append("<tr id='row" + i + "'><td scope='row'><input type='text' name='' id='nomUC" + i + "' value="+option.nombre+"></td><td ><input type='text' name='' id='parenUC" + i + "' value="+option.parentezco+" class='parent'></td><td><input type='date' name='' id='fechaUC" + i + "' min='0' value="+option.fechaNacimiento+"></td><td><input type='text' name='' id='profesUC" + i + "' value="+option.profesion+"></td><td id='tdAyudaHijo" + i + "'><input type='checkbox' id='ayudaHijo" + i + "' ></td></tr>");
+                        $('#tbodyUC').append("<tr id='row" + (i+1) + "'><td scope='row'><input type='text' name='' id='nomUC" + (i+1) + "' value="+option.nombre+"></td><td ><input type='text' name='' id='parenUC" + (i+1) + "' value="+option.parentezco+" class='parent'></td><td><input type='date' name='' id='fechaUC" + (i+1) + "' min='0' value="+option.fechaNacimiento+"></td><td><input type='text' name='' id='profesUC" + (i+1) + "' value="+option.profesion+"></td><td id='tdAyudaHijo" + (i+1) + "'><input type='checkbox' id='ayudaHijo" + (i+1) + "' ></td></tr>");
                     }else{
-                        $('#tbodyUC').append("<tr id='row" + i + "'><td scope='row'><input type='text' name='' id='nomUC" + i + "' value="+option.nombre+"></td><td ><input type='text' name='' id='parenUC" + i + "' value="+option.parentezco+" class='parent'></td><td><input type='date' name='' id='fechaUC" + i + "' min='0' value="+option.fechaNacimiento+"></td><td><input type='text' name='' id='profesUC" + i + "' value="+option.profesion+"></td><td id='tdAyudaHijo" + i + "'hidden><input type='checkbox' id='ayudaHijo" + i + "' ></td></tr>");
+                        $('#tbodyUC').append("<tr id='row" + (i+1) + "'><td scope='row'><input type='text' name='' id='nomUC" + (i+1) + "' value="+option.nombre+"></td><td ><input type='text' name='' id='parenUC" + (i+1) + "' value="+option.parentezco+" class='parent'></td><td><input type='date' name='' id='fechaUC" + (i+1) + "' min='0' value="+option.fechaNacimiento+"></td><td><input type='text' name='' id='profesUC" + (i+1) + "' value="+option.profesion+"></td><td id='tdAyudaHijo" + (i+1) + "'hidden><input type='checkbox' id='ayudaHijo" + (i+1) + "' ></td></tr>");
                     }
 
 

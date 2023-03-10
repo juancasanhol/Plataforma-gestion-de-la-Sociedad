@@ -5,6 +5,7 @@
 package es.juancarlos.dao;
 
 import es.juancarlos.beans.Alimentos;
+import es.juancarlos.beans.Usuario;
 import es.juancarlos.interfaces.IAjaxDAO;
 import es.juancarlos.interfaces.IGenericoDAO;
 import es.juancarlos.interfaces.IListaDao;
@@ -62,5 +63,24 @@ public class ListaDao implements IListaDao {
 
         return listadoAlimentos;
     }
-    
+    @Override
+    public List<Usuario> ListadoXBanco_Fega(Boolean banco, boolean fega){
+         List<Usuario> listadoUsuarios = null;
+        Query q = null;
+        try {
+            startTransaction();
+            q = sesion.createQuery("SELECT u FROM Usuario AS u where u.EstaBanco = :banco and u.EstaFEGA = :fega");
+            q.setParameter("banco", banco );
+            q.setParameter("fega", fega);
+            listadoUsuarios = q.list();
+
+        } catch (HibernateException e) {
+            this.handleExcepcion(e);
+        } finally {
+            endTransaction();
+        }
+
+        
+          return listadoUsuarios;
+     }
 }

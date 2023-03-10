@@ -215,10 +215,10 @@ public class Usuario implements Serializable {
     //SUMA DE INGRESOS DE LOS CONVIVIENTES (SE CALCULA SOLO)
     //DATOS DEL BANCO DE ALIMENTOS
     @Column(name = "EstaBanco", nullable = true)//CHECK
-    Boolean EstaBanco;
+    Boolean EstaBanco=false;
 
     @Column(name = "EstaFEGA", nullable = true)//CHECK
-    Boolean EstaFEGA;
+    Boolean EstaFEGA=false;
 
     @Column(name = "FechaAlta_BancoAlimentos", nullable = true)
     String FechaAlta_BancoAlimentos;
@@ -1213,9 +1213,9 @@ public class Usuario implements Serializable {
                             String[] datosMiembro = miembro.split(";");
                             if (datosMiembro[1] != null && !datosMiembro[1].equals("")) {
                                 ValorDesplegable v = (ValorDesplegable) gdao.getById(Integer.parseInt(datosMiembro[1]), ValorDesplegable.class);
-                                miembroLista = new MiembrosFamilia(datosMiembro[0], v.valor, datosMiembro[2], datosMiembro[3], Boolean.valueOf(datosMiembro[4]));
+                                miembroLista = new MiembrosFamilia(datosMiembro[0], v.getId(), datosMiembro[2], datosMiembro[3], Boolean.valueOf(datosMiembro[4]));
                             } else {
-                                miembroLista = new MiembrosFamilia(datosMiembro[0], "Sin Parentezco", datosMiembro[2], datosMiembro[3], Boolean.valueOf(datosMiembro[4]));
+                                miembroLista = new MiembrosFamilia(datosMiembro[0], -1, datosMiembro[2], datosMiembro[3], Boolean.valueOf(datosMiembro[4]));
                             }
 
                             listaFamiliares.add(miembroLista);
@@ -1236,9 +1236,9 @@ public class Usuario implements Serializable {
                             String[] datosIngreso = ingreso.split(";");
                             if (datosIngreso[1] != null && !datosIngreso[1].equals("")) {
                                 ValorDesplegable v = (ValorDesplegable) gdao.getById(Integer.parseInt(datosIngreso[1]), ValorDesplegable.class);
-                                ingresoLista = new Ingresos(v.getValor(), Integer.parseInt(datosIngreso[0]));
+                                ingresoLista = new Ingresos(v.getId(), Integer.parseInt(datosIngreso[0]));
                             } else {
-                                ingresoLista = new Ingresos("Sin Origen", Integer.parseInt(datosIngreso[0]));
+                                ingresoLista = new Ingresos(-1, Integer.parseInt(datosIngreso[0]));
                             }
 
                             listaIngresos.add(ingresoLista);

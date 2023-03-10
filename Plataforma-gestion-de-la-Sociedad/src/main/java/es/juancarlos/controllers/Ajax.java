@@ -908,9 +908,16 @@ public class Ajax extends HttpServlet {
                 response.getWriter().print(arrayJSON);
                 break;
             case "VerUsuarios":
+                Boolean estaBanco=Boolean.parseBoolean(request.getParameter("banco"));
+                Boolean estaFega=Boolean.parseBoolean(request.getParameter("fega"));
+                Boolean lTodos=Boolean.parseBoolean(request.getParameter("lTodos"));
                 List usuarios = new ArrayList();
                 try {
-                    i = gdao.get(Usuario.class).iterator();
+                    if(lTodos){
+                    i=gdao.get(Usuario.class).iterator();
+                    }else{
+                       i = ldao.ListadoXBanco_Fega(estaBanco, estaFega).iterator(); 
+                    }
                     while (i.hasNext()) {
                         u = (Usuario) i.next();
                         objeto = new JSONObject();

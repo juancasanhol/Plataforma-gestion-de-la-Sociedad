@@ -26,7 +26,7 @@ public class Ingresos {
     int id;   
     
     @Column(name = "Concepto", nullable = true)
-    String Concepto;
+    int Concepto;
     
     @Column(name = "Importe", nullable = true)
     double Importe;
@@ -35,7 +35,7 @@ public class Ingresos {
     }
 
     
-    public Ingresos(String Concepto, double Importe) {
+    public Ingresos(int Concepto, double Importe) {
         this.Concepto = Concepto;
         this.Importe = Importe;
     }
@@ -48,11 +48,11 @@ public class Ingresos {
         this.id = id;
     }
 
-    public String getConcepto() {
+    public int getConcepto() {
         return Concepto;
     }
 
-    public void setConcepto(String Concepto) {
+    public void setConcepto(int Concepto) {
         this.Concepto = Concepto;
     }
 

@@ -32,7 +32,7 @@ public class MiembrosFamilia {
     String nombre;
     
     @Column(name = "Parentezco", nullable = true)
-    String Parentezco;
+    int Parentezco;
     
     @Column(name = "FechaNacimiento", nullable = true)
     String FechaNacimiento;
@@ -46,7 +46,7 @@ public class MiembrosFamilia {
     public MiembrosFamilia() {
     }
 
-    public MiembrosFamilia( String nombre, String Parentezco, String FechaNacimiento, String Profesion, Boolean AyudaHijo) {
+    public MiembrosFamilia( String nombre, int Parentezco, String FechaNacimiento, String Profesion, Boolean AyudaHijo) {
         this.nombre = nombre;
         this.Parentezco = Parentezco;
         this.FechaNacimiento = FechaNacimiento;
@@ -70,11 +70,11 @@ public class MiembrosFamilia {
         this.nombre = nombre;
     }
 
-    public String getParentezco() {
+    public int getParentezco() {
         return Parentezco;
     }
 
-    public void setParentezco(String Parentezco) {
+    public void setParentezco(int Parentezco) {
         this.Parentezco = Parentezco;
     }
 

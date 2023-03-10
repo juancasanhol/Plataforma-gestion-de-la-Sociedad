@@ -58,6 +58,9 @@ public class RegistroUsuario extends HttpServlet {
         IGenericoDAO gdao = daof.getGenericoDAO();
         //todos aquellos campos de request que coincidan con el nombre de las variables del bean se insertaran
         
+        if (request.getParameter("id")!=null && !request.getParameter("id").equals("") && Usuario.isNumeric(request.getParameter("id"))){
+            u.setNumIntId(Integer.parseInt(request.getParameter("id")));
+        }
         u.Cargar(request.getParameterMap());
         
         gdao.insertOrUpdate(u);
