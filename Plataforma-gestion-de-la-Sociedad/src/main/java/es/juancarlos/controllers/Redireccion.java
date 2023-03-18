@@ -2,12 +2,21 @@ package es.juancarlos.controllers;
 
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
+import es.juancarlos.models.ImprimirTabla;
+
+import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.pdfbox.exceptions.COSVisitorException;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.edit.PDPageContentStream;
 
 /**
  *
@@ -85,6 +94,21 @@ public class Redireccion extends HttpServlet {
                 case "banco":
                     url = "./html/observaciones/ObservacionesBanco.html";
                     break;
+
+                case "imp":
+        ImprimirTabla generatePDFFileIText = new ImprimirTabla();
+       
+                
+        File carpeta = new File(this.getClass().getClassLoader().getResource("").getPath() + "../../recibos");
+        if (!carpeta.exists()) {
+            carpeta.mkdir();
+        }
+        generatePDFFileIText.createPDFListadoAyudas(new File(carpeta + "/RECIBO_" + "prueba" + ".pdf"));
+                    
+                    url = "./html/MenuPrincipal/Menu.html";
+                    break;
+
+
                 default:
 
                     break;

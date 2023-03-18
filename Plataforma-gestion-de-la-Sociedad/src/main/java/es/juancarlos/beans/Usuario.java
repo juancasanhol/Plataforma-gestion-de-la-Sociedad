@@ -1211,11 +1211,24 @@ public class Usuario implements Serializable {
                         MiembrosFamilia miembroLista;
                         for (String miembro : miembros) {
                             String[] datosMiembro = miembro.split(";");
-                            if (datosMiembro[1] != null && !datosMiembro[1].equals("")) {
-                                ValorDesplegable v = (ValorDesplegable) gdao.getById(Integer.parseInt(datosMiembro[1]), ValorDesplegable.class);
-                                miembroLista = new MiembrosFamilia(datosMiembro[0], v.getId(), datosMiembro[2], datosMiembro[3], Boolean.valueOf(datosMiembro[4]));
+                            if (datosMiembro[1] != null && !datosMiembro[1].equals("")&&datosMiembro[3] != null && !datosMiembro[3].equals("")) {
+                                ValorDesplegable vTD = (ValorDesplegable) gdao.getById(Integer.parseInt(datosMiembro[1]), ValorDesplegable.class);
+                                ValorDesplegable vP = (ValorDesplegable) gdao.getById(Integer.parseInt(datosMiembro[3]), ValorDesplegable.class);
+                                miembroLista = new MiembrosFamilia(datosMiembro[0], vP.getId(),vTD.getId(),datosMiembro[2], datosMiembro[4], datosMiembro[5], Boolean.valueOf(datosMiembro[4]));
                             } else {
-                                miembroLista = new MiembrosFamilia(datosMiembro[0], -1, datosMiembro[2], datosMiembro[3], Boolean.valueOf(datosMiembro[4]));
+                                if((datosMiembro[1] == null || datosMiembro[1].equals("")) &&(datosMiembro[3] != null && !datosMiembro[3].equals(""))){
+                                    ValorDesplegable vP = (ValorDesplegable) gdao.getById(Integer.parseInt(datosMiembro[3]), ValorDesplegable.class);
+                                     miembroLista = new MiembrosFamilia(datosMiembro[0], vP.getId(),-1,datosMiembro[2], datosMiembro[4], datosMiembro[5], Boolean.valueOf(datosMiembro[4]));
+                                }else{
+                                    if((datosMiembro[1] != null && !datosMiembro[1].equals("")) &&(datosMiembro[3] == null && datosMiembro[3].equals(""))){
+                                         ValorDesplegable vTD = (ValorDesplegable) gdao.getById(Integer.parseInt(datosMiembro[1]), ValorDesplegable.class);
+                                         miembroLista = new MiembrosFamilia(datosMiembro[0], -1,vTD.getId(),datosMiembro[2], datosMiembro[4], datosMiembro[5], Boolean.valueOf(datosMiembro[4]));
+                                    }else{
+                                        miembroLista = new MiembrosFamilia(datosMiembro[0], -1,-1,datosMiembro[2], datosMiembro[4], datosMiembro[5], Boolean.valueOf(datosMiembro[4]));
+                                    }
+                                    
+                                }
+                                 miembroLista = new MiembrosFamilia(datosMiembro[0],-1,-1,datosMiembro[2], datosMiembro[2], datosMiembro[3], Boolean.valueOf(datosMiembro[4]));
                             }
 
                             listaFamiliares.add(miembroLista);

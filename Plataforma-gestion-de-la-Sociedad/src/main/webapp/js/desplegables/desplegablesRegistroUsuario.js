@@ -83,9 +83,9 @@ $(document).ready(function () {
 
     $(document).on('click', '#addFilaUC', function () {
         numFilaUnidadFamiliar += 1;
-        $('#tbodyUC').append("<tr id='row" + numFilaUnidadFamiliar + "'><td scope='row'><input type='text' name='' id='nomUC" + numFilaUnidadFamiliar + "'></td><td ><input type='text' name='' id='parenUC" + numFilaUnidadFamiliar + "' list='DesplegablesParentesco' class='parent'></td><td><input type='date' name='' id='fechaUC" + numFilaUnidadFamiliar + "' min='0'></td><td><input type='text' name='' id='profesUC" + numFilaUnidadFamiliar + "'></td><td id='tdAyudaHijo" + numFilaUnidadFamiliar + "'hidden><input type='checkbox' id='ayudaHijo" + numFilaUnidadFamiliar + "'></td></tr>");
+        $('#tbodyUC').append("<tr id='row" + numFilaUnidadFamiliar + "'><td scope='row'><input type='text' name='' id='nomUC" + numFilaUnidadFamiliar + "'></td><td><input type='text' name='' id='TDUC" + numFilaUnidadFamiliar + "' class='tipoDocUF' list='DesplegablesTipoDoc'></td><td><input type='text' name='' id='NDUC" + numFilaUnidadFamiliar + "'  ></td><td ><input type='text' name='' id='parenUC" + numFilaUnidadFamiliar + "' list='DesplegablesParentesco' class='parent'></td><td><input type='date' name='' id='fechaUC" + numFilaUnidadFamiliar + "' min='0'></td><td><input type='text' name='' id='profesUC" + numFilaUnidadFamiliar + "'></td><td id='tdAyudaHijo" + numFilaUnidadFamiliar + "'hidden><input type='checkbox' id='ayudaHijo" + numFilaUnidadFamiliar + "'></td></tr>");
     });
-
+              
     $(document).on('change', '.parent', function () {
 
         var aux = $(this).attr('id');
@@ -117,16 +117,16 @@ $(document).ready(function () {
         for (i=1;i<=numUC;i++){
             if (datosUC==undefined){
                 if($("#tdAyudaHijo"+i).children().is(":checked")){
-                    datosUC=$("#nomUC"+i).val()+";"+$("#parenUC"+i).val()+";"+$("#fechaUC"+i).val()+";"+$("#profesUC"+i).val()+";true;;"
+                    datosUC=$("#nomUC"+i).val()+";"+$("#TDUC"+i).val()+";"+$("#NDUC"+i).val()+";"+$("#parenUC"+i).val()+";"+$("#fechaUC"+i).val()+";"+$("#profesUC"+i).val()+";true;;"
                 }else{
-                    datosUC=$("#nomUC"+i).val()+";"+$("#parenUC"+i).val()+";"+$("#fechaUC"+i).val()+";"+$("#profesUC"+i).val()+";false;;"
+                    datosUC=$("#nomUC"+i).val()+";"+$("#TDUC"+i).val()+";"+$("#NDUC"+i).val()+";"+$("#parenUC"+i).val()+";"+$("#fechaUC"+i).val()+";"+$("#profesUC"+i).val()+";false;;"
                 }
             }else{
 
                 if($("#tdAyudaHijo"+i).children().is(":checked")){
-                    datosUC=datosUC+$("#nomUC"+i).val()+";"+$("#parenUC"+i).val()+";"+$("#fechaUC"+i).val()+";"+$("#profesUC"+i).val()+";true;;"
+                    datosUC=datosUC+$("#nomUC"+i).val()+";"+$("#TDUC"+i).val()+";"+$("#NDUC"+i).val()+";"+$("#parenUC"+i).val()+";"+$("#fechaUC"+i).val()+";"+$("#profesUC"+i).val()+";true;;"
                 }else{
-                    datosUC=datosUC+$("#nomUC"+i).val()+";"+$("#parenUC"+i).val()+";"+$("#fechaUC"+i).val()+";"+$("#profesUC"+i).val()+";false;;"
+                    datosUC=datosUC+$("#nomUC"+i).val()+";"+$("#TDUC"+i).val()+";"+$("#NDUC"+i).val()+";"+$("#parenUC"+i).val()+";"+$("#fechaUC"+i).val()+";"+$("#profesUC"+i).val()+";false;;"
                 }
 
             }

@@ -3,6 +3,7 @@ package es.juancarlos.controllers;
 import es.juancarlos.beans.ConferenciaSantaMaria;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
+import java.awt.print.PrinterException;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -46,26 +47,26 @@ public class Imprimir extends HttpServlet {
      * @throws IOException Si ocurre un error de I/O
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, COSVisitorException {
+            throws ServletException, IOException, COSVisitorException, PrinterException {
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
-        ConferenciaSantaMaria conf = (ConferenciaSantaMaria) gdao.getById(Integer.parseInt(request.getParameter("id")), ConferenciaSantaMaria.class);
+        //ConferenciaSantaMaria conf = (ConferenciaSantaMaria) gdao.getById(Integer.parseInt(request.getParameter("id")), ConferenciaSantaMaria.class);
         File archivo = new File(this.getClass().getClassLoader().getResource("").getPath() + "../../archivos/RECIBO_MENSUAL_VALIDO.pdf");
         PDDocument pDDocument = PDDocument.load(archivo);
         PDAcroForm pDAcroForm = pDDocument.getDocumentCatalog().getAcroForm();
         //Se rellenan los campos del PDF aqui
         PDField field = pDAcroForm.getField("NumExt");
-        field.setValue(conf.getNumExtId());
+        //field.setValue(conf.getNumExtId());
         field = pDAcroForm.getField("Nombre");
-        field.setValue(conf.getNombre() + " " + conf.getApellidos());
+        //field.setValue(conf.getNombre() + " " + conf.getApellidos());
         field = pDAcroForm.getField("Direccion");
-        field.setValue(conf.getDireccion() + " - " + conf.getPoblacion() + " (" + conf.getProvincia() + ") | "+conf.getCodigoPostal());
+        //field.setValue(conf.getDireccion() + " - " + conf.getPoblacion() + " (" + conf.getProvincia() + ") | "+conf.getCodigoPostal());
         field = pDAcroForm.getField("Telefono");
-        field.setValue(conf.getTelefono());
+        //field.setValue(conf.getTelefono());
         field = pDAcroForm.getField("Mail");
-        field.setValue(conf.getMail());
+        //field.setValue(conf.getMail());
         field = pDAcroForm.getField("Cuota");
-        field.setValue(String.valueOf(conf.getCuota()));
+        //field.setValue(String.valueOf(conf.getCuota()));
         field = pDAcroForm.getField("N1");
         field.setValue("12");
         field = pDAcroForm.getField("A1");
@@ -77,21 +78,22 @@ public class Imprimir extends HttpServlet {
         String year = formattedDate.split("/")[0].charAt(2) + "" + formattedDate.split("/")[0].charAt(3);
         field.setValue(String.valueOf(Integer.parseInt(year) - 1));
         field = pDAcroForm.getField("C1");
-        field.setValue(String.valueOf(conf.getCuota()));
+        //field.setValue(String.valueOf(conf.getCuota()));
         for (int i = 2; i < 13; i++) {
             field = pDAcroForm.getField("N" + i);
             field.setValue(String.valueOf(i-1));
             field = pDAcroForm.getField("A" + i);
             field.setValue(year);
             field = pDAcroForm.getField("C" + i);
-            field.setValue(String.valueOf(conf.getCuota()));
+            //field.setValue(String.valueOf(conf.getCuota()));
         }
         //Se guarda el recibo
         File carpeta = new File(this.getClass().getClassLoader().getResource("").getPath() + "../../recibos");
         if (!carpeta.exists()) {
             carpeta.mkdir();
         }
-        pDDocument.save(carpeta + "/RECIBO_" + conf.getApellidos() + ".pdf");
+        pDDocument.save(carpeta + "/RECIBO_" + "prueba" + ".pdf");
+        pDDocument.print();
         pDDocument.close();
         response.sendRedirect("./html/MenuPrincipal/Menu.html");
     }
@@ -112,6 +114,8 @@ public class Imprimir extends HttpServlet {
             processRequest(request, response);
         } catch (COSVisitorException ex) {
             Logger.getLogger(Imprimir.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PrinterException ex) {
+            Logger.getLogger(Imprimir.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -129,6 +133,8 @@ public class Imprimir extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (COSVisitorException ex) {
+            Logger.getLogger(Imprimir.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PrinterException ex) {
             Logger.getLogger(Imprimir.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

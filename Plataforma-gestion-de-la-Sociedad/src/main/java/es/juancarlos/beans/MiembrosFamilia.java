@@ -34,6 +34,12 @@ public class MiembrosFamilia {
     @Column(name = "Parentezco", nullable = true)
     int Parentezco;
     
+    @Column(name = "TipoDoc", nullable = true)//DESPLEGABLE
+    int TipoDoc;
+
+    @Column(name = "NumDoc", nullable = true)
+    String NumDoc;
+    
     @Column(name = "FechaNacimiento", nullable = true)
     String FechaNacimiento;
     
@@ -42,13 +48,17 @@ public class MiembrosFamilia {
     
     @Column(name = "AyudaHijo", nullable = true)//CHECK
     Boolean AyudaHijo;
+    
+    
 
     public MiembrosFamilia() {
     }
 
-    public MiembrosFamilia( String nombre, int Parentezco, String FechaNacimiento, String Profesion, Boolean AyudaHijo) {
+    public MiembrosFamilia(String nombre, int Parentezco, int TipoDoc, String NumDoc, String FechaNacimiento, String Profesion, Boolean AyudaHijo) {
         this.nombre = nombre;
         this.Parentezco = Parentezco;
+        this.TipoDoc = TipoDoc;
+        this.NumDoc = NumDoc;
         this.FechaNacimiento = FechaNacimiento;
         this.Profesion = Profesion;
         this.AyudaHijo = AyudaHijo;
@@ -100,6 +110,22 @@ public class MiembrosFamilia {
 
     public void setAyudaHijo(Boolean AyudaHijo) {
         this.AyudaHijo = AyudaHijo;
+    }
+
+    public int getTipoDoc() {
+        return TipoDoc;
+    }
+
+    public void setTipoDoc(int TipoDoc) {
+        this.TipoDoc = TipoDoc;
+    }
+
+    public String getNumDoc() {
+        return NumDoc;
+    }
+
+    public void setNumDoc(String NumDoc) {
+        this.NumDoc = NumDoc;
     }
     
     
