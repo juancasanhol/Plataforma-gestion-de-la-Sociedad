@@ -2,7 +2,7 @@ package es.juancarlos.controllers;
 
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
-import es.juancarlos.models.ImprimirTabla;
+import es.juancarlos.models.Impresiones;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,6 +44,8 @@ public class Redireccion extends HttpServlet {
             request.getSession().setAttribute("id", request.getParameter("id"));
         }
         String url = "";
+        Impresiones generatePDFFileIText;
+        File carpeta;
         //DAOFactory daof = DAOFactory.getDAOFactory();
         //IGenericoDAO gdao = daof.getGenericoDAO();
         if (request.getParameter("accion") != null) {
@@ -96,18 +98,28 @@ public class Redireccion extends HttpServlet {
                     break;
 
                 case "imp":
-        ImprimirTabla generatePDFFileIText = new ImprimirTabla();
-       
-                
-        File carpeta = new File(this.getClass().getClassLoader().getResource("").getPath() + "../../recibos");
-        if (!carpeta.exists()) {
-            carpeta.mkdir();
-        }
-        generatePDFFileIText.createPDFListadoAyudas(new File(carpeta + "/RECIBO_" + "prueba" + ".pdf"));
-                    
+                    generatePDFFileIText = new Impresiones();
+
+                    carpeta = new File(this.getClass().getClassLoader().getResource("").getPath() + "../../PDF");
+                    if (!carpeta.exists()) {
+                        carpeta.mkdir();
+                    }
+                    generatePDFFileIText.TablaBancoAlimentos(new File(carpeta + "/BancoAlimento_prueba" + ".pdf"));
+
                     url = "./html/MenuPrincipal/Menu.html";
                     break;
 
+                case "imp2":
+                    generatePDFFileIText = new Impresiones();
+
+                    carpeta = new File(this.getClass().getClassLoader().getResource("").getPath() + "../../PDF");
+                    if (!carpeta.exists()) {
+                        carpeta.mkdir();
+                    }
+                    generatePDFFileIText.AyudaMenores(new File(carpeta + "/PRUEBA_" + "prueba" + ".pdf"));
+
+                    url = "./html/MenuPrincipal/Menu.html";
+                    break;
 
                 default:
 

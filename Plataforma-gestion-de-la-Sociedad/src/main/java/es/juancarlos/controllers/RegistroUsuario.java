@@ -1,19 +1,10 @@
 package es.juancarlos.controllers;
 
-import es.juancarlos.beans.BancoAlimentos;
-import es.juancarlos.beans.FicheroAdjunto;
-import es.juancarlos.beans.Observaciones;
 import es.juancarlos.beans.Usuario;
-import es.juancarlos.beans.ValorDesplegable;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
-import es.juancarlos.models.GuardarFicheros;
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -22,7 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.beanutils.BeanUtils;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 

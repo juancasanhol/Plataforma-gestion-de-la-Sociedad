@@ -16,6 +16,7 @@ import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfNumber;
 import com.itextpdf.text.pdf.PdfPCell;
@@ -23,6 +24,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPage;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.VerticalPositionMark;
 import es.juancarlos.beans.MiembrosFamilia;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.beans.ValorDesplegable;
@@ -30,13 +32,21 @@ import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IDesplegablesDAO;
 import es.juancarlos.interfaces.IListaDao;
 import java.io.*;
+import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.Date;
 import java.util.Iterator;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author junco
  */
-public class ImprimirTabla {
+public class Impresiones {
     // Fonts definitions (Definición de fuentes).
 
     private static final Font chapterFont = FontFactory.getFont(FontFactory.HELVETICA, 26, Font.BOLDITALIC);
@@ -59,7 +69,7 @@ public class ImprimirTabla {
     IListaDao ldao = daof.getListaDAO();
     IDesplegablesDAO ddao = daof.getDesplegablesDAO();
 
-    public void createPDFListadoAyudas(File pdfNewFile) throws FileNotFoundException {
+    public void TablaBancoAlimentos(File pdfNewFile) throws FileNotFoundException {
         // We create the document and set the file name.        
         // Creamos el documento e indicamos el nombre del fichero.
         try {
@@ -235,6 +245,53 @@ public class ImprimirTabla {
         } catch (DocumentException documentException) {
             System.out.println("The file not exists (Se ha producido un error al generar un documento): " + documentException);
         }
+    }
+    
+    public void AyudaMenores(File pdfNewFile) throws FileNotFoundException {
+       String espaciado="                     ";
+        try {
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(pdfNewFile));
+
+            document.open();
+
+            // We add metadata to PDF
+            // Añadimos los metadatos del PDF
+            document.addTitle("Listado Beneficiarios Banco de Alimentos");
+            document.addAuthor("GENERADO AUTOMATICAMENTE");
+            document.addCreator("SAN VICENTE DE PAUL - MERIDA");
+
+            // First page
+            // Primera página 
+            Chunk titulo = new Chunk("Solicitud Actualización Beneficiarios", new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.WHITE));
+
+
+            titulo.setBackground(BaseColor.BLUE, 10, 10, 10, 10);
+                        
+            
+            Chunk glue = new Chunk(new VerticalPositionMark());
+            
+            Chunk fecha = new Chunk(LocalDate.now().getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")).toUpperCase()+"-"+LocalDate.now().getYear(), new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.WHITE));
+            fecha.setBackground(BaseColor.BLUE, 1000, 10, 10, 10);
+            
+                    
+            // Let's create de first Chapter (Creemos el primer capítulo)
+            Paragraph p= new Paragraph(titulo);
+            
+            p.add(new Chunk(glue));
+
+            p.add(fecha);
+            Chapter chapter = new Chapter(p, 1);
+            chapter.setNumberDepth(0);
+
+
+            document.add(chapter);
+            document.close();
+            
+        } catch (DocumentException documentException) {
+             System.out.println("The file not exists (Se ha producido un error al generar un documento): " + documentException);
+        }
+        
     }
 
     public class Rotate extends PdfPageEventHelper {
