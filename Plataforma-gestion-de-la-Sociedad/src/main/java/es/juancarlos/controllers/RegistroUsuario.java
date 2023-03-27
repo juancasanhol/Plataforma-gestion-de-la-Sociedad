@@ -1,10 +1,14 @@
 package es.juancarlos.controllers;
 
+import es.juancarlos.beans.Observaciones;
+import es.juancarlos.beans.Perfil;
 import es.juancarlos.beans.Usuario;
 import es.juancarlos.daofactory.DAOFactory;
 import es.juancarlos.interfaces.IGenericoDAO;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -47,12 +51,57 @@ public class RegistroUsuario extends HttpServlet {
         
         DAOFactory daof = DAOFactory.getDAOFactory();
         IGenericoDAO gdao = daof.getGenericoDAO();
+        Observaciones obsB=null;
+        List <Observaciones> Lobs=new ArrayList<>();
         //todos aquellos campos de request que coincidan con el nombre de las variables del bean se insertaran
         
         if (request.getParameter("id")!=null && !request.getParameter("id").equals("") && Usuario.isNumeric(request.getParameter("id"))){
             u.setNumIntId(Integer.parseInt(request.getParameter("id")));
         }
         u.Cargar(request.getParameterMap());
+        
+        if(!request.getParameter("Observaciones").equals("")|| !request.getParameter("Observaciones").equals(null) ){
+            Lobs=new ArrayList<>();
+            Lobs.add(new Observaciones(request.getParameter("Observaciones"), (Perfil) gdao.getById(Integer.parseInt(String.valueOf(request.getSession().getAttribute("idAutor"))), Perfil.class)));
+            u.setObservaciones(Lobs);
+        }
+        
+        if(!request.getParameter("ObservacionesSanitarias").equals("")|| !request.getParameter("ObservacionesSanitarias").equals(null) ){
+            Lobs=new ArrayList<>();
+            Lobs.add(new Observaciones(request.getParameter("ObservacionesSanitarias"), (Perfil) gdao.getById(Integer.parseInt(String.valueOf(request.getSession().getAttribute("idAutor"))), Perfil.class)));
+            u.setObservaciones_sanitarias(Lobs);
+        }
+        
+         if(!request.getParameter("ObservacionesLaborales").equals("")|| !request.getParameter("ObservacionesLaborales").equals(null) ){
+            Lobs=new ArrayList<>();
+             Lobs.add(new Observaciones(request.getParameter("ObservacionesLaborales"), (Perfil) gdao.getById(Integer.parseInt(String.valueOf(request.getSession().getAttribute("idAutor"))), Perfil.class)));
+            u.setObservaciones_sanitarias(Lobs);
+        }
+         
+        if(!request.getParameter("ObservacionesFormacion").equals("")|| !request.getParameter("ObservacionesFormacion").equals(null) ){
+            Lobs=new ArrayList<>();
+            Lobs.add(new Observaciones(request.getParameter("ObservacionesFormacion"), (Perfil) gdao.getById(Integer.parseInt(String.valueOf(request.getSession().getAttribute("idAutor"))), Perfil.class)));
+            u.setObservaciones_sanitarias(Lobs);
+        } 
+        
+        if(!request.getParameter("ObservacionesIngresos").equals("")|| !request.getParameter("ObservacionesIngresos").equals(null) ){
+            Lobs=new ArrayList<>();
+            Lobs.add(new Observaciones(request.getParameter("ObservacionesIngresos"), (Perfil) gdao.getById(Integer.parseInt(String.valueOf(request.getSession().getAttribute("idAutor"))), Perfil.class)));
+            u.setObservaciones_sanitarias(Lobs);
+        }
+        
+        if(!request.getParameter("ObservacionesConvivencia").equals("")|| !request.getParameter("ObservacionesConvivencia").equals(null) ){
+            Lobs=new ArrayList<>();
+            Lobs.add(new Observaciones(request.getParameter("ObservacionesConvivencia"), (Perfil) gdao.getById(Integer.parseInt(String.valueOf(request.getSession().getAttribute("idAutor"))), Perfil.class)));
+            u.setObservaciones_sanitarias(Lobs);
+        } 
+        
+        if(!request.getParameter("ObservacionesOrientacion").equals("")|| !request.getParameter("ObservacionesOrientacion").equals(null) ){
+            Lobs=new ArrayList<>();
+            Lobs.add(new Observaciones(request.getParameter("ObservacionesOrientacion"), (Perfil) gdao.getById(Integer.parseInt(String.valueOf(request.getSession().getAttribute("idAutor"))), Perfil.class)));
+            u.setObservaciones_sanitarias(Lobs);
+        }
+
         
         gdao.insertOrUpdate(u);
   

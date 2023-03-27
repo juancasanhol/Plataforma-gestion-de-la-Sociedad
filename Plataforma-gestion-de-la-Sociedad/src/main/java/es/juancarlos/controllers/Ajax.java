@@ -1255,11 +1255,11 @@ public class Ajax extends HttpServlet {
             case "VerObservacionesUsuario":
                 u = (Usuario) gdao.getById(Integer.parseInt(request.getSession().getAttribute("id").toString()), Usuario.class);
                 observaciones = new ArrayList();
-                for (int tam = 0; tam < u.getObservaciones_id().size(); tam++) {
+                for (int tam = 0; tam < u.getObservaciones().size(); tam++) {
                     objeto = new JSONObject();
-                    objeto.put("textoobs", u.getObservaciones_id().get(tam).getTexto());
-                    objeto.put("fechaobs", u.getObservaciones_id().get(tam).getFecha());
-                    objeto.put("autorobs", u.getObservaciones_id().get(tam).getAutor());
+                    objeto.put("textoobs", u.getObservaciones().get(tam).getTexto());
+                    objeto.put("fechaobs", u.getObservaciones().get(tam).getFecha());
+                    objeto.put("autorobs", u.getObservaciones().get(tam).getAutor());
                     observaciones.add(objeto);
                 }
                 for (int tam = 0; tam < u.getObservaciones_sanitarias().size(); tam++) {

@@ -81,7 +81,7 @@ public class Usuario implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
-    List<Observaciones> observaciones_id;//Son las observaciones referentes a la identificacion de una persona
+    List<Observaciones> observaciones;//Son las observaciones referentes a la identificacion de una persona
 
     @OneToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -295,7 +295,7 @@ public class Usuario implements Serializable {
         this.Nacionalidad = Nacionalidad;
         this.PerteneceMinoria = PerteneceMinoria;
         this.Minoria = Minoria;
-        this.observaciones_id = observaciones_id;
+        this.observaciones = observaciones_id;
         this.ficheros_usuario = ficheros_usuario;
         this.ficheros_unidadconvivencia = null;
         //Todas estas listas se crean ahora para que a la hora de añadir o editar los datos no haya que crearlas
@@ -326,7 +326,7 @@ public class Usuario implements Serializable {
         this.Nacionalidad = Nacionalidad;
         this.PerteneceMinoria = PerteneceMinoria;
         this.Minoria = Minoria;
-        this.observaciones_id = observaciones_id;
+        this.observaciones= observaciones_id;
         this.ficheros_usuario = ficheros_usuario;
         this.SolicitaAyudaFarmaceutica = SolicitaAyudaFarmaceutica;
         this.TratSanitario = TratSanitario;
@@ -386,7 +386,7 @@ public class Usuario implements Serializable {
         this.Nacionalidad = Nacionalidad;
         this.PerteneceMinoria = PerteneceMinoria;
         this.Minoria = Minoria;
-        this.observaciones_id = observaciones_id;
+        this.observaciones = observaciones_id;
         this.ficheros_usuario = ficheros_usuario;
         this.SolicitaAyudaFarmaceutica = SolicitaAyudaFarmaceutica;
         this.TratSanitario = TratSanitario;
@@ -558,12 +558,12 @@ public class Usuario implements Serializable {
         this.Minoria = Minoria;
     }
 
-    public List<Observaciones> getObservaciones_id() {
-        return observaciones_id;
+    public List<Observaciones> getObservaciones() {
+        return observaciones;
     }
 
-    public void setObservaciones_id(List<Observaciones> observaciones_id) {
-        this.observaciones_id = observaciones_id;
+    public void setObservaciones(List<Observaciones> observaciones_id) {
+        this.observaciones = observaciones_id;
     }
 
     public List<FicheroAdjunto> getFicheros_usuario() {
@@ -1268,6 +1268,7 @@ public class Usuario implements Serializable {
                         setEstaFEGA(false);
                     }
                     break;
+                    
 //------------------------------------------------------------------------
 
                 /*Fichero
