@@ -1,135 +1,140 @@
 <!doctype html>
 <html lang="es">
 
-<head>
-    <title>Atención social e igualdad</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/generico.css">
-</head>
+    <head>
+        <title>Atención social e igualdad</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/generico.css">
+    </head>
 
-<body>
+    <body>
 
 
-    <!-- cabecera -->
-    <header class="p-3 bg-primary text-white">
-        <div class="container">
+        <!-- cabecera -->
+        <header class="p-3 bg-primary text-white">
+            <div class="container">
 
-            <div class="row">
+                <div class="row">
 
-                <div class="col-md-2">
-                    <div class="col-2">
-                        <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png" alt="logo"></a>
+                    <div class="col-md-2">
+                        <div class="col-2">
+                            <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png" alt="logo"></a>
+                        </div>
                     </div>
+
                 </div>
 
             </div>
+        </header>
+
+        <div class="container-fluid">
+
+            <!-- FORMULARIO PARA LA CREACION DE UNA FICHA DE ACOGIDA -->
+            <form action="" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
+                <!--El numero interno de identificacion se genera solo-->
+                <div class="col-3">
+
+                    <legend class="mt-2">Fecha: </legend>
+                    <input id="Fecha" type="date" name="Fecha"><br>
+
+                    <legend>Intervención: </legend>
+                    <input id="Intervencion" type="text" name="Intervencion" list="DesplegablesIntervencion"> <br>
+                    <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                    <datalist id="DesplegablesIntervencion">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+                </div>
+
+                <div class="col-3">
+
+                    <legend>Usuario: </legend>
+                    <input required id="Usuario" type="text" name="Usuario" list="DesplegablesUsuario"> <br>
+                    <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                    <datalist id="DesplegablesUsuario">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+                    <legend>Estado de resolución: </legend>
+                    <input id="EstadoResolucion" type="text" name="EstadoResolucion" list="DesplegablesEstadoResolucion"> <br>
+                    <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                    <datalist id="DesplegablesEstadoResolucion">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+                </div>
+
+                <div class="col-3">
+
+                    <legend>Procedencia o derivación: </legend>
+                    <input id="ProcedenciaDerivacion" type="text" name="ProcedenciaDerivacion" list="DesplegablesProcedenciaDerivacion"> <br>
+                    <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                    <datalist id="DesplegablesProcedenciaDerivacion">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+                    <legend class="mt-2">Observaciones: </legend>
+                    <textarea cols="30" id="Observaciones" name="Observaciones"></textarea><br>
+
+
+                </div>
+
+                <div class="col-3">
+
+                    <legend>Motivo de la consulta: </legend>
+                    <input id="MotivoConsulta" type="text" name="MotivoConsulta" list="DesplegablesMotivoConsulta"> <br>
+                    <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                    <datalist id="DesplegablesMotivoConsulta">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+                    <legend class="mt-2">Fichero adjunto: </legend>
+                    <input type="file" id="Fichero" name="Fichero"><br>
+
+                </div>
+
+                <div class="col-4 offset-8 mt-5 justify-content-end">
+                    <input class="col-4 btn btn-primary" type="button" id="addFicha" value="Crear ficha">
+                    <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
+                </div>
 
         </div>
-    </header>
-
-    <div class="container-fluid">
-
-        <!-- FORMULARIO PARA LA CREACION DE UNA FICHA DE ACOGIDA -->
-        <form action="" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
-            <!--El numero interno de identificacion se genera solo-->
-            <div class="col-3">
-
-                <legend class="mt-2">Fecha: </legend>
-                <input id="Fecha" type="date" name="Fecha"><br>
-
-                <legend>Intervención: </legend>
-                <input id="Intervencion" type="text" name="Intervencion" list="DesplegablesIntervencion"> <br>
-                <datalist id="DesplegablesIntervencion">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-                
-            </div>
-
-            <div class="col-3">
-
-                <legend>Usuario: </legend>
-                <input required id="Usuario" type="text" name="Usuario" list="DesplegablesUsuario"> <br>
-                <datalist id="DesplegablesUsuario">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-                <legend>Estado de resolución: </legend>
-                <input id="EstadoResolucion" type="text" name="EstadoResolucion" list="DesplegablesEstadoResolucion"> <br>
-                <datalist id="DesplegablesEstadoResolucion">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-            </div>
-
-            <div class="col-3">
-
-                <legend>Procedencia o derivación: </legend>
-                <input id="ProcedenciaDerivacion" type="text" name="ProcedenciaDerivacion" list="DesplegablesProcedenciaDerivacion"> <br>
-                <datalist id="DesplegablesProcedenciaDerivacion">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-                <legend class="mt-2">Observaciones: </legend>
-                <textarea cols="30" id="Observaciones" name="Observaciones"></textarea><br>
-                
-                
-            </div>
-
-            <div class="col-3">
-                
-                <legend>Motivo de la consulta: </legend>
-                <input id="MotivoConsulta" type="text" name="MotivoConsulta" list="DesplegablesMotivoConsulta"> <br>
-                <datalist id="DesplegablesMotivoConsulta">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-                
-                <legend class="mt-2">Fichero adjunto: </legend>
-                <input type="file" id="Fichero" name="Fichero"><br>
-                
-            </div>
-
-            <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" type="button" id="addFicha" value="Crear ficha">
-                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
-            </div>
-
-    </div>
-    <br>
-    <br><br><br>
+        <br>
+        <br><br><br>
 
     </form>
     <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
 
 
-    </div>
+</div>
 
-    <!-- pie -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container-fluid">
-        <footer class="text-center text-white" style="background-color: #5DADE2;">
-            <!-- Copyright -->
-            <div class="text-center text-dark p-3 fixed-bottom bg-primary">
-                <font style="vertical-align: inherit;">
-                    © 2022 Copyright:
-                </font>
-                <font style="vertical-align: inherit;">Ch Ordenadores</font>
-            </div>
-            <!-- Copyright -->
-        </footer>
-    </div>
-    <script src="../../jquery/jquery-3.6.0.min.js"></script>
-    <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../js/desplegables/desplegablesAtencionSocialIgualdad.js"></script> 
+<!-- pie -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <footer class="text-center text-white" style="background-color: #5DADE2;">
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3 fixed-bottom bg-primary">
+            <font style="vertical-align: inherit;">
+            © 2022 Copyright:
+            </font>
+            <font style="vertical-align: inherit;">Ch Ordenadores</font>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
+<script src="../../jquery/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../js/desplegables/desplegablesAtencionSocialIgualdad.js"></script> 
 </body>
 
 </html>

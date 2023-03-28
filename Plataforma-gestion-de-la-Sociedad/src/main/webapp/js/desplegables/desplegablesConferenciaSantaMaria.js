@@ -9,11 +9,21 @@ $(document).ready(function () {
             console.log("Desplegables cargados correctamente");
             $.each(respuesta, function (i, option) {
                 //console.log("buena");
-                if(option.categoria!==undefined){$("#DesplegablesCategoria").append('<option value="' + option.categoria + '">');}
-                if(option.actividad!==undefined){$("#DesplegablesActividad").append('<option value="' + option.actividad + '">');}
-                if(option.cargo!==undefined){$("#DesplegablesCargo").append('<option value="' + option.cargo + '">');}
-                if(option.sexo!==undefined){$("#DesplegablesSexo").append('<option value="' + option.sexo + '">');}
-                if(option.colectivos!==undefined){$("#DesplegablesColectivo").append('<option value="' + option.idColectivos + '">' + option.colectivos + '</option>');}
+                if (option.categoria !== undefined) {
+                    $("#DesplegablesCategoria").append('<option value="' + option.idCategoria + '">' + option.categoria + '</option>');
+                }
+                if (option.actividad !== undefined) {
+                    $("#DesplegablesActividad").append('<option value="' + option.idActividad + '">' + option.actividad + '</option>');
+                }
+                if (option.cargo !== undefined) {
+                    $("#DesplegablesCargo").append('<option value="' + option.idCargo + '">' + option.cargo + '</option>');
+                }
+                if (option.sexo !== undefined) {
+                    $("#DesplegablesSexo").append('<option value="' + option.idSexo + '">' + option.sexo + '</option>');
+                }
+                if (option.colectivos !== undefined) {
+                    $("#DesplegablesColectivo").append('<option value="' + option.idColectivos + '">' + option.colectivos + '</option>');
+                }
             });
 
         },

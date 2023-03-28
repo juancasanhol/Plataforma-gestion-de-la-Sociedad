@@ -1,356 +1,353 @@
 <!doctype html>
 <html lang="es">
 
-<head>
-    <title>Cursos Formacion</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/generico.css">
-</head>
+    <head>
+        <title>Cursos Formacion</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/generico.css">
+    </head>
 
-<body>
+    <body>
 
 
-    <!-- cabecera -->
-    <header class="p-3 bg-primary text-white">
-        <div class="container">
+        <!-- cabecera -->
+        <header class="p-3 bg-primary text-white">
+            <div class="container">
 
-            <div class="row">
+                <div class="row">
 
-                <div class="col-md-2">
-                    <div class="col-2">
-                        <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png"
-                                alt="logo"></a>
+                    <div class="col-md-2">
+                        <div class="col-2">
+                            <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png"
+                                                                      alt="logo"></a>
+                        </div>
                     </div>
+
                 </div>
 
             </div>
+        </header>
+
+        <div class="container-fluid">
+
+            <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
+            <form action="" enctype="multipart/form-data" method="post" accept-charet="utf-8"
+                  id="Identificacion" class="row">
+                <!--El numero interno de identificacion se genera solo-->
+                <div class="col-3">
+                    <legend>Nombre del curso: </legend>
+                    <input required type="text" id="NombreCurso" name="NombreCurso"><br>
+
+
+                </div>
+
+                <div class="col-3">
+
+                    <legend class="">Tipo de curso: </legend>
+                    <input id="TipoCurso" type="text" name="TipoCurso" list="DesplegablesTipoCurso"> <br>
+                    <datalist id="DesplegablesTipoCurso">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist><br>
+
+                </div>
+
+                <div class="col-3">
+
+                    <legend class="">Otra información: </legend>
+                    <input id="TipoDoc" type="text" name="OtraInfo" list="DesplegablesOtraInfo"> <br>
+
+
+                </div>
+
+                <div class="col-3">
+                    <legend>Observaciones: </legend>
+                    <textarea cols="30" id="Observaciones" name="Observaciones"></textarea><br>
+
+
+                </div>
+
+                <div class="col-3">
+                    <legend class="">Fecha de inicio: </legend>
+                    <input type="date" id="FechaInicio" name="FechaInicio"><br>
+                </div>
+
+
+                <div class="col-3">
+                    <legend>Fecha de fin: </legend>
+                    <input type="date" id="FechaFin" name="FechaFin"><br>
+                </div>
+
+                <div class="col-7 mt-3">
+
+
+
+                    <legend class="mt-2">Lista de solicitantes: </legend>
+
+                    <select id="DesplegablesListaSolicitantes" name="DesplegablesListaSolicitantes" multiple class="col-8">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </select>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#solicitante">
+                        +
+                    </button>
+
+                    <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#solicitanteDel">
+                        -
+                    </button>
+
+
+
+                    <legend class="mt-2">Lista de seleccionados: </legend>
+
+                    <select id="DesplegablesListaSeleccionados" name="DesplegablesListaSeleccionados" multiple
+                            class="col-8">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </select>
+
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#seleccionado">
+                        +
+                    </button>
+
+                    <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#seleccionadoDel">
+                        -
+                    </button>
+
+
+
+
+                    <legend class="mt-2">Lista de alumnos: </legend>
+
+                    <select id="DesplegablesListaAlumnos" name="DesplegablesListaAlumnos" multiple class="col-8">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </select>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#alumno">
+                        +
+                    </button>
+
+                    <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#alumnoDel">
+                        -
+                    </button>
+
+                </div>
+
+
+                <div class="col-4 offset-8 mt-5 justify-content-end">
+                    <input class="col-4 btn btn-primary" id="addCurso" type="button" value="Añadir curso"
+                           title="Añadir el curso de formacion.">
+                    <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
+                </div>
 
         </div>
-    </header>
-
-    <div class="container-fluid">
-
-        <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
-        <form action="" enctype="multipart/form-data" method="post" accept-charet="utf-8"
-            id="Identificacion" class="row">
-            <!--El numero interno de identificacion se genera solo-->
-            <div class="col-3">
-                <legend>Nombre del curso: </legend>
-                <input required type="text" id="NombreCurso" name="NombreCurso"><br>
-
-
-            </div>
-
-            <div class="col-3">
-
-                <legend class="">Tipo de curso: </legend>
-                <input id="TipoCurso" type="text" name="TipoCurso" list="DesplegablesTipoCurso"> <br>
-                <datalist id="DesplegablesTipoCurso">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
-
-            </div>
-
-            <div class="col-3">
-
-                <legend class="">Otra información: </legend>
-                <input id="TipoDoc" type="text" name="OtraInfo" list="DesplegablesOtraInfo"> <br>
-                <datalist id="DesplegablesOtraInfo">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist><br>
-
-               
-            </div>
-
-            <div class="col-3">
-                <legend>Observaciones: </legend>
-                <textarea cols="30" id="Observaciones" name="Observaciones"></textarea><br>
-                
-
-            </div>
-
-            <div class="col-3">
-                <legend class="">Fecha de inicio: </legend>
-                <input type="date" id="FechaInicio" name="FechaInicio"><br>
-            </div>
-
-
-            <div class="col-3">
-                <legend>Fecha de fin: </legend>
-                <input type="date" id="FechaFin" name="FechaFin"><br>
-            </div>
-
-            <div class="col-7 mt-3">
-
-
-
-                <legend class="mt-2">Lista de solicitantes: </legend>
-
-                <select id="DesplegablesListaSolicitantes" name="DesplegablesListaSolicitantes" multiple class="col-8">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </select>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#solicitante">
-                    +
-                </button>
-
-                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#solicitanteDel">
-                    -
-                </button>
-
-                
-
-                <legend class="mt-2">Lista de seleccionados: </legend>
-
-                <select id="DesplegablesListaSeleccionados" name="DesplegablesListaSeleccionados" multiple
-                    class="col-8">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </select>
-
-
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#seleccionado">
-                    +
-                </button>
-
-                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#seleccionadoDel">
-                    -
-                </button>
-
-                
-
-
-                <legend class="mt-2">Lista de alumnos: </legend>
-
-                <select id="DesplegablesListaAlumnos" name="DesplegablesListaAlumnos" multiple class="col-8">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </select>
-
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#alumno">
-                    +
-                </button>
-
-                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#alumnoDel">
-                    -
-                </button>
-
-            </div>
-
-
-            <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" id="addCurso" type="button" value="Añadir curso"
-                    title="Añadir el curso de formacion.">
-                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
-            </div>
-
-    </div>
     </form>
     <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
 
 
-    </div>
+</div>
 
-    <!-- pie -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container-fluid">
-        <footer class="text-center text-white" style="background-color: #5DADE2;">
-            <!-- Copyright -->
-            <div class="text-center text-dark p-3 fixed-bottom bg-primary">
-                <font style="vertical-align: inherit;">
-                    © 2022 Copyright:
-                </font>
-                <font style="vertical-align: inherit;">Ch Ordenadores</font>
+<!-- pie -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <footer class="text-center text-white" style="background-color: #5DADE2;">
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3 fixed-bottom bg-primary">
+            <font style="vertical-align: inherit;">
+            © 2022 Copyright:
+            </font>
+            <font style="vertical-align: inherit;">Ch Ordenadores</font>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
+
+
+<!-- Modal Lista alumnos-->
+<div class="modal fade" id="alumno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Añadir alumno</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <!-- Copyright -->
-        </footer>
-    </div>
+            <div class="modal-body">
 
+                <table class="w-100">
+                    <thead>
+                        <tr>
+                            <td>Nombre alumno</td>
+                            <td class="ml-2">Añadir</td>
+                        </tr>
+                    </thead>
+                    <tbody id="nombreAlumno"></tbody>
+                </table>
 
-    <!-- Modal Lista alumnos-->
-    <div class="modal fade" id="alumno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Añadir alumno</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <table class="w-100">
-                        <thead>
-                            <tr>
-                                <td>Nombre alumno</td>
-                                <td class="ml-2">Añadir</td>
-                            </tr>
-                        </thead>
-                        <tbody id="nombreAlumno"></tbody>
-                    </table>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="alumnoDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Quitar alumno</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+<div class="modal fade" id="alumnoDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Quitar alumno</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
 
-                    <table class="w-100">
-                        <thead>
-                            <tr>
-                                <td>Nombre alumno</td>
-                                <td class="ml-2">Eliminar</td>
-                            </tr>
-                        </thead>
-                        <tbody id="nombreAlumnoDel"></tbody>
-                    </table>
+                <table class="w-100">
+                    <thead>
+                        <tr>
+                            <td>Nombre alumno</td>
+                            <td class="ml-2">Eliminar</td>
+                        </tr>
+                    </thead>
+                    <tbody id="nombreAlumnoDel"></tbody>
+                </table>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
+</div>
 
 
-    <!-- Modal Lista solicitantes-->
-    <div class="modal fade" id="solicitante" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Añadir solicitante</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+<!-- Modal Lista solicitantes-->
+<div class="modal fade" id="solicitante" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Añadir solicitante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
 
-                    <table class="w-100">
-                        <thead>
-                            <tr>
-                                <td>Nombre solicitante</td>
-                                <td class="ml-2">Añadir</td>
-                            </tr>
-                        </thead>
-                        <tbody id="nombreSolicitante"></tbody>
-                    </table>
+                <table class="w-100">
+                    <thead>
+                        <tr>
+                            <td>Nombre solicitante</td>
+                            <td class="ml-2">Añadir</td>
+                        </tr>
+                    </thead>
+                    <tbody id="nombreSolicitante"></tbody>
+                </table>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="solicitanteDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Quitar solicitante</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+<div class="modal fade" id="solicitanteDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Quitar solicitante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
 
-                    <table class="w-100">
-                        <thead>
-                            <tr>
-                                <td>Nombre solicitante</td>
-                                <td class="ml-2">Eliminar</td>
-                            </tr>
-                        </thead>
-                        <tbody id="nombreSolicitanteDel"></tbody>
-                    </table>
+                <table class="w-100">
+                    <thead>
+                        <tr>
+                            <td>Nombre solicitante</td>
+                            <td class="ml-2">Eliminar</td>
+                        </tr>
+                    </thead>
+                    <tbody id="nombreSolicitanteDel"></tbody>
+                </table>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
+</div>
 
 
-    <!-- Modal Lista seleccionados-->
-    <div class="modal fade" id="seleccionado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Añadir seleccionado</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+<!-- Modal Lista seleccionados-->
+<div class="modal fade" id="seleccionado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Añadir seleccionado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
 
-                    <table class="w-100">
-                        <thead>
-                            <tr>
-                                <td>Nombre seleccionado</td>
-                                <td class="ml-2">Añadir</td>
-                            </tr>
-                        </thead>
-                        <tbody id="nombreSeleccionado"></tbody>
-                    </table>
+                <table class="w-100">
+                    <thead>
+                        <tr>
+                            <td>Nombre seleccionado</td>
+                            <td class="ml-2">Añadir</td>
+                        </tr>
+                    </thead>
+                    <tbody id="nombreSeleccionado"></tbody>
+                </table>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="seleccionadoDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Quitar seleccionado</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+<div class="modal fade" id="seleccionadoDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Quitar seleccionado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
 
-                    <table class="w-100">
-                        <thead>
-                            <tr>
-                                <td>Nombre seleccionado</td>
-                                <td class="ml-2">Eliminar</td>
-                            </tr>
-                        </thead>
-                        <tbody id="nombreSeleccionadoDel"></tbody>
-                    </table>
+                <table class="w-100">
+                    <thead>
+                        <tr>
+                            <td>Nombre seleccionado</td>
+                            <td class="ml-2">Eliminar</td>
+                        </tr>
+                    </thead>
+                    <tbody id="nombreSeleccionadoDel"></tbody>
+                </table>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
+</div>
 
 
 
 
 
-    <script src="../../jquery/jquery-3.6.0.min.js"></script>
-    <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../js/desplegables/desplegablesCursosFormacion.js"></script>
+<script src="../../jquery/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../js/desplegables/desplegablesCursosFormacion.js"></script>
 </body>
 
 </html>

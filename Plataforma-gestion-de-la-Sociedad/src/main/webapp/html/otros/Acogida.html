@@ -1,177 +1,185 @@
 <!doctype html>
 <html lang="es">
 
-<head>
-    <title>Acogida</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/generico.css">
-</head>
+    <head>
+        <title>Acogida</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/generico.css">
+    </head>
 
-<body>
+    <body>
 
 
-    <!-- cabecera -->
-    <header class="p-3 bg-primary text-white">
-        <div class="container">
+        <!-- cabecera -->
+        <header class="p-3 bg-primary text-white">
+            <div class="container">
 
-            <div class="row">
+                <div class="row">
 
-                <div class="col-md-2">
-                    <div class="col-2">
-                        <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png"
-                                alt="logo"></a>
+                    <div class="col-md-2">
+                        <div class="col-2">
+                            <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png"
+                                                                      alt="logo"></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
+
+        <div class="container-fluid">
+
+            <!-- FORMULARIO PARA LA CREACION DE UNA FICHA DE ACOGIDA -->
+            <form action="" enctype="multipart/form-data" method="post" accept-charet="utf-8"
+                  id="Identificacion" class="row">
+                <!--El numero interno de identificacion se genera solo-->
+                <div class="col-3">
+
+                    <legend class="mt-2">Fecha: </legend>
+                    <input id="Fecha" type="date" name="Fecha"><br>
+
+                    <legend class="mt-2">Observaciones: </legend>
+                    <textarea cols="30" id="Observaciones" name="Observaciones"></textarea><br>
+
+                </div>
+
+                <div class="col-3">
+
+                    <legend>Usuario que recibe la ayuda: </legend>
+                    <input required id="Usuario" type="text" name="Usuario" list="DesplegablesUsuario"> <br>
+                    <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                    <datalist id="DesplegablesUsuario">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+                    <legend class="mt-2">Fichero adjunto: </legend>
+                    <input type="file" id="Fichero" name="Fichero"><br>
+
+                </div>
+
+                <div class="col-3">
+
+                    <legend>Procedencia o derivación: </legend>
+                    <input id="ProcedenciaDerivacion" type="text" name="ProcedenciaDerivacion"
+                           list="DesplegablesProcedenciaDerivacion"> <br>
+                    <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                    <datalist id="DesplegablesProcedenciaDerivacion">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+
+                    <legend>Ayudas: </legend>
+                    <select name="Ayudas" id="ayudas">
+                        <option value="">Seleccionar una ayuda</option>
+                        <option value="AyudaRecibos">Ayuda de recibos solicitada</option>
+                        <option value="AyudaAsistenciaSanitaria">Ayuda de asistencia sanitaria solicitada</option>
+                        <option value="AyudaGeneral">Ayuda general solicitada</option>
+                        <option value="OtrasAyudas">Otras ayudas solicitadas</option>
+                    </select>
+                </div>
+                <div class="col-3 ml-2">
+                    <div id="AyudaRecibosDiv">
+                        <!--Tipo Ayuda de recibos solicitada-->
+                        <legend>Tipo de Ayuda de recibos: </legend>
+                        <input id="AyudaRecibos" type="text" name="AyudaRecibos" list="DesplegablesAyudaRecibos"> <br>
+                        <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                        <datalist id="DesplegablesAyudaRecibos">
+                            <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                        </datalist>
+                    </div>
+                    <div id="AyudaAsistenciaSanitariaDiv">
+                        <!--Tipo Ayuda de asistencia sanitaria solicitada-->
+                        <legend>Tipo de Ayuda de asistencia sanitaria: </legend>
+                        <input id="AyudaAsistenciaSanitaria" type="text" name="AyudaAsistenciaSanitaria"
+                               list="DesplegablesAyudaAsistenciaSanitaria"> <br>
+                        <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                        <datalist id="DesplegablesAyudaAsistenciaSanitaria">
+                            <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                        </datalist>
+                    </div>
+                    <div id="AyudaGeneralDiv"> 
+                        <!--Tipo Ayuda general solicitada-->
+                        <legend>Tipo de Ayuda general: </legend>
+                        <input id="AyudaGeneral" type="text" name="AyudaGeneral" list="DesplegablesAyudaGeneral"> <br>
+                        <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                        <datalist id="DesplegablesAyudaGeneral">
+                            <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                        </datalist>
+                    </div>
+                    <div id="OtrasAyudasDiv">
+                        <!--Tipo Otras ayudas solicitadas-->
+                        <legend>Tipo de Otras ayudas: </legend>
+                        <input id="OtrasAyudas" type="text" name="OtrasAyudas" list="DesplegablesOtrasAyudas"> <br>
+                        <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                        <datalist id="DesplegablesOtrasAyudas">
+                            <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                        </datalist>
                     </div>
                 </div>
 
-            </div>
+                <div class="col-3">
+
+                    <legend>Estado de resolución: </legend>
+                    <input id="EstadoResolucion" type="text" name="EstadoResolucion" list="DesplegablesEstadoResolucion">
+                    <br>
+                    <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                    <datalist id="DesplegablesEstadoResolucion">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+                    <legend>Informe técnico de prevención social: </legend>
+                    <input id="TecnicoPrevencionSocial" type="text" name="TecnicoPrevencionSocial"
+                           list="DesplegableInformePrevencionSocial"> <br>
+                    <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                    <datalist id="DesplegableInformePrevencionSocial">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+                </div>
+
+                <div class="col-4 offset-8 mt-5 justify-content-end">
+                    <input class="col-4 btn btn-primary" type="button" id="addAcogida" value="Añadir ficha" title="Crear ficha">
+                    <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
+                </div>
 
         </div>
-    </header>
-
-    <div class="container-fluid">
-
-        <!-- FORMULARIO PARA LA CREACION DE UNA FICHA DE ACOGIDA -->
-        <form action="" enctype="multipart/form-data" method="post" accept-charet="utf-8"
-            id="Identificacion" class="row">
-            <!--El numero interno de identificacion se genera solo-->
-            <div class="col-3">
-
-                <legend class="mt-2">Fecha: </legend>
-                <input id="Fecha" type="date" name="Fecha"><br>
-
-                <legend class="mt-2">Observaciones: </legend>
-                <textarea cols="30" id="Observaciones" name="Observaciones"></textarea><br>
-
-            </div>
-
-            <div class="col-3">
-
-                <legend>Usuario que recibe la ayuda: </legend>
-                <input required id="Usuario" type="text" name="Usuario" list="DesplegablesUsuario"> <br>
-                <datalist id="DesplegablesUsuario">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-                <legend class="mt-2">Fichero adjunto: </legend>
-                <input type="file" id="Fichero" name="Fichero"><br>
-
-            </div>
-
-            <div class="col-3">
-
-                <legend>Procedencia o derivación: </legend>
-                <input id="ProcedenciaDerivacion" type="text" name="ProcedenciaDerivacion"
-                    list="DesplegablesProcedenciaDerivacion"> <br>
-                <datalist id="DesplegablesProcedenciaDerivacion">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-
-                <legend>Ayudas: </legend>
-                <select name="Ayudas" id="ayudas">
-                    <option value="">Seleccionar una ayuda</option>
-                    <option value="AyudaRecibos">Ayuda de recibos solicitada</option>
-                    <option value="AyudaAsistenciaSanitaria">Ayuda de asistencia sanitaria solicitada</option>
-                    <option value="AyudaGeneral">Ayuda general solicitada</option>
-                    <option value="OtrasAyudas">Otras ayudas solicitadas</option>
-                </select>
-            </div>
-            <div class="col-3 ml-2">
-                <div id="AyudaRecibosDiv">
-                    <!--Tipo Ayuda de recibos solicitada-->
-                    <legend>Tipo de Ayuda de recibos: </legend>
-                    <input id="AyudaRecibos" type="text" name="AyudaRecibos" list="DesplegablesAyudaRecibos"> <br>
-                    <datalist id="DesplegablesAyudaRecibos">
-                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                    </datalist>
-                </div>
-                <div id="AyudaAsistenciaSanitariaDiv">
-                    <!--Tipo Ayuda de asistencia sanitaria solicitada-->
-                    <legend>Tipo de Ayuda de asistencia sanitaria: </legend>
-                    <input id="AyudaAsistenciaSanitaria" type="text" name="AyudaAsistenciaSanitaria"
-                        list="DesplegablesAyudaAsistenciaSanitaria"> <br>
-                    <datalist id="DesplegablesAyudaAsistenciaSanitaria">
-                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                    </datalist>
-                </div>
-                <div id="AyudaGeneralDiv"> 
-                    <!--Tipo Ayuda general solicitada-->
-                    <legend>Tipo de Ayuda general: </legend>
-                    <input id="AyudaGeneral" type="text" name="AyudaGeneral" list="DesplegablesAyudaGeneral"> <br>
-                    <datalist id="DesplegablesAyudaGeneral">
-                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                    </datalist>
-                </div>
-                <div id="OtrasAyudasDiv">
-                    <!--Tipo Otras ayudas solicitadas-->
-                    <legend>Tipo de Otras ayudas: </legend>
-                    <input id="OtrasAyudas" type="text" name="OtrasAyudas" list="DesplegablesOtrasAyudas"> <br>
-                    <datalist id="DesplegablesOtrasAyudas">
-                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                    </datalist>
-                </div>
-            </div>
-
-            <div class="col-3">
-
-                <legend>Estado de resolución: </legend>
-                <input id="EstadoResolucion" type="text" name="EstadoResolucion" list="DesplegablesEstadoResolucion">
-                <br>
-                <datalist id="DesplegablesEstadoResolucion">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-                <legend>Informe técnico de prevención social: </legend>
-                <input id="TecnicoPrevencionSocial" type="text" name="TecnicoPrevencionSocial"
-                    list="DesplegableInformePrevencionSocial"> <br>
-                <datalist id="DesplegableInformePrevencionSocial">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-
-            </div>
-
-            <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" type="button" id="addAcogida" value="Añadir ficha" title="Crear ficha">
-                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
-            </div>
-
-    </div>
-    <br>
-    <br><br><br>
+        <br>
+        <br><br><br>
 
     </form>
     <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
 
 
-    </div>
+</div>
 
-    <!-- pie -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container-fluid">
-        <footer class="text-center text-white" style="background-color: #5DADE2;">
-            <!-- Copyright -->
-            <div class="text-center text-dark p-3 fixed-bottom bg-primary">
-                <font style="vertical-align: inherit;">
-                    © 2022 Copyright:
-                </font>
-                <font style="vertical-align: inherit;">Ch Ordenadores</font>
-            </div>
-            <!-- Copyright -->
-        </footer>
-    </div>
-    <script src="../../jquery/jquery-3.6.0.min.js"></script>
-    <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../js/desplegables/desplegablesAcogida.js"></script>
+<!-- pie -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <footer class="text-center text-white" style="background-color: #5DADE2;">
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3 fixed-bottom bg-primary">
+            <font style="vertical-align: inherit;">
+            © 2022 Copyright:
+            </font>
+            <font style="vertical-align: inherit;">Ch Ordenadores</font>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
+<script src="../../jquery/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../js/desplegables/desplegablesAcogida.js"></script>
 </body>
 
 </html>

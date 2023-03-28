@@ -1205,7 +1205,7 @@ public class Usuario implements Serializable {
                     break;
                 case "datosUC":
                     au = (String[]) properties.get(property);
-                    if (au[0] != null && !au[0].equals(";;;;false;;")) {
+                    if (au[0] != null && !au[0].equals(";;;;;;false;;")) {
                         List<MiembrosFamilia> listaFamiliares = new ArrayList<>();
                         String[] miembros = au[0].split(";;");
                         MiembrosFamilia miembroLista;

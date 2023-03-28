@@ -188,6 +188,7 @@ public class Ajax extends HttpServlet {
                     while (it.hasNext()) {
                         u = (Usuario) it.next();
                         objeto = new JSONObject();
+                        objeto.put("idUsuarios", u.getNumIntId());
                         objeto.put("usuarios", u.getNombre() + " " + u.getApellidos());
                         desplegables.add(objeto);
 
@@ -204,6 +205,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idTipodocumento", lista.get(j).getId());
                             objeto.put("tipodocumento", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -213,6 +215,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idSexo", lista.get(j).getId());
                             objeto.put("sexo", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -222,6 +225,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idPaisorigen", lista.get(j).getId());
                             objeto.put("paisorigen", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -231,6 +235,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idNacionalidad", lista.get(j).getId());
                             objeto.put("nacionalidad", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -240,6 +245,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idMinoriaetnica", lista.get(j).getId());
                             objeto.put("minoriaetnica", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -260,6 +266,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idNombreBolsa", lista.get(j).getId());
                             objeto.put("nombreBolsa", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -475,6 +482,7 @@ public class Ajax extends HttpServlet {
                     if (p.getTipo().equals(TipoPerfil.PROFESOR)) {
                         objeto = new JSONObject();
                         objeto.put("nombre", p.getUsuario());
+                        objeto.put("idProfe", p.getNumIntId());
                         desplegables.add(objeto);
                     }
                 }
@@ -827,6 +835,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idActividad", lista.get(j).getId());
                             objeto.put("actividad", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -836,6 +845,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idCategoria", lista.get(j).getId());
                             objeto.put("categoria", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -845,6 +855,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idCargo", lista.get(j).getId());
                             objeto.put("cargo", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }
@@ -854,6 +865,7 @@ public class Ajax extends HttpServlet {
                         for (int j = 0; j < lista.size(); j++) {
                             objeto = new JSONObject();
                             //Se coge cada campo del desplegable para pasarlo
+                            objeto.put("idSexo", lista.get(j).getId());
                             objeto.put("sexo", lista.get(j).getValor());
                             desplegables.add(objeto);
                         }

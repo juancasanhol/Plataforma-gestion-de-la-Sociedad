@@ -1,121 +1,122 @@
 <!doctype html>
 <html lang="es">
 
-<head>
-    <title>Banco Alimentos</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/generico.css">
-</head>
+    <head>
+        <title>Banco Alimentos</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="../../img/png/Logo.png" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/generico.css">
+    </head>
 
-<body>
+    <body>
 
 
-    <!-- cabecera -->
-    <header class="p-3 bg-primary text-white">
-        <div class="container">
+        <!-- cabecera -->
+        <header class="p-3 bg-primary text-white">
+            <div class="container">
 
-            <div class="row">
+                <div class="row">
 
-                <div class="col-md-2">
-                    <div class="col-2">
-                        <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png" alt="logo"></a>
+                    <div class="col-md-2">
+                        <div class="col-2">
+                            <a href="../MenuPrincipal/Menu.html"><img class="imgHome" src="../../img/png/Logo.png" alt="logo"></a>
+                        </div>
                     </div>
+
                 </div>
 
             </div>
+        </header>
+
+        <div class="container-fluid">
+
+            <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
+            <form action="" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
+                <!--El numero interno de identificacion se genera solo-->
+                <div class="col-3">
+
+                    <legend >Mes/Año: </legend>
+                    <input required type="date" id="Mes" name="Mes"><br>
+
+                    <!--LISTA DE ALIMENTOS AQUI-->
+                    <table class="mt-5">
+                        <thead>
+                            <tr><td><b>Alimento</b></td><td> </td><td><b>Unidades</b></td></tr>
+
+                        </thead>
+                        <tbody id="tbodyalimentos">
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+                <div class="col-3">
+
+                    <legend>Titular unidad de convivencia: </legend>
+                    <input required id="Titular" type="text" name="Titular" list="DesplegablesTitular"> <br>
+                    <!-- Hay que cambiar a ID de tipo y luego mostrar el tipo -->
+                    <datalist id="DesplegablesTitular">
+                        <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
+                    </datalist>
+
+                </div>
+
+                <div class="col-3">
+
+                    <legend class="mt-2">¿Asiste? </legend>
+                    <input class="mb-3" type="checkbox" id="Asiste" name="Asiste"><br> 
+
+                </div>
+
+                <div class="col-3">
+
+                    <legend class="mt-2">Observaciones: </legend>
+                    <textarea cols="30" id="Observaciones" name="Observaciones"></textarea><br>
+
+                </div>
+
+                <div class="col-4 offset-8 mt-5 justify-content-end">
+                    <input class="add col-4 btn btn-primary" type="button" value="Añadir" title="Añadir a banco" >
+                    <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
+                </div>
 
         </div>
-    </header>
 
-    <div class="container-fluid">
-
-        <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
-        <form action="" enctype="multipart/form-data" method="post" accept-charet="utf-8" id="Identificacion" class="row">
-            <!--El numero interno de identificacion se genera solo-->
-            <div class="col-3">
-
-                <legend >Mes/Año: </legend>
-                <input required type="date" id="Mes" name="Mes"><br>
-                
-                <!--LISTA DE ALIMENTOS AQUI-->
-                <table class="mt-5">
-                    <thead>
-                        <tr><td><b>Alimento</b></td><td> </td><td><b>Unidades</b></td></tr>
-                        
-                    </thead>
-                    <tbody id="tbodyalimentos">
-                        
-                    </tbody>
-                </table>
-                
-
-            </div>
-
-            <div class="col-3">
-
-                <legend>Titular unidad de convivencia: </legend>
-                <input required id="Titular" type="text" name="Titular" list="DesplegablesTitular"> <br>
-                <datalist id="DesplegablesTitular">
-                    <!--AQUI VAN LOS CAMPOS DEL DESPLEGABLE-->
-                </datalist>
-                
-            </div>
-
-            <div class="col-3">
-
-                <legend class="mt-2">¿Asiste? </legend>
-                <input class="mb-3" type="checkbox" id="Asiste" name="Asiste"><br> 
-                
-            </div>
-            
-            <div class="col-3">
-
-                <legend class="mt-2">Observaciones: </legend>
-                <textarea cols="30" id="Observaciones" name="Observaciones"></textarea><br>
-
-            </div>
-
-            <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="add col-4 btn btn-primary" type="button" value="Añadir" title="Añadir a banco" >
-                <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
-            </div>
-
-    </div>
-    
     </form>
     <!-- FIN FORMULARIO PARA LA CREACION DE UN USUARIO -->
 
 
-    </div>
+</div>
 
-    <!-- pie -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container-fluid">
-        <footer class="text-center text-white" style="background-color: #5DADE2;">
-            <!-- Copyright -->
-            <div class="text-center text-dark p-3 fixed-bottom bg-primary">
-                <font style="vertical-align: inherit;">
-                    © 2022 Copyright:
-                </font>
-                <font style="vertical-align: inherit;">Ch Ordenadores</font>
-            </div>
-            <!-- Copyright -->
-        </footer>
-    </div>
-    <script src="../../jquery/jquery-3.6.0.min.js"></script>
-    <!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
-    <script src="../../bootstrap/js/bootstrap.min.js"></script> 
-    <script src="../../js/desplegables/desplegablesBancoAlimentos.js"></script>
-    <script src="../../js/BancoAlimentos.js"></script>
+<!-- pie -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <footer class="text-center text-white" style="background-color: #5DADE2;">
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3 fixed-bottom bg-primary">
+            <font style="vertical-align: inherit;">
+            © 2022 Copyright:
+            </font>
+            <font style="vertical-align: inherit;">Ch Ordenadores</font>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
+<script src="../../jquery/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://unpkg.com/@popperjs/core@2"></script>-->
+<script src="../../bootstrap/js/bootstrap.min.js"></script> 
+<script src="../../js/desplegables/desplegablesBancoAlimentos.js"></script>
+<script src="../../js/BancoAlimentos.js"></script>
 </body>
 
 </html>

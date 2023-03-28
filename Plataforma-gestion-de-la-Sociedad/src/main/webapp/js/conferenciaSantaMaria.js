@@ -1,6 +1,6 @@
-$(document).ready(function(){
- $(document).on('click', '.add', function () {
-        
+$(document).ready(function () {
+    $(document).on('click', '.add', function () {
+
 
         $.ajax({
             type: "post",
@@ -17,6 +17,6 @@ $(document).ready(function(){
             },
 
         });
-    }); 
+    });
 });
 
