@@ -8,7 +8,7 @@ $(document).ready(function () {
         success: function (respuesta) {
             console.log("Desplegables cargados correctamente");
             $.each(respuesta, function (i, option) {
-                //console.log("buena");
+//                console.log(option.nombre);
                 $("#DesplegablesProfesor").append('<option value="' + option.idProfe + '"> ' + option.nombre + '</option>');
                 //if(option.alumno!==undefined){$("#nombreAlumno").append('<tr><td>'+option.alumno.replaceAll("_","&nbsp;")+'</td><td><button type="button" id='+option.alumno.replaceAll("_","&nbsp;")+' class="btn btn-success addAlumno">añadir</button></td></tr>');}                   
             });
