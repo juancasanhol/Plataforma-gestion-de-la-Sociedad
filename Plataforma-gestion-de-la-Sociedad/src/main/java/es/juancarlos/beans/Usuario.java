@@ -430,6 +430,69 @@ public class Usuario implements Serializable {
         this.observaciones_orientacion = observaciones_orientacion;
     }
 
+    public Usuario(String Nombre, String Apellidos, String FechaAlta, String FechaBaja, String TipoDoc, String NumDoc, String Telefono, String Correo, String PersonaReferencia, String Sexo, String FechaNac, String PaisOrigen, String Nacionalidad, Boolean PerteneceMinoria, String Minoria, List<Observaciones> observaciones, List<FicheroAdjunto> ficheros_usuario, Boolean SolicitaAyudaFarmaceutica, String TratSanitario, Boolean Drogodependencia, String TipoDiscapacidad, String GradoDiscapacidad, Boolean Hospitalizado, List<Observaciones> observaciones_sanitarias, Boolean PermisoResidencia, Boolean PermisoTrabajo, Boolean CarnetConducir, String TipoCarnetConducir, List<ValorDesplegable> otros_carnets, List<ProfesionObservaciones> profesion_observaciones, String SituacionLaboral, String UltTrabajo, String PrefLaboral, List<ValorDesplegable> bolsa_trabajo, List<Observaciones> observaciones_datos_laborales, String NivelEstudios, String FormacionComp, Boolean EstaEstudiando, Boolean FracasoEscolar, String CentroEst, List<Observaciones> observaciones_formacion, List<Observaciones> observaciones_ingresos, String Denominacion, String Direccion, Boolean FamiliaMonoparental, Boolean SinHogar, float CosteVivienda, String MotivoCoste, List<Observaciones> observaciones_ficha_convivencia, List<FicheroAdjunto> ficheros_unidadconvivencia, String FechaAlta_BancoAlimentos, String FechaBaja_BancoAlimentos, List<BancoAlimentos> lista_recogidas, String FechaOrientacion, String Beneficiario, List<Observaciones> observaciones_orientacion, List<MiembrosFamilia> familiares, List<Ingresos> ingresos) {
+        this.Nombre = Nombre;
+        this.Apellidos = Apellidos;
+        this.FechaAlta = FechaAlta;
+        this.FechaBaja = FechaBaja;
+        this.TipoDoc = TipoDoc;
+        this.NumDoc = NumDoc;
+        this.Telefono = Telefono;
+        this.Correo = Correo;
+        this.PersonaReferencia = PersonaReferencia;
+        this.Sexo = Sexo;
+        this.FechaNac = FechaNac;
+        this.PaisOrigen = PaisOrigen;
+        this.Nacionalidad = Nacionalidad;
+        this.PerteneceMinoria = PerteneceMinoria;
+        this.Minoria = Minoria;
+        this.observaciones = observaciones;
+        this.ficheros_usuario = ficheros_usuario;
+        this.SolicitaAyudaFarmaceutica = SolicitaAyudaFarmaceutica;
+        this.TratSanitario = TratSanitario;
+        this.Drogodependencia = Drogodependencia;
+        this.TipoDiscapacidad = TipoDiscapacidad;
+        this.GradoDiscapacidad = GradoDiscapacidad;
+        this.Hospitalizado = Hospitalizado;
+        this.observaciones_sanitarias = observaciones_sanitarias;
+        this.PermisoResidencia = PermisoResidencia;
+        this.PermisoTrabajo = PermisoTrabajo;
+        this.CarnetConducir = CarnetConducir;
+        this.TipoCarnetConducir = TipoCarnetConducir;
+        this.otros_carnets = otros_carnets;
+        this.profesion_observaciones = profesion_observaciones;
+        this.SituacionLaboral = SituacionLaboral;
+        this.UltTrabajo = UltTrabajo;
+        this.PrefLaboral = PrefLaboral;
+        this.bolsa_trabajo = bolsa_trabajo;
+        this.observaciones_datos_laborales = observaciones_datos_laborales;
+        this.NivelEstudios = NivelEstudios;
+        this.FormacionComp = FormacionComp;
+        this.EstaEstudiando = EstaEstudiando;
+        this.FracasoEscolar = FracasoEscolar;
+        this.CentroEst = CentroEst;
+        this.observaciones_formacion = observaciones_formacion;
+        this.observaciones_ingresos = observaciones_ingresos;
+        this.Denominacion = Denominacion;
+        this.Direccion = Direccion;
+        this.FamiliaMonoparental = FamiliaMonoparental;
+        this.SinHogar = SinHogar;
+        this.CosteVivienda = CosteVivienda;
+        this.MotivoCoste = MotivoCoste;
+        this.observaciones_ficha_convivencia = observaciones_ficha_convivencia;
+        this.ficheros_unidadconvivencia = ficheros_unidadconvivencia;
+        this.FechaAlta_BancoAlimentos = FechaAlta_BancoAlimentos;
+        this.FechaBaja_BancoAlimentos = FechaBaja_BancoAlimentos;
+        this.lista_recogidas = lista_recogidas;
+        this.FechaOrientacion = FechaOrientacion;
+        this.Beneficiario = Beneficiario;
+        this.observaciones_orientacion = observaciones_orientacion;
+        this.familiares = familiares;
+        this.ingresos = ingresos;
+    }
+
+ 
+
     public int getNumIntId() {
         return NumIntId;
     }

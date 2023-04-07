@@ -135,7 +135,7 @@ public class Ajax extends HttpServlet {
                     request.getSession().setAttribute("tipo", p.getTipo());
 
                 } else {
-                    objeto.put("aceso", true);
+                    objeto.put("aceso", false);
                 }
 
                 response.setContentType("application/json");

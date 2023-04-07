@@ -36,7 +36,7 @@
     <div class="container-fluid">
 
         <!-- FORMULARIO PARA LA CREACION DE UN USUARIO -->
-        <form action="../../GuardarCambiosUsuario" enctype="multipart/form-data" method="post" accept-charet="utf-8"
+        <form action="../../RegistroUsuario?accion=primeraVez" enctype="multipart/form-data" method="post" accept-charet="utf-8"
             id="Identificacion" class="row">
             <!--El numero interno de identificacion se genera solo-->
             <div class="col-3">
@@ -70,11 +70,10 @@
                 <legend class="mt-2">DNI/pasaporte: </legend>
                 <input id="NumDoc" type="text" name="DNIPASAPORTE" > <br>
                 
-                <legend class="mt-2">Piso</legend>
-                <input id="Piso" type="text" name="Piso"><br>
+
                 
                 <legend class="mt-2">Móvil:</legend>
-                <input id="Móvil" type="text" name="Móvil"><br>
+                <input id="Movil" type="text" name="Movil"><br>
                                 
             </div>
 
@@ -82,7 +81,7 @@
 
                 
                 <legend class="mt-2">Fecha de macimiento: </legend>
-                <input type="datetime-local" id="FechaNac" name="FechaNac"><br>
+                <input type="date" id="FechaNac" name="FechaNac"><br>
                 
                 <legend class="mt-2">Código Postal:</legend>
                 <input id="CP" type="text" name="CP"><br>                
@@ -94,7 +93,7 @@
             </div> 
                 
             <div class="col-4 offset-8 mt-5 justify-content-end">
-                <input class="col-4 btn btn-primary" type="submit" value="Editar Usuario" title="Editar el usuario.">
+                <input class="col-4 btn btn-primary" type="submit" value="Editar Usuario" title="Añadir el usuario.">
                 <a class="col-4 btn btn-warning offset-1" href="../MenuPrincipal/Menu.html" role="button">Cancelar </a>
             </div>
 
